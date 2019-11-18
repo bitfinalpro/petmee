@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+html, body, div, span, input, select, textarea, button, applet, object, iframe, p, a, abbr,  address, strike, dl, dt, dd, ol, ul, li, form, label, table, tbody, thead, tr, th, td, header, section, footer { border: 0; margin: 0; padding: 0; }
+article, figcaption, figure, footer, header, hgroup, menu, nav, section, aside, summary { display: block; }
+
+div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, button, textarea, select { margin: 0; padding: 0; }
+
+img { border: 0; vertical-align: top; max-width: 100%; }
+
+ul, ol, dl, dt, dd, li { list-style: none; }
+
+table, th, td { border-spacing: 0; font-weight: normal; }
+
+th, td { border-collapse: collapse; }
+
+caption { visibility: hidden; overflow: hidden; width: 0; height: 0; font-size: 0; line-height: 0; }
+
+button { border: none; }
+
+em, b { font-weight: normal; }
+img { border: 0; outline: none; }
+
+input, button { outline: none; }
+
+option, label, textarea { margin: 0; }
+
+label { font-weight: normal; vertical-align: middle; }
+
+button { margin: 0; padding: 0; vertical-align: middle; }
+
+section, nav, article, aside, header, footer, main { display: block; }
+
+input:focus, textarea:focus, button:focus {outline:none;} 

@@ -31,6 +31,7 @@
 	<mvc:default-servlet-handler />
 	<!-- 인증처리 인터셉터  -->
 
+<!--  
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/board/**"/>
@@ -39,7 +40,7 @@
 			<bean class="kr.co.petmee.common.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-
+-->
 	
 	<!-- 파일 업로드 -->
 	<bean id="multipartResolver"
