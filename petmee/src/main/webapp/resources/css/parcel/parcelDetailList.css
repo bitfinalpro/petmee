@@ -1,0 +1,65 @@
+#y-container {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+#y-parcel-board {
+    margin: 50px 0 50px 0px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#y-p-title {
+   padding: 0 10px;
+}
+
+#y-p-title>span {
+    float: right;
+    padding-right: 20px;
+}
+
+#y-p-content {
+    padding: 20px;
+}
+
+.midle-btn {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 50%;
+    transform: translateX(-50%);
+}
+
+input[type="text"] {
+    width: 90%;
+    height: 100px;
+    border: 1px solid gainsboro;
+}
+
+#comment-regist {
+    width: 90px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+.c-title>div {
+    display: inline-block;
+}
+
+.c-date {
+    border-left: 1px solid gainsboro;
+    padding-left: 10px;
+}
+
+.c-content {
+    padding: 20px;
+}
+
+#move-board-p,
+#move-board-n {
+  padding: 0 10px;
+}
+
+#move-board {
+    margin-bottom: 100px;
+}
