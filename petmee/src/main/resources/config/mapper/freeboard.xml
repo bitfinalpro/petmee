@@ -18,9 +18,9 @@
 <!-- 게시글 등록 -->
 	<insert id="insertBoard" parameterType="FreeBoard">
 		insert into tb_board (
-			no, title, writer, content
+			 title, writer, content
 		) values (
-			seq_board_no.nextval, #{title}, #{writer}, #{content}
+			 #{title}, #{writer}, #{content}
 		)
 	</insert>
 <!--  조회 수 -->	

@@ -14,13 +14,14 @@ public interface FreeBoardService {
 	
 	 FreeBoard detailBoard(int no);
 
+	 void deleteBoard(int no);
+	 
+	 void updateBoard(FreeBoard board);
+	 
+	 FreeBoard updateFormBoard(int no);
 	 /*
 	
-	 void deleteBoard(int no);
 	
-	 void updateBoard(Board board);
-	
-	 Board updateFormBoard(int no);
 	
 	 List<Comment> commentList(int no);
 	

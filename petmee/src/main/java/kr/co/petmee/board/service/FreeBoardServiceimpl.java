@@ -26,19 +26,19 @@ public class FreeBoardServiceimpl implements FreeBoardService {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
 	}
-	/*
 	
 	public void deleteBoard(int no) {
 		dao.deleteBoard(no);
 	}
 	
-	public void updateBoard(Board board) {
+	public void updateBoard(FreeBoard board) {
 		dao.updateBoard(board);
 	}
 	
-	public Board updateFormBoard(int no) {
+	public FreeBoard updateFormBoard(int no) {
 		return dao.selectOneBoard(no);
 	}
+	/*
 	
 	public List<Comment> commentList(int no) {
 		return dao.selectComment(no);

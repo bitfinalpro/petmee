@@ -14,4 +14,8 @@ public interface FreeBoardDAO {
 	
 	void updateViewCnt(int no);
 	
+	void updateBoard(FreeBoard board);
+	
+	int deleteBoard(int no);
+	
 }

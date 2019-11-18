@@ -46,7 +46,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
 
     <section id="wrap">
         <img src="/images/main/1231.jpg" width="100%" />
-         <form method="post" action="write.do" id="">
+         <form method="get" action="update.do" id="">
         <div class="wirte_form">
           제목 :  <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/>
@@ -64,7 +64,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
                 <div><input type="file" /></div>
             </div>
             <div class="btn">
-                <button type="submit">등록</button>
+                <button type="submit">수정</button>
                 <button>취소</button>
             </div>
         </div>

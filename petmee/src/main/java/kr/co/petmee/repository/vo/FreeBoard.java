@@ -1,5 +1,7 @@
 package kr.co.petmee.repository.vo;
 
+
+
 import java.util.Date;
 
 import lombok.Data;

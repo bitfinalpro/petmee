@@ -38,28 +38,28 @@
             <div class="board_list">
                  <div id="types"> 
                        <div class="ll">
-                           <div class="left" style="font-size: 24px;">집에가고싶다</div>     
-                           <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> 2019.11.12 16:53</div>
+                           <div class="left" style="font-size: 24px;"> <c:out value="${board.title}" /></div>     
+                           <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
                         </div> 
                 </div>
                 <div id="types1"> 
                     <div class="ll">
-                          <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> 유휘준</div>
-                          <div class="right"><i class="far fa-eye"></i> 조회 수 11</div>     
+                          <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
+                          <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>     
                     </div>
                 </div>
             </div>
+            <!--  
                     <div id="pic">
                         <img src="../resources/images/image/holly.jpg">
                     </div>
+                    -->
                     <div class="title">
-                        <h1>
-                            호올릴....
-                        </h1>
+                           <c:out value="${board.content}" />
                     </div>
                     <div class="button"> 
-                        <button><a href="#" class="b1" type="button">수정</a></button>  
-                        <button><a href="#" class="b1" type="button">삭제</a></button>  
+                        <button><a href="update.do?no=${board.no}" class="b1" >수정</a></button>  
+                        <button><a href='delete.do?no=${board.no}' class="b1">삭제</a></button>  
                         <button><a href="/petmee/freeboard/list.do" class="b1">목록</a></button>  
                     </div>
                     <div class="com">
