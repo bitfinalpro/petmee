@@ -15,14 +15,14 @@
 	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
-<script src="../resources/js/common/jquery-1.12.4.js"></script>
+<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
 
 <title>시바 먼치킨</title>
 </head>
 
 <body>
 	<div id="header">
-		<c:import url="<c:url value='/jsp/common/menu.jsp' />"></c:import>
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
 
 
@@ -86,7 +86,7 @@
 	</section>
 
 	<div id="footer" class="footer_wrap clearfix">
-		<c:import url="<c:url value='/jsp/common/footer.jsp' />"></c:import>
+		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 </body>
 

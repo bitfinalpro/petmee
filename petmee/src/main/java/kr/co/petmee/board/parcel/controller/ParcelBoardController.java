@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/parcelboard")
 public class ParcelBoardController {
 
+	@RequestMapping("qqq.do")
+	public void qqq() {}
+
 	@RequestMapping("parcelList.do")
 	public void parcelList() {}
 

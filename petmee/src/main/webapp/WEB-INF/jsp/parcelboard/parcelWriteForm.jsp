@@ -9,13 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="../resources/css/common/gnb.css" rel="stylesheet">
-<link href="../resources/css/parcel/parcelDetailList.css"
+<link href="../resources/css/parcel/parcelWriteForm.css"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
-<script src="../resources/js/common/jquery-1.12.4.js"></script>
+<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
 
 <title>시바 먼치킨</title>
 
@@ -23,7 +23,7 @@
 
 <body>
 	<div id="header">
-		<c:import url="<c:url value='/jsp/common/menu.jsp' />"></c:import>
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
 
 
@@ -41,16 +41,13 @@
 				</div>
 				<hr />
 				<br>
-				<iframe src="sermernote.html" id="sermernote"></iframe>
-				<!-- <button id="return-list" class="midle-btn">목록</button> -->
+				<iframe src="/petmee/common/sermernote.do" id="sermernote"></iframe>
 			</div>
-
-
 		</div>
 	</section>
 
 	<div id="footer" class="footer_wrap clearfix">
-		<c:import url="<c:url value='/jsp/common/footer.jsp' />"></c:import>
+		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 </body>
 
