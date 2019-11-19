@@ -7,21 +7,20 @@
     http://www.springframework.org/schema/websocket   
     http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
+	<!--  
 	<websocket:handlers>
 	    <websocket:mapping handler="test01" path="/test01.do" />
+	    <websocket:mapping handler="test02" path="/test02.do" />
+	   
 		<websocket:handshake-interceptors>
 	    	<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
 	    </websocket:handshake-interceptors>
 	</websocket:handlers>
+	 
 	
 	<bean class="org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean">
         <property name="maxTextMessageBufferSize" value="8192"/>
         <property name="maxBinaryMessageBufferSize" value="819200"/>
     </bean>
+  -->
 </beans>
-
-
-
-
-
-
