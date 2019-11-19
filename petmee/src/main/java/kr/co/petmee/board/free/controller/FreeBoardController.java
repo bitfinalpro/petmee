@@ -72,5 +72,19 @@ public class FreeBoardController {
 	public List<Comment> commentRegistAjax(Comment comment) {
 		return service.commentRegist(comment);
 	}
+	
+	@RequestMapping("/comment_delete.do")
+	@ResponseBody
+	public List<Comment> commentDeleteAjax(Comment comment) {
+		return service.commentDelete(comment);
+	}
+	
+	@RequestMapping("/comment_update.do")
+	@ResponseBody
+	public List<Comment> commentUpdateAjax(Comment comment) {
+		return service.commentUpdate(comment);
+	}
+	
+	
 		
 }

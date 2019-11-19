@@ -14,6 +14,12 @@
     <link href="../resources/css/free/detail.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
+  <style>
+   #crForm {
+       width: 70%;
+       margin: 0 auto;
+   }
+  </style>
 </head>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -28,65 +34,50 @@
             <%@include file="/WEB-INF/include/menu.jsp" %>
         </div>
 <section>
-    <div class="body">
-        <div class="background">
-            <h2 class="free"><i class="fas fa-users"></i> 자유게시판</h2>
-        </div>
-    </section>
+       <div class="background">
+           <h2 class="free"><i class="fas fa-users"></i> 자유게시판</h2>
+       </div>
+   </section>
 <section id="layout">
-        <div class="freeboard">
-            <div class="board_list">
-                 <div id="types"> 
-                       <div class="ll">
-                           <div class="left" style="font-size: 24px;"> <c:out value="${board.title}" /></div>     
-                           <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
-                        </div> 
-                </div>
-                <div id="types1"> 
-                    <div class="ll">
-                          <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
-                          <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>     
-                    </div>
-                </div>
-            </div>
-            <!--  
-                    <div id="pic">
-                        <img src="../resources/images/image/holly.jpg">
-                    </div>
-                    -->
-                    <div class="title">
-                           <c:out value="${board.content}" />
-                    </div>
-                    <div class="button"> 
-                        <button><a href="updateform.do?no=${board.no}" class="b1" >수정</a></button>  
-                        <button><a href='delete.do?no=${board.no}' class="b1">삭제</a></button>  
-                        <button><a href="/petmee/freeboard/list.do" class="b1">목록</a></button>  
-                    </div>
-                    <div class="com">
-                      <form id="crForm" method="post" action="comment_regist.do" >
+       <div class="freeboard">
+           <div class="board_list">
+                <div id="types">
+                      <div class="ll">
+                          <div class="left" style="font-size: 24px;"> <c:out value="${board.title}" /></div>
+                            <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
+                       </div>
+               </div>
+               <div id="types1">
+                   <div class="ll">
+                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
+                         <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>
+                   </div>
+               </div>
+           </div>
+           <!--
+                   <div id="pic">
+                       <img src="../resources/images/image/holly.jpg">
+                   </div>
+                   -->
+                   <div id="Freecontent">
+                          <c:out value="${board.content}" />
+                   </div>
+                   <div class="button">
+                       <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
+                       <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
+                       <a href="<c:url value="/board/freeboard/list.do" />"><button class="b1">목록</button></a>
+                   </div>
+                     <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  
                         <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
                          <input type="hidden" id="writer" value="권성진" /> 
                          <button type="submit" class="comment1" >등록</button>
                       </form>
-                    </div>
-                    <!-- 댓글 목록 -->
-                    <div class="comlist" id="commentList">
-                    <!--  
-                              <div class="nick">권성진</div>
-                              <div class="time">19.11.13 09:43</div>
-                              <br><br>
-                              <div class="com_content">가세요</div>
-                              -->
-                              <!--  
-                    <div class="com_com">
-                        <button class="mod" type="button">수정</button>
-                        <button class="del" type="button">삭제</button>
-                    </div>
-                    -->
-                    </div>
-                </div>
-    </section>
+                   <div class="comlist" id="commentList">
+  
+                   </div>
+               </div>
+   </section>
         <div id="footer" class="footer_wrap clearfix"> </div>
          <script>
            let no = ${board.no};

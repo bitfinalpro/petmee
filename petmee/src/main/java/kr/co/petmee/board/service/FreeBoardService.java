@@ -23,17 +23,14 @@ public interface FreeBoardService {
 	 
 	 List<Comment> commentList(int no);
 	 
-	 
 	 List<Comment> commentRegist(Comment comment);
-	 /*
-	
-	
-	
-	
+	 
 	 List<Comment> commentDelete(Comment comment);
-	
+		
 	 List<Comment> commentUpdate(Comment comment);
 	
-	 */
+	
+	
+
 
 }

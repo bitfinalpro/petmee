@@ -52,18 +52,18 @@ public class FreeBoardServiceimpl implements FreeBoardService {
 		dao1.insertComment(comment);
 		return dao1.selectComment(comment.getNo());
 	}
-	/*
+	
 	
 	public List<Comment> commentDelete(Comment comment) {
-		dao.deleteComment(comment.getCommentNo());
-		return dao.selectComment(comment.getNo());
+		dao1.deleteComment(comment.getCommentNo());
+		return dao1.selectComment(comment.getNo());
 	}
 	
 	public List<Comment> commentUpdate(Comment comment) {
-		dao.updateComment(comment);
-		return dao.selectComment(comment.getNo());
+		dao1.updateComment(comment);
+		return dao1.selectComment(comment.getNo());
 	}
 	
-	*/
+	
 
 }

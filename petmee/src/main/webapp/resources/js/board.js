@@ -52,18 +52,18 @@ $(() => {
 		var modId = $(`#row${cNo} > td:eq(0)`).text();
 		var modContent = $(`#row${cNo} > td:eq(1)`).text();
 		
-		var html = `<tr id="modRow${cNo}">
-		            	<td>${modId}</td>
-		            	<td>
+		var html = `<div id="modRow${cNo}">
+		            	<div>${modId}</div>
+		            	<div>
 		            		<div class="form-group">
 		            			<input type="text" name="content" value="${modContent}" class="form-control input-wp2" placeholder="내용을 입력하세요">
 		            		</div>
-		            	</td>
-		            	<td colspan="2"> 
+		            	</div>
+		            	<div colspan="2"> 
 		            		<a href="#" data-no="${cNo}" class="btn btn-success btn-sm update" role="button">수정</a>
 		            		<a href="#" data-no="${cNo}" class="btn btn-warning btn-sm cancel" role="button">취소</a>
-		            	</td>
-		            </tr>`;
+		            	</div>
+		            </div>`;
 		$("#row" + cNo).after(html);	
 		$("#row" + cNo).hide();
 	});
@@ -84,7 +84,7 @@ function toPad(val) {
 }
 
 function makeCommentList(list) {
-	$tbl = $("<table></table>");
+    $di = $("<div></div>");
 	$.each(list, (i, c) => {
 		var date = new Date(c.regDate);
 		var time = date.getFullYear() + "-" 
@@ -93,16 +93,18 @@ function makeCommentList(list) {
 		         + toPad(date.getHours()) + ":"
 		         + toPad(date.getMinutes()) + ":"
 		         + toPad(date.getSeconds());
-		$tbl.append(
-		    `<tr id="row${c.commentNo}">
-			    <td>${c.writer}</td>
-			    <td>${c.content}</td>
-			    <td>${time}</td>
-			    <td><a href="#" data-no="${c.commentNo}" class="del">삭제</a>	
-			  	    <a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
-			    </td>
-		    </tr>`		
+		$di.append(
+		    `<div id="row${c.commentNo}">
+			    <div class="nick">${c.writer}</div>
+				<div class="time">${time}</div>
+				<br><br>
+			    <div class="com_content">${c.content}</div>
+			  <div class="com_com">
+			    <a href="#" data-no="${c.commentNo}" class="del">삭제</a>
+			  	<a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
+			  </div>
+		    </div>`		
 		);
 	});
-	$("#commentList").html($tbl);
+	$("#commentList").html($di);
 }
