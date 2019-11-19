@@ -8,4 +8,24 @@
 			from notice_board 
 			order by no desc
 	</select>
+	
+	<select id = "selectOneBoard" parameterType="int" resultType="NoticeBoard">
+		select *
+			from notice_board
+			where no = #{no}
+	</select>
+	
+	<update id="updateViewCnt" parameterType="int">
+		update notice_board 
+			set viewCnt = viewCnt + 1
+		  where no = #{no}
+	</update>
+	
+	<insert id="insertBoard" parameterType="NoticeBoard">
+		insert into notice_board(
+			title, content, writer
+		) values (
+		 #{title}, #{writer}, #{content}
+		)
+	</insert>
 </mapper>

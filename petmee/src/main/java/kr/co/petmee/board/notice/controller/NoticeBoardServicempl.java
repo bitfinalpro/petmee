@@ -18,6 +18,11 @@ public class NoticeBoardServicempl implements NoticeBoardService{
 		return dao.selectBoard();
 	}
 
-
-	
+	public NoticeBoard detailBoard(int no) {
+		dao.updateViewCnt(no);
+		return dao.selectOneBoard(no);
+	}
+	public void insertBoard(NoticeBoard board) {
+		dao.insertBoard(board);
+	}
 }

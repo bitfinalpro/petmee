@@ -9,7 +9,7 @@ img { border: 0; vertical-align: top; max-width: 100%; }
 
 ul, ol, dl, dt, dd, li { list-style: none; }
 
-table, th, td { border-spacing: 0; font-weight: normal; }
+table, th, td { border-spacing: 0; font-weight: normal; border-collapse: collapse;}
 
 th, td { border-collapse: collapse; }
 
