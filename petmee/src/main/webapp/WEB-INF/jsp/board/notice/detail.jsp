@@ -50,10 +50,6 @@
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/notice/notice.do" />"><button class="b1">목록</button></a>
                    </div>
-                   <div class="com">
-                       <textarea type="text" placeholder="댓글을 입력해주세요" class="comment"></textarea>
-                       <button type="submit" class="comment1"">등록</button>
-                   </div>
                </div>
    </section>
         <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>

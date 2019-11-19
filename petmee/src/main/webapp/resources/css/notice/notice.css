@@ -53,13 +53,10 @@ background-image: linear-gradient(30deg,#333, #333);}
 .ll{ width: 100%; border-top: solid 1px gray; }
 .ll > .left{ position: relative; float: left; top: 5px; left: 10px; width: 50%; text-align: left; }
 .ll > .right{ position: relative; float: left; top: 10px; right: 10px; width: 50%; text-align: right; }
-#Freecontent {width:70%; margin: 10px auto; display:block; position: relative; }
+#Freecontent {width:70%; height:180px; margin: 10px auto; display:block; position: relative; }
 #pic { border: solid 1px black; width: 60%; margin: 20px auto; display: block; }
 #pic > img{ width: 100%; } 
 
-.com { position: relative; width: 70%; margin: 0px auto; }
-.comment { position: relative; vertical-align: middle;  width: 90%;  height: 70px;  border:1px solid #006ecf; border-radius: 3px; resize: none; }
-.comment1 {width: 9%; height: 73px; color: #fff;font-weight: bold; background-image: linear-gradient(30deg,#002a50,#006ecf); border-radius: 3px;}
 .button { text-align: center; margin-top: 70px; padding: 10px; }
 .b1 { width: 50px; height: 30px; margin: 10 0; color: #fff;font-weight: bold; background-image: linear-gradient(30deg,#002a50,#006ecf); }
 .time { margin-left: 35px; }
