@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
 
 @Service
@@ -19,17 +20,20 @@ public interface FreeBoardService {
 	 void updateBoard(FreeBoard board);
 	 
 	 FreeBoard updateFormBoard(int no);
+	 
+	 List<Comment> commentList(int no);
+	 
+	 
+	 List<Comment> commentRegist(Comment comment);
 	 /*
 	
 	
 	
-	 List<Comment> commentList(int no);
 	
 	 List<Comment> commentDelete(Comment comment);
 	
 	 List<Comment> commentUpdate(Comment comment);
 	
-	 List<Comment> commentRegist(Comment comment);
 	 */
 
 }

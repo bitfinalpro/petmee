@@ -58,26 +58,41 @@
                            <c:out value="${board.content}" />
                     </div>
                     <div class="button"> 
-                        <button><a href="update.do?no=${board.no}" class="b1" >수정</a></button>  
+                        <button><a href="updateform.do?no=${board.no}" class="b1" >수정</a></button>  
                         <button><a href='delete.do?no=${board.no}' class="b1">삭제</a></button>  
                         <button><a href="/petmee/freeboard/list.do" class="b1">목록</a></button>  
                     </div>
                     <div class="com">
-                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment"></textarea>
-                        <button type="button" class="comment1"">등록</button>
+                      <form id="crForm" method="post" action="comment_regist.do" >
+                        <input type="hidden" id="no" value="${board.no}" />  
+                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
+                         <input type="hidden" id="writer" value="권성진" /> 
+                         <button type="submit" class="comment1" >등록</button>
+                      </form>
                     </div>
-                    <div class="comlist">
+                    <!-- 댓글 목록 -->
+                    <div class="comlist" id="commentList">
+                    <!--  
                               <div class="nick">권성진</div>
                               <div class="time">19.11.13 09:43</div>
                               <br><br>
                               <div class="com_content">가세요</div>
+                              -->
+                              <!--  
                     <div class="com_com">
-                        <button class="b2" type="button">수정</button>
-                        <button class="b2" type="button">삭제</button>
+                        <button class="mod" type="button">수정</button>
+                        <button class="del" type="button">삭제</button>
                     </div>
+                    -->
                     </div>
                 </div>
     </section>
         <div id="footer" class="footer_wrap clearfix"> </div>
+         <script>
+           let no = ${board.no};
+         </script>
+        
+        <script src="<c:url value='/resources/js/board.js' />"></script>
 </body>
+
 </html>

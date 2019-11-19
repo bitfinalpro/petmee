@@ -46,11 +46,12 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
 
     <section id="wrap">
         <img src="/images/main/1231.jpg" width="100%" />
-         <form method="get" action="update.do" id="">
+         <form method="post" action="update.do" id="">
+         <input type="hidden" name="no" value="${board.no}" />
         <div class="wirte_form">
-          제목 :  <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
-            <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/>
-            <textarea name="content" id="summernote"></textarea>
+          제목 :  <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" value='<c:out value="${board.title}" /> '> 
+            <input type="text" name="writer" id="writer" maxlength="29" value="${board.writer}"/>
+            <textarea name="content" id="summernote"><c:out value="${board.content}" /></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
                 <div><input type="file" /></div>
@@ -70,6 +71,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         </div>
          </form>
     </section>  
+    <!--  
     <script>
         $('#summernote').summernote({
             placeholder: '<br>※ 게시판 용도와 무관하거나 아래 내용이 포함된 경우는 사전 안내없이 삭제/제재됩니다.<br><br>- 욕설, 상대 비방 등 타인의 명예를 훼손하는 게시물 <br><br>- 불쾌감을 줄 수 있는 이미지나 내용, 저작권에 위배되는 게시물 <br><br>- 개인정보 노출이 있거나 현금 거래 시도 등에 준하는 행위 ',
@@ -89,6 +91,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         	BoardWrite.submit();
         }
      </script>
+     -->
      <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> 
      <script src = "simple-image.js" ></script> 
      <link  href = "simple-image.css"  rel = "stylesheet" /> 

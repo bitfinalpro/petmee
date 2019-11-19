@@ -1,16 +1,18 @@
 package kr.co.petmee.board.free.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.FreeBoardService;
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
 
 @Controller("kr.co.petmee.board.free.controller.FreeBoardController")
@@ -48,16 +50,27 @@ public class FreeBoardController {
 		return "redirect:list.do";
 	}
 	
-	@GetMapping("/updateform.do")
+	@RequestMapping(value="/updateform.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
 	public void service(int no, Model model) throws Exception {
 		model.addAttribute("board", service.updateFormBoard(no));
 	}
 	
-	@PostMapping("/update.do")
+	@RequestMapping(value="/update.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
 	public String update(FreeBoard board) {
 		service.updateBoard(board);
 		return "redirect:list.do";
 	}
 	
+	@RequestMapping("/comment_list.do")
+	@ResponseBody
+	public List<Comment> commentListAjax(int no) {
+		return service.commentList(no);
+	}
 	
+	@RequestMapping("/comment_regist.do")
+	@ResponseBody
+	public List<Comment> commentRegistAjax(Comment comment) {
+		return service.commentRegist(comment);
+	}
+		
 }

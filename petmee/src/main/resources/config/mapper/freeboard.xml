@@ -32,7 +32,8 @@
 <!--  글 수정 -->	
 	<update id="updateBoard" parameterType="FreeBoard">
 		update tb_board 
-		   set title = #{title}, 
+		   set title = #{title},
+		       writer = #{writer}, 
 		       content = #{content}
 		 where no = #{no}
 	</update>
