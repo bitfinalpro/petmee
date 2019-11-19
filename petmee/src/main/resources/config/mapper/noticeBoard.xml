@@ -23,9 +23,23 @@
 	
 	<insert id="insertBoard" parameterType="NoticeBoard">
 		insert into notice_board(
-			title, content, writer
+			title, writer, content
 		) values (
 		 #{title}, #{writer}, #{content}
 		)
 	</insert>
+	
+	<update id="updateBoard" parameterType="NoticeBoard">
+		update notice_board
+			set title = #{title},
+				content = #{content}
+			where no = #{no}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete
+			from notice_board
+			where no = #{no}
+	</delete>
+	
 </mapper>

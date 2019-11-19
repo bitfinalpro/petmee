@@ -34,4 +34,21 @@ public class NoticeBoardController {
 		return "redirect:notice.do";
 	}
 	
+	@RequestMapping("/updateform.do")
+	public void UpdateForm(int no, Model model) {
+		model.addAttribute("board", service.updateFormBoard(no));
+	}
+	
+	@RequestMapping("/update.do")
+	public String Update(NoticeBoard board) {
+		service.updateBoard(board);
+		return "redirect:notice.do";
+	}
+	
+	@RequestMapping("/delete.do")
+	public String Delete(int no) {
+		service.deleteBoard(no);
+		return "redirect:notice.do";
+	}
+	
 }

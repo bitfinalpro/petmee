@@ -10,16 +10,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/notice/detail.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/notice/notice.css" />">
 </head>
 <style>
 </style>
 <body>
   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
     <section>
-   <div class="body">
        <div class="background">
-           <h2 class="free"><i class="fas fa-users"></i> 자유게시판</h2>
+           <h2 class="free"><i class="fas fa-users"></i> 공지게시판</h2>
        </div>
    </section>
 <section id="layout">
@@ -43,27 +42,17 @@
                        <img src="../resources/images/image/holly.jpg">
                    </div>
                    -->
-                   <div class="title">
+                   <div id="Freecontent">
                           <c:out value="${board.content}" />
                    </div>
                    <div class="button">
-                       <button><a href="#" class="b1" type="button">수정</a></button>
-                       <button><a href="#" class="b1" type="button">삭제</a></button>
-                       <button><a href="<c:url value="/board/notice/notice.do" />" class="b1">목록</a></button>
+                       <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
+                       <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
+                       <a href="<c:url value="/board/notice/notice.do" />"><button class="b1">목록</button></a>
                    </div>
                    <div class="com">
                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment"></textarea>
-                       <button type="button" class="comment1"">등록</button>
-                   </div>
-                   <div class="comlist">
-                             <div class="nick">권성진</div>
-                             <div class="time">19.11.13 09:43</div>
-                             <br><br>
-				<div class="com_content">가세요</div>
-                   <div class="com_com">
-                       <button class="b2" type="button">수정</button>
-                       <button class="b2" type="button">삭제</button>
-                   </div>
+                       <button type="submit" class="comment1"">등록</button>
                    </div>
                </div>
    </section>

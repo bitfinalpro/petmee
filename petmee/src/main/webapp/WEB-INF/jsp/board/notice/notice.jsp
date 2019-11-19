@@ -61,8 +61,8 @@
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
 					<td>${b.viewCnt}</td>
 					<td>
-                     <button>수정</button>
-                     <button>삭제</button>
+                     <a href="updateform.do?no=${b.no}"><button>수정</button></a>
+                     <a href="delete.do?no=${b.no}"><button>삭제</button></a>
                    </td>
 				</tr>
 			</c:forEach>

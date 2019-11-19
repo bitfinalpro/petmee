@@ -13,5 +13,12 @@ public interface NoticeBoardService {
 	
 	NoticeBoard detailBoard(int no);
 	
+	NoticeBoard updateFormBoard(int no);
+	
 	void insertBoard(NoticeBoard board);
+	
+	void updateBoard(NoticeBoard board);
+	
+	void deleteBoard(int no);
+
 }

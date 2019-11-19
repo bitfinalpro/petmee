@@ -9,4 +9,6 @@ public interface NoticeBoardDAO {
 	NoticeBoard selectOneBoard(int no);
 	void updateViewCnt(int no);
 	void insertBoard(NoticeBoard board);
+	void updateBoard(NoticeBoard board);
+	int deleteBoard(int no);
 }

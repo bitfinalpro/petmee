@@ -25,4 +25,16 @@ public class NoticeBoardServicempl implements NoticeBoardService{
 	public void insertBoard(NoticeBoard board) {
 		dao.insertBoard(board);
 	}
+	
+	public NoticeBoard updateFormBoard(int no) {
+		return dao.selectOneBoard(no);
+	}
+	
+	public void updateBoard(NoticeBoard board) {
+		dao.updateBoard(board);
+	}
+	
+	public void deleteBoard(int no) {
+		dao.deleteBoard(no);
+	}
 }
