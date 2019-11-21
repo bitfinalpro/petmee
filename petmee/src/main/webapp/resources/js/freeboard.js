@@ -95,14 +95,14 @@ function makeCommentList(list) {
 		         + toPad(date.getSeconds());
 		$di.append(
 		    `<div id="row${c.commentNo}">
-			    <div class="nick">${c.writer}</div>
+				<div class="com_com">
+				<div class="nick">${c.writer}</div>
 				<div class="time">${time}</div>
+				<a href="#" data-no="${c.commentNo}" class="del">삭제</a>
+				<a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
+				</div>
 				<br><br>
 			    <div class="com_content">${c.content}</div>
-			  <div class="com_com">
-			    <a href="#" data-no="${c.commentNo}" class="del">삭제</a>
-			  	<a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
-			  </div>
 		    </div>`		
 		);
 	});

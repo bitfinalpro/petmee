@@ -29,8 +29,7 @@
 
 	<!-- WEB의 정적 파일등의 페이지 처리 위해 사용 -->
 	<mvc:default-servlet-handler />
-	<!-- 인증처리 인터셉터  -->
-
+	<!-- 인증처리 인터셉터   
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/board/**"/>
@@ -39,7 +38,7 @@
 			<bean class="kr.co.petmee.common.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-
+	-->
 	
 	<!-- 파일 업로드 -->
 	<bean id="multipartResolver"
