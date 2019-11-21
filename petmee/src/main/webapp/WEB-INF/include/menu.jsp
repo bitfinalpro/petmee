@@ -24,7 +24,7 @@
             <div class="search_box">
                 <form method="get" action="/pc/main/search.html" onsubmit="return allsearch(this);">
                     <input class="input" type="text" title="검색어" name="search_word"
-                        placeholder="검색어를 입력하세요">
+                        placeholder="검색어를 입력하세요">
                     <input type="submit" class="btn" value="검색">
                 </form>
             </div>
@@ -38,7 +38,7 @@
                         <a href="#">공지사항</a>
                     </li>
                     <li class="depth01" data-id="menu2">
-                        <a href="petmee/freeboard/list.do">자유게시판</a>
+                        <a href="/petmee/freeboard/list.do">자유게시판</a>
                     </li>
                     <li class="depth01 _down" data-id="menu7">
                         <a href="#">봉사활동게시판</a>
