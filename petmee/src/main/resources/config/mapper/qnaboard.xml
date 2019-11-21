@@ -4,7 +4,7 @@
 <mapper namespace="kr.co.petmee.repository.dao.QnaBoardDAO">
 
 <!-- 리스트 , 페이징 -->
-	<select id="selectQna" resultType="QnaBoard" parameterType="Page">
+	<select id="selectQnaBoard" resultType="QnaBoard" parameterType="Page">
 	   select *
 	     from tb_qna
 	    order by qnaNo desc
@@ -21,7 +21,7 @@
 		 where qnaNo = #{qnaNo} 
 	</select>
 <!-- 게시글 등록 -->
-	<insert id="insertBoard" parameterType="QnaBoard">
+	<insert id="insertQnaBoard" parameterType="QnaBoard">
 		insert into tb_qna (
 			 qnaTitle, qnaWriter, qnaContent
 		) values (
@@ -35,7 +35,7 @@
 		 where qnaNo = #{qnaNo}
 	</update>
 <!--  글 수정 -->	
-	<update id="updateQna" parameterType="QnaBoard">
+	<update id="updateQnaBoard" parameterType="QnaBoard">
 		update tb_qna
 		   set qnaTitle = #{qnaTitle},
 		       qnaWriter = #{qnaWriter}, 
@@ -43,7 +43,7 @@
 		 where qnaNo = #{qnaNo}
 	</update>
 <!--  글삭제 -->
-	<delete id="deleteQna" parameterType="int">
+	<delete id="deleteQnaBoard" parameterType="int">
 		delete 
 		  from tb_qna 
 		 where qnaNo = #{qnaNo}
