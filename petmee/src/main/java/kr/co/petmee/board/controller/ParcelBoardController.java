@@ -10,15 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.petmee.board.service.ParcelBoardService;
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.SermernoteVo;
+import kr.co.petmee.util.PageResult;
 
 @Controller
-@RequestMapping("/parcelboard")
+@RequestMapping("/board/parcelboard")
 public class ParcelBoardController {
 
 	@Autowired
@@ -32,8 +37,18 @@ public class ParcelBoardController {
 	}
 
 	@RequestMapping("parcelList.do")
-	public void parcelList(Model model) {
-		model.addAttribute("blist", service.listBoard());
+	public void parcelList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
+		List<ParcelBoard> bylist = service.listBoard(new Page(pageNo));
+		
+		for (ParcelBoard b : bylist) { 
+			
+			System.out.println(b.getNo());
+			System.out.println(b.getTitle());
+		}
+		
+		model.addAttribute("blist", bylist);
+		
+		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));
 		model.addAttribute("flist", service.selectSumFiles());
 	}
 
@@ -78,9 +93,7 @@ public class ParcelBoardController {
 
 		service.insertBoard(getParcelBoard);
 		
-		List<ParcelBoard> blist = service.listBoard();
-
-		int bno = blist.get(0).getNo();
+		int bno = getParcelBoard.getNo();
 		System.out.println(bno);
 //		썸네일 이미지 저장
 
@@ -165,4 +178,30 @@ public class ParcelBoardController {
 		return "redirect:parcelList.do";
 	}
 
+//	댓글
+	
+	@RequestMapping("comment_update.do")
+	@ResponseBody
+	public List<Comment> commentUpdateAjax(Comment comment) {
+		return service.commentUpdate(comment);
+	}
+	
+	@RequestMapping("comment_regist.do")
+	@ResponseBody
+	public List<Comment> commentRegistAjax(Comment comment) {
+		return service.commentRegist(comment);
+	}
+	
+	@RequestMapping("comment_list.do")
+	@ResponseBody
+	public List<Comment> commentListAjax(int no) {
+		return service.commentList(no);
+	}
+	
+	@RequestMapping("comment_delete.do")
+	@ResponseBody
+	public List<Comment> commentDeleteAjax(Comment comment) {
+		return service.commentDelete(comment);
+	}
+	
 }

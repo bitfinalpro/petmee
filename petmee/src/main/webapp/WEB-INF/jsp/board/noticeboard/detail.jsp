@@ -46,9 +46,9 @@
                           <c:out value="${board.content}" />
                    </div>
                    <div class="button">
-                       <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
-                       <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
-                       <a href="<c:url value="/board/notice/notice.do" />"><button class="b1">목록</button></a>
+                       <a href="<c:url value="/board/noticeboard/updateform.do?no=${board.no}" />"><button class="b1">수정</button></a>
+                       <a href="<c:url value="/board/noticeboard/delete.do?no=${board.no}" />"><button class="b1">삭제</button></a>
+                       <a href="<c:url value="/board/noticeboard/notice.do"/>"><button class="b1">목록</button></a>
                    </div>
                </div>
    </section>
