@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
   <link href="../resources/css/common/base.css" rel="stylesheet">
   <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
 </head>
@@ -61,10 +64,10 @@
             <div><strong>Community</strong></div>
             <ul>
                 <li><a href="#">공지사항</a></li>
-                <li><a href="#">자유게시판</a></li>
+                <li><a href="<c:url value="/freeboard/list.do" />">자유게시판</a></li>
                 <li><a href="#">봉사활동</a></li>
                 <li><a href="#">분양게시판</a></li>
-                <li><a href="#">후기게시판</a></li>
+                <li><a href="#">후기게시판</a></li>
                 <li><a href="#">Q&A</a></li>
             </ul>
         </aside>    
@@ -75,7 +78,10 @@
             </div>
             <div>
                 <select name="" id="top_sel">
-                    <option>전체</option>
+                    <option value="">검색조건</option>
+                    <option value="t">제목</option>
+                    <option value="c">내용</option>
+                    <option value="w">작성자</option>
                 </select>
                 <input type="text"  placeholder="검색어 입력" />
                 <button>검색</button>
@@ -113,8 +119,32 @@
                 </c:forEach>
         </table>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/freeboard/writeform.do"/>'">글 등록</button></div>
+        
+        <!-- 페이징   -->
         <div id="page">
-            <span> << &nbsp;1 &nbsp; / &nbsp; 2 &nbsp; / &nbsp; 3 &nbsp; / &nbsp; 4 &nbsp; / &nbsp; 5 &nbsp; >></span>
+            	<c:if test="${pr.count != 0 }">
+		<nav>
+  <ul class="pagination">
+  <c:if test="${pr.prev }">
+    <li>
+      <a href="list.do?pageNo=${pr.beginPage - 1 }" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    </c:if>
+    <c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage}">
+    <li <c:if test="${pr.pageNo == i }">class="active"</c:if>><a href="list.do?pageNo=${i}">${i}</a></li>
+    </c:forEach>
+    <c:if test="${pr.next }" >
+    <li>
+      <a href="list.do?pageNo=${pr.endPage + 1} " aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    </c:if>
+  </ul>
+</nav>
+		</c:if>
         </div>
     </section>  
         <div id="footer" class="footer_wrap clearfix">

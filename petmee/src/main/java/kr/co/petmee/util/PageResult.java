@@ -1,6 +1,5 @@
 package kr.co.petmee.util;
 
-
 public class PageResult {
    private int pageNo;
    private int count;

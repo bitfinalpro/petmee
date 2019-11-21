@@ -1,6 +1,5 @@
 package kr.co.petmee.board.free.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.FreeBoardService;
+import kr.co.petmee.repository.dao.FreeBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
+import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.free.controller.FreeBoardController")
 @RequestMapping("/freeboard")
@@ -22,12 +24,22 @@ public class FreeBoardController {
 	@Autowired
 	private FreeBoardService service;
 	
+	@Autowired
+	private FreeBoardDAO dao;
+	
 	@RequestMapping("/list.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
-		System.out.println(sdf.format(service.listBoard().get(1).getRegDate()));
-		System.out.println(service.listBoard().get(1).getTitle());
-		model.addAttribute("list", service.listBoard());
+	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page) {
+		
+		model.addAttribute("list", service.listBoard(page));
+		int count = dao.selectBoardCount(); 
+		
+		PageResult pr = new PageResult(pageNo, count);
+		model.addAttribute("pr", pr);
+		 page = new Page(pageNo);
+		System.out.println("요청 페이지 번호 : " + pageNo);
+		System.out.println("요청 페이지 시작 번호 : " + page.getBegin());
+		System.out.println("요청 페이지 종료 번호 : " + page.getEnd());
+		
 	}
 	
 	@RequestMapping("/writeform.do")
@@ -72,5 +84,19 @@ public class FreeBoardController {
 	public List<Comment> commentRegistAjax(Comment comment) {
 		return service.commentRegist(comment);
 	}
+	
+	@RequestMapping("/comment_delete.do")
+	@ResponseBody
+	public List<Comment> commentDeleteAjax(Comment comment) {
+		return service.commentDelete(comment);
+	}
+	
+	@RequestMapping("/comment_update.do")
+	@ResponseBody
+	public List<Comment> commentUpdateAjax(Comment comment) {
+		return service.commentUpdate(comment);
+	}
+	
+	
 		
 }

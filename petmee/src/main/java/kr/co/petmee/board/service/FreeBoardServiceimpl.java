@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.petmee.repository.dao.FreeBoardDAO;
 import kr.co.petmee.repository.dao.CommentDAO;
+import kr.co.petmee.repository.dao.FreeBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
+import kr.co.petmee.repository.vo.Page;
 
 @Service
 public class FreeBoardServiceimpl implements FreeBoardService {
@@ -19,8 +20,8 @@ public class FreeBoardServiceimpl implements FreeBoardService {
 	@Autowired
 	private CommentDAO dao1;
 	
-	public List<FreeBoard> listBoard() {
-		return dao.selectBoard();
+	public List<FreeBoard> listBoard(Page page) {
+		return dao.selectBoard(page);
 	}
 	
 	public void insertBoard(FreeBoard board) {
@@ -52,18 +53,18 @@ public class FreeBoardServiceimpl implements FreeBoardService {
 		dao1.insertComment(comment);
 		return dao1.selectComment(comment.getNo());
 	}
-	/*
+	
 	
 	public List<Comment> commentDelete(Comment comment) {
-		dao.deleteComment(comment.getCommentNo());
-		return dao.selectComment(comment.getNo());
+		dao1.deleteComment(comment.getCommentNo());
+		return dao1.selectComment(comment.getNo());
 	}
 	
 	public List<Comment> commentUpdate(Comment comment) {
-		dao.updateComment(comment);
-		return dao.selectComment(comment.getNo());
+		dao1.updateComment(comment);
+		return dao1.selectComment(comment.getNo());
 	}
 	
-	*/
+	
 
 }
