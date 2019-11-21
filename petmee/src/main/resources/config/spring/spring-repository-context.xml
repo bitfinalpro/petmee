@@ -20,10 +20,10 @@
                   
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
       destroy-method="close"
-        p:driverClassName="com.mysql.jdbc.Driver"
-        p:url="jdbc:mysql://127.0.0.1:3306/kwon?serverTimezone=UTC"
-        p:username="root" 
-        p:password="admin" />
+        p:driverClassName="${driver}"
+        p:url="${url}"
+        p:username="${mysql.username}" 
+        p:password="${mysql.password}" />
      
 	                                                                                           
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

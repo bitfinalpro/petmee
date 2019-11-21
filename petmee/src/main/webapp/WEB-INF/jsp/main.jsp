@@ -24,7 +24,7 @@
         <div id="header"> </div>
             <section>
                
-<a href="/petmee/freeboard/list.do">ㅎㅇ</a>
+<a href="/petmee/volunteerreviewboard/list.do">ㅎㅇ</a>
             </section>
         <div id="footer" class="footer_wrap clearfix"> </div>
 </body>
