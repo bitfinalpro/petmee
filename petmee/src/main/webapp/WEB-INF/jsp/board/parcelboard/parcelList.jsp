@@ -8,13 +8,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="../resources/css/common/gnb.css" rel="stylesheet">
-<link href="../resources/css/parcel/parcelList.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
-<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value='/resources/css/parcel/parcelList.css' />" rel="stylesheet" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>시바 먼치킨</title>
 
@@ -51,7 +50,7 @@
 				
 		<!-- <li><img class="img-src" src="../resources/images/main/1.jpg"> -->
 					<c:forEach var="blist" items="${blist}" varStatus="status">
-					<a href="/petmee/parcelboard/parcelDtail.do?no=${blist.no}">
+					<a href="/petmee/board/parcelboard/parcelDtail.do?no=${blist.no}">
 						<li><img class="img-src" src="<c:url value='${flist[status.index].sumpath}${flist[status.index].oriName}'/>">
 							<div class="txt-box">
 								<span>${blist.title}no:${blist.no}</span>
@@ -64,24 +63,6 @@
 				<br>
 				<button id="y-writeform" >글쓰기</button>
 				<br>
-				<div id="page-area">
-					<ul>
-						<li><<</li>
-						<li><</li>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>6</li>
-						<li>7</li>
-						<li>8</li>
-						<li>9</li>
-						<li>10</li>
-						<li>></li>
-						<li>>></li>
-					</ul>
-				</div>
 
 				<div id="board-search">
 					<form action="" name="search">
@@ -95,6 +76,17 @@
 
 		</div>
 		<div></div>
+		<div id="page" >
+        <nav>
+  <ul class="pagination">
+ 
+    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
+    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="parcelList.do?pageNo=${i}">${i}</a></li>
+    </c:forEach>
+    
+  </ul>
+</nav>
+	</div>
 	</section>
 
 	<div id="footer" class="footer_wrap clearfix">
@@ -103,7 +95,7 @@
 
 <script type="text/javascript">
 	$("#y-writeform").click( function () {
-		location.href = "/petmee/parcelboard/parcelWriteForm.do";
+		location.href = "/petmee/board/parcelboard/parcelWriteForm.do";
 	});
 </script>
 
