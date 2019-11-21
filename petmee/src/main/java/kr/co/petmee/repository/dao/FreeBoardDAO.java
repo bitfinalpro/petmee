@@ -3,10 +3,13 @@ package kr.co.petmee.repository.dao;
 import java.util.List;
 
 import kr.co.petmee.repository.vo.FreeBoard;
+import kr.co.petmee.repository.vo.Page;
 
 public interface FreeBoardDAO {
 
-	List<FreeBoard> selectBoard();
+	List<FreeBoard> selectBoard(Page page);
+	
+	int selectBoardCount();
 	
 	FreeBoard selectOneBoard(int no);
 	
