@@ -29,7 +29,11 @@ public class QnABoardController {
 	
 	@RequestMapping("/qna-list.do")
 	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page) {
-		
+		page.setPageNo(pageNo);
+		List<QnaBoard> l = service.listQnaBoard(page);
+		for (QnaBoard b : l) {
+			System.out.println("board : " + b);
+		}
 		model.addAttribute("list", service.listQnaBoard(page));
 		int count = dao.selectQnaCount(); 
 		

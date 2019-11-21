@@ -46,16 +46,16 @@
                            </li>
                        </ul>
                        <ul class="qna-TableListBody">
-                       <c:forEach var="b" items="${qna}">
-                         <li >
-                             <span>${b.no}</span>
-                             <span><a href="qna-detail.do?no=${b.no}">${b.title}</a></span>
-                             <span>${b.writer}</span>
-                             <span><fmt:formatDate value="${b.regDt}" pattern="MM-dd hh:mm"/></span>
+                       <c:forEach var="b" items="${list}">
+                         <li>
+                             <span>${b.qnaNo}</span>
+                             <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
+                             <span>${b.qnaWriter}</span>
+                             <span><fmt:formatDate value="${b.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
                              <span>${b.viewCnt}</span>
                          </li>
                        </c:forEach> 
-                       <c:if test="${empty qna}">
+                       <c:if test="${empty list}">
                        <li >
                            <span></span>
                            <span colspan='4'>입력된 게시물이 없습니다.</span>

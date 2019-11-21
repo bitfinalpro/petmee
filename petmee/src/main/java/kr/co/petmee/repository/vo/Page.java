@@ -32,7 +32,7 @@ public class Page {
 	// #{begin}
 	public int getBegin() {
 //		return  (pageNo - 1) * 10 + 1;
-		return  (pageNo - 1) * listSize + 1;
+		return  (pageNo - 1) * listSize;
 	}
 	// #{end}
 	public int getEnd() {

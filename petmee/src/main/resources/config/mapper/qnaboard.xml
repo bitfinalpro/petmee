@@ -4,10 +4,10 @@
 <mapper namespace="kr.co.petmee.repository.dao.QnaBoardDAO">
 
 <!-- 리스트 , 페이징 -->
-	<select id="selectQnaBoard" resultType="QnaBoard" parameterType="Page">
+	<select id="selectQnaBoard" resultType="QnaBoard" parameterType="Page" flushCache="true" useCache="true">
 	   select *
 	     from tb_qna
-	    order by qnaNo desc
+	    order by qna_no desc
 	     limit #{begin}, 10
 	</select>
 	<select id="selectQnaCount" resultType="int">
@@ -18,12 +18,12 @@
 	<select id="selectOneBoard" parameterType="int" resultType="QnaBoard">
 		select *
 		  from tb_qna
-		 where qnaNo = #{no} 
+		 where qna_no = #{no} 
 	</select>
 <!-- 게시글 등록 -->
 	<insert id="insertQnaBoard" parameterType="QnaBoard">
 		insert into tb_qna (
-			 qnaTitle, qnaWriter, qnaContent
+			 qna_title, qna_writer, qna_content
 		) values (
 			 #{title}, #{writer}, #{content}
 		)
@@ -32,21 +32,21 @@
 	<update id="updateViewCnt" parameterType="int">
 		update tb_qna 
 		   set viewCnt = viewCnt + 1
-		 where qnaNo = #{no}
+		 where qna_no = #{no}
 	</update>
 <!--  글 수정 -->	
 	<update id="updateQnaBoard" parameterType="QnaBoard">
 		update tb_qna
-		   set qnaTitle = #{title},
-		       qnaWriter = #{writer}, 
-		       qnaContent = #{content}
-		 where qnaNo = #{no}
+		   set qna_title = #{title},
+		       qna_writer = #{writer}, 
+		       qna_content = #{content}
+		 where qna_no = #{no}
 	</update>
 <!--  글삭제 -->
 	<delete id="deleteQnaBoard" parameterType="int">
 		delete 
 		  from tb_qna 
-		 where qnaNo = #{no}
+		 where qna_no = #{no}
 	</delete>
 </mapper>
 

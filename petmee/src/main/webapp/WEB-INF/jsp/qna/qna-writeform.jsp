@@ -41,7 +41,7 @@
      제목 :<br> <input type='text' name='title' size='70' placeholder="20자 까지 가능합니다" />	 	
  </div>
  <div>
-     글쓴이 :${writer} <input type='hidden' value="${writer}" name='writer' size='30' />
+     글쓴이 :${qnaWriter} <input type='hidden' value="${qnaWriter}" name='writer' size='30' />
  </div> 
  <div>
           내용 :<br> <textarea name='content' rows='7' cols='70' placeholder="500자 까지 가능합니다" ></textarea>

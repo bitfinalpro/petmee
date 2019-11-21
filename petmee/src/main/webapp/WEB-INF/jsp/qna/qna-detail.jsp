@@ -40,30 +40,22 @@
     <div>
         <section class="qna-content" style="margin-bottom:0">
             <h1 class="qna-title">질문 답변</h1>
-            <!--<div class="qna-remote">
-              <ul>
-                <li>
-                    <a href="#qna-top"><i class="fas fa-angle-double-up fa-2x"></i></a>
-                    <a href="#qna-list"><i class="fas fa-align-justify fa-2x"></i></a>
-                    <a href="#qna-bottom"><i class="fas fa-angle-double-down fa-2x"></i></a>
-                </li>
-              </ul>
-            </div> -->
+           
             <div class="qna-table">
                 <ul class="qna-TableListHead">
                     <li >
                     <li >
                         <span>${qnaDetail.qnaNo}</span>
-                        <span>${qnaDetail.title}</span>
-                        <span>${qnaDetail.writer }</span>
-                        <span><fmt:formatDate value="${qnaDetail.regDt}" pattern="MM-dd hh:mm"/></span>
+                        <span>${qnaDetail.qnaTitle}</span>
+                        <span>${qnaDetail.qnaWriter }</span>
+                        <span><fmt:formatDate value="${qnaDetail.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
                         <span>조회수${qnaDetail.viewCnt}</span>
                     </li>
      
                 </ul>
                 <ul class="qna-TableDetailBody">
                   <li>
-                    ${qnaDetail.content}
+                    ${qnaDetail.qnaContent}
                   </li>                  
                 </ul>
                 <a class="qna-qna_like" href="javascript:;" onclick="likeUpdateAjax(${qnaDetail.qnaNo}, ${sessionScope.user.userNo}, ${pr.pageNo})">
@@ -99,45 +91,20 @@
 				<input type="hidden" name="pageNo" value="${pr.pageNo}" />
 				<input type="hidden" name="cmtPageNo" value="${cpr.pageNo}" />
         <div id="AjaxCmtList">      
-          <!--
+          
           <c:if test="${empty comment}">
 				 <tr>
 				    <td colspan='4'>댓글이 존재하지 않습니다.</td>
 				 </tr>
 			</c:if>	 
-        -->
+       
       </div>
 			</form>	
-      <!--
-			<c:if test="${cpr.count > 10}">
-             <div>
-	             <ul class="pagination cmt_nams">
-			      	 <c:if test="${cpr.count != 0}">
-					  	<c:if test="${cpr.prev}">
-					    <li>
-					      <a href="qna-detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${pr.pageNo}&CmtPageNo=${cpr.beginPage - 1}" aria-label="previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    </c:if>
-					    <c:forEach var="i" begin="${cpr.beginPage}" end="${cpr.endPage}">
-							<li <c:if test="${cpr.pageNo == i}">class="active"</c:if>>
-								<a href="qna-detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${pr.pageNo}&CmtPageNo=${i}">${i}</a>
-							</li>
-					    </c:forEach>
-					  	<c:if test="${cpr.next}">
-					    <li>
-					      <a href="qna-detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${pr.pageNo}&CmtPageNo=${cpr.endPage + 1}" aria-label="next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-              </c:if>
-          </c:if>
-        -->
-				</ul>
+
 			 </div>
-			</c:if>
+		
        </div>
+      </div>
       </div>
       <!--
 				<form class="qna-comment_write" method="post" 
@@ -222,7 +189,7 @@
           </c:if>
             <!-- 검색창 -->
             <div class="qna-search">
-                <form method="post" action="/petmee/qna/qnaList.do">
+                <form method="post" action="/petmee/qna/qna-list.do">
                   <div class='qna-container' tabindex='1'>
                   <div class='qna-search-container' tabindex='1'>
                     <input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
