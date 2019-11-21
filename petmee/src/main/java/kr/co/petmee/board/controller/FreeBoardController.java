@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.FreeBoardService;
-import kr.co.petmee.repository.dao.FreeBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
-@Controller("kr.co.petmee.board.free.controller.FreeBoardController")
-@RequestMapping("/freeboard")
+@Controller("kr.co.petmee.board.controller.FreeBoardController")
+@RequestMapping("/board/freeboard")
 public class FreeBoardController {
 	
 	@Autowired

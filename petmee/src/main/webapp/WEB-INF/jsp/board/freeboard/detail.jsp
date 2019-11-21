@@ -8,10 +8,9 @@
      <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
-  <link href="../resources/css/common/base.css" rel="stylesheet">
-  <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
-    <link href="../resources/css/free/detail.css" rel="stylesheet">
+  <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+    <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
   <style>
