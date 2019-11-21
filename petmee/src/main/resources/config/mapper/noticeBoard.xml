@@ -6,29 +6,29 @@
 	  
 	<select id = "selectBoardCount" resultType ="int">
 		select count(*)
-					from notice_board as a		
+					from tb_noticeboard	
 	</select>
 	<select id = "selectBoard" parameterType="Page" resultType="NoticeBoard">			
      select *
-         	from notice_board
+         	from tb_noticeboard
                    order by topChk desc, no desc
           limit #{begin}, 10
 	</select>
 	
 	<select id = "selectOneBoard" parameterType="int" resultType="NoticeBoard">
 		select *
-			from notice_board
+			from tb_noticeboard
 			where no = #{no}
 	</select>
 	
 	<update id="updateViewCnt" parameterType="int">
-		update notice_board 
+		update tb_noticeboard
 			set viewCnt = viewCnt + 1
 		  where no = #{no}
 	</update>
 	
 	<insert id="insertBoard" parameterType="NoticeBoard">
-		insert into notice_board(
+		insert into tb_noticeboard(
 			title, writer, content, topChk
 		) values (
 		 #{title}, #{writer}, #{content}, #{topChk}
@@ -48,7 +48,7 @@
 	 -->	
 	
 	<update id="updateBoard" parameterType="NoticeBoard">
-		update notice_board
+		update tb_noticeboard
 			set title = #{title},
 				content = #{content}
 			where no = #{no}
@@ -56,7 +56,7 @@
 	
 	<delete id="deleteBoard" parameterType="int">
 		delete
-			from notice_board
+			from tb_noticeboard
 			where no = #{no}
 	</delete>
 	

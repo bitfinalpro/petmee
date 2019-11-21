@@ -11,7 +11,6 @@
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css" />">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -61,7 +60,7 @@
 					<c:choose>
 					<c:when test="${b.topChk eq 1}" >
 						<td style="display:none">${b.no}</td>
-						<td><img src="<c:url value="/resources/images/dog_img.png"/>" style="height: 70%;"/></td>
+						<td><img src="<c:url value="/resources/images/board/notice/dog_img.png"/>" style="height: 70%;"/></td>
 					</c:when>
 					<c:when test="${b.topChk eq 0}" >
 						<td>${b.no}</td>
@@ -72,8 +71,8 @@
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
 					<td>${b.viewCnt}</td>
 					<td>
-                     <a href="updateform.do?no=${b.no}"><button>수정</button></a>
-                     <a href="delete.do?no=${b.no}"><button>삭제</button></a>
+                     <a href="<c:url value="/board/noticeboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
+                     <a href="<c:url value="/board/noticeboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
                    </td>
 				</tr>
 			</c:forEach>
@@ -82,7 +81,7 @@
            .foot_btn button{width: 80px; height: 30px; margin: 10 0; color: #fff;font-weight: bold;
             background-image: linear-gradient(30deg,#002a50,#006ecf);
             float : right;}</style>
-        <div class="foot_btn"><a href="<c:url value="/board/notice/writeform.do"/>"><button>글 등록</button></a></div>
+        <div class="foot_btn"><a href="<c:url value="/board/noticeboard/writeform.do"/>"><button>글 등록</button></a></div>
         
         <div id="page" >
         <nav>
