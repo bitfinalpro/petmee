@@ -20,10 +20,10 @@
                   
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close"
-      	p:driverClassName="${driver}"
-        p:url="${url}"
-        p:username="cho" 
-        p:password="cho" />
+      	p:driverClassName="${mysql.driver}"
+        p:url="${mysql.url}"
+        p:username="${mysql.username}" 
+        p:password="${mysql.password}" />
 
 	                                                                                           
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

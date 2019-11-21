@@ -4,4 +4,4 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/base.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/side_menu.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/paging.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css" />">

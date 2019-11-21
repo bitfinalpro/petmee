@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.co.petmee.repository.dao.ParcelBoardDao;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.ParcelBoard;
 
 @Service
@@ -16,8 +17,13 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 	@Autowired
 	private ParcelBoardDao dao;
 
-	public List<ParcelBoard> listBoard() {
-		return dao.selectBoard();
+	public List<ParcelBoard> listBoard(Page page) {
+		return dao.selectBoard(page);
+	}
+	
+	@Override
+	public int selectBoardCount() {	
+		return dao.selectBoardCount();
 	}
 
 	public ParcelBoard detailBoard(int no) {
@@ -58,23 +64,23 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 
 //	댓글
 	
-//	public List<Comment> commentDelete(Comment comment) {
-//		dao.deleteComment(comment.getCommentNo());
-//		return dao.selectComment(comment.getNo());
-//	}
-//
-//	public List<Comment> commentRegist(Comment comment) {
-//		dao.insertComment(comment);
-//		return dao.selectComment(comment.getNo());
-//	}
-//
-//	public List<Comment> commentUpdate(Comment comment) {
-//		dao.updateComment(comment);
-//		return dao.selectComment(comment.getNo());
-//	}
-//
-//	public List<Comment> commentList(int no) {
-//		return dao.selectComment(no);
-//	}
+	public List<Comment> commentDelete(Comment comment) {
+		dao.deleteComment(comment.getCommentNo());
+		return dao.selectComment(comment.getNo());
+	}
+	
+	public List<Comment> commentRegist(Comment comment) {
+		dao.insertComment(comment);
+		return dao.selectComment(comment.getNo());
+	}
+	
+	public List<Comment> commentUpdate(Comment comment) {
+		dao.updateComment(comment);
+		return dao.selectComment(comment.getNo());
+	}
+	
+	public List<Comment> commentList(int no) {
+		return dao.selectComment(no);
+	}
 
 }

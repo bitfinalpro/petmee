@@ -215,7 +215,7 @@
                                              <p class="txt">봉사활동</p>
                                         </div>
                                   </a></li>
-                                  <li><a href="#">
+                                  <li><a href="<c:url value="/board/parcelboard/qqq.do" />">
                                         <div class="imgbox">
                                             <img src="" alt="" class="off">
                                             <img src="" alt="" class="on">

@@ -8,19 +8,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="../resources/css/common/gnb.css" rel="stylesheet">
-<link href="../resources/css/parcel/parcelWriteForm.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value='/resources/css/parcel/parcelWriteForm.css' />" rel="stylesheet" />
+
 	
-<link href="../resources/css/dist/summernote-lite.css" rel="stylesheet">
-
-<script src="<c:url value='/resources/css/dist/summernote-lite.js' />"></script>
-
-<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
+<script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 
 <title>시바 먼치킨</title>
 
@@ -40,7 +34,7 @@
 			</div>
 
 			<div id="y-content">
-				<form action="/petmee/parcelboard/parcelwrite.do" method="post"
+				<form action="/petmee/board/parcelboard/parcelwrite.do" method="post"
 					name="SermernoteVo" enctype="multipart/form-data">
 					<div id="yy-img">
 						<div class="yy-img">썸네일을 넣어주세요</div>
