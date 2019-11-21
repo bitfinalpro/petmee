@@ -19,11 +19,11 @@
 		location="classpath:config/mybatis/db.properties"/>
                   
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
-      destroy-method="close"
-        p:driverClassName="${driver}"
+      	destroy-method="close"
+        p:driverClassName="com.mysql.jdbc.Driver"
         p:url="${url}"
-        p:username="${username}" 
-        p:password="${password}" />
+        p:username="${mysql.username}" 
+        p:password="${mysql.password}" />
      
 	                                                                                           
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

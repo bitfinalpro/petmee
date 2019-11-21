@@ -7,18 +7,18 @@ import kr.co.petmee.repository.vo.Page;
 
 public interface QnaBoardDAO {
 
-	List<QnaBoard> selectBoard(Page page);
+	List<QnaBoard> selectQnaBoard(Page page);
 	
-	int selectBoardCount();
+	int selectQnaCount();
 	
 	QnaBoard selectOneBoard(int no);
 	
-	void insertBoard(QnaBoard board);
+	void insertQnaBoard(QnaBoard board);
 	
 	void updateViewCnt(int no);
 	
-	void updateBoard(QnaBoard board);
+	void updateQnaBoard(QnaBoard board);
 	
-	int deleteBoard(int no);
+	int deleteQnaBoard(int no);
 	
 }

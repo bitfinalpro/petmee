@@ -27,12 +27,13 @@
     });
 </script>
 <body>
-   <div class="home">
-        <div id="header"></div>
-        <div class="wrapepr">
+   <div id="header">
+        <%@include file="/WEB-INF/include/menu.jsp" %>
+    </div>
            <div>
                 <section class="qna-content" style="margin-bottom:0">
-                   <h1 class="qna-title">질문 답변</h1>
+                
+                   <h1 class="qna-title">Q & A</h1>
                    
                    <div class="qna-table">
                        <ul class="qna-TableListHead">
@@ -47,15 +48,13 @@
                        <ul class="qna-TableListBody">
                        <c:forEach var="b" items="${qna}">
                          <li >
-                             <span>${b.qnaNo}</span>
-                             <span><a href="<c:url value="/qna_detail.do?qnaNo=${b.qnaNo}&pageNo=${pr.pageNo}"/>">${b.title}</a></span>
-                             <span>${b.userNo}</span>
+                             <span>${b.no}</span>
+                             <span><a href="qna-detail.do?no=${b.no}">${b.title}</a></span>
+                             <span>${b.writer}</span>
                              <span><fmt:formatDate value="${b.regDt}" pattern="MM-dd hh:mm"/></span>
                              <span>${b.viewCnt}</span>
                          </li>
-                       </c:forEach>
-
-                       <!--  
+                       </c:forEach> 
                        <c:if test="${empty qna}">
                        <li >
                            <span></span>
@@ -64,43 +63,39 @@
                         </c:if>
                       </ul>
                     </div>
-                    
-                    <c:if test="${pr.count > 10}">
-                      <ul class="pagination nams">
-                        
-                        <c:if test="${pr.count != 0}">
-                          <c:if test="${pr.prev}">
-                            <li>
-                              <a href="qnaList.do?pageNo=${pr.beginPage -1}&searchType=${search.searchType}&searchWord=${search.searchWord}" aria-label="previous">
-                                <span aria-hidden="true">&laquo;</span>
-                              </a>
-                            </li>
-                          </c:if>
-                          <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
-                            <li 
-                            <c:if test="${pr.pageNo == i}">class="active"</c:if>
-                            <a href="qnaList.do?pageNo=${i}&searchType=${search.searchType}&searchWord=${search.searchWord}">${i}</a></li>
-                          </c:forEach>
-                          <c:if test="${pr.next}">
-                            <li>
-                              <a href="qnaList.do?pageNo=${pr.endPage + 1}&searchType=${search.searchType}&searchWord=${search.searchWord}" aria-label="next">
-                                <span aria-hidden="true">&raquo;</span>
-                              </a>
-                            </li>
-                          </c:if>
-                        </c:if>
-                      -->
-               </ul>
-               </c:if>
                    
-                   <c:if test="${sessionScope.user.userGrade eq 3}">
-                   <a class="qna-go_write" href="./petmee/qna/qna_write_form.do"> 
-                     <div>글쓰기</div>
-                   </a>
-                   </c:if> 
+                   <!-- 페이징   -->
+        <div id="page">
+            	<c:if test="${pr.count != 0 }">
+		<nav>
+  <ul class="pagination">
+  <c:if test="${pr.prev }">
+    <li>
+      <a href="qna-list.do?pageNo=${pr.beginPage - 1 }" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    </c:if>
+    <c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage}">
+    <li <c:if test="${pr.pageNo == i }">class="active"</c:if>><a href="qna-list.do?pageNo=${i}">${i}</a></li>
+    </c:forEach>
+    <c:if test="${pr.next }" >
+    <li>
+      <a href="qna-list.do?pageNo=${pr.endPage + 1} " aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    </c:if>
+  </ul>
+</nav>
+		</c:if>
+        </div>
+        		
+                   <div class="qna-go_write"><button type="button" onclick="location.href='<c:url value="/qna/qna-writeform.do"/>'">글 쓰기</button></div>
+                   
                     <!-- 검색창 -->
                    <div class="qna-search">
-                    <form method="post" action="/petmee/qna/qnaList.do">
+                    <form method="post" action="/petmee/qna/qna-ist.do">
                       <div class='qna-container' tabindex='1'>
                       <div class='qna-search-container' tabindex='1'>
                         <input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
@@ -117,7 +112,9 @@
                </section>  
  
            </div>
-        <div id="footer" class="footer_wrap clearfix"> </div>
+        <div id="footer" class="footer_wrap clearfix"> 
+        <%@include file="/WEB-INF/include/footer.jsp" %> 
+        </div>
     </div>
     </div>
 </body>

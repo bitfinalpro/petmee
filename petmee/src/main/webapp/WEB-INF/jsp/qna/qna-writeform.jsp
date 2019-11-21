@@ -27,39 +27,37 @@
     });
 </script>
 <body>
-        <div class="home">
-            <div id="header"></div>
-            <div class="wrapepr">
-   <div>
-      <section class="qna-content" style="margin-bottom:0">
-           <h1 class="qna-title">질문 답변</h1>
-          <div class="qna-table_write">
-    <form method='post' action="/petmee/qna/qnaUpdate.do" name="writeForm" onsubmit="return inputCheck();"> <!-- enctype = "multipart/form-data"> -->
-      <input type="hidden" name="qnaNo" value="${board.qnaNo}" />
-      <input type="hidden" name="userNo" value="${board.userNo}" />
-    <div>
-        제목 <br> <input type='text' name='title'  id='title' size='70' value="${board.title}" />	 	
+<div id="header">
+        <%@include file="/WEB-INF/include/menu.jsp" %>
     </div>
-    <div>
-        글쓴이 :${userId} <input type='hidden' value="${userId}" name='writer' size='30' />
-    </div> 
-    <div>
-             내용 <br> <textarea name='content' id='content' rows='7' cols='70' value="${board.content}" >${board.content}</textarea>
-    </div>
-             <a class="qna-write_do" > 
-              <button type='submit'>수정</button>
-             </a> 
- </form>
-             </div>
-          
-             <a class="qna-to_list" href="/qna/qnaList.do">
-               <div> 
-                 목록으로
-               </div>
-             </a>
-       </section>
-   </div>
-   <div id="footer" class="footer_wrap clearfix"> </div>
-  </div>
+       
+  <div>
+    <section class="qna-content" style="margin-bottom:0">
+
+        <h1 class="qna-title">질문 답변</h1>
+       <div class="qna-table_write">
+ <form method='post' action="qna-write.do" name="writeForm" > 
+ <div>
+     제목 :<br> <input type='text' name='title' size='70' placeholder="20자 까지 가능합니다" />	 	
+ </div>
+ <div>
+     글쓴이 :${writer} <input type='hidden' value="${writer}" name='writer' size='30' />
+ </div> 
+ <div>
+          내용 :<br> <textarea name='content' rows='7' cols='70' placeholder="500자 까지 가능합니다" ></textarea>
+ </div>
+          <a class="qna-write_do" > 
+             <button type='submit'>등록</button>
+          </a> 
+</form>
+          </div>
+          <div class="qna-to_list"><button type="button" onclick="location.href='<c:url value="/qna/qna-list.do"/>'">목록으로</button></div>
+        
+    </section>
+</div>
+<div id="footer" class="footer_wrap clearfix"> 
+<%@include file="/WEB-INF/include/footer.jsp" %> 
+</div>
+</div>
 </body>
 </html>

@@ -29,14 +29,14 @@
     let cmtPageNo = '${cpr.pageNo}';
     let UserGrade = '${sessionScope.user.userGrade}';
     let UserNo = '${sessionScope.user.userNo}';
-    <script src="<c:url value='/resources/qna/js/like.js' />"></script>
+</script>
+	<script src="<c:url value='/resources/qna/js/like.js' />"></script>
     <script src="<c:url value='/resources/qna/js/qnaComment.js' />"></script>
     <script src="<c:url value='/resources/qna/js/qnaWriteCheckForm.js' />"></script>
-</script>
 <body>
-   <div class="home">
-        <div id="header"></div>
-        <div class="wrapepr">
+   <div id="header">
+        <%@include file="/WEB-INF/include/menu.jsp" %>
+    </div>
     <div>
         <section class="qna-content" style="margin-bottom:0">
             <h1 class="qna-title">질문 답변</h1>
@@ -55,7 +55,7 @@
                     <li >
                         <span>${qnaDetail.qnaNo}</span>
                         <span>${qnaDetail.title}</span>
-                        <span>${qnaDetail.userId }</span>
+                        <span>${qnaDetail.writer }</span>
                         <span><fmt:formatDate value="${qnaDetail.regDt}" pattern="MM-dd hh:mm"/></span>
                         <span>조회수${qnaDetail.viewCnt}</span>
                     </li>
@@ -214,7 +214,7 @@
                 </li>
     
                  <c:if test="${sessionScope.user.userGrade eq 3 }">  
-                 <a class="qna-go_write" href="/petmee/jsp/qna/qna_write.do"> 
+                 <a class="qna-go_write" href="/petmee/jsp/qna/qna-write.do"> 
                   <div> 
                       글쓰기
                   </div>
@@ -239,7 +239,9 @@
           
         </section>
     </div>
-    <div id="footer" class="footer_wrap clearfix"> </div>
+    <div id="footer" class="footer_wrap clearfix">
+    	<%@include file="/WEB-INF/include/footer.jsp" %> 
+     </div>
   </div>
   </div>
 </body>

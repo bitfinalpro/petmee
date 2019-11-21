@@ -18,35 +18,35 @@
 	<select id="selectOneBoard" parameterType="int" resultType="QnaBoard">
 		select *
 		  from tb_qna
-		 where qnaNo = #{qnaNo} 
+		 where qnaNo = #{no} 
 	</select>
 <!-- 게시글 등록 -->
 	<insert id="insertQnaBoard" parameterType="QnaBoard">
 		insert into tb_qna (
 			 qnaTitle, qnaWriter, qnaContent
 		) values (
-			 #{qnaTitle}, #{qnaWriter}, #{qnaContent}
+			 #{title}, #{writer}, #{content}
 		)
 	</insert>
 <!--  조회 수 -->	
 	<update id="updateViewCnt" parameterType="int">
 		update tb_qna 
 		   set viewCnt = viewCnt + 1
-		 where qnaNo = #{qnaNo}
+		 where qnaNo = #{no}
 	</update>
 <!--  글 수정 -->	
 	<update id="updateQnaBoard" parameterType="QnaBoard">
 		update tb_qna
-		   set qnaTitle = #{qnaTitle},
-		       qnaWriter = #{qnaWriter}, 
-		       qnaContent = #{qnaContent}
-		 where qnaNo = #{qnaNo}
+		   set qnaTitle = #{title},
+		       qnaWriter = #{writer}, 
+		       qnaContent = #{content}
+		 where qnaNo = #{no}
 	</update>
 <!--  글삭제 -->
 	<delete id="deleteQnaBoard" parameterType="int">
 		delete 
 		  from tb_qna 
-		 where qnaNo = #{qnaNo}
+		 where qnaNo = #{no}
 	</delete>
 </mapper>
 
