@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="../resources/css/common/gnb.css" rel="stylesheet">
-<link href="../resources/css/parcel/parcelList.css"
-	rel="stylesheet">
+<link href="../resources/css/parcel/parcelList.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -49,52 +48,21 @@
 					<strong>Community</strong>
 				</div>
 				<div id="y-list">
-					<li><img class="img-src" src="../resources/images/main/1.jpg">
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div></li>
-					<li><img class="img-src" src="../resources/images/main/sub_img.jpg">
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div></li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
-					<li>1
-						<div class="txt-box">
-							<span>safasfsafsafasfsaf간단 메세지</span>
-						</div>
-					</li>
+				
+		<!-- <li><img class="img-src" src="../resources/images/main/1.jpg"> -->
+					<c:forEach var="blist" items="${blist}" varStatus="status">
+					<a href="/petmee/parcelboard/parcelDtail.do?no=${blist.no}">
+						<li><img class="img-src" src="<c:url value='${flist[status.index].sumpath}${flist[status.index].oriName}'/>">
+							<div class="txt-box">
+								<span>${blist.title}no:${blist.no}</span>
+							</div></li>
+					</a>
+
+					</c:forEach>
+
 				</div>
 				<br>
-				<button id="y-writeform">글쓰기</button>
+				<button id="y-writeform" >글쓰기</button>
 				<br>
 				<div id="page-area">
 					<ul>
@@ -132,7 +100,13 @@
 	<div id="footer" class="footer_wrap clearfix">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
-	
+
+<script type="text/javascript">
+	$("#y-writeform").click( function () {
+		location.href = "/petmee/parcelboard/parcelWriteForm.do";
+	});
+</script>
+
 </body>
 
 </html>

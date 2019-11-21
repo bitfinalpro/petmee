@@ -39,3 +39,30 @@
     top: -55px;
     left: 50%;
 }
+
+/* 섬머노트 */
+#y-content {
+	overflow: hidden;
+}
+
+.midle-btn {
+	text-align: center;
+}
+
+.midle-btn>button {
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+	right: 25px;
+}
+
+#yy-img {
+	margin-bottom: 20px;
+}
+
+.yy-img {
+	width: 140px;
+	height: 180px;
+	border: 1px solid black;
+	pointer-events: none;
+}

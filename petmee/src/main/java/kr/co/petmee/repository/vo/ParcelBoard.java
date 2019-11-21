@@ -7,11 +7,11 @@ import lombok.Data;
 @Data
 public class ParcelBoard {
 
-	private int no;
-	private String writer;
+	private Integer no;
 	private String title;
+	private String writer;
 	private String content;
-	private int viewCnt;
+	private Integer viewCnt;
 	private Date regDate;
 	
 }

@@ -34,13 +34,16 @@
 			</div>
 			<hr />
 			<div id="y-p-title">
-				<strong>제목입니다.1</strong> <span>2019-11-11</span>
+				<strong>${board.title}</strong> <span>2019-11-11</span>
 			</div>
 			<hr />
-			<div id="y-p-content">2019년 10월10일 부천점에서 슈나우저 입양한지 딱 한달이
-				되었네요.분양시기를 놓처서 5개월이 되었다는데 너무 말라서 묻고 따지지도 않고 데리고 왔습니다.이제 잘 적응해서 살도 좀
-				붙었고 피부병도 있었다는데 콧잔등 탈모가 조금 있지만 너무 활달하고 이쁘게 잘 크고 있습니다.피부에 좋다는 오메가3도
-				먹이고 있으며 이제 슬슬 배변도 화장실가서 보는 경우가 많아지고 있습니다.조만간 완벽하게 가릴듯합니다.</div>
+			<div id="y-p-content">
+			
+			<c:forEach var="flist" items="${flist}" varStatus="status">
+					<div><img class="img-src" src="<c:url value='${flist.path}${flist.oriName}'/>"></div>
+			</c:forEach>
+			${board.content}
+			</div>
 			<hr />
 			<button id="return-list" class="midle-btn">목록</button>
 
