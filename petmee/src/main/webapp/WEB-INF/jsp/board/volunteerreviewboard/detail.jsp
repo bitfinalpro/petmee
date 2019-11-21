@@ -9,9 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
-  <link href="../resources/css/common/base.css" rel="stylesheet">
+  <link rel="stylesheet" href="<c:url value="/resources/css/common/base.css" />">
+  <link rel="stylesheet" href="<c:url value="/resources/css/volunteer/detail.css" />">
   <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
-    <link href="../resources/css/free/detail.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
   <style>
@@ -23,9 +23,7 @@
 </head>
    
 <body>
-        <div id="header">
-            <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
-        </div>
+       <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
 <section>
        <div class="background">
            <h2 class="free"><i class="fas fa-users"></i>자원봉사 후기 게시판</h2>
@@ -58,7 +56,7 @@
                    <div class="button">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
-                       <a href="<c:url value="/volunteerreviewboard/list.do" />"><button class="b1">목록</button></a>
+                       <a href="<c:url value="/board/volunteerreviewboard/list.do" />"><button class="b1">목록</button></a>
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  

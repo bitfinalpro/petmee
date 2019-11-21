@@ -18,7 +18,7 @@ import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.activity.controller.ActivityBoardController")
-@RequestMapping("/volunteerreviewboard")
+@RequestMapping("/board/volunteerreviewboard")
 public class ActivityBoardController {
 	@Autowired
 	private VolunteerReviewBoardService service;
