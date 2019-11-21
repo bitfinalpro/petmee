@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.QnaBoardDAO">
+
+<!-- 리스트 , 페이징 -->
+	<select id="selectQna" resultType="QnaBoard" parameterType="Page">
+	   select *
+	     from tb_qna
+	    order by qnaNo desc
+	     limit #{begin}, 10
+	</select>
+	<select id="selectQnaCount" resultType="int">
+	select count(*)
+		from tb_qna
+	</select>
+<!-- 글 상세 조회 -->
+	<select id="selectOneBoard" parameterType="int" resultType="QnaBoard">
+		select *
+		  from tb_qna
+		 where qnaNo = #{qnaNo} 
+	</select>
+<!-- 게시글 등록 -->
+	<insert id="insertBoard" parameterType="QnaBoard">
+		insert into tb_qna (
+			 qnaTitle, qnaWriter, qnaContent
+		) values (
+			 #{qnaTitle}, #{qnaWriter}, #{qnaContent}
+		)
+	</insert>
+<!--  조회 수 -->	
+	<update id="updateViewCnt" parameterType="int">
+		update tb_qna 
+		   set viewCnt = viewCnt + 1
+		 where qnaNo = #{qnaNo}
+	</update>
+<!--  글 수정 -->	
+	<update id="updateQna" parameterType="QnaBoard">
+		update tb_qna
+		   set qnaTitle = #{qnaTitle},
+		       qnaWriter = #{qnaWriter}, 
+		       qnaContent = #{qnaContent}
+		 where qnaNo = #{qnaNo}
+	</update>
+<!--  글삭제 -->
+	<delete id="deleteQna" parameterType="int">
+		delete 
+		  from tb_qna 
+		 where qnaNo = #{qnaNo}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
