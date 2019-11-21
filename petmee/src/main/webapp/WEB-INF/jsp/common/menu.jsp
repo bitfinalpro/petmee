@@ -188,7 +188,7 @@
                         <a href="#">커뮤니티</a>
                         <div class="depth02_box">
                             <ul class="clearfix tab">
-                                <li><a href="#">
+                                <li><a href='<c:url value="/freeboard/list.do" />'>
                                         <div class="imgbox">
                                             <img src="" alt="" class="off">
                                             <img src="" alt="" class="on">

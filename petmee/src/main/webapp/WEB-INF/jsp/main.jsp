@@ -7,10 +7,12 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
 <meta name="google" value="notranslate"/>
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 <title>Side Menu</title>
 </head>
 <body>
-	<a href="<c:url value="/board/notice/notice.do" />">링크</a>
+<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 </body>
 </html>
 
