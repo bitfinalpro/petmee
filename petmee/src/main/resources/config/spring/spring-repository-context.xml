@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="euc-kr"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:p="http://www.springframework.org/schema/p"	    
-    xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"	    	    
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans   
-    http://www.springframework.org/schema/beans/spring-beans.xsd
-    http://www.springframework.org/schema/aop
-    http://www.springframework.org/schema/aop/spring-aop.xsd
-    http://www.springframework.org/schema/tx
-    http://www.springframework.org/schema/tx/spring-tx.xsd    
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
-    
+	   xmlns:p="http://www.springframework.org/schema/p"	    
+       xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"	    	    
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+	   				       http://www.springframework.org/schema/beans/spring-beans.xsd
+	   				       http://www.springframework.org/schema/aop
+	   				       http://www.springframework.org/schema/aop/spring-aop.xsd
+	   				       http://www.springframework.org/schema/tx
+	   				       http://www.springframework.org/schema/tx/spring-tx.xsd    
+	   				       http://www.springframework.org/schema/context
+	   				       http://www.springframework.org/schema/context/spring-context.xsd">
+       
 	<context:property-placeholder 
 		location="classpath:config/mybatis/db.properties"/>
                   
@@ -22,8 +22,9 @@
 		destroy-method="close"
       	p:driverClassName="${driver}"
         p:url="${url}"
-        p:username="hr" 
-        p:password="hr" />
+        p:username="cho" 
+        p:password="cho" />
+
 	                                                                                           
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -36,8 +37,7 @@
 		<property name="basePackage" value="kr.co.petmee.repository.dao" />
 	</bean>
 	
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -48,8 +48,7 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut id="tranMethod"
-		              expression="execution(public * kr.co.petmee..service.*Impl.*(..)) "/>
+		<aop:pointcut id="tranMethod" expression="execution(public * kr.co.petmee..service.*Impl.*(..)) "/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="tranMethod" />
 	</aop:config>
 </beans>
