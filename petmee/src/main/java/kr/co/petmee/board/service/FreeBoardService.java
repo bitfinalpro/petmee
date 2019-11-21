@@ -14,6 +14,8 @@ public interface FreeBoardService {
     
     void insertBoard(FreeBoard board);
 	
+    int selectBoardCount();
+    
 	 FreeBoard detailBoard(int no);
 
 	 void deleteBoard(int no);

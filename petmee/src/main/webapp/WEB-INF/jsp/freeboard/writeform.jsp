@@ -5,13 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Pet Me</title>
-<link href="./css/gnb.css" rel="stylesheet">
-  <link href="../resources/css/gnb.css" rel="stylesheet">
-  <link href="../resources/css/base.css" rel="stylesheet">
-  <script src="..resources/js/jquery-1.12.4.js"></script>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
+  <link href="../resources/css/common/base.css" rel="stylesheet">
+  <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
 <link href="./css/summernote-lite.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <script src="./js/jquery-1.12.4.js"></script>
@@ -42,15 +41,17 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
     background-image: linear-gradient(30deg,#333, #333);}
  </style>    
 <body>
-  <div id="header"> </div>
+ <div id="header">
+        <%@include file="/WEB-INF/include/menu.jsp" %>
+    </div>
 
     <section id="wrap">
         <img src="/images/main/1231.jpg" width="100%" />
-         <form method="post" action="write.do" id="">
+         <form method="post" action="write.do" id="" onsubmit="return check()">
         <div class="wirte_form">
           제목 :  <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
-            <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/>
-            <textarea name="content" id="summernote"></textarea>
+        쓴놈 :    <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/>
+        내용 :     <textarea name="content" id="content"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
                 <div><input type="file" /></div>
@@ -92,14 +93,12 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
      <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> 
      <script src = "simple-image.js" ></script> 
      <link  href = "simple-image.css"  rel = "stylesheet" /> 
-     
-     <div  id = "editorjs" > </div> 
-     
-     <script> const editor = new EditorJS ({
-            autofocus : true 
-         });
-         </script>
-     <div id="footer" class="footer_wrap clearfix"> </div>
+  
+    <div id="footer" class="footer_wrap clearfix">
+            <%@include file="/WEB-INF/include/footer.jsp" %> 
+        </div>
+        
+        <script src="<c:url value='/resources/js/writeform.js' />"></script>
 
 </body>
 </html>

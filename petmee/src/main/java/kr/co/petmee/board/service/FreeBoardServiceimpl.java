@@ -20,9 +20,17 @@ public class FreeBoardServiceimpl implements FreeBoardService {
 	@Autowired
 	private CommentDAO dao1;
 	
+	
+	@Override
 	public List<FreeBoard> listBoard(Page page) {
 		return dao.selectBoard(page);
 	}
+	
+	 @Override
+	   public int selectBoardCount() {   
+	      return dao.selectBoardCount();
+	   }
+
 	
 	public void insertBoard(FreeBoard board) {
 		dao.insertBoard(board);

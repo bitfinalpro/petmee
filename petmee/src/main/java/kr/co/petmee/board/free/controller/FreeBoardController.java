@@ -24,23 +24,11 @@ public class FreeBoardController {
 	@Autowired
 	private FreeBoardService service;
 	
-	@Autowired
-	private FreeBoardDAO dao;
-	
 	@RequestMapping("/list.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page) {
-		
-		model.addAttribute("list", service.listBoard(page));
-		int count = dao.selectBoardCount(); 
-		
-		PageResult pr = new PageResult(pageNo, count);
-		model.addAttribute("pr", pr);
-		 page = new Page(pageNo);
-		System.out.println("요청 페이지 번호 : " + pageNo);
-		System.out.println("요청 페이지 시작 번호 : " + page.getBegin());
-		System.out.println("요청 페이지 종료 번호 : " + page.getEnd());
-		
-	}
+	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
+		  model.addAttribute("list", service.listBoard(new Page(pageNo)));
+	      model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));
+	   }
 	
 	@RequestMapping("/writeform.do")
 	public void writeform() {}

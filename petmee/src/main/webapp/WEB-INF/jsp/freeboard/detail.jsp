@@ -78,12 +78,14 @@
                    </div>
                </div>
    </section>
-        <div id="footer" class="footer_wrap clearfix"> </div>
+        <div id="footer" class="footer_wrap clearfix">
+            <%@include file="/WEB-INF/include/footer.jsp" %> 
+        </div>
          <script>
            let no = ${board.no};
          </script>
         
-        <script src="<c:url value='/resources/js/board.js' />"></script>
+        <script src="<c:url value='/resources/js/freeboard.js' />"></script>
 </body>
 
 </html>
