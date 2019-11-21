@@ -2,11 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kr.co.petmee.repository.dao.NoticeBoardDAO">
-	<select id = "selectBoard" resultType ="NoticeBoard">
-		select * 
-			from notice_board 
-			order by no desc
+<mapper namespace="kr.co.petmee.repository.dao.NoticeBoardDAO">	 
+	  
+	<select id = "selectBoardCount" resultType ="int">
+		select count(*)
+					from notice_board as a		
+	</select>
+	<select id = "selectBoard" parameterType="Page" resultType="NoticeBoard">			
+     select *
+         	from notice_board
+                   order by topChk desc, no desc
+          limit #{begin}, 10
 	</select>
 	
 	<select id = "selectOneBoard" parameterType="int" resultType="NoticeBoard">
@@ -23,11 +29,23 @@
 	
 	<insert id="insertBoard" parameterType="NoticeBoard">
 		insert into notice_board(
-			title, writer, content
+			title, writer, content, topChk
 		) values (
-		 #{title}, #{writer}, #{content}
+		 #{title}, #{writer}, #{content}, #{topChk}
 		)
 	</insert>
+	<!-- 
+		<insert id="insertBoard" parameterType="NoticeBoard">
+		insert into notice_board(
+			title, writer, content, topChk
+				) select #{title}, #{writer}, #{content}, #{topChk} from notice_board
+   			 where (
+    		(#{topChk} = 1 and  no = 0)
+    			or 
+    		(#{topChk} = 0 and no)
+    		)
+	</insert>
+	 -->	
 	
 	<update id="updateBoard" parameterType="NoticeBoard">
 		update notice_board

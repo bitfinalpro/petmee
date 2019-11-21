@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.NoticeBoardDAO;
 import kr.co.petmee.repository.vo.NoticeBoard;
+import kr.co.petmee.repository.vo.Page;
 
 @Service
 public class NoticeBoardServicempl implements NoticeBoardService{
@@ -14,10 +15,16 @@ public class NoticeBoardServicempl implements NoticeBoardService{
 	@Autowired
 	private NoticeBoardDAO dao;
 	
-	public List<NoticeBoard> listBoard() {
-		return dao.selectBoard();
+	@Override
+	public List<NoticeBoard> listBoard(Page page) {
+		return dao.selectBoard(page);
 	}
-
+	
+	@Override
+	public int selectBoardCount() {	
+		return dao.selectBoardCount();
+	}
+	
 	public NoticeBoard detailBoard(int no) {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
@@ -37,4 +44,17 @@ public class NoticeBoardServicempl implements NoticeBoardService{
 	public void deleteBoard(int no) {
 		dao.deleteBoard(no);
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

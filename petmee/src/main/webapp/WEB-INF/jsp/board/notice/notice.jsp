@@ -10,7 +10,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/notice/notice.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css" />">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
 </style>
@@ -18,7 +21,7 @@
   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
     <section id="wrap" >
         <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>
-        <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">    
+        <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>    
         <div class="top_input">
             <div>
                 <strong>공지사항</strong>
@@ -55,7 +58,15 @@
 				</c:if>
 			<c:forEach var="b" items="${list}">
 				<tr onclick="document.location.href='detail.do?no=${b.no}'">
-					<td>${b.no}</td>
+					<c:choose>
+					<c:when test="${b.topChk eq 1}" >
+						<td style="display:none">${b.no}</td>
+						<td><img src="<c:url value="/resources/images/dog_img.png"/>" style="height: 70%;"/></td>
+					</c:when>
+					<c:when test="${b.topChk eq 0}" >
+						<td>${b.no}</td>
+					</c:when>
+					</c:choose>
 					<td>${b.title}</td>
 					<td>${b.writer}</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
@@ -72,9 +83,30 @@
             background-image: linear-gradient(30deg,#002a50,#006ecf);
             float : right;}</style>
         <div class="foot_btn"><a href="<c:url value="/board/notice/writeform.do"/>"><button>글 등록</button></a></div>
-        <div id="page">
-            <span> << &nbsp;1 &nbsp; / &nbsp; 2 &nbsp; / &nbsp; 3 &nbsp; / &nbsp; 4 &nbsp; / &nbsp; 5 &nbsp; >></span>
-        </div>
+        
+        <div id="page" >
+        <nav>
+  <ul class="pagination">
+  <c:if test="${pr.prev}">
+    <li>
+      <a href="notice.do?pageNo=${pr.beginPage - 1}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    </c:if>
+    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
+    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="notice.do?pageNo=${i}">${i}</a></li>
+    </c:forEach>
+    <c:if test="${pr.next}">
+    <li>
+      <a href="notice.do?pageNo=${pr.endPage + 1}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    </c:if>
+  </ul>
+</nav>
+	</div>
     </section>  
         <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 </body>

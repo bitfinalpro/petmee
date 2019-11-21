@@ -12,5 +12,6 @@ public class NoticeBoard {
 	private String content;
 	private int viewCnt;
 	private Date date;
+	private int topChk;
 	
 }

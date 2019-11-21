@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/notice/notice.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 </head>
 <style>
 </style>

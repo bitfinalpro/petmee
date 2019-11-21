@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.NoticeBoard;
+import kr.co.petmee.repository.vo.Page;
 
 @Service
 public interface NoticeBoardService {
 	// 공지사항 리스트 뽑기
-	List<NoticeBoard> listBoard();
+	List<NoticeBoard> listBoard(Page page);
+	
+	int selectBoardCount();
 	
 	NoticeBoard detailBoard(int no);
 	
@@ -20,5 +23,7 @@ public interface NoticeBoardService {
 	void updateBoard(NoticeBoard board);
 	
 	void deleteBoard(int no);
+
+
 
 }
