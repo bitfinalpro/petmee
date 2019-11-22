@@ -224,7 +224,7 @@
                                              <p class="txt">분양게시판</p>
                                         </div>
                                   </a></li>
-                                  <li><a href="#">
+                                  <li><a href="<c:url value="/board/reviewboard/reciew_list.do" />">
                                         <div class="imgbox">
                                             <img src="" alt="" class="off">
                                             <img src="" alt="" class="on">
