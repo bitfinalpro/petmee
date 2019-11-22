@@ -1,135 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../resources/css/common/gnb.css" rel="stylesheet">
-    <link href="../resources/css/review/review_writer.css" rel="stylesheet">
-    <script src="../resources/js/jquery-1.12.4.js"></script>
-	<script src="<c:url value='../resources/js/common/jquery-1.12.4.js' />"></script>
-	<title>PET ME</title>
+	<title>Pet Mee</title>
+	<link href="<c:url value='/resources/css/common/gnb.css' />" rel="stylesheet">
+	<link href="<c:url value='/resources/css/review/review_writer.css' />" rel="stylesheet">
+	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous">
+	<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
 </head>
-<script type="text/javascript">
-    $(document).ready(function(){
-       $("#header").load("menu.html")    
-    });
-    $(document).ready(function(){
-       $("#footer").load("footer.html")    
-    });
-</script>    
+   
 <body>
     <div id="header">
-    <div class="header clearfix">
-    <div class="headwrap clearfix">
-        <h1 class="logo"><a href="#"><img src="../resources/images/menu/final_logo.png"></a></h1>
-        <div class="util_wrap">
-            <ul class="clearfix">
-                <li><a href="#">LOGIN</a></li>
-                <li><a href="#">JOIN</a></li>
-                <script>
-                    function allsearch(form) {
-                        if (form.search_word.value == "") {
-                            alert("검색어를 입력해 주세요");
-                            form.search_word.focus();
-                            return (false);
-                        }
-                        form.submit();
-                    }
-                </script>
-            </ul>
-        </div>
-        <div class="search_wrap">
-            <div class="search_box">
-                <form method="get" action="/pc/main/search.html" onsubmit="return allsearch(this);">
-                    <input class="input" type="text" title="검색어" name="search_word"
-                        placeholder="검색어를 입력하세요">
-                    <input type="submit" class="btn" value="검색">
-                </form>
-            </div>
-        </div>
-    </div>
-    <nav>
-        <div class="gnb">
-            <div class="gnb_wrap">
-                <ul class="depth clearfix">
-                    <li class="depth01" data-id="menu1">
-                        <a href="#">FOOD </a>
-                        <div class="depth02_box">
-                            <ul class="clearfix tab">
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="../resources/images/menu/13.jpg" alt="" class="off">
-                                            <img src="../resources/images/menu/13_on.jpg" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">사료</p>
-                                            <p class="txt">사료을 소개합니다. </p>
-                                        </div>
-                                    </a></li>
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="../resources/images/menu/14.jpg" alt="" class="off">
-                                            <img src="../resources/images/menu/14_on.jpg" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">간식</p>
-                                            <p class="txt">함께 일해 볼래요? <i class="br"></i>브리더, 스텝 大모집 </p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="depth01" data-id="menu2">
-                        <a href="#">패션</a>
-                        <div class="depth02_box">
-                            <ul class="clearfix tab">
-                                <li><a href="#">
-                                    <div class="imgbox">
-                                        <img src="" alt="" class="off">
-                                        <img src="" alt="" class="on">
-                                    </div>
-                                    <div class="txtbox">
-                                        <p class="tit">패딩/아우터</p>
-                                        <p class="txt">신발/양말</p>
-                                    </div>
-                                </a></li>
-                                <li><a href="#">
-                                     <div class="imgbox">
-                                         <img src="" alt="" class="off">
-                                         <img src="" alt="" class="on">
-                                     </div>
-                                     <div class="txtbox">
-                                         <p class="tit">티셔츠/올인원</p>
-                                         <p class="txt">악세사리/외출용품</p>
-                                     </div>
-                                 </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">미용/목욕(목욕용품,발톱관리,눈/귀/구강관리,미용/털관리)</a>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">위생/배변(배변용품,위생용품,털제거/청소용품</a>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">장난감()</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    </div>
-    </div>
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+	</div>
     <section>
         <div style="position:relative; margin: 0 auto; background-color: 10px solid #777;">
-            <img src="../resources/images/review/top.jpg">
+            <img src="<c:url value='/resources/images/board/review/top.jpg' />"/>
         </div>
         <div class="title">
             <div class="top">
@@ -138,34 +30,10 @@
             </div>
         </div>
         <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
-        
-        
         <!-- content시작 -->
         <div id="content" style="position:relative; margin: 0 auto; width:70%; ">
-        <!-- 이미지 불러오기 -->
-        <div class="toplist" style="border-top: 5px solid #000;">
-
-        	<div class="toto">
-        		<div class="font">
-	        		<span><strong>상품 주문번호</strong></span>
-	        		<span>123123123</span>
-        		</div>
-        	</div>
-        	<div class="bottomlist">
-	        	<div class="thumb">
-	        		<div class="thumb_img">
-	        			<img src="../resources/images/review/minidog.jpg" style="width:100%;">
-	        		</div>
-	        	</div>
-				<div class="toptit">
-			       	<div class="toptit_head">[고양이간식] 고양이 분류</div>
-			       	<div class="toptit_content">고양이간식 - 고양이 사료</div>
-			       	<div class="toptit_end">옵션 종류 - 111</div>
-				</div>
-        	</div>
-        </div>
-        
-	<form method='post' action='review_write.do'>
+  
+	<form method='post' action='review_write.do' name="SermernoteVo" enctype="multipart/form-data" >
        	<div class="review_form_title" >
        	    <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
 	       	<h2>상품은 만족하셨나요?</h2>
@@ -174,26 +42,24 @@
        	
        	<!-- 별점 -->
        	<div class="review_form__submit_container">
-      <div class="review_form__add_image_container js-add-image-container" style="cursor: pointer;">
-        
-        <span class="review_form__add_image_icon sprites-icon-camera-black"></span>
-        <div class="review_form__add_image_description" data-org-text="+ 사진추가">+ 사진추가</div>
+       	<input type="file" name="boardfile" multiple="multiple" />
+      <div class="review_form__add_image_container js-add-image-container" style="cursor: pointer; margin-top: 2px;">
+        <div class="files">
+             <!-- <div><i class="fas fa-download"></i></div> -->
+        	<div> <input type="file" name="sumfile" /></div>
+        </div>
       </div>
     <div class="review_form__score">
       <div class="select2-container review_form__select_rating select_rating" id="s2id_review_score">
       <a href="javascript:void(0)" onclick="return false;" class="select2-choice" tabindex="-1">   
-	      <div class="select2-chosen">
-		      <div class="item">
-			      <span class="star"></span>
-			      <span class="star"></span>
-			      <span class="star"></span>
-			      <span class="star"></span>
-			      <span class="star"></span>
-		      	  <span class="text">아주 좋아요</span>
-		      </div>
-	      </div>
+	        <select name="searchYear" class="select2-chosen" style="display:block; width: 100%; height: 100%">
+				<option value="5">★★★★★ 아주 좋아요</option>
+				<option value="4">★★★★ 괜찮네요</option>
+				<option value="3">★★★ 그저 그렇네요</option>
+				<option value="2">★★ 생각 좀 해볼게요</option>
+				<option value="1">★ 별루에요</option>
+			</select>
 	      <abbr class="select2-search-choice-close"></abbr>
-	      
 	      <span class="select2-arrow"><b></b></span>
 	      <span class="sprites-icon-drop-down select2__dropdown_icon"></span>
       </a>
@@ -287,35 +153,33 @@
 		
 	</div>
     </section>
+    
+    <script>
+        $('#summernote').summernote({
+            placeholder: '<br>※ 게시판 용도와 무관하거나 아래 내용이 포함된 경우는 사전 안내없이 삭제/제재됩니다.<br><br>- 욕설, 상대 비방 등 타인의 명예를 훼손하는 게시물 <br><br>- 불쾌감을 줄 수 있는 이미지나 내용, 저작권에 위배되는 게시물 <br><br>- 개인정보 노출이 있거나 현금 거래 시도 등에 준하는 행위 ',
+            tabsize: 2,
+            height: 500,
+            minHeight: null,   
+            maxHeight: null,             
+            focus: true 
+          });
+        let buEle = document.getElementById("BoardWrite")
+        function onWrite(){
+        	let userCheck = true;
+        	if (buEle.content.value == ''){
+        		alert("내용을 입력해주세요.");
+        		return false;
+        	}
+        	BoardWrite.submit();
+        }
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> 
+     <script src = "simple-image.js" ></script> 
+     <link  href = "simple-image.css"  rel = "stylesheet" /> 
+    
+    
     <div id="footer" class="footer_wrap clearfix">
-    	<div class="wrapper clearfix">
-    <div class="foot_wrap">
-        <div class="foot_logo">
-            <a href="./#" class="logo"><img src="../resources/images/menu/footlogo.png" alt=""></a>
-        </div>
-        <div class="foot_txt">
-
-            <p class="bar_span">
-                <span>시바먼치킨</span>
-                <span>address</span>
-            </p>
-            <p class="copy">
-                COPYRIGHT ⓒ 2019 사이트명, ALL RIGHTS RESERVED.
-            </p>
-
-            <div class="sns_wrap">
-                <ul class="clearfix">
-                    <li><a href="#" target="_blank" class="blog" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="cafe" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="kakao" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="instagram" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="facebook" title=" "></a></li>
-                    <li><a href="#" class="location" title=" "></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
+		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
+	</div>
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ReviewBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
+import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.ReviewBoard;
 
 @Service
@@ -36,6 +37,28 @@ public class ReviewBoardServiceImpl implements ReviewBoardService {
 	public void updateBoard(ReviewBoard board) {
 		dao.updateBoard(board);
 	}
+	
+	
+	//	파일
+	public List<Filevo> selectSumFiles() {
+		return dao.selectSumFiles();
+	}
+	public List<Filevo> selectBaordFile(int no) {
+		return dao.selectBaordFile(no);
+	}
+	public void insertFile(Filevo filevo) {
+		dao.insertFile(filevo);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public List<Comment> commentDelete(Comment comment) {
 		dao.deleteComment(comment.getCommentNo());
 		return dao.selectComment(comment.getNo());
@@ -54,6 +77,7 @@ public class ReviewBoardServiceImpl implements ReviewBoardService {
 	public List<Comment> commentList(int no) {
 		return dao.selectComment(no);
 	}
+	
 }
 
 
