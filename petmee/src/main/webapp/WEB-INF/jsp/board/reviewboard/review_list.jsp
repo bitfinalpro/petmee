@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<title>Pet Mee</title>
 	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
-<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 	<link href="<c:url value='/resources/css/review/review_list.css' />" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 </head>

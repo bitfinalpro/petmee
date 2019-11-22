@@ -11,11 +11,7 @@ import kr.co.petmee.repository.vo.NoticeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
-<<<<<<< HEAD
-@Controller("kr.co.petmee.board.notice.controller.NoticeBoardController")
-=======
 @Controller("kr.co.petmee.board.controller.NoticeBoardController")
->>>>>>> develop
 @RequestMapping("/board/noticeboard")
 public class NoticeBoardController {
 
