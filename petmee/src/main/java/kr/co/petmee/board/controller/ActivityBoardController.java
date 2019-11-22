@@ -14,6 +14,7 @@ import kr.co.petmee.board.service.VolunteerReviewBoardService;
 import kr.co.petmee.repository.dao.VolunteerReviewBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 import kr.co.petmee.util.PageResult;
 
@@ -28,9 +29,22 @@ public class ActivityBoardController {
 	
 	//봉사후기 전체 게시물 목록 호출
 	@RequestMapping("/list.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page) {
+	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page, @RequestParam(value="key", defaultValue="0") int key, String val) {
+		int count = 0;
+		if(key == 0 || val == null) {
 		model.addAttribute("list", service.listBoard(page));
-		int count = dao.selectBoardCount(); 
+		count = dao.selectBoardCount(); 
+		}
+		else{
+			Search search = new Search();
+			search.setListSize(page.getListSize());
+			search.setPageNo(page.getPageNo());
+			search.setKeyword(key);
+			search.setSearchText(val);
+			List<VolunteerReviewBoard> list = service.searchlistBoard(page, search);
+			model.addAttribute("list", list);
+			count = list.size();
+		}		
 		
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
@@ -94,4 +108,5 @@ public class ActivityBoardController {
 	public List<Comment> commentUpdateAjax(Comment comment) {
 		return service.commentUpdate(comment);
 	}
+	
 }

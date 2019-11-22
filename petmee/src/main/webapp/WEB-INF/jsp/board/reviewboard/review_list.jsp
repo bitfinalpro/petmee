@@ -8,125 +8,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pet Mee</title>
-	<link href="../resources/css/common/gnb.css" rel="stylesheet">
-	<link href="../resources/css/review/review_list.css" rel="stylesheet">
-	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
-	<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
+	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+	<link href="<c:url value='/resources/css/review/review_list.css' />" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 </head>
 <body>
 	<div id="header">
-		<div class="header clearfix">
-    <div class="headwrap clearfix">
-        <h1 class="logo"><a href="#"><img src="../resources/images/menu/final_logo.png"></a></h1>
-        <div class="util_wrap">
-            <ul class="clearfix">
-                <li><a href="#">LOGIN</a></li>
-                <li><a href="#">JOIN</a></li>
-                <script>
-                    function allsearch(form) {
-                        if (form.search_word.value == "") {
-                            alert("검색어를 입력해 주세요");
-                            form.search_word.focus();
-                            return (false);
-                        }
-                        form.submit();
-                    }
-                </script>
-            </ul>
-        </div>
-        <div class="search_wrap">
-            <div class="search_box">
-                <form method="get" action="/pc/main/search.html" onsubmit="return allsearch(this);">
-                    <input class="input" type="text" title="검색어" name="search_word"
-                        placeholder="검색어를 입력하세요">
-                    <input type="submit" class="btn" value="검색">
-                </form>
-            </div>
-        </div>
-    </div>
-    <nav>
-        <div class="gnb">
-            <div class="gnb_wrap">
-                <ul class="depth clearfix">
-                    <li class="depth01" data-id="menu1">
-                        <a href="#">FOOD</a>
-                        <div class="depth02_box">
-                            <ul class="clearfix tab">
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="../resources/images/menu/13.jpg" alt="" class="off">
-                                            <img src="../resources/images/menu/13_on.jpg" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">사료</p>
-                                            <p class="txt">사료을 소개합니다. </p>
-                                        </div>
-                                    </a></li>
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="../resources/images/menu/14.jpg" alt="" class="off">
-                                            <img src="../resources/images/menu/14_on.jpg" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">간식</p>
-                                            <p class="txt">함께 일해 볼래요? <i class="br"></i>브리더, 스텝 大모집 </p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="depth01" data-id="menu2">
-                        <a href="#">패션</a>
-                        <div class="depth02_box">
-                            <ul class="clearfix tab">
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="" alt="" class="off">
-                                            <img src="" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">패딩/아우터</p>
-                                            <p class="txt">신발/양말</p>
-                                        </div>
-                                    </a></li>
-                                <li><a href="#">
-                                        <div class="imgbox">
-                                            <img src="" alt="" class="off">
-                                            <img src="" alt="" class="on">
-                                        </div>
-                                        <div class="txtbox">
-                                            <p class="tit">티셔츠/올인원</p>
-                                            <p class="txt">악세사리/외출용품</p>
-                                        </div>
-                                    </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">미용/목욕(목욕용품,발톱관리,눈/귀/구강관리,미용/털관리)</a>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">위생/배변(배변용품,위생용품,털제거/청소용품</a>
-                    </li>
-                    <li class="depth01 _down" data-id="menu7">
-                        <a href="#">장난감()</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<script src="./js/menu.min.js"></script>
-	
-	
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
+
 <section>
     <div style="position:relative; margin: 0 auto; background-color: 10px solid #777;">
-        <img src="../resources/images/review/top.jpg">
+        <img src="<c:url value='/resources/images/board/review/top.jpg' />">
     </div>
-    
+     <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>      
     <div class="boardList">
         <div class="title">
             <div class="top">
@@ -137,8 +33,8 @@
         <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
         <div class="review-tab">
 	    	<ul>
-				<li class="product-review"><a href="/board/review/list.html">상품리뷰</a></li>
-				<li class="photo-review"><a href="/board/review/photo-review/index.html?board_no=14">포토리뷰</a></li>
+				<li class="product-review"><a href="/board/reviewboard/review_list.html">상품리뷰</a></li>
+				<li class="photo-review"><a href="/petmee/board/review/photo-review/index.html?board_no=14">포토리뷰</a></li>
 				<li class="queen-review"><a href="/board/review/queen-review/index.html">이달의 포토리뷰퀸</a></li>
 		    </ul>
 		</div>
@@ -200,7 +96,7 @@
                 <!-- 상품이미지, 상품명 -->
                 <td class="thumb b_list">
                     <%-- <a href="/petmee/reviewboard/review_detail.do?no=${b.no}"> --%>
-                        <img src="../resources/images/review/food.jpg" border="0" alt="">
+                        <img src="<c:url value='/resources/images/board/review/food.jpg' />" border="0" alt="">
                         <span>하이펫 강아지사료 네츄럴코어</span>
                     <!-- </a> -->
                 </td>
@@ -217,11 +113,12 @@
                 <td class="b_list">${b.writer}</td>
                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
                 <td>${b.views}</td>
-                <td class="displaynone b_list">★★★★★</td>
+                
+                <td class="displaynone b_list">★★★★★★</td>
             	<td >
             		<div style="margin-top: 10px;">
 	            		<a href="#" style="background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px; ">제품보기</a>
-	            		<a href="/petmee/reviewboard/review_detail.do?no=${b.no}" style="background-color:#3f3f3f; margin-top: 10px; display: block; width: 100px; color: #fff; padding: 5px;">리뷰상세보기</a>
+	            		<a href="/petmee/board/reviewboard/review_detail.do?no=${b.no}" style="background-color:#3f3f3f; margin-top: 10px; display: block; width: 100px; color: #fff; padding: 5px;">리뷰상세보기</a>
             		</div>
             	</td>
             </tr>
@@ -288,35 +185,8 @@
     </div>
 </section>
 <div id="footer" class="footer_wrap clearfix">
-	<div class="wrapper clearfix">
-    <div class="foot_wrap">
-        <div class="foot_logo">
-            <a href="./#" class="logo"><img src="../resources/images/menu/footlogo.png" alt=""></a>
-        </div>
-        <div class="foot_txt">
-
-            <p class="bar_span">
-                <span>시바먼치킨</span>
-                <span>address</span>
-            </p>
-            <p class="copy">
-                COPYRIGHT ⓒ 2019 사이트명, ALL RIGHTS RESERVED.
-            </p>
-
-            <div class="sns_wrap">
-                <ul class="clearfix">
-                    <li><a href="#" target="_blank" class="blog" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="cafe" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="kakao" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="instagram" title=" "></a></li>
-                    <li><a href="#" target="_blank" class="facebook" title=" "></a></li>
-                    <li><a href="#" class="location" title=" "></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
+		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
+	</div>
 <!-- 
 <script type="text/javascript">
 				function getRandomInt(min, max) {

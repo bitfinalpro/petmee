@@ -33,8 +33,7 @@
 <!--  봉사후기 글 수정 -->	
 	<update id="updateBoard" parameterType="VolunteerReviewBoard">
 		update tb_volunteerreviewboard 
-		   set title = #{title},
-		       writer = #{writer}, 
+		   set title = #{title},		       
 		       content = #{content}
 		 where no = #{no}
 	</update>
@@ -80,6 +79,29 @@
 	select count(*)
 		from tb_volunteerreviewboard
 	</select>
+	
+<!-- 자원봉사 후기 검색 게시물 추출  -->
+	<select id="selectSearchWriter" resultType="VolunteerReviewBoard" parameterType="Search">
+	   select *
+	     from tb_volunteerreviewboard
+	    where writer like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchTitle" resultType="VolunteerReviewBoard" parameterType="Search">
+	   select *
+	     from tb_volunteerreviewboard
+	    where title like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchBoth" resultType="VolunteerReviewBoard" parameterType="Search">
+	   select *
+	     from tb_volunteerreviewboard
+	    where (title like concat('%',#{searchText},'%')) OR (writer like concat('%',#{searchText},'%'))
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
 </mapper>
 
 

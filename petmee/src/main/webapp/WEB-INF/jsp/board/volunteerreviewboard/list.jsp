@@ -28,11 +28,14 @@
                 <strong>자원봉사 후기 게시판</strong>
             </div>
             <div>
-                <select name="" id="top_sel">
-                    <option>전체</option>
+                <select name="searchkeyword" id="top_sel">
+                    <option value="0">전체</option>
+                    <option value="1">작성자</option>
+                    <option value="2">제목</option>
+                    <option value="3">작성자+제목</option>
                 </select>
-                <input type="text"  placeholder="검색어 입력" />
-                <button>검색</button>
+                <input type="text"  id="searchtext" placeholder="검색어 입력" />
+                <button id="searchbutton">검색</button>
             </div>
         </div>
         <table class="notice_tb">
@@ -100,5 +103,6 @@
         <div id="footer" class="footer_wrap clearfix">
            <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
+        <script src="<c:url value='/resources/js/volunteer.js' />"></script>
 </body>
 </html>

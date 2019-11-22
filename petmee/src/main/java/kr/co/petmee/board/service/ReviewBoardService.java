@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.Comment;
+import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.ReviewBoard;
 
 @Service
@@ -15,6 +16,11 @@ public interface ReviewBoardService {
 	void insertBoard(ReviewBoard review);
 	void deleteBoard(int no);
 	void updateBoard(ReviewBoard upboard);
+	
+	//	파일
+	List<Filevo> selectSumFiles();
+	List<Filevo> selectBaordFile(int no);
+	void insertFile(Filevo filevo);
 	
 	List<Comment> commentDelete(Comment comment);
 	List<Comment> commentRegist(Comment comment);

@@ -51,17 +51,7 @@
     </div>
     <section id="wrap" >
             <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-        <aside class="side_menu">
-            <div><strong>Community</strong></div>
-            <ul>
-                <li><a href="#">공지사항</a></li>
-                <li><a href="<c:url value="/board/freeboard/list.do" />">자유게시판</a></li>
-                <li><a href="#">봉사활동</a></li>
-                <li><a href="#">분양게시판</a></li>
-                <li><a href="#">후기게시판</a></li>
-                <li><a href="#">Q&A</a></li>
-            </ul>
-        </aside>    
+        <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>   
         <img src="../resources/images/main/1231.jpg" width="100%" />
         <div class="top_input">
             <div>
