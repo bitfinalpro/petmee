@@ -74,7 +74,7 @@
            let no = ${board.no};
          </script>
         
-        <script src="<c:url value='/resources/js/board.js' />"></script>
+        <script src="<c:url value='/resources/js/volunteer.js' />"></script>
 </body>
 
 </html>

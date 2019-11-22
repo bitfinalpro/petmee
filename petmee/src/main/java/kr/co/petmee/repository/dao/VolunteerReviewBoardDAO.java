@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 
 public interface VolunteerReviewBoardDAO {
@@ -29,4 +30,8 @@ public interface VolunteerReviewBoardDAO {
 	void updateComment(Comment comment);
 	//게시물갯수
 	int selectBoardCount();
+	//봉사후기 게시물 검색 목록
+	List<VolunteerReviewBoard> selectSearchWriter(Search search);
+	List<VolunteerReviewBoard> selectSearchTitle(Search search);
+	List<VolunteerReviewBoard> selectSearchBoth(Search search);
 }
