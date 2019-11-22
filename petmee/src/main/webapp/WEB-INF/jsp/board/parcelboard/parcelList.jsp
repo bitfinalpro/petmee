@@ -14,7 +14,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+a,button,submit{
 
+cursor: pointer;	
+}
+
+</style>
 <title>시바 먼치킨</title>
 
 </head>
@@ -48,12 +54,11 @@
 				</div>
 				<div id="y-list">
 				
-		<!-- <li><img class="img-src" src="../resources/images/main/1.jpg"> -->
 					<c:forEach var="blist" items="${blist}" varStatus="status">
 					<a href="/petmee/board/parcelboard/parcelDtail.do?no=${blist.no}">
 						<li><img class="img-src" src="<c:url value='${flist[status.index].sumpath}${flist[status.index].oriName}'/>">
 							<div class="txt-box">
-								<span>${blist.title}no:${blist.no}</span>
+								<span>${blist.title}:${blist.viewCnt}</span>
 							</div></li>
 					</a>
 

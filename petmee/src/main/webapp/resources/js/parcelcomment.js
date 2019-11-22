@@ -49,21 +49,25 @@ $(() => {
 		$("#commentList tr[id^=row]").show();
 		$("#commentList tr[id^=modRow]").remove();
 		
-		var modId = $(`#row${cNo} > td:eq(0)`).text();
-		var modContent = $(`#row${cNo} > td:eq(1)`).text();
+		var modId = $(`#row${cNo} > div:eq(0)`).text();
+		var modContent = $(`#row${cNo} > td:eq(2)`).text();
 		
-		var html = `<tr id="modRow${cNo}">
-		            	<td>${modId}</td>
-		            	<td>
+		var html = `<div id="modRow${cNo}">
+		            	<div class="c-id">${modId}</div>
+		            	<br>
 		            		<div class="form-group">
-		            			<input type="text" name="content" value="${modContent}" class="form-control input-wp2" placeholder="내용을 입력하세요">
+		            			<input type="text" name="content" value="${modContent}" class="form-control input-wp2 yy-con" placeholder="내용을 입력하세요">
+		            		</textarea>
 		            		</div>
-		            	</td>
-		            	<td colspan="2"> 
-		            		<a href="#" data-no="${cNo}" class="btn btn-success btn-sm update" role="button">수정</a>
-		            		<a href="#" data-no="${cNo}" class="btn btn-warning btn-sm cancel" role="button">취소</a>
-		            	</td>
-		            </tr>`;
+		            		
+		            	<div class="modifiy">
+		            		<a data-no="${cNo}" class="update" role="button">수정</a>
+		            		<a data-no="${cNo}" class="cancel" role="button">취소</a>
+		            	</div>
+		            	
+					</div>
+					`;
+
 		$("#row" + cNo).after(html);	
 		$("#row" + cNo).hide();
 	});
@@ -94,14 +98,28 @@ function makeCommentList(list) {
 		         + toPad(date.getMinutes()) + ":"
 		         + toPad(date.getSeconds());
 		$tbl.append(
-		    `<tr id="row${c.commentNo}">
-			    <td>${c.writer}</td>
-			    <td>${c.content}</td>
-			    <td>${time}</td>
-			    <td><a href="#" data-no="${c.commentNo}" class="del">삭제</a>	
-			  	    <a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
-			    </td>
-		    </tr>`		
+				
+				`
+				<br>
+				<div id="row${c.commentNo}" class="y-row" >
+				<div class="c-title">
+				<div class="c-id">${c.writer}</div>
+				<div class="c-date">${time}</div>
+				</div>
+				<br>
+				<div class="c-content">
+				${c.content}	</div>
+				
+				
+				<div class="modifiy">
+				<a data-no="${c.commentNo}" class="mod">수정</a>	
+				<a data-no="${c.commentNo}" class="del">삭제</a>	
+				</div>
+				</div>
+				
+			  	<br>
+				<hr />`
+				
 		);
 	});
 	$("#commentList").html($tbl);

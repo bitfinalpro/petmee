@@ -27,10 +27,6 @@ cursor: pointer;
     top: auto;
     left: auto;
 }
-}
-.midle-btn >button {
-display: inline-block;
-}
 </style>
 <title>시바 먼치킨</title>
 
@@ -50,15 +46,11 @@ display: inline-block;
 			</div>
 
 			<div id="y-content">
-				<form action="/petmee/board/parcelboard/parcelwrite.do" method="post"
-					name="SermernoteVo" enctype="multipart/form-data">
-					<div id="yy-img">
-						<div class="yy-img">썸네일을 넣어주세요</div>
-						<input type="text" name="writer" value="admin" /> <input
-							type="file" name="sumfile" />
-					</div>
+				<form action="/petmee/board/parcelboard/parcelupdate.do" method="post"
+					name="SermernoteVo">
 					<hr />
 					<div id="y-p-title">
+						<input type="hidden" name="no" value="${no}">
 						<input type="text" placeholder="제목을 입력하세요" name="title" />
 					</div>
 					<hr />
@@ -66,9 +58,8 @@ display: inline-block;
 
 					<textarea id="summernote" name="content"> </textarea>
 
-					<input type="file" name="boardfile" multiple="multiple" />
 					<div class="midle-btn">
-						<button id="y-regist">등록</button>
+						<button id="y-regist">수정</button>
 						<button type="button" id="return-list">목록</button>
 					</div>
 				</form>

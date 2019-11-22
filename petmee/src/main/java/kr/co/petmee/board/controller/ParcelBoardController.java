@@ -32,10 +32,6 @@ public class ParcelBoardController {
 	@Autowired
 	private ServletContext context;
 
-	@RequestMapping("qqq.do")
-	public void qqq() {
-	}
-
 	@RequestMapping("parcelList.do")
 	public void parcelList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
 		List<ParcelBoard> bylist = service.listBoard(new Page(pageNo));
@@ -61,19 +57,30 @@ public class ParcelBoardController {
 	@RequestMapping("delete.do")
 	public String delete(int no) {
 		service.deleteBoard(no);
-		return "redirect:list.do";
+		return "redirect:parcelList.do";
 	}
 	
-//	@RequestMapping("updateform.do")
-//	public void updateform(int no,Model model) throws Exception {
-//		model.addAttribute("board", service.updateFormBoard(no));
-//	}
-//	
-//	@RequestMapping("update.do")
-//	public String update(Board board) {
-//		service.updateBoard(board);
-//		return "redirect:list.do";
-//	}
+	@RequestMapping("parcelUpdateForm.do")
+	public void updateform(int no,Model model) throws Exception {
+		model.addAttribute("no",no);
+	}
+	
+	@RequestMapping("parcelupdate.do")
+	public String parcelupdate(SermernoteVo sermernoteVo,int no) throws Exception {
+//		게시판 정보
+		ParcelBoard getParcelBoard = new ParcelBoard();
+		getParcelBoard.setNo(no);
+		getParcelBoard.setTitle(sermernoteVo.getTitle());
+		getParcelBoard.setContent(sermernoteVo.getContent());
+
+		service.updateBoard(getParcelBoard);
+		
+		int bno = getParcelBoard.getNo();
+		System.out.println(bno);
+
+//		저장하고 리스트로 이동
+		return "redirect:parcelList.do";
+	}
 
 	@RequestMapping("parcelWriteForm.do")
 	public void parcelWriteForm() {
