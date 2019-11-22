@@ -8,11 +8,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pet Mee</title>
-	<link href="<c:url value='/resources/css/common/gnb.css' />" rel="stylesheet">
+	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 	<link href="<c:url value='/resources/css/review/review_list.css' />" rel="stylesheet">
-	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
-	<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 </head>
 <body>
 	<div id="header">
@@ -23,7 +22,7 @@
     <div style="position:relative; margin: 0 auto; background-color: 10px solid #777;">
         <img src="<c:url value='/resources/images/board/review/top.jpg' />">
     </div>
-    
+     <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>      
     <div class="boardList">
         <div class="title">
             <div class="top">

@@ -21,7 +21,7 @@ import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.notice.controller.NoticeBoardController")
-@RequestMapping("/board/notice")
+@RequestMapping("/board/noticeboard")
 public class NoticeBoardController {
 
 	@Autowired

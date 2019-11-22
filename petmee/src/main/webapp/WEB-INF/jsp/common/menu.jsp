@@ -233,6 +233,15 @@
                                              <p class="txt">후기게시판</p>
                                         </div>
                                   </a></li>
+                                  <li><a href='<c:url value="/board/reviewboard/review_list.do" />'>
+                                        <div class="imgbox">
+                                            <img src="" alt="" class="off">
+                                            <img src="" alt="" class="on">
+                                        </div>
+                                        <div class="txtbox">
+                                             <p class="txt">리뷰게시판</p>
+                                        </div>
+                                  </a></li>
                             </ul>
                         </div>
                     </li>
