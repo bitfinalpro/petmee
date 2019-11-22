@@ -34,7 +34,7 @@
   <div>
     <section class="qna-content" style="margin-bottom:0">
 
-        <h1 class="qna-title">질문 답변</h1>
+        <h1 class="qna-title">Q & A</h1>
        <div class="qna-table_write">
  <form method='post' action="qna-write.do" name="writeForm" > 
  <div>

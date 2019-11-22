@@ -19,42 +19,43 @@
   <title>Pet Me</title>
 </head>
 <script type="text/javascript">
+	let qnaNo = '${qnaDetail.qnaNo}';
+	let cmtPageNo = '${cpr.pageNo}';
+	// let UserGrade = '${sessionScope.user.userGrade}';
+	// let UserNo = '${sessionScope.user.userNo}';
+
     $(document).ready(function(){
        $("#header").load("menu.html")    
     });
     $(document).ready(function(){
        $("#footer").load("footer.html")    
     });
-    let qnaNo = '${qnaDetail.qnaNo}';
-    let cmtPageNo = '${cpr.pageNo}';
-    let UserGrade = '${sessionScope.user.userGrade}';
-    let UserNo = '${sessionScope.user.userNo}';
 </script>
-	<script src="<c:url value='/resources/qna/js/like.js' />"></script>
-    <script src="<c:url value='/resources/qna/js/qnaComment.js' />"></script>
-    <script src="<c:url value='/resources/qna/js/qnaWriteCheckForm.js' />"></script>
+	<script src="<c:url value='/resources/js/qna/like.js' />"></script>
+    <script src="<c:url value='/resources/js/qna/qnaComment.js' />"></script>
+    <script src="<c:url value='/resources/js/qna/qnaWriteCheckForm.js' />"></script>
 <body>
    <div id="header">
         <%@include file="/WEB-INF/include/menu.jsp" %>
     </div>
     <div>
         <section class="qna-content" style="margin-bottom:0">
-            <h1 class="qna-title">질문 답변</h1>
+            <h1 class="qna-title">Q & A</h1>
            
             <div class="qna-table">
                 <ul class="qna-TableListHead">
                     <li>
-                        <span>${qnaDetail.qnaNo}</span>
-                        <span>${qnaDetail.qnaTitle}</span>
-                        <span>${qnaDetail.qnaWriter }</span>
-                        <span><fmt:formatDate value="${qnaDetail.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
-                        <span>조회수${qnaDetail.viewCnt}</span>
+                        <span>${board.qnaNo}</span>
+                        <span>${board.qnaTitle}</span>
+                        <span>${board.qnaWriter}</span>
+                        <span><fmt:formatDate value="${board.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
+                        <span>조회수${board.viewCnt}</span>
                     </li>
      
                 </ul>
                 <ul class="qna-TableDetailBody">
                   <li>
-                    ${qnaDetail.qnaContent}
+                    ${board.qnaContent}
                   </li>                  
                 </ul>
                 <a class="qna-qna_like" href="javascript:;" onclick="likeUpdateAjax(${qnaDetail.qnaNo}, ${pr.pageNo})">
@@ -66,11 +67,11 @@
                 </ul>
              
 		              <div class="qna-go_update"> 
-			            <a  href="/petmee/qna/qna-updateForm.do?no=${qnaDetail.qnaNo}"> 
+			            <a href="qna-updateForm.do?no=${board.qnaNo}"> 
 			               	 수정
 			            </a>
 		              </div>
-			            <a class="qna-go_delete" href="/petmee/qna/qna-delete.do?no=${qnaDetail.qnaNo}"> 
+			            <a class="qna-go_delete" href="qna-delete.do?no=${board.qnaNo}"> 
 			              <div> 
 			               	 삭제
 			              </div>
@@ -102,7 +103,6 @@
        </div>
       </div>
       </div>
-      <
 				<form class="qna-comment_write" method="post" 
 			       name="writeForm" onsubmit="return inputCheck();">
                     <input type="text" name=cmtContent id="cmtContent" class="qna-comment_write" placeholder="댓글을 입력하세요">
@@ -113,34 +113,11 @@
 				</form>
             </div>
           
-           <c:if test="${pr.count > 10 }"> 
-             <ul class="pagination nams">
-	             <c:if test="${pr.count != 0}">
-				  	<c:if test="${pr.prev}">
-					    <li>
-					      <a href="qna_detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${pr.beginPage - 1}&searchType=${search.searchType}&searchWord=${search.searchWord}" aria-label="previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-				    </c:if>
-				    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
-				    	<li <c:if test="${pr.pageNo == i}">class="active"</c:if>>
-				    	<a href="qna_detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${i}&searchType=${search.searchType}&searchWord=${search.searchWord}">${i}</a></li>
-				    </c:forEach>
-				  	<c:if test="${pr.next}">
-					    <li>
-					      <a href="qna_detail.do?qnaNo=${qnaDetail.qnaNo}&pageNo=${pr.endPage + 1}&searchType=${search.searchType}&searchWord=${search.searchWord}" aria-label="next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-				    </c:if>
-				</c:if>
-			</ul>
-           </c:if>
+          
              
            <c:choose>
 	          <c:when test="${ not empty sessionScope.user.userNo }">
-		          <a class="qna-go_write" href="/petmee/qna/qna_write_form.do"> 
+		          <a class="qna-go_write" href="/petmee/qna/qna-writeForm.do"> 
 		            <div> 
 		            	  글쓰기
 		            </div>
@@ -161,20 +138,23 @@
                   </li>
               </ul>
               <ul class="qna-TableListBody">
-                 <li>
-                   <span>2</span>
-                   <span>와이파이 비밀번호</span>
-                   <span>admin</span>
-                   <span>2019-11-15</span>
-                   <span>2</span>
-                </li>
-                 <li>
-                   <span>1</span>
-                   <span>와이파이 비밀번호</span>
-                   <span>admin</span>
-                   <span>2019-11-15</span>
-                   <span>5</span>
-                </li>
+                  <c:forEach var="b" items="${list}">
+                  	<li>
+                      <span>${b.qnaNo}</span>
+                      <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
+                      <span>${b.qnaWriter}</span>
+                      <span><fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /></span>
+                      <span>${b.viewCnt}</span>
+                    </li>
+                   </c:forEach> 
+                   <c:if test="${empty list}">
+                       <li >
+                          <span></span>
+                          <span colspan='5'>입력된 게시물이 없습니다.</span>
+                       </li>
+                    </c:if>
+                </ul>
+                   
     
               <!--    <c:if test="${sessionScope.user.userGrade eq 3 }">  --> 
                  <a class="qna-go_write" href="/petmee/jsp/qna/qna-write.do"> 

@@ -58,7 +58,7 @@
                        <c:if test="${empty list}">
                        <li >
                            <span></span>
-                           <span colspan='4'>입력된 게시물이 없습니다.</span>
+                           <span colspan='5'>입력된 게시물이 없습니다.</span>
                           </li>
                         </c:if>
                       </ul>

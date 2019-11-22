@@ -32,9 +32,9 @@
     </div>
    <div>
       <section class="qna-content" style="margin-bottom:0">
-           <h1 class="qna-title">질문 답변</h1>
+           <h1 class="qna-title">Q & A</h1>
           <div class="qna-table_write">
-    <form method='post' action="/petmee/qna/qna-update.do" name="writeForm"> <!-- enctype = "multipart/form-data"> -->
+    <form method='post' action="qna-update.do" name="writeForm"> <!-- enctype = "multipart/form-data"> -->
       <input type="hidden" name="qnaNo" value="${board.qnaNo}" />
       <input type="hidden" name="userNo" value="${board.userNo}" />
     <div>
