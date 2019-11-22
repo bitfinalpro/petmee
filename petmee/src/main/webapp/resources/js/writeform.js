@@ -12,3 +12,7 @@ function check() {
 			return false;
 	}
 }
+
+$("#cancelbutton").click((e)=>{
+	location.href="list.do";
+});

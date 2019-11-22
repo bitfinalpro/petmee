@@ -7,9 +7,13 @@ import org.springframework.stereotype.Service;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
+import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 
 @Service
 public interface FreeBoardService {
+	
+	//자유게시판 리스트, 페이징
     List<FreeBoard> listBoard(Page page);
     
     void insertBoard(FreeBoard board);
@@ -31,6 +35,8 @@ public interface FreeBoardService {
 	 List<Comment> commentDelete(Comment comment);
 		
 	 List<Comment> commentUpdate(Comment comment);
+	 
+	 List<FreeBoard> searchlistBoard(Page page, Search search);
 	
 	
 	
