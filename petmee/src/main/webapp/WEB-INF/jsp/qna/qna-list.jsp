@@ -51,7 +51,7 @@
                              <span>${b.qnaNo}</span>
                              <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
                              <span>${b.qnaWriter}</span>
-                             <span><fmt:formatDate value="${b.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
+                             <span><fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /></span>
                              <span>${b.viewCnt}</span>
                          </li>
                        </c:forEach> 
@@ -94,21 +94,17 @@
                    <div class="qna-go_write"><button type="button" onclick="location.href='<c:url value="/qna/qna-writeform.do"/>'">글 쓰기</button></div>
                    
                     <!-- 검색창 -->
-                   <div class="qna-search">
-                    <form method="post" action="/petmee/qna/qna-ist.do">
-                      <div class='qna-container' tabindex='1'>
-                      <div class='qna-search-container' tabindex='1'>
-                        <input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
-                          <a class='qna-button' id='qna-submit-button'>
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                          </a>	
-                      </div>
-                        <a class='qna-button' id='qna-refresh-button'>
-                          <i class="fa fa-retweet" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </form>
-                     </div>
+				<div class='qna-container' tabindex='1'>
+					<div class='qna-search-container' tabindex='1'>
+						<input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
+						<a class='qna-button' id='qna-submit-button'>
+							<i class="fa fa-search icon-search" ></i>
+						</a>	
+					</div>
+						<a class='qna-button' id='qna-refresh-button'>
+							<i class="fa fa-retweet icon-search" ></i>
+						</a>
+				</div>
                </section>  
  
            </div>

@@ -43,8 +43,7 @@
            
             <div class="qna-table">
                 <ul class="qna-TableListHead">
-                    <li >
-                    <li >
+                    <li>
                         <span>${qnaDetail.qnaNo}</span>
                         <span>${qnaDetail.qnaTitle}</span>
                         <span>${qnaDetail.qnaWriter }</span>
@@ -58,28 +57,25 @@
                     ${qnaDetail.qnaContent}
                   </li>                  
                 </ul>
-                <a class="qna-qna_like" href="javascript:;" onclick="likeUpdateAjax(${qnaDetail.qnaNo}, ${sessionScope.user.userNo}, ${pr.pageNo})">
+                <a class="qna-qna_like" href="javascript:;" onclick="likeUpdateAjax(${qnaDetail.qnaNo}, ${pr.pageNo})">
                    <!-- <i class="far fa-thumbs-up fa-2x" id="likeUpdate">1</i> -->
                     <i class="far fa-thumbs-up fa-2x" id="likeUpdate">${qnaDetail.likeCnt}</i>
                 </a>
                 <ul class="qna-TableListBody">
          		        <div id="qna-list"></div>
                 </ul>
-             <c:choose>
-	             <c:when test="${qnaDetail.userNo eq sessionScope.user.userNo || sessionScope.user.userGrade eq 3 }">   
+             
 		              <div class="qna-go_update"> 
-			            <a  href="/petmee/qna/updateQnaForm.do?qnaNo=${qnaDetail.qnaNo}"> 
+			            <a  href="/petmee/qna/qna-updateForm.do?no=${qnaDetail.qnaNo}"> 
 			               	 수정
 			            </a>
 		              </div>
-			            <a class="qna-go_delete" href="/petmee/qna/qnadelete.do?qnaNo=${qnaDetail.qnaNo}"> 
+			            <a class="qna-go_delete" href="/petmee/qna/qna-delete.do?no=${qnaDetail.qnaNo}"> 
 			              <div> 
 			               	 삭제
 			              </div>
 			            </a>
-	             </c:when>
-	             <c:otherwise></c:otherwise>
-             </c:choose>
+	           
     
  		<div class="qna-coment_list">
           <div id="qna-cmt"></div>
@@ -106,7 +102,7 @@
        </div>
       </div>
       </div>
-      <!--
+      <
 				<form class="qna-comment_write" method="post" 
 			       name="writeForm" onsubmit="return inputCheck();">
                     <input type="text" name=cmtContent id="cmtContent" class="qna-comment_write" placeholder="댓글을 입력하세요">
@@ -153,7 +149,7 @@
 	          <c:otherwise></c:otherwise>
            </c:choose>
           
-          -->
+          
            <div class="qna-table">
               <ul class="qna-TableListHead">
                   <li>
@@ -180,29 +176,25 @@
                    <span>5</span>
                 </li>
     
-                 <c:if test="${sessionScope.user.userGrade eq 3 }">  
+              <!--    <c:if test="${sessionScope.user.userGrade eq 3 }">  --> 
                  <a class="qna-go_write" href="/petmee/jsp/qna/qna-write.do"> 
                   <div> 
-                      글쓰기
+                      	글쓰기
                   </div>
                 </a>
-          </c:if>
-            <!-- 검색창 -->
-            <div class="qna-search">
-                <form method="post" action="/petmee/qna/qna-list.do">
-                  <div class='qna-container' tabindex='1'>
-                  <div class='qna-search-container' tabindex='1'>
-                    <input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
-                      <a class='qna-button' id='qna-submit-button'>
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                      </a>	
-                  </div>
-                    <a class='qna-button' id='qna-refresh-button'>
-                      <i class="fa fa-retweet" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </form>
-                 </div>
+        <!--  </c:if> --> 
+              <!-- 검색창 -->
+				<div class='qna-container' tabindex='1'>
+					<div class='qna-search-container' tabindex='1'>
+						<input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
+						<a class='qna-button' id='qna-submit-button'>
+							<i class="fa fa-search icon-search" ></i>
+						</a>	
+					</div>
+						<a class='qna-button' id='qna-refresh-button'>
+							<i class="fa fa-retweet icon-search" ></i>
+						</a>
+				</div>
           
         </section>
     </div>

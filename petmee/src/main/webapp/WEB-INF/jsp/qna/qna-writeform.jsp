@@ -38,13 +38,13 @@
        <div class="qna-table_write">
  <form method='post' action="qna-write.do" name="writeForm" > 
  <div>
-     제목 :<br> <input type='text' name='title' size='70' placeholder="20자 까지 가능합니다" />	 	
+     제목 :<br> <input type='text' name='qnaTitle' size='70' placeholder="20자 까지 가능합니다" />	 	
  </div>
  <div>
-     글쓴이 :${qnaWriter} <input type='hidden' value="${qnaWriter}" name='writer' size='30' />
+     글쓴이 :${qnaWriter} <input type='hidden' value="${qnaWriter}" name='qnaWriter' size='30' />
  </div> 
  <div>
-          내용 :<br> <textarea name='content' rows='7' cols='70' placeholder="500자 까지 가능합니다" ></textarea>
+          내용 :<br> <textarea name='qnaContent' rows='7' cols='70' placeholder="500자 까지 가능합니다" ></textarea>
  </div>
           <a class="qna-write_do" > 
              <button type='submit'>등록</button>
