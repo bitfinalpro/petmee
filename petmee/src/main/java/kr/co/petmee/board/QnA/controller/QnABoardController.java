@@ -63,7 +63,7 @@ public class QnABoardController {
 	@RequestMapping("/qna-delete.do")
 	public String delete(int no) {
 		service.deleteQnaBoard(no); 
-		return "redirect:list.do";
+		return "redirect:qna-list.do";
 	}
 	
 	@RequestMapping(value="/qna-updateform.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
@@ -74,7 +74,7 @@ public class QnABoardController {
 	@RequestMapping(value="/qna-update.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
 	public String update(QnaBoard board) {
 		service.updateQnaBoard(board);
-		return "redirect:list.do";
+		return "redirect:qna-list.do";
 	}
 	
 	@RequestMapping("/comment_list.do")

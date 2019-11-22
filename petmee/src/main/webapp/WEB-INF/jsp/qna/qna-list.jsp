@@ -51,14 +51,14 @@
                              <span>${b.qnaNo}</span>
                              <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
                              <span>${b.qnaWriter}</span>
-                             <span><fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /></span>
+                             <span><fmt:formatDate value="${b.qnaRegDate}" pattern="yyyy-MM-dd"/></span>
                              <span>${b.viewCnt}</span>
                          </li>
                        </c:forEach> 
                        <c:if test="${empty list}">
                        <li >
                            <span></span>
-                           <span colspan='5'>입력된 게시물이 없습니다.</span>
+                           <span colspan='4'>입력된 게시물이 없습니다.</span>
                           </li>
                         </c:if>
                       </ul>
