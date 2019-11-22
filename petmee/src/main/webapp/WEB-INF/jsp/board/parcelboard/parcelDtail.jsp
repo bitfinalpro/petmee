@@ -8,15 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="../resources/css/common/gnb.css" rel="stylesheet">
-<link href="../resources/css/parcel/parcelDetailList.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
-<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
-
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp"%>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp"%>
+<link
+	href="<c:url value='/resources/css/parcel/parcelDetailList.css' />"
+	rel="stylesheet" />
 <title>시바 먼치킨</title>
 </head>
 
@@ -34,29 +30,31 @@
 			</div>
 			<hr />
 			<div id="y-p-title">
-				<strong>${board.title}</strong> <span>2019-11-11</span>
+				<strong>${board.title}no:${board.no}</strong> <span>2019-11-11</span>
 			</div>
 			<hr />
 			<div id="y-p-content">
-			
-			<c:forEach var="flist" items="${flist}" varStatus="status">
-					<div><img class="img-src" src="<c:url value='${flist.path}${flist.oriName}'/>"></div>
-			</c:forEach>
-			${board.content}
+
+				<c:forEach var="flist" items="${flist}" varStatus="status">
+					<div>
+						<img class="img-src"
+							src="<c:url value='${flist.path}${flist.oriName}'/>">
+					</div>
+				</c:forEach>
+				${board.content}
 			</div>
 			<hr />
 			<button id="return-list" class="midle-btn">목록</button>
 
 			<div id="commentbox">
-				<div>댓글</div>
+				<!-- <div>댓글</div>
 				<br>
 				<form action="" name="commen">
 					<input type="text">
 					<button id="comment-regist">등록</button>
 				</form>
-				<br>
-				<div class="comment-list">
-					<hr />
+				<br> -->
+					<!-- 	<hr />
 					<br>
 					<div class="c-title">
 						<div class="c-id">아이고</div>
@@ -68,8 +66,24 @@
 						일본까지 잘 도착할 수 있도록 저희도 함께 응원할게요!!! 감사합니다
 					</div>
 					<br>
-					<hr />
+					<hr /> -->
 				</div>
+				
+				<div id="commentRegistForm">
+			<form id="crForm" method="post" action="comment_regist.do">
+				<input type="hidden" id="no" value="${board.no}" />	
+				<table width="70%">
+				<tr>
+					<td><input type="text" id="writer" /></td>
+					<td><textarea id="content" rows="2" cols="60"></textarea></td>
+					<td><input type="submit" value="등록" /></td>
+				</tr>	
+				</table>
+			</form>
+		</div>
+		<!-- 댓글 목록 -->		
+		<div id="commentList"></div>	
+		
 				<br>
 				<div id="move-board">
 					<hr>
@@ -84,13 +98,16 @@
 				</div>
 			</div>
 
-
 		</div>
 	</section>
 
 	<div id="footer" class="footer_wrap clearfix">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
+	<script>
+		let no = ${board.no};
+	</script>
+	<script src="<c:url value='/resources/js/parcelcomment.js' />"></script>
 </body>
 
 </html>

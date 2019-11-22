@@ -1,26 +1,21 @@
 package kr.co.petmee.board.controller;
 
-
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.petmee.board.service.NoticeBoardService;
 import kr.co.petmee.repository.vo.NoticeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
+<<<<<<< HEAD
 @Controller("kr.co.petmee.board.notice.controller.NoticeBoardController")
+=======
+@Controller("kr.co.petmee.board.controller.NoticeBoardController")
+>>>>>>> develop
 @RequestMapping("/board/noticeboard")
 public class NoticeBoardController {
 

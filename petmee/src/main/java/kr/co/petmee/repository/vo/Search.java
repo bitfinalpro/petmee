@@ -3,23 +3,24 @@ package kr.co.petmee.repository.vo;
 import lombok.Data;
 
 @Data
-public class Page {
+public class Search {
+	private int keyword;
+	private String searchText;
 	private int pageNo;
 	private int listSize;
-	
 	public int getListSize() {
 		return listSize;
 	}
 	public void setListSize(int listSize) {
 		this.listSize = listSize;
 	}
-	public Page() {
+	public Search() {
 		this(1, 10);
 	}
-	public Page(int pageNo) { 
+	public Search(int pageNo) { 
 		this(pageNo, 10); 
 	}
-	public Page(int pageNo, int listSize) { 
+	public Search(int pageNo, int listSize) { 
 		this.pageNo = pageNo;
 		this.listSize = listSize;
 	}

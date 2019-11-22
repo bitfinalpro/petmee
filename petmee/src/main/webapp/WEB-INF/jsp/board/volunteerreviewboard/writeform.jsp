@@ -8,48 +8,21 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Pet Me</title>
-<link href="./css/gnb.css" rel="stylesheet">
-  <link href="../resources/css/gnb.css" rel="stylesheet">
-  <link href="../resources/css/base.css" rel="stylesheet">
-  <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
-<link href="./css/summernote-lite.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<script src="./js/jquery-1.12.4.js"></script>
-<script src="./dist/summernote-lite.js"></script>
-</head>
-<script type="text/javascript">
-    $(document).ready(function(){
-       $("#header").load("menu.html")    
-    });
-    $(document).ready(function(){
-       $("#footer").load("footer.html")    
-    });
-</script>
-<style>
-.wirte_form {width: 70%; margin:  0 auto; }
-.wirte_form #title {width: 100%; height: 30px; margin: 30px 0px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; height: 30px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; border: 1px solid #333;} 
-.files {clear: both; margin: 15px 0px; width: 100%; height: 33px;  border: 1px solid #eee; color: #333; border-radius: 3px 0 0 3px;}
-.files > div:nth-child(1){ float: left; margin-top: -1px; text-align: center; width: 30px; height: 34px;  color: #333; border-radius: 2px 0 0 3px; background-color: #eee;}
-.files > div:nth-child(1) > i {vertical-align: middle; padding-top: 5px;}
-.files > div:nth-child(2){ float: left; padding: 5px 5px; height: 30px; color: #333; }
-.btn {width: 100%; margin: 0 auto; margin-bottom: 20%; margin-top: 5%; text-align: center;}
-.btn button {width: 8%; height: 30px;}
-.btn button:nth-child(1) { margin: 10 0; color: #fff;font-weight: bold;
-background-image: linear-gradient(30deg,#002a50,#006ecf);}
-.btn button:nth-child(2) { margin: 10 0; color: #fff;font-weight: bold;
-    background-image: linear-gradient(30deg,#333, #333);}
- </style>    
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/volunteer/volunteerreview.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
+<script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
+</head> 
 <body>
-  <div id="header"> </div>
-
+  <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
     <section id="wrap">
-        <img src="/images/main/1231.jpg" width="100%" />
+        <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
          <form method="post" action="write.do" id="">
-        <div class="wirte_form">
-          제목 :  <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
-            <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/>
+        <div class="write_form">
+        <h2>자원봉사 후기게시판</h2>   
+            <input type="text" name="title" class="write_input" placeholder="제목을 입력해 주세요!" maxlength="29" />         
+       		<input type="hidden" name="writer" value="기모찌" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
@@ -65,12 +38,15 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
             </div>
             <div class="btn">
                 <button type="submit">등록</button>
-                <button type="button" id="cancelbutton">취소</button>
+               <a href="<c:url value="/board/volunteerreviewboard/list.do"/>"><button type="button">취소</button></a>
             </div>
         </div>
          </form>
     </section>  
     <script>
+    $(function() {
+    		$("p").replaceWith("")
+    });
         $('#summernote').summernote({
             placeholder: '<br>※ 게시판 용도와 무관하거나 아래 내용이 포함된 경우는 사전 안내없이 삭제/제재됩니다.<br><br>- 욕설, 상대 비방 등 타인의 명예를 훼손하는 게시물 <br><br>- 불쾌감을 줄 수 있는 이미지나 내용, 저작권에 위배되는 게시물 <br><br>- 개인정보 노출이 있거나 현금 거래 시도 등에 준하는 행위 ',
             tabsize: 2,
@@ -88,10 +64,10 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         	}
         	BoardWrite.submit();
         }
-     </script>
-     
-     <div id="footer" class="footer_wrap clearfix"> </div>
-<script src="<c:url value='/resources/js/board.js' />"></script>
+     </script>     
+    <div id="footer" class="footer_wrap clearfix">
+           <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
+        </div>
 </body>
 </html>
 

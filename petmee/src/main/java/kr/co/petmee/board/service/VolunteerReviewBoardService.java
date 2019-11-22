@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 
 @Service
@@ -28,5 +29,7 @@ public interface VolunteerReviewBoardService {
 	List<Comment> commentDelete(Comment comment);
 	//댓글 수정
 	List<Comment> commentUpdate(Comment comment);
+	
+	List<VolunteerReviewBoard> searchlistBoard(Page page, Search search);
 	
 }

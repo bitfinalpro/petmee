@@ -10,7 +10,7 @@ import kr.co.petmee.repository.vo.NoticeBoard;
 import kr.co.petmee.repository.vo.Page;
 
 @Service
-public class NoticeBoardServicempl implements NoticeBoardService{
+public class NoticeBoardServiceImpl implements NoticeBoardService{
 
 	@Autowired
 	private NoticeBoardDAO dao;

@@ -8,13 +8,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
-  <link href="../resources/css/common/base.css" rel="stylesheet">
-  <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Pet Me</title>
 </head>
 
@@ -28,7 +25,7 @@
     .top_input div:nth-child(2) button { width: 50px; height: 29px; margin: 10 0; color: #fff;font-weight: bold;
     background-image: linear-gradient(30deg,#333, #333);}
     .notice_tb {width: 70%; margin: 0px auto; border-top: 2px solid #333; text-align: center;}
-    .notice_tb tr th {background-color: #e5e5e5; border-right:1px solid #fff; height: 50px;}
+    .notice_tb tr th {background-color: #e5e5e5; border-right:1px solid #fff; height: 50px; text-align: center;}
     .notice_tb tr td {height: 50px; border-bottom: 2px solid #999;}
     .notice_tb tr td button {width: 50px; height: 30px;}
     .notice_tb tr td button:nth-child(1) { margin: 10 0; color: #fff;font-weight: bold;
@@ -53,11 +50,12 @@
         <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
     </div>
     <section id="wrap" >
+            <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
         <aside class="side_menu">
             <div><strong>Community</strong></div>
             <ul>
                 <li><a href="#">공지사항</a></li>
-                <li><a href="<c:url value="/freeboard/list.do" />">자유게시판</a></li>
+                <li><a href="<c:url value="/board/freeboard/list.do" />">자유게시판</a></li>
                 <li><a href="#">봉사활동</a></li>
                 <li><a href="#">분양게시판</a></li>
                 <li><a href="#">후기게시판</a></li>
@@ -70,6 +68,7 @@
                 <strong>자유게시판</strong>
             </div>
             <div>
+            <form id="searchForm" action="list.do" method="get">
                 <select name="" id="top_sel">
                     <option value="">검색조건</option>
                     <option value="t">제목</option>
@@ -78,6 +77,7 @@
                 </select>
                 <input type="text"  placeholder="검색어 입력" />
                 <button>검색</button>
+              </form>
             </div>
         </div>
         <table class="notice_tb">
@@ -111,7 +111,7 @@
             </tr>
                 </c:forEach>
         </table>
-        <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/freeboard/writeform.do"/>'">글 등록</button></div>
+        <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/freeboard/writeform.do"/>'">글 등록</button></div>
         
         <!-- 페이징   -->
         <div id="page">
