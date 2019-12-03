@@ -10,13 +10,17 @@ import kr.co.petmee.repository.vo.User;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDAO dao;
 	
 	@Override
 	public List<User> userList(){
 		return dao.selectUser();
+	}
+	
+	public void deleteUser(int userNo) {
+		dao.deleteUser(userNo);
 	}
 	
 
