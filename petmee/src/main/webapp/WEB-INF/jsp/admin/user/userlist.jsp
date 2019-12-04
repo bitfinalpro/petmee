@@ -51,7 +51,7 @@
       margin:20px;
       width:550px;
       height: 650px;
-      background: skyblue;
+      background: beige;
       position:relative;
     }
     .layer .close{
@@ -157,7 +157,7 @@
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-            <a class="nav-link" href="reportadmin.html">
+            <a class="nav-link" href="/admin/user/reportlist.do">
               <i class="fas fa-user-slash"></i>
                 <span>신고관리</span>
               </a>
@@ -183,7 +183,6 @@
         </li>
       </ul>
   
-
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -240,7 +239,7 @@
                         <td>${user.gender}</td>
                         <td>${user.age}</td>
                         <td>${user.resident}</td>
-                        <td><a href="#"><button type="button">탈퇴</button></a></td>
+                        <td><a href="userdelete.do?userNo=${user.userNo}"><button type="button">탈퇴</button></a></td>
                       </tr>
                 </tbody>
              </c:forEach>

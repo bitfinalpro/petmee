@@ -7,5 +7,7 @@ import kr.co.petmee.repository.vo.User;
 public interface UserDAO {
 	
 	List<User> selectUser();
+	
+	void deleteUser(int userNo);
 
 }

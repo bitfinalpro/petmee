@@ -9,5 +9,7 @@ import kr.co.petmee.repository.vo.User;
 @Service
 public interface UserService {
 	List<User> userList();
+	
+	 void deleteUser(int userNo);
 
 }

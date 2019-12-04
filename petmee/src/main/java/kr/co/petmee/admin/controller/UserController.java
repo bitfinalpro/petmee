@@ -22,4 +22,11 @@ private UserDAO dao;
 public void List(Model model) {
 	model.addAttribute("userList",service.userList());
    }
+
+@RequestMapping("/userdelete.do")
+public String delete(int userNo) {
+	service.deleteUser(userNo);
+	return "redirect:userlist.do";
+}
+
 }
