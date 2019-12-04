@@ -1,7 +1,7 @@
 var $jq = jQuery.noConflict();  
 $jq( document ).ready( function() {
-          var jbOffset = $( '.jbMenu' ).offset();
-          var logo = $('.logo');
+          var jbOffset = $jq( '.jbMenu' ).offset();
+          var logo = $jq('.logo');
           $jq( window ).scroll( function() {
             if ( $jq( document ).scrollTop() > jbOffset.top ) {
               $jq( '.jbMenu' ).addClass( 'jbFixed' ).css('height','75px');
@@ -17,4 +17,4 @@ $jq( document ).ready( function() {
               $jq( 'nav ul li a' ).removeAttr('style');
             }
           });
-        });
+});
