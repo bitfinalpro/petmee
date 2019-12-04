@@ -49,25 +49,25 @@
   <div id="header">
         <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
     </div>
+    <!-- 사이드메뉴 -->
     <section id="wrap" >
             <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
         <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>   
         <img src="../resources/images/main/1231.jpg" width="100%" />
+
         <div class="top_input">
             <div>
                 <strong>자유게시판</strong>
             </div>
             <div>
-            <form id="searchForm" action="list.do" method="get">
-                <select name="" id="top_sel">
-                    <option value="">검색조건</option>
-                    <option value="t">제목</option>
-                    <option value="c">내용</option>
-                    <option value="w">작성자</option>
+                <select name="searchkeyword" id="top_sel">
+                    <option value="0">전체</option>
+                    <option value="1">작성자</option>
+                    <option value="2">제목</option>
+                    <option value="3">작성자+제목</option>
                 </select>
-                <input type="text"  placeholder="검색어 입력" />
-                <button>검색</button>
-              </form>
+                <input type="text"  id="searchtext" placeholder="검색어 입력" />
+                <button id="searchbutton">검색</button>
             </div>
         </div>
         <table class="notice_tb">
@@ -133,5 +133,6 @@
         <div id="footer" class="footer_wrap clearfix">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
+        <script src="<c:url value='/resources/js/freeboard.js' />"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@
            <div id="top_menu">
                <div>
                    <strong>공지스크롤</strong>
+                   <a href=""><strong>admin</strong></a>
                 </div>
                 <div>
                     <span><a>회원가입</a></span>
