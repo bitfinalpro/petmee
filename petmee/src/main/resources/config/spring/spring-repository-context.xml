@@ -18,7 +18,7 @@
    <context:property-placeholder 
       location="classpath:config/mybatis/db.properties"/>
                   
-<<<<<<< HEAD
+
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
       	destroy-method="close"
         p:driverClassName="com.mysql.jdbc.Driver"
@@ -42,14 +42,14 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-=======
+
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
       destroy-method="close"
          p:driverClassName="${mysql.driver}"
         p:url="${mysql.url}"
         p:username="${mysql.username}" 
         p:password="${mysql.password}" />
->>>>>>> develop
+
 
                                                                                               
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

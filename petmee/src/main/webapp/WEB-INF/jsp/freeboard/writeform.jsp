@@ -99,9 +99,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
             autofocus : true 
          });
          </script>
-     <div id="footer" class="footer_wrap clearfix">
-     <%@include file="/WEB-INF/include/footer.jsp" %> 
-      </div>
+     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 
 </body>
 </html>

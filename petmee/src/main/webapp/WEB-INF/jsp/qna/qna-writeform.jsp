@@ -27,9 +27,7 @@
     });
 </script>
 <body>
-<div id="header">
-        <%@include file="/WEB-INF/include/menu.jsp" %>
-    </div>
+<div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
        
   <div>
     <section class="qna-content" style="margin-bottom:0">
@@ -55,9 +53,7 @@
         
     </section>
 </div>
-<div id="footer" class="footer_wrap clearfix"> 
-<%@include file="/WEB-INF/include/footer.jsp" %> 
-</div>
+<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 </div>
 </body>
 </html>
