@@ -2,8 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.UserDAO">
-       <select id="selectUser" resultType="User">
-        select *
-          from tb_user
-       </select>
+
+      <!-- 모든 회원 정보 -->
+   <select id="selectUser" resultType="User">
+         select *
+         from tb_user
+   </select>
+   
+      <!-- 회원 삭제 -->
+   <delete id ="deleteUser" parameterType="int">
+     delete
+       from tb_user
+       where user_no = #{userNo}
+   </delete>
 </mapper>

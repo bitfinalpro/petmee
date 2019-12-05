@@ -53,7 +53,6 @@
     <section id="wrap" >
             <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
         <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>   
-        <img src="../resources/images/main/1231.jpg" width="100%" />
 
         <div class="top_input">
             <div>
