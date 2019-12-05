@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.ReviewBoardDAO">
+	<!-- 리스트 -->
+	<select id="selectBoard" resultType="ReviewBoard">
+		select *
+		  from tb_reviewboard
+		 order by no desc  
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="updateViewCnt" parameterType="int">
+		update tb_reviewboard 
+		   set views = views + 1
+		 where no = #{no}
+	</update>
+	
+	<update id="updateBoard" parameterType="ReviewBoard">
+		update tb_reviewboard  
+		   set title = #{title}, 
+		       content = #{content}
+		 where no = #{no}
+	</update>
+	<!-- 상세페이지 -->
+	<select id="selectOneBoard" parameterType="int" resultType="ReviewBoard">
+		select *
+		  from tb_reviewboard
+		 where no = #{no} 
+	</select>
+	
+	<!-- 테이블에 추가 -->
+	<insert id="insertBoard" parameterType="ReviewBoard">
+		insert into tb_reviewboard (
+			writer, title, content
+		) values (
+			#{writer}, #{title}, #{content}
+		);
+	</insert>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete 
+		  from tb_reviewboard
+		 where no = #{no}
+	</delete>
+	
+	<!-- 댓글 -->
+	<select id="selectComment" parameterType="int" resultType="Comment">
+	    select *
+	      from tb_reviewcomment
+	     where no = #{no}
+	     order by comment_no 
+	</select>	
+	
+	<insert id="insertComment" parameterType="Comment">
+		insert into tb_reviewcomment(
+			 no, writer, content
+		) values (
+			 #{no}, #{writer}, #{content}
+		)
+	</insert>	
+			
+	<delete id="deleteComment" parameterType="int">
+	    delete 
+	      from tb_reviewcomment
+	     where comment_no = #{commentNo}
+	</delete>	
+	
+	<update id="updateComment" parameterType="comment">
+	    update tb_reviewcomment
+	       set content = #{content}
+	     where comment_no = #{commentNo}
+	</update>
+	
+	<!-- 파일 파트 ============================================= -->
+
+	<select id="selectSumFiles" resultType="Filevo">
+		select *
+		from reviewboardfile
+		where sum_path is not null
+		order by no desc;
+	</select>
+
+	<select id="selectBaordFile" parameterType="int" resultType="Filevo">
+		select *
+		from reviewboardfile
+		where no = #{no}
+		and PATH is not null;
+	</select>
+
+	<insert id="insertFile" parameterType="Filevo">
+		insert into
+		reviewboardfile(no,ORI_NAME,NAME,PATH,sum_path)
+		values(#{no},#{oriName},#{name},#{path},#{sumpath})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

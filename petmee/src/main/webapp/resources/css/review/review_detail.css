@@ -1,0 +1,240 @@
+section{
+    width: 100%;
+    height: auto;
+}
+
+.top{
+    margin-top:20px;
+}
+
+
+h1{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+h4{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.contents_all{
+    width: 70%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none !important;
+    outline: 0 !important;
+    color: #000;
+    font-family: 'Lato','NanumR',Dotum !important;
+}
+
+
+.xans-board-read .boardView table {
+    width: 100%;
+    margin: 0 auto;
+    color: #353535;
+    line-height: 180%;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.detail{
+    position: relative;
+    margin-top: 30px; 
+}
+.detail > img{
+	display: block;
+    margin: 0 auto;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    /* border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0; */
+}
+
+.xans-board-read table tr:first-child td {
+    border-top: 0;
+    padding: 23px 10px;
+    font-size: 16px;
+}
+
+.xans-board-read table th {
+    width: 110px;
+    display: none;
+    background-color: #fff;
+    text-align: left;
+    font-weight: normal;
+}
+th{
+    border: 0;
+    vertical-align: top;
+}
+.xans-board-product .prdThumb img {
+    height: 140px;
+}
+img, fieldset {
+    border: none;
+    vertical-align: top;
+}
+.displaynone {
+    display: none !important;
+}
+.xans-board-product .prdInfo .button {
+    margin: 19px 0 0 0;
+    padding: 13px 0 0 0;
+    border-top: 1px solid #e8e8e8;
+}
+a.dj_search_btn_2 {
+    line-height: 26px;
+    padding: 0 10px 1px 10px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    color: #555;
+    font-size: 11px;
+    text-align: center;
+}
+
+.xans-board-product .prdInfo h3 {
+    margin: 17px 0 5px;
+    font-size: 30px;
+    font-weight: normal !important;
+    color: #2e2e2e;
+}
+
+.xans-board-product .prdThumb {
+    float: left;
+    padding: 0 30px 0 0;
+}
+
+.xans-board-product .prdInfo {
+    padding: 0 0 0 135px;
+}
+
+
+a {
+    text-decoration: none !important;
+    outline: 0 !important;
+    color: #000;
+    font-family: 'Lato','NanumR',Dotum !important;
+}
+
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.xans-board-product {
+    position: relative;
+    min-height: 140px;
+    margin: 0 0 -1px;
+    padding: 17px 20px;
+    border-top: 5px solid #000;
+    border-bottom: 2px solid #e0e0e0;
+}
+.tit{
+    margin-left: 20px;
+}
+
+.xans-board-title .title {
+    padding: 55px 0 0;
+    text-align: center;
+    z-index: 999;
+}
+
+.xans-board-title .title h2 {
+    display: inline-block;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: lowercase;
+    color: #000;
+    font-weight: 700 !important;
+    padding: 0 0 0 0;
+    letter-spacing: -1px;
+    font-family: 'Montserrat',"돋움" !important;
+}
+
+
+/*
+리스트
+*/
+
+
+.sub_title{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 50%;
+}
+.sub_title > li{
+	padding: 10px;
+	float: left;
+}
+
+.sub_title > li > strong{
+	padding-right: 10px;
+	border-right: 1px solid #dadada;
+}
+
+.sub_right{
+	width:50%;
+}
+.sub_right > li{
+	padding: 10px;
+	float: right;
+}
+
+.sub_right > li > strong{
+	padding-right: 10px;
+	border-right: 1px solid #dadada;
+}
+
+/*
+ 댓글관련
+*/
+#commentRegistForm{
+	display: block;
+	margin: 0 auto;
+	width: 70%;
+	border-top: 5px solid #e0e0e0;
+}
+
+#commentList{
+	display: block;
+	margin: 0 auto;
+	width: 70%;
+	border: 1px solid #e0e0e0;
+}
+
+#writer, #content{
+	border: 1px solid #e0e0e0;
+}
+
+#commentRegistForm > #crForm > .recs{
+	position:relative;
+	width: 100%;
+	height: 200px;
+	margin: 0 auto;
+	resize:none;
+	overflow:visible;
+	border: 1px solid #dadada;
+}

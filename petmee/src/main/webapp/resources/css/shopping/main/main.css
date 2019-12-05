@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+
+
+/*sub_slide*/
+.product_slide {width: 100%; text-align: left;}
+.product_slide > img {margin: 0 auto; width: 80%; display: block;}
+.product_text, .sb_img {width: 80%; display: block; margin: 5px auto;}
+.product_text > strong {display: block; line-height: 2rem;}
+.product_text span:nth-child(2) {text-decoration: line-through; color: #ccc;}
+.product_text span:nth-child(3) {font-weight: bold; font-size: 1.3rem;}
+.sb_img img{width: 20%; display:inline-block; margin: 0 auto;}
+.product_title {text-align: center; font-size: 1.5rem; line-height: 1.5rem; margin: 50px auto;}
+.main_section {width: 70%; margin: 0 auto; margin-top: 70px;}
+.main_section2 {width: 100%; margin: 50px auto; position: relative;}
+.sec2_txt {position: absolute; top: 55%; left: 15%;}
+.sec2_txt > strong {font-size: 2.5rem;}
+.sec2_txt > p {font-size: 1.2rem;}
+
+
+/*main_board*/
+      .main_board {width: 100%; height: 500px; display: block;}
+      .main_board .main_board_l {width: 60%; float: left; position: relative;}
+      .main_board .main_board_l > img {width: 100%;}
+      .main_board .main_board_l_text {position:absolute; bottom: 40%; left: 35%; text-align: center; }
+      .main_board .main_board_l_text > strong {font-size: 2rem; line-height: 1rem;}
+      .main_board  .main_board_l_text > p {line-height: 2rem;}
+      
+      .main_board .main_board_r {width: 39%; position: relative; float: right; height: 420px;}
+      .main_board .main_board_r_text {position:absolute; bottom: 4%; left: 16%; }
+      .main_board .main_board_r_text > strong {font-size: 1.5rem; line-height: 1rem;}
+      .main_board .main_board_r_text > p {line-height: 2rem;}
+      .main_board .lean_more {width: 100px; height: 30px; border: 1px solid #ccc; text-align: center; text-align: center; }
+      .main_board .lean_more a {color : #ccc; text-decoration: none; vertical-align: middle;}
+      .main_board .lean_more:hover {background-color: #252525; color: #fff;}
+      
+      .main_board1 {width: 100%; height: 500px; display: block; margin-top: 10px;}
+      .main_board1 .main_board_l {width: 39%; position: relative; float: left; height: 420px;}
+      .main_board1 .main_board_l_text {position:absolute; bottom: 4%; right: 16%; }
+      .main_board1 .main_board_l_text > strong {font-size: 1.5rem; line-height: 1rem;}
+      .main_board1 .main_board_l_text > p {line-height: 2rem;}
+
+      .main_board1 .main_board_r {width: 60%; float: right; position: relative;}
+      .main_board1 .main_board_r > img {width: 100%;}
+      .main_board1 .main_board_r_text {position:absolute; bottom: 40%; left: 35%; text-align: center;  }
+      .main_board1 .main_board_r_text > strong {font-size: 2rem; line-height: 1rem;}
+      .main_board1  .main_board_r_text > p {line-height: 2rem;}
+      .main_board1 .lean_more {width: 100px; height: 30px; border: 1px solid #ccc; text-align: center; text-align: center; }
+      .main_board1 .lean_more a {color : #ccc; text-decoration: none; vertical-align: middle;}
+      .main_board1 .lean_more:hover {background-color: #252525; color: #fff;}
+
+/*tap_controller*/
+      .tab_container{
+	width: 100%;
+	margin: 0 auto;
+}
+ul.tabs{
+  font-size: 0;
+  width: 100%;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+ul.tabs li{
+  font-size: 16px;
+  width: 21.9%;
+  text-align: center;
+	background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+ul.tabs li.current{
+  background:#252525;
+	color: #fff;
+  font-weight: bold;
+}
+.tab-content{
+	display: none;
+	background: #fff;
+	padding: 15px;
+  height: 610px;
+}
+.tab-content.current{
+	display: inherit;
+}
+.tab-content ul {margin: 0; padding: 0;}
+.tab-content ul li {
+    list-style: none; 
+    width: 23.4%;
+    display: inline-block;
+    margin: 0 5px;
+}
+.product_slide > a > .over-hidden {margin: 0 auto; width: 80%; height: 200px; display: block;}
+.over-hidden {overflow:hidden}
+a {text-decoration: none; color: #000;}
+
+    .scale {
+      background-color: #252525;
+      opacity: 0.7;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+.scale:hover {
+  background-color:none;
+      opacity: 1;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+  
