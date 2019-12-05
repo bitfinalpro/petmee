@@ -442,7 +442,7 @@
 </section>
 <div class="main_section2">
     <div class="sec2_txt">
-        <strong>Comunity</strong>
+        <strong>Community</strong>
         <p>For better life with Pets,</p>
     </div>
   <img src="<c:url value="/resources/images/main/subimg.jpg" />" style="width: 100%"> 

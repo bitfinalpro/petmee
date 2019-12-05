@@ -5,7 +5,7 @@
       <div class="jbTitle">
            <div id="top_menu">
                <div>
-                   <strong>공지스크롤</strong>
+                   <a href="<c:url value='/shopping/shoppingDetail.do'/> "><strong>공지스크롤(쇼핑디테일경로)</strong></a>
                    <a href="<c:url value='/admin/user/menu.do'/> "><strong>admin</strong></a>
                 </div>
                 <div>

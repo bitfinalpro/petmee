@@ -421,5 +421,20 @@
     
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+<script>
+window.onload=function(){
+	var big = document.getElementById('bigImg');
+	var smallImgs= document.getElementById('smallImgs');
+
+	var bigImg = big.getElementsByTagName('img')[0];
+	var smallImgThumb = smallImgs.getElementsByTagName('img');
+	
+	for(var i = 0; i<smallImgThumb.length; i++){
+		smallImgThumb[i].onmouseover = function(){
+			bigImg.src=this.src;
+		}
+	}
+}
+</script>
 </body>
 </html>

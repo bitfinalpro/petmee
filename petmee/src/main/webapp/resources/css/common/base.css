@@ -33,4 +33,6 @@ button { margin: 0; padding: 0; vertical-align: middle; }
 
 section, nav, article, aside, header, footer, main { display: block; }
 
-input:focus, textarea:focus, button:focus {outline:none;} 
+input:focus, textarea:focus, button:focus {outline:none;}
+
+header {height:77px;} 
