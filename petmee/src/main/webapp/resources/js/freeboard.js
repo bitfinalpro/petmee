@@ -108,3 +108,9 @@ function makeCommentList(list) {
 	});
 	$("#commentList").html($di);
 }
+$("#searchbutton").click((e)=>{
+	let key = $("#top_sel").val();
+	let val = $("#searchtext").val();
+	console.log(key, val);
+	location.href="list.do?key=" + key + "&val=" + val;
+});

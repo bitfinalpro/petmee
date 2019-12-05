@@ -18,6 +18,7 @@
        width: 70%;
        margin: 0 auto;
    }
+   
   </style>
 </head>
    
@@ -42,7 +43,10 @@
                <div id="types1">
                    <div class="ll">
                          <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
-                         <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>
+                         <div class="right">
+                         <div id="view"><i class="far fa-eye"></i> ${board.viewCnt}</div>
+                         <div id="report" class="right"><img src="<c:url value="/resources/images/board/common/report.png" />"><button>신고</button></div>
+                         </div>
                    </div>
                </div>
            </div>

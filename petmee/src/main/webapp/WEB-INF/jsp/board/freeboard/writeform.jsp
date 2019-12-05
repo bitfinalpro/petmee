@@ -8,9 +8,10 @@
  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
@@ -32,7 +33,9 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
     background-image: linear-gradient(30deg,#333, #333);}
  </style>    
 <body>
- <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
+ <div id="header">
+      <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+ </div>
 
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
@@ -40,7 +43,6 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="writer" value="우희준" class="write_input" placeholder="작성자" />
-           <!--  <input type="text" name="writer" id="writer" maxlength="29" value="${writer}"/> -->
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
@@ -56,7 +58,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
             </div>
             <div class="btn">
                 <button type="submit">등록</button>
-                <button>취소</button>
+                <a href="<c:url value="/board/freeboard/list.do"/>"><button type="button">취소</button></a>
             </div>
         </div>
          </form>
@@ -79,7 +81,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
            <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
         
-        <script src="<c:url value='/resources/js/writeform.js' />"></script>
+        <script src="<c:url value='/resources/js/writeformboard.js' />"></script>
 
 </body>
 </html>

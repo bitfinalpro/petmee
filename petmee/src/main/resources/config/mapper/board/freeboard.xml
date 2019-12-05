@@ -48,19 +48,28 @@
 		  from bitfinalproject.tb_freeboard
 		 where no = #{no}
 	</delete>
-
-<sql id="search">
-   <choose>
-       <when test="search_option == 'all' ">
-         where
-            content like '%' || #{keyword} || '%'
-            or title like '%' || #{keyword} '%'
-       </when>
-       <otherwise>
-          where ${search_option} like '%' || #{keyword} || '%'
-       </otherwise>
-   </choose>
-</sql>
+<!-- 자원봉사 후기 검색 게시물 추출  -->
+	<select id="selectSearchWriter" resultType="FreeBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_freeboard 
+	    where writer like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchTitle" resultType="FreeBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_freeboard 
+	    where title like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchBoth" resultType="FreeBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_freeboard 
+	    where (title like concat('%',#{searchText},'%')) OR (writer like concat('%',#{searchText},'%'))
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
 
 </mapper>
 

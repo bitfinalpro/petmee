@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css?family=Lato|Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 html, body, div, span, input, select, textarea, button, applet, object, iframe, p, a, abbr,  address, strike, dl, dt, dd, ol, ul, li, form, label, table, tbody, thead, tr, th, td, header, section, footer { border: 0; margin: 0; padding: 0; }
 article, figcaption, figure, footer, header, hgroup, menu, nav, section, aside, summary { display: block; }
 

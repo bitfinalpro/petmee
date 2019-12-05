@@ -75,3 +75,14 @@
 .com_com { position: relative;   width: 1120px; }
 .b2 { width: 50px; height: 30px; margin: 10 0; color: #fff;font-weight: bold; background-image: linear-gradient(30deg,#002a50,#006ecf); }
 .nick { width: 150px; position: relative; float: left;}
+
+
+/*신고하기*/
+
+.ll > .right {
+    position: relative;
+    display: inline-block;}
+   #report {width:10%; display: inline-block;}
+   #report > img {width:43%; display: inline-block;}
+   #report > button { background-color: #fff; display: inline-block; font-weight: bold;}
+   #view {width:10%; display: inline-block;}
