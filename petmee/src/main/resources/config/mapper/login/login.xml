@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.LoginDAO">
+	<!-- 로그인 -->
+	<select id="selectLogin" parameterType="User" resultType="User">
+		select *
+		  from tb_user
+		 where email = #{email}
+		   and pass = #{pass} 
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertJoin" parameterType="User">
+		insert into tb_user (
+			email, pass, name, phone, resident, gender, nickname, address
+		) values (
+			#{email}, #{pass}, #{name}, #{phone}, #{resident}, #{gender}, #{nickname}, #{address}
+		);
+	</insert>
+	
+	<!-- 마이페이지 조회 -->
+	<select id="selectMypage" resultType="User">
+		select *
+		  from tb_user
+	</select>
+	
+	<!-- 마이 페이지 수정 -->
+	<update id="updateMypage" parameterType="User">
+		update tb_user 
+		   set title = #{title},
+		       content = #{content}
+		 where no = #{no}
+	</update>
+	
+	<!-- 마이 페이지 삭제 -->
+	<delete id="deleteMypage" parameterType="int">
+		delete 
+		  from tb_user 
+		 where no = #{no}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
