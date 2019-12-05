@@ -18,38 +18,12 @@
    <context:property-placeholder 
       location="classpath:config/mybatis/db.properties"/>
                   
-
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
-      	destroy-method="close"
-        p:driverClassName="com.mysql.jdbc.Driver"
-        p:url="${url}"
-        p:username="${mysql.username}" 
-        p:password="${mysql.password}" />
-     
-	                                                                                           
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="kr.co.petmee.repository.vo" />			
-		<property name="mapperLocations" value="classpath:config/mapper/*.xml" />
-		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml" />		
-	</bean>
-	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="kr.co.petmee.repository.dao" />
-	</bean>
-	
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
       destroy-method="close"
          p:driverClassName="${mysql.driver}"
         p:url="${mysql.url}"
         p:username="${mysql.username}" 
         p:password="${mysql.password}" />
-
 
                                                                                               
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -78,6 +52,5 @@
       <aop:advisor advice-ref="txAdvice" pointcut-ref="tranMethod" />
    </aop:config>
 </beans>
-
 
 
