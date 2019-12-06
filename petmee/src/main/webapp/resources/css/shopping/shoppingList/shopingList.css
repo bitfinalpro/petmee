@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* 전체 박스 */
+#y-container {
+    width: 900px;
+    margin: 70px auto 0px;
+}
+    /* 타이틀 부분 */
+#y-con-head {
+    padding: 0 110px;
+}
+#y-title {
+    font-size: 30px;
+}
+#y-allcheck{
+    position: relative;
+    top: 4px;
+    width: 30px;
+    height: 30px;
+}
+#y-title-box {
+    float: right;
+    display: inline-block;
+}
+/* 내용 부분 */
+.y-content-box {
+    width: 700px;
+    padding: 10px;
+    margin: 20px auto;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+.float-l{
+    float: left;
+    /* border: 1px solid black; */
+}
+.float-r{
+    float: right;
+}
+.y-img {
+    width: 150px;
+    height: 150px;
+}
+.y-list-content {
+    width: 430px;
+    height: 150px;
+    margin-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 여러줄 말줄임표쓰기 */
+    display: -webkit-box;
+    /* 줄수 표시 */
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+}
+.y-amountbox {
+    margin-top: 20px;
+}
+.y-amount {
+    font-size: 25px;
+}
+.y-s-amount {
+    display: inline-block;
+    padding: 0 0 0 43%;
+}
+.y-price{
+    line-height: 32px;
+    font-size: 20px;
+}
+.floatbox:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+/* 합계 가격 */
+.y-con-price{
+    font-size: 30px;
+    padding: 10px 100px;
+}
+.fa-plus{
+    position: relative;
+    left: 90%;
+    margin:15px 0;
+}
+/* 아래버튼 */
+#y-con-button {
+    text-align: center;
+    margin: 50px 0 150px 0;
+}
+#y-con-button > button{
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    margin: 10px;
+}
+/* 마우스포인터 */
+.mousepoint {
+    cursor: pointer;
+}
