@@ -52,12 +52,12 @@
 
 					<div class="y-amountbox ">
 						<div class="y-s-amount">
-							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}"></i>
-							<span class="y-amount">${list.amount}</span> 
 							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}"></i> 
+							<span class="y-amount">${list.amount}</span> 
+							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}"></i>
 						</div>
 						<span class="y-price float-r"> 
-						<i class="fas fa-won-sign fa-lg"></i> ${price}
+						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${price}</span>
 						</span>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 			<div class="y-con-price">
 				<div id="y-sum-price">
 					<span>총 상품금액</span> <span class="float-r"><i
-						class="fas fa-won-sign fa-sm"></i> ${sum }</span>
+						class="fas fa-won-sign fa-sm"></i> <span id="sum">${sum }</span></span>
 				</div>
 				<i class="fas fa-plus fa-lg"></i>
 				<div id="delivery-cost">
@@ -80,7 +80,7 @@
 			<hr class="cline">
 			<div class="y-con-price">
 				<span>예상 결제금액</span> <span class="float-r"><i
-					class="fas fa-won-sign fa-sm"></i> ${sum +2500}</span>
+					class="fas fa-won-sign fa-sm"></i> <span id="sum+">${sum +2500}</span></span>
 			</div>
 			<div id="y-con-button">
 				<button type="button" class="mousepoint">결제하기</button>

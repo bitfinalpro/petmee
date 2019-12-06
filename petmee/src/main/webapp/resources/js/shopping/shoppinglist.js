@@ -22,7 +22,10 @@ $("#y-con-content").on("click",".plus",(e)=>{
 	$.ajax({
 		url: "updateamount.do",
 		data: {amount: $(e.target).data("amount")+1,no: $(e.target).data("no")},
-		success: (list) => {console.log("업데이트 성공");makeList(list);}
+		success: (list) => {
+			console.log("업데이트 성공");
+			makeList(list);
+			}
 	});
 });
 
@@ -42,22 +45,16 @@ $("#y-con-content").on("click",".minus",(e)=>{
 
 function makeList(list) {
 	$tbl = $('<div class="y-con-content"></div>');
+	let a;
+	let sum = 0;
 	$.each(list, (i, list) => {
-		$tbl.append(
-				
-				`
-			<c:set scope="page" var="sum" value="0" />
-			<c:forEach var="list" items="${list}" varStatus="status">
-			<c:set scope="page" var="price" value="${list.price*list.amount}" />
-			`
-				)
-		,
 		
-		$tbl.append('<c:set scope="page" var="sum" value="${sum + price}" />')
-			,
+		let price = `${list.price*list.amount}`
+			sum += parseInt(price);
 			
 		$tbl.append(`
-		<div class="y-content-box">
+		<c:set scope="page" var="price" value="${list.price*list.amount}" />
+				<div class="y-content-box">
 					<div class="floatbox">
 
 						<div>
@@ -77,18 +74,19 @@ function makeList(list) {
 							<span class="y-amount">${list.amount}</span> 
 							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}"></i>
 						</div>
-						<span class="y-price float-r"> `),
-			$tbl.append('<i class="fas fa-won-sign fa-lg"></i> ${price}'),
-						
-			$tbl.append(`
+						<span class="y-price float-r"> 
+						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${price}</span>
 						</span>
 					</div>
 				</div>
+		`);
 				
-			</c:forEach>
-			`
-		)
+			
+//		$(".price").html(price);
 	});
+	
+	$("#sum").html(sum);
+	$("#sum+").html(sum+2500);
 	$("#y-con-content").html($tbl);
 	
 }
