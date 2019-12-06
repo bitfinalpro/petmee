@@ -27,22 +27,22 @@ public class ShoppingListController {
 		model.addAttribute("list", list);
 	}
 	
-	@RequestMapping("/shop/shoppinglist/delete.do")
+	@RequestMapping("/shop/shoppinglist/deletelist.do")
 	@ResponseBody
-	public List<ShoppingList> delteteShoppingList(Model model) {
+	public List<ShoppingList> delteteShoppingList(int no) {
 		User user = new User();
 		user.setEmail("y@y.com");
-		service.ShoppingList(user);
+		service.deleteList(user, no);
 		
 		return service.ShoppingList(user);
 	}
 	
-	@RequestMapping("/shop/shoppinglist/alldelete.do")
+	@RequestMapping("/shop/shoppinglist/alldeletelist.do")
 	@ResponseBody
-	public List<ShoppingList> alldelteteShoppingList(Model model) {
+	public List<ShoppingList> alldelteteShoppingList() {
 		User user = new User();
 		user.setEmail("y@y.com");
-		service.ShoppingList(user);
+		service.alldeleteList(user);
 		
 		return service.ShoppingList(user);
 	}

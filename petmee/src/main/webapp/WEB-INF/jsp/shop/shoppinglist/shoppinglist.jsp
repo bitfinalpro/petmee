@@ -25,8 +25,7 @@
 			<div id="y-con-head">
 				<span id="y-title">장바구니</span>
 				<div id="y-title-box">
-					<i class="fas fa-times fa-2x mousepoint" id="y-alldelete"></i> <input
-						type="checkbox" id="y-allcheck" />
+					<i class="fas fa-times fa-2x mousepoint" id="y-alldelete"></i>
 				</div>
 			</div>
 			<hr class="y-line">
@@ -45,11 +44,9 @@
 						</div>
 						<div class="y-list-content float-l">${list.explain}</div>
 						<div class="y-check-del-box float-r">
-							<div>
-								<i class="fas fa-times fa-2x mousepoint y-alldelete"></i>
-							</div>
-							<div>
-								<input type="checkbox" id="y-allcheck" />
+							<div class="y-delbox">
+								<i class="fas fa-times fa-2x mousepoint y-delete"></i>
+								<input type="hidden" class="no" value="${list.no}">
 							</div>
 						</div>
 					</div>

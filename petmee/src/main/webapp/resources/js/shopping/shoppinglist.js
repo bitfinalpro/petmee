@@ -1,12 +1,16 @@
 $(() => {
 	
 	$("#y-con-content").on("click", ".y-delete",(e) => {
-		console.log($(e.target).data("no"));
-		console.log("에이작스 삭제 성공");
-		
-		$.getJSON({
+		$.ajax({
 			url: "deletelist.do",
-			data: {no: $("#no").val()},
+			data: {no: $(".no").val()},
+			success: (list) => makeList(list)
+		});
+	});
+	
+	$("#y-alldelete").click(() => {
+		$.ajax({
+			url: "alldeletelist.do",
 			success: (list) => makeList(list)
 		});
 	});
@@ -27,7 +31,7 @@ function ListAjax() {
 	
 
 function makeList(list) {
-	$tbl = $('<div class="y-con-content">');
+	$tbl = $('<div class="y-con-content"></div>');
 	$.each(list, (i, list) => {
 		$tbl.append(
 				
@@ -53,7 +57,7 @@ function makeList(list) {
 						<div class="y-check-del-box float-r">
 							<div>
 								<i class="fas fa-times fa-2x mousepoint y-delete"></i>
-								<input type="hidden" name="no" value="${list.no }">
+								<input type="hidden" class="no" value="${list.no }">
 							</div>
 							<div>
 								<input type="checkbox" id="y-allcheck" />

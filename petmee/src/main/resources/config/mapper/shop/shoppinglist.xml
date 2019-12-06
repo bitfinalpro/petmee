@@ -10,7 +10,7 @@
 	</select>
 	
 	<!-- 장바구니 정보 전체 삭제 -->
-	<delete id="alldeletehoppingList" parameterType="User">
+	<delete id="alldeleteShoppingList" parameterType="User">
 		DELETE FROM tb_shopping WHERE email = #{email}
 	</delete>
 	
