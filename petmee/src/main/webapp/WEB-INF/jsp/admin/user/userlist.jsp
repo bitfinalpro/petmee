@@ -24,6 +24,34 @@
    <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
 
 <style>
+ .u {
+    width: 30%;
+      text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 20px;
+      }
+    .u > strong {
+      text-align: center;
+      }
+    #usermodal {
+      border: solid 1px #e9e9e9;
+      width: 510px;
+      height: 400px;
+    }
+    #usermodal > tbody > tr > td {
+      border: solid 1px  #e9e9e9;
+  
+    }
+    #usermodal > tbody > tr > td:nth-child(2n + 1) {
+      background: #e5e5e5;
+      padding-left: 8px;
+      padding-right: 3px;
+    }
+    #usermodal > tbody > tr > td:nth-child(2n + 2) {
+      padding-left: 8px;
+    }
+
     *{
       margin:0;
       padding:0;
@@ -50,8 +78,8 @@
       padding:20px 20px 60px;
       margin:20px;
       width:550px;
-      height: 650px;
-      background: beige;
+      height: 530px;
+      background: white;
       position:relative;
     }
     .layer .close{
@@ -157,7 +185,7 @@
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-            <a class="nav-link" href="/admin/user/reportlist.do">
+            <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
               <i class="fas fa-user-slash"></i>
                 <span>신고관리</span>
               </a>
@@ -244,13 +272,55 @@
                 </tbody>
              </c:forEach>
               </table>
-              <!-- 모달창 시작 -->
-              <div id="popup" class="layer">
+               <!-- 모달창 시작 -->
+               <c:forEach var="u" items="${userList}">
+                <div id="popup" class="layer">
                   <div class="box">
-                       디자인 같당
+                    <div class="u"><strong>회원정보</strong></div>
+                    <table class ="usermodal" id="usermodal">
+                        <colgroup>
+                          <col width="17%">
+                          <col width="25%">
+                          <col width="17%">
+                          <col width="5%">
+                          <col width="7%">
+                          <col width="3%">
+                      </colgroup>                  
+                      <tr>
+                        <td>이름</td>
+                        <td>${u.name}</td>
+                        <td>아이디 </td>
+                        <td colspan="3">${email}</td>
+                      </tr>
+                      <tr>
+                        <td>주민번호</td>
+                        <td>941221 - 1000000</td>
+                        <td>성별</td>
+                        <td>남</td>
+                        <td>나이</td>
+                        <td>26</td>
+                      </tr>
+                      <tr>
+                        <td>주소 </td>
+                        <td colspan="5">서울시 마포구 마포동 마포읍 마포리 303-151232===132114321321</td>
+                      </tr>
+                      <tr>
+                        <td>핸드폰번호</td>
+                        <td>010-9737-9060</td>
+                        <td>가입일자  </td>
+                        <td colspan="3">2019.11.12</td>
+                      </tr>
+                      <tr>
+                        <td>총구매횟수  </td>
+                        <td>3,152</td>
+                        <td>총구매금액</td>
+                        <td colspan="3">32,600,000</td>
+                      </tr>
+                    </table>
                     <a href="#" class="close">닫기</a>
                   </div>
                 </div>
+                </c:forEach>
               <!-- 모달창 끝 -->
             </div>
           </div>

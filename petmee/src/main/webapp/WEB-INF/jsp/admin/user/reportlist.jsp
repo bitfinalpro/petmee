@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,57 +23,6 @@
   <!-- 이 템플릿의 사용자 지정 스타일 -->
    <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
 
-<style>
-    *{
-      margin:0;
-      padding:0;
-    }
-    ul,li{
-      list-style:none;
-    }
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-    .layer{
-      display:none;
-      justify-content:center;
-      align-items:center;
-      background:rgba(0,0,0, 0.5);
-      position:fixed;
-      left:0;
-      right:0;
-      top:0;
-      bottom:0;
-    }
-    .layer .box{
-      padding:20px 20px 60px;
-      margin:20px;
-      width:550px;
-      height: 650px;
-      background: beige;
-      position:relative;
-    }
-    .layer .close{
-      position:absolute;
-      right:20px;
-      bottom:20px;
-      display:block;
-      background:#09F;
-      color:#fff;
-      text-align:center;
-      padding:5px 20px;
-      font-size:13px;
-    }
-    .layer:target{
-      display:flex;
-      animation:open 0.5s;
-    }
-    @keyframes open {
-      from {opacity:0;} to {opacity:1;}
-    }
-  
-  </style>
 </head>
 
 <body id="page-top">
@@ -154,7 +106,7 @@
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-            <a class="nav-link" href="reportadmin.html">
+            <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
               <i class="fas fa-user-slash"></i>
                 <span>신고관리</span>
               </a>
@@ -170,17 +122,7 @@
           <a class="nav-link" href="boardadmin.html">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
-        </li>
-  
-        <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>통계</span></a>
-        </li>
-      </ul>
-  
-  
+        </li> 
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
           <a class="nav-link" href="charts.html">
@@ -232,35 +174,24 @@
                     <th>탈퇴</th>
                   </tr>
                 </tfoot>
+                <c:if test="${empty reportList}">
+                <tr>
+                <td colspan="5">신고당한 회원이 없습니다.</td>
+                </tr>
+                </c:if>
+                <c:forEach var="report" items="${reportList}">
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>자유</td>
-                        <td>boy9412@naver.cm</td>
-                        <td>도박</td>
-                        <td>토토사이트를 도배합니다.ddddddddddddddddd</td>
-                        <td>dldl@gmail.com</td>
-                        <td><a href="#"><button type="button">탈퇴</button></a></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>자유</td>
-                        <td>boy9412@naver.cm</td>
-                        <td>도박</td>
-                        <td>토토사이트를 도배합니다.ddddddddddddddddd</td>
-                        <td>dldl@gmail.com</td>
-                        <td><a href="#"><button type="button">탈퇴</button></a></td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>자유</td>
-                        <td>boy9412@naver.cm</td>
-                        <td>도박</td>
-                        <td>토토사이트를 도배합니다.dddddddddddddddd</td>
-                        <td>dldl@gmail.com</td>
+                        <td>${report.reportNo}</td>
+                        <td>${report.boardType}</td>
+                        <td>${report.email}</td>
+                        <td>${report.reportReason}</td>
+                        <td>${report.reportContent}</td>
+                        <td>${report.reportEmail}</td>
                         <td><a href="#"><button type="button">탈퇴</button></a></td>
                       </tr>
                 </tbody>
+                </c:forEach>
               </table>
             </div>
           </div>

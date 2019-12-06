@@ -5,22 +5,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.petmee.admin.service.UserService;
-import kr.co.petmee.repository.dao.UserDAO;
+import kr.co.petmee.admin.service.ReportService;
+import kr.co.petmee.repository.dao.ReportDAO;
+
 
 @Controller("kr.co.petmee.admin.controller.ReportController")
-@RequestMapping("/admin/report")
+@RequestMapping("/admin/user")
 public class ReportController {
 	
 	@Autowired
-	private UserService service;
+	private ReportService service;
 	
 	@Autowired
-	private UserDAO dao;
-	/**
+	private ReportDAO dao;
+	
 	@RequestMapping("/reportlist.do")
 	public void List(Model model) {
 		model.addAttribute("reportList", service.reportList());
 	}
-     */
+     
 }
