@@ -18,6 +18,10 @@
 	<delete id="deleteShoppingList" parameterType="int">
 		DELETE FROM tb_shopping WHERE no = #{no}
 	</delete>
+	
+	<update id="updateamount" parameterType="hashmap">
+		update tb_shopping set amount = #{amount} where no = #{no}
+	</update>
 
 	<!-- 배송정보 insert -->
 	<insert id="">
