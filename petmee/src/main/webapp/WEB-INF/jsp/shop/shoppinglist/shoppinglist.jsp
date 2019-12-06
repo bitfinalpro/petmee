@@ -45,17 +45,16 @@
 						<div class="y-list-content float-l">${list.explain}</div>
 						<div class="y-check-del-box float-r">
 							<div class="y-delbox">
-								<i class="fas fa-times fa-2x mousepoint y-delete"></i>
-								<input type="hidden" class="no" value="${list.no}">
+								<i class="fas fa-times fa-2x mousepoint y-delete" data-no="${list.no}" ></i>
 							</div>
 						</div>
 					</div>
 
 					<div class="y-amountbox ">
 						<div class="y-s-amount">
-							<i class="far fa-plus-square fa-2x mousepoint "></i> <span
+							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }"></i> <span
 								class="y-amount">${list.amount}</span> <i
-								class="far fa-minus-square fa-2x mousepoint"></i>
+								class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }"></i>
 						</div>
 						<span class="y-price float-r"> <i
 							class="fas fa-won-sign fa-lg"></i> ${list.price }

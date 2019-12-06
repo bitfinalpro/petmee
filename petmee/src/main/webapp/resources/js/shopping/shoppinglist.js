@@ -1,9 +1,10 @@
 $(() => {
 	
 	$("#y-con-content").on("click", ".y-delete",(e) => {
+		console.log($(e.target).data("no"));
 		$.ajax({
 			url: "deletelist.do",
-			data: {no: $(".no").val()},
+			data: {no: $(e.target).data("no")},
 			success: (list) => makeList(list)
 		});
 	});
@@ -56,11 +57,8 @@ function makeList(list) {
 						<div class="y-list-content float-l">${list.explain}</div>
 						<div class="y-check-del-box float-r">
 							<div>
-								<i class="fas fa-times fa-2x mousepoint y-delete"></i>
+								<i class="fas fa-times fa-2x mousepoint y-delete" data-no="${list.no}"></i>
 								<input type="hidden" class="no" value="${list.no }">
-							</div>
-							<div>
-								<input type="checkbox" id="y-allcheck" />
 							</div>
 						</div>
 					</div>
@@ -84,6 +82,17 @@ function makeList(list) {
 	$("#y-con-content").html($tbl);
 	
 }
+
+
+	$(".y-s-amount").on("click",".plus",(e)=>{
+		console.log( $(e.target).data("amount"));
+		
+		cnt_am = $(e.target).data("amount")
+		cnt_am += 1;
+		$(e.target).data("amount",cnt_am)
+		$(".y-amount").html(cnt_am);
+	});
+	
 
 
 
