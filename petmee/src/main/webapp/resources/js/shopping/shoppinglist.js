@@ -86,7 +86,7 @@ function makeList(list) {
 	});
 	
 	$("#sum").html(sum);
-	$("#sum+").html(sum+2500);
+	$("#sum1").html(sum+2500);
 	$("#y-con-content").html($tbl);
 	
 }

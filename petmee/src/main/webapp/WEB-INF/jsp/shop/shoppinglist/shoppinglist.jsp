@@ -80,7 +80,7 @@
 			<hr class="cline">
 			<div class="y-con-price">
 				<span>예상 결제금액</span> <span class="float-r"><i
-					class="fas fa-won-sign fa-sm"></i> <span id="sum+">${sum +2500}</span></span>
+					class="fas fa-won-sign fa-sm"></i> <span id="sum1">${sum +2500}</span></span>
 			</div>
 			<div id="y-con-button">
 				<button type="button" class="mousepoint">결제하기</button>
