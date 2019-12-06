@@ -9,5 +9,7 @@ public interface ShoppingListDAO {
 	
 	List<ShoppingList> selectShoppingList(User user);
 	
+	void alldeleteShoppingList(User user);
 	
+	void deleteShoppingList(int no);
 }

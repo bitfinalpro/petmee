@@ -19,5 +19,13 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 		return dao.selectShoppingList(user);
 	}
 	
+	public List<ShoppingList> deleteList(User user,int no) {
+		dao.deleteShoppingList(no);
+		return dao.selectShoppingList(user);
+	}
+	public List<ShoppingList> alldeleteList(User user,int no) {
+		dao.alldeleteShoppingList(user);
+		return dao.selectShoppingList(user);
+	}
 
 }

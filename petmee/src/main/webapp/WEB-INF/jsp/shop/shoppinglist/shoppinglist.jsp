@@ -15,9 +15,7 @@
 <title>시바 먼치킨</title>
 
 </head>
-<script type="text/javascript">
-	
-</script>
+
 <body>
 	<div id="header">
 	<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
@@ -97,5 +95,7 @@
 	<div id="footer" class="footer_wrap clearfix">
 	<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
+	
+	<script src="<c:url value="/resources/js/shopping/shoppinglist.js" />"></script>
 </body>
 </html>

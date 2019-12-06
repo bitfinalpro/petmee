@@ -12,6 +12,9 @@ public interface ShoppingListService {
 	
 	List<ShoppingList> ShoppingList(User user);
 	
+	List<ShoppingList> deleteList(User user,int no);
+	
+	List<ShoppingList> alldeleteList(User user,int no);
 	
 
 
