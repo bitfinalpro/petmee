@@ -4,20 +4,34 @@
 * --------------------------------
 */
 
-/*-----------------------  product img----------------------- */
 
-/*-----------------------  product img end----------------- */
+
 
 
 /*-----------------------  product su chek----------------- */
 var sell_price;
 			var amount;
+			var big;
+			var smallImgs;
+
+			var bigImg;
+			var smallImgThumb;
 			
 			function init () {
 				sell_price = document.form.sell_price.value;
 				amount = document.form.amount.value;
 				document.form.sum.value = sell_price;
 				change();
+				big = document.getElementById('bigImg');
+				smallImgs= document.getElementById('smallImgs');
+
+				bigImg = big.getElementsByTagName('img')[0];
+				smallImgThumb = smallImgs.getElementsByTagName('img');
+				for(var i = 0; i<smallImgThumb.length; i++){
+					smallImgThumb[i].onmouseover = function(){
+						bigImg.src=this.src;
+					}
+				}
 			}
 			
 			function add () {
@@ -46,8 +60,8 @@ var sell_price;
 					}
 				sum.value = parseInt(hm.value) * sell_price;
 			}  
-
 /*-----------------------  product su chek end----------------- */
+
 
 var fn = (function() {
     return {
