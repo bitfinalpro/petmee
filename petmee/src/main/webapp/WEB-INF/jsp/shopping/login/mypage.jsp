@@ -11,7 +11,10 @@
     <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
     <link href="<c:url value="/resources/css/shopping/login/mypage.css" />" rel="stylesheet">
-    <script src="<c:url value='/js/common/jquery-1.11.1.min.js' />"></script>
+    <link href="<c:url value="/resources/css/shopping/login/page.css" />" rel="stylesheet">
+    
+    <script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
+    <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
     <title>(주)펫미</title>
 </head>
 
@@ -563,24 +566,19 @@
     })();
   </script>
   <!-- End Channel Plugin --> 
-    </div>
+  </div>
   
   <script src="../js/lib/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
   <script src="../js/lib/jquery.easing.1.3.js"></script>
-  
   <script src="../js/lib/wow.min.js"></script>
   <script src="../js/lib/slick.min.js"></script>
   <script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
   <script src="../js/lib/modernizr.custom.js"></script>
   <script src="../js/lib/placeholders.min.js"></script>
   <script src="../js/lib/jquery.magnific-popup.js"></script>	
-  
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  
   <script src="../js/common.js?ver=2019-04-25"></script>
-  
-  
 
   </body>
   </html>

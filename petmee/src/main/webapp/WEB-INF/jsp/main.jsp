@@ -4,26 +4,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
-<meta name="google" value="notranslate"/>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/base.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick-theme.css" />">
-<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
-<script src="<c:url value="/resources/js/common/menu.js" />"></script>
-<script src="<c:url value="/resources/js/common/slick.js" />"></script>
-<script src="<c:url value="/resources/js/common/slick.min.js" />"></script>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/main/main.css" />">
-<script src="<c:url value="/resources/js/shopping/main/main.js" />"></script>
-<title>PetMee</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
+	<meta name="google" value="notranslate"/>
+	
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/base.css" />">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick-theme.css" />">
+	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/page.css " />" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/main/main.css" />">
+	
+	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
+	<script src="<c:url value="/resources/js/common/menu.js" />"></script>
+	<script src="<c:url value="/resources/js/common/slick.js" />"></script>
+	<script src="<c:url value="/resources/js/common/slick.min.js" />"></script>
+	<script src="<c:url value="/resources/js/shopping/main/main.js" />"></script>
+	<title>PetMee</title>
 </head>
 <body>
-<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
- <div class="slick-items">
-      <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test1.jpg" style="display: inline-block;"></div>
-      <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test2.jpg" style="display: inline-block;"></div>
+	<div id="header">
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+	</div>
+	<div class="slick-items">
+		<div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test1.jpg" style="display: inline-block;"></div>
+		<div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test2.jpg" style="display: inline-block;"></div>
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test3.jpg" style="display: inline-block;"></div>
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test4.jpg" style="display: inline-block;"></div>
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test5.jpg" style="display: inline-block;"></div>
@@ -486,6 +492,20 @@
   </div>
 </section>
 <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+<script src="../js/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+	<script src="../js/lib/jquery.easing.1.3.js"></script>
+	
+	<script src="../js/lib/wow.min.js"></script>
+	<script src="../js/lib/slick.min.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
+	<script src="../js/lib/modernizr.custom.js"></script>
+	<script src="../js/lib/placeholders.min.js"></script>
+	<script src="../js/lib/jquery.magnific-popup.js"></script>	
+	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<script src="../js/common.js?ver=2019-04-25"></script>
 </body>
 </html>
 

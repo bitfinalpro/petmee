@@ -76,7 +76,8 @@
     font-size: 30px; 
     top: -30px; 
     left: 200px; 
-    color: #999; 
+    color: #fff;
+    background-color: #000; 
     font-family: 'Noto Sans KR', sans-serif; 
 }
 .pop-con-modal .pop-head { 

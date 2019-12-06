@@ -11,7 +11,7 @@
 	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/shopping/login/page.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/pages.css " />" rel="stylesheet">
 	
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
 	<title>(주)펫미 </title>

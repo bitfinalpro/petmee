@@ -9,12 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=1200, maximum-scale=1.5, user-scalable=yes">
     <meta name="format-detection" content="telephone=no, address=no, email=no">
-     
-    <link href="<c:url value="/resources/css/shopping/login/page.css " />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/join.css" />" rel="stylesheet">
+    
 	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-
+    <link href="<c:url value="/resources/css/shopping/login/join.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/shopping/login/board.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/shopping/login/login.css" />" rel="stylesheet">
+	
+	<script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
+    <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
+    
     <script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
     <title>(주)펫미</title>
 </head>
@@ -23,8 +27,7 @@
 		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
 	
-	<div style="display:block; width:100px; height: 20px;">123</div>
-    <div id="contents" class="sub-contents">      
+    <div id="contents" class="sub-contents">
 		<div class="sub-visual">
               <div class="wrap">
                   <div class="sub-visual-title wowrap" style="background-color: black;">
@@ -410,5 +413,6 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
 	<script src="../js/common.js?ver=2019-04-25"></script>
+  
 </body>
 </html>
