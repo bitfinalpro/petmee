@@ -15,8 +15,24 @@
 <script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+window.onload=function(){
+	var big = document.getElementById('bigImg');
+	var smallImgs= document.getElementById('smallImgs');
+
+	var bigImg = big.getElementsByTagName('img')[0];
+	var smallImgThumb = smallImgs.getElementsByTagName('img');
+	
+	for(var i = 0; i<smallImgThumb.length; i++){
+		smallImgThumb[i].onmouseover = function(){
+			bigImg.src=this.src;
+		}
+	}
+}
+</script>
 </head>   
 <body onload="init();">
+
     <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
     <div id="wrap" class="sub">
 	<!-- contents// -->
@@ -421,20 +437,6 @@
     
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
-<script>
-window.onload=function(){
-	var big = document.getElementById('bigImg');
-	var smallImgs= document.getElementById('smallImgs');
 
-	var bigImg = big.getElementsByTagName('img')[0];
-	var smallImgThumb = smallImgs.getElementsByTagName('img');
-	
-	for(var i = 0; i<smallImgThumb.length; i++){
-		smallImgThumb[i].onmouseover = function(){
-			bigImg.src=this.src;
-		}
-	}
-}
-</script>
 </body>
 </html>
