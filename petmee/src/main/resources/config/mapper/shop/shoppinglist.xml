@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.ShoppingListDAO">
+
+	<!-- 장바구니 정보 select -->
+
+	<select id="selectShoppingList" parameterType="User" resultType="ShoppingList">
+		SELECT * FROM tb_shopping where email = #{email}
+	</select>
+	
+	<!-- 장바구니 정보 전체 삭제 -->
+	<delete id="alldeleteShoppingList" parameterType="User">
+		DELETE FROM tb_shopping WHERE email = #{email}
+	</delete>
+	
+	<!-- 장바구니 정보 삭제 -->
+	<delete id="deleteShoppingList" parameterType="int">
+		DELETE FROM tb_shopping WHERE no = #{no}
+	</delete>
+	
+	<update id="updateamount" parameterType="hashmap">
+		update tb_shopping set amount = #{amount} where no = #{no}
+	</update>
+
+	<!-- 배송정보 insert -->
+	<insert id="">
+
+	</insert>
+
+</mapper>
