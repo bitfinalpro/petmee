@@ -1,4 +1,4 @@
-package kr.co.petmee.main.controller;
+package kr.co.petmee.shopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.petmee.shopping.service.MainService;
 
-
-@Controller("kr.co.petmee.main.controller.MainController")
-public class MainController {
+@Controller("kr.co.petmee.shopping.controller.ShoppingMain")
+@RequestMapping("/main.do")
+public class ShoppingMain {
+	
 	@Autowired
 	private MainService service;
-	@RequestMapping("/main.do")
-	public void main(Model model) {	
+	
+	@RequestMapping("/foodList.do")
+	public void List(Model model) {
 		model.addAttribute("food", service.foodList());
-		System.out.println(service.foodList());
-	}
+	} 
 }
