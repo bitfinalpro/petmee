@@ -12,7 +12,6 @@
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
 <link href="<c:url value='/resources/css/parcel/parcelList.css' />" rel="stylesheet" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 a,button,submit{

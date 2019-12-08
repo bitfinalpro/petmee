@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Product {
+<<<<<<< HEAD
 	private String productId;
 	private String productName;
 	private String productInfo;
@@ -12,4 +13,15 @@ public class Product {
 	private String campany;
 	private int categoryNo;
 	private int animalNo;
+=======
+	private int categoryNo;
+	private String categoryName;
+	private int animalNo;
+	private String productName;
+	private String productId;
+	private String productInfo;
+	private int price;
+	private int stock;
+	private String company;	
+>>>>>>> develop
 }

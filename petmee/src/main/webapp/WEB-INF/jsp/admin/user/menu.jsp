@@ -100,16 +100,16 @@
             </a>
           </li>
         
-      <!-- 게시판 관리 -->
+      <!-- 주문 관리 -->
       <li class="nav-item">
-        <a class="nav-link" href="boardadmin.html">
+        <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
           <i class="fas fa-fw fa-table"></i>
-            <span>게시판관리</span>
+            <span>주문관리</span>
           </a>
         </li>
       <!-- 상품 관리 -->
       <li class="nav-item">
-        <a class="nav-link" href="boardadmin.html">
+        <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
           <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span>
           </a>
@@ -117,7 +117,7 @@
         
       <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>통계</span></a>
       </li>

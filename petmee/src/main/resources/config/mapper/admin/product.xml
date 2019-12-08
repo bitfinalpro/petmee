@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.ProductDAO">
+       
+<!-- 제품목록 추출 -->       
+       <select id="selectProducts" resultType="Product">
+        select *
+          from tb_product
+       </select>
+<!-- 제품삭제 -->
+	<delete id="deleteProduct" parameterType="string">
+		delete 
+		  from tb_product
+		 where product_id = #{productId}
+	</delete>       
+<!-- 카테고리 추출  -->
+	<select id="selectCatecories" resultType="Product">
+		select *
+		  from tb_category
+	</select>
+</mapper>
