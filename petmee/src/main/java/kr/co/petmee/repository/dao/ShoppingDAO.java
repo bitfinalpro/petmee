@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.co.petmee.repository.vo.Product;
 
-public interface MainDAO {
+public interface ShoppingDAO {
 	List<Product> selectFood();
+	Product shoppingDetail(String productId);
 }

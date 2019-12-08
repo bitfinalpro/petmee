@@ -57,7 +57,7 @@ window.onload=function(){
 			<!-- proinfo// -->
 			<div class="proinfo">
 				<h2>
-					<strong>오리젠 6 피쉬 캣 5.4kg </strong>
+					<strong>${product.productName}</strong>
 				</h2>
 			
 				<div class="pinfo-txt">
@@ -79,7 +79,7 @@ window.onload=function(){
 			<th>판매가</th>
 			<td>
 					<del><em>91,000</em>원</del>
-				<span class="txt-price"><em>84,400</em>원</span>
+				<span class="txt-price"><em>${product.price}</em>원</span>
 			</td>
 		</tr>
 	</tbody>
@@ -103,7 +103,7 @@ window.onload=function(){
 	<tbody class="pinfo-info">
 		<tr>
 			<th>수량 :</th>
-			<td><input type=hidden name="sell_price" value="5500"><input type="text" name="amount" value="1" size="3" onchange="change();">
+			<td><input type=hidden name="sell_price" value="${product.price}"><input type="text" name="amount" value="1" size="3" onchange="change();">
 				<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
 				<span id="product_su_txt">(최소준문수량 1개 이상)</span>
 			</td>
@@ -114,7 +114,7 @@ window.onload=function(){
 		<fieldset>
 			<div class="pro-total">
 				<strong>총 상품금액(수량)</strong>
-				<em id="totalPrice_A"><input type="text" name="sum" size="11" value="5500" readonly></em>원(1개)
+				<em id="totalPrice_A"><input type="text" name="sum" size="11" value="${product.price}" readonly></em>원(1개)
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">

@@ -15,6 +15,5 @@ public class MainController {
 	@RequestMapping("/main.do")
 	public void main(Model model) {	
 		model.addAttribute("food", service.foodList());
-		System.out.println(service.foodList());
 	}
 }
