@@ -83,7 +83,7 @@
 					class="fas fa-won-sign fa-sm"></i> <span id="sum1">${sum +2500}</span></span>
 			</div>
 			<div id="y-con-button">
-				<button type="button" class="mousepoint">결제하기</button>
+				<button type="button" class="mousepoint" id="payment-btn">결제하기</button>
 				<button type="button" class="mousepoint">메인페이지</button>
 			</div>
 		</div>
