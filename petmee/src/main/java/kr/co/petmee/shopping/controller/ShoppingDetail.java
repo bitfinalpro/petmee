@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.petmee.shopping.service.DetailService;
 
 @Controller("kr.co.petmee.shopping.controller.ShoppingDetail")
-@RequestMapping("/shopping")
+@RequestMapping("/shop")
 public class ShoppingDetail {
 	
 	@Autowired

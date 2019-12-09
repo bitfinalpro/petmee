@@ -202,7 +202,7 @@
                        <div>
                         <form id="pForm">                            
                         <div>
-                          분류: <select name="category">
+                          분류: <select name="category" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
                             <option value="${c.categoryNo}">${c.categoryName}</option>
                            </c:forEach>
@@ -212,7 +212,7 @@
                         <div>품번 : <input type="text" name="productno"/></div>
                         <div>가격 : <input type="text" name="productprice"/></div>
                         <div>제조사 : <input type="text" name="company"/></div>
-                        <button id="listupbtn">목록에 올리기</button>
+                        <button id="listupbtn" type="button">목록에 올리기</button>
                         </form>
                         <div id="registerlist">
                           <table id="inputlisttable">
@@ -225,28 +225,8 @@
                                     <th>제조사</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>식품</td>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>12,000</td>
-                                    <td>맛있는 식품</td>
-                                  </tr>                                 
-                                  <tr>
-                                    <td>의류</td>
-                                    <td>멋진 신발</td>
-                                    <td>cl-002</td>
-                                    <td>32,000</td>
-                                    <td>잘만드는 회사</td>
-                                  </tr>                                 
-                                  <tr>
-                                    <td>식품</td>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>12,000</td>
-                                    <td>맛있는 식품</td>
-                                  </tr>                                 
+                                <tbody id="registertbody">
+                                                                  
                                 </tbody>
                           </table>
                         </div>
@@ -431,8 +411,7 @@
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
-  <script src="<c:url value="/resources/js/admin/product.js"/> "></script>
-  <script src="js/product.js"></script>
+  <script src="<c:url value="/resources/js/admin/product.js"/>"></script>
 </body>
 
 </html>
