@@ -91,7 +91,9 @@ function makeList(list) {
 	
 }
 
-	
+$("#payment-btn").click( () => {
+	location.href = "/petmee/main.do";
+});
 
 
 
