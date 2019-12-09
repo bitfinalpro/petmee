@@ -154,66 +154,73 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th><input type="checkbox" id="checkall" value="0"/> 제품번호</th>
-                    <th>상품명</th>
-                    <th>대상</th>
-                    <th>분류</th>
-                    <th>가격</th>
-                    <th>재고량</th>
-                    <th>제조사</th>
-                    <th>삭제</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                      <th colspan="8"><button id="checkallbutton">전체선택</button><button id="cancelchoice">선택해제</button><button id="cancelorder">주문 취소</button></th>
-                    </tr>
-                  </tfoot> 
-                <tbody>
-                <c:forEach var="p" items="${list}">
-                  <tr>
-                    <td><input type="checkbox" name="a" value=""/> &nbsp ${p.productId}</td>
-                    <td>${p.productName}</td>
-                    <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
-                    <td>
-                    	<c:if test="${p.categoryNo == 1}">의류</c:if>
-                    	<c:if test="${p.categoryNo == 2}">식품</c:if>
-                    	<c:if test="${p.categoryNo == 3}">식기/주거</c:if>
-                    	<c:if test="${p.categoryNo == 4}">장난감</c:if>
-                    	<c:if test="${p.categoryNo == 5}">위생</c:if>
-                     </td>
-                    <td><fmt:formatNumber value="${p.price}" pattern="###,###,###"/></td>
-                    <td>${p.stock}</td>
-                    <td>${p.company}</td>
-                    <td><a href="delete.do?productId=${p.productId}" id="selectDelete" data-no="${p.productId}">삭제</a></td>
-                  </tr>               
-                </c:forEach>
-                </tbody>
-              </table>
-              <!-- 등록모달창 시작 -->
-              <div id="registerpopup" class="layer">
+            <div class="inout"><button id="regNdel">제품등록</button><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
+               <!-- 등록 폼 시작 -->
+               <!-- #pForm div {
+    margin: 20px 10%;} 삭제 (product.css 58줄),
+ -->
+    <style>
+    #pForm #classify {width:100%; margin: 0px 0%;}
+    #pForm input {margin : 0px 0px 0px 7px}
+    #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+    #classify span{width: 80px; float: none; font-size: 16px; color: #000; margin-top: 0px; margin-left: 10px;}
+    #pForm ul {margin:20px 0px 0px 20px;  list-style:none;}
+     #pForm ul li { margin:10px; float: left;}
+     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block;     margin-top: 20px;
+    margin-left: 20px;}
+     #pForm ul li span{width:80px; float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+     .ad_infoinput{width:150px;}
+     .ad_file {width:300px}
+    </style> 
                   <div class="box">
-                       <a href="#"><span>x</span></a>
                        <div id="inputtitle">제품 등록</div>
                        <div>
-                        <form id="pForm">                            
-                        <div>
-                          분류: <select name="category" id="selectCategory">
+                        <form id="pForm">    
+                        <ul>
+                        <div id="classify">
+                        <strong>분류:</strong> <select name="category" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
                             <option value="${c.categoryNo}">${c.categoryName}</option>
                            </c:forEach>
-                          </select>
+                          </select>   
+                          <span>수량 :<input type="number" value="1">
+                        		<span>품절 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />
+                        		<span>베스트 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />
+                        		<span>최신 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />           
                         </div>
-                        <div>상품명 : <input type="text" name="productname"/></div>                             
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>가격 : <input type="text" name="productprice"/></div>
-                        <div>제조사 : <input type="text" name="company"/></div>
-                        <button id="listupbtn" type="button">목록에 올리기</button>
+                        	<li>
+                        		<span>상품명 :</span> <input class="ad_infoinput" type="text" name="productname"/>
+                        	</li>
+                        	<li>
+                        	<span>품번 :</span> <input class="ad_infoinput" type="text" name="productno"/>
+                        	</li>
+                        	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
+                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
+                        </ul>
+                         <ul>
+                        	<li>
+                        		<span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productname"/>
+                        	</li>
+                        	<li>
+                        	<span>품번 :</span> <input class="ad_infoinput" type="text" name="productno"/>
+                        	</li>
+                        	<li><span>배송정보 :</span><input class="ad_infoinput" type="text" name="company"/></li>
+                        	
+                        	<li><span>배송비 :</span><input class="ad_infoinput" type="text" name="company"/></li>
+                        </ul>   
+                         <ul>
+                        	<li>
+                        		<input class="ad_file" type="file" />
+                        	</li>
+                        	<li>
+                        	<input class="ad_file" type="file" />
+                        	</li>
+                        </ul>   
+                     
+                        <div><button id="listupbtn" type="button" style="display:block; margin:0 auto"; width:80px;>목록에 올리기</button></div>
+                      
                         </form>
+                     
                         <div id="registerlist">
                           <table id="inputlisttable">
                               <thead>
@@ -230,11 +237,12 @@
                                 </tbody>
                           </table>
                         </div>
+                           
                        </div>
                     <button id="completebtn1">완료</button>
                   </div>
-                </div>
-              <!-- 모달창 끝 -->            
+              
+              <!-- 등록 폼 끝 -->            
               <!-- 입고모달창 시작 -->
               <div id="inputpopup" class="layer">
                   <div class="box">

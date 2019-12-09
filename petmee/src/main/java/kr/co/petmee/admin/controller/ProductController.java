@@ -26,6 +26,14 @@ public class ProductController {
 		model.addAttribute("cList",service.selectCatecories());
 	   }
 	
+	@RequestMapping("/productRegister.do")
+	public void WriteForm(Model model) {
+		//상품목록
+		model.addAttribute("list",service.productList());
+		//카테고리 목록
+		model.addAttribute("cList",service.selectCatecories());
+	}
+	
 	@RequestMapping("/delete.do")	
 	public String deleteProduct(String productId) {
 		System.out.println("controller : " + productId);
