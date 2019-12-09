@@ -42,7 +42,7 @@
           <div class="sub-con sub-pad join_page _step1">
                   <div class="sub-title">
                     <p class="desc">회원가입</p>
-                    <p class="title_bold">CREATE YOUT ACCOUNT</p>
+                    <p class="title_bold">CREATE YOUsT ACCOUNT</p>
                   </div>
           
           <div class="wrapper">
