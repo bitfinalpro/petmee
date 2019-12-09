@@ -25,7 +25,7 @@
       </div>
       <div class="jbMenu">
         <div class="logo">
-        <a href="<c:url value="main.do"/>"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
+        <a href="<c:url value="/main.do"/>"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
       </div>
           <div class="menu">
                 <nav>
@@ -127,5 +127,4 @@
             <div class="black"></div>
         </div> <!-- modal -->
 	<%-- <script src="<c:url value="/js/jquery.magnific-popup.js" />"></script> --%>
-	<script src="<c:url value='/resources/js/common/jquery-3.4.1.js' />"></script>
 	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>
