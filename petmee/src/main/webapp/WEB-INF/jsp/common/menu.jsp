@@ -7,17 +7,19 @@
                <div>
                    <a href="<c:url value='/shopping/shoppingDetail.do'/> "><strong>공지스크롤(쇼핑디테일경로)</strong></a>
                    <a href="<c:url value='/admin/user/menu.do'/> "><strong>admin</strong></a>
+					<span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니</a></span>
                 </div>
                 <div>
                     <span><a>회원가입</a></span>
                     <span>/</span>
                     <span><a>로그인</a></span>
+                    <span>/</span>
                 </div>
             </div>
       </div>
       <div class="jbMenu">
         <div class="logo">
-        <a href="<c:url value="/main.do" />"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
+        <a href="<c:url value='/main.do'/>"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
       </div>
           <div class="menu">
                 <nav>
