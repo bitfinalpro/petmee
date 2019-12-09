@@ -28,8 +28,8 @@ public class LoginServiceImpl implements LoginService {
 	
 	// ------------------------------------
 	// 마이페이지
-	public List<User> selectMypage() {
-		return dao.selectMypage();
+	public List<User> selectMypage(int userNo) {
+		return dao.selectMypage(userNo);
 	}
 	
 	public void updateMypage(User user) {

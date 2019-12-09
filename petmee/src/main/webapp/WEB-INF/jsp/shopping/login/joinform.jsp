@@ -8,11 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=1200, maximum-scale=1.5, user-scalable=yes">
 	<meta name="format-detection" content="telephone=no, address=no, email=no"> 
-	<%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
-	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/shopping/login/pages.css " />" rel="stylesheet">
-	
+	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>
+	<link href="<c:url value='/resources/js/shopping/login/jquery-1.11.1.min.js' />" rel="stylesheet">
+	<link href="<c:url value='/resources/js/shopping/login/ch-plugin-web.js' />" rel="stylesheet">
+	<%-- <link href="<c:url value='/resources/js/shopping/login/validate.js' />" rel="stylesheet"> --%>
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
 	<title>(주)펫미 </title>
 </head>
@@ -22,6 +21,11 @@
 		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
 	
+	<img src="http://asp8.http.or.kr/sr.gif?d=r11405762786439.953" style="width:1px;height:1px;position:absolute;display:none" onload="logCorpAnalysis_full.ch()" alt="">
+	<noscript>
+	<img src="http://asp8.http.or.kr/HTTP_MSN/Messenger/Noscript.php?key=minipet" style="display:none;width:0;height:0;" alt="" />
+	</noscript>
+	<!-- LOG corp Web Analitics & Live Chat END -->
 	<img src="http://asp8.http.or.kr/sr.gif?d=r11405762786439.953" style="width:1px; height:1px; position:absolute;display:none" onload="logCorpAnalysis_full.ch()" alt="">
 	<noscript>
 	<img src="http://asp8.http.or.kr/HTTP_MSN/Messenger/Noscript.php?key=minipet" style="display:none;width:0;height:0;" alt="" />
@@ -88,9 +92,10 @@
 	  gtag('config', 'AW-720540785');
 	</script>
 	
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script><script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
-	<script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
-	<script type="text/javascript" src="/static/js/space_check.js"></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
+	<script type="text/javascript" src="../resources/js/shopping/login/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="../resources/js/shopping/login/space_check.js"></script>
 	<script type="text/javascript" language="JavaScript">
 	//<!--
 		window.history.forward(1);
@@ -359,7 +364,7 @@
 			}
 		}).open();
 	}			     
-	//-->
+	// -->
 	</script>
 
 <!--// 2019-02-27 banghg 메뉴추가 -->      
@@ -418,55 +423,86 @@
       </li>
       
       <!-- 패스워드확인 -->
-      <!-- <li class="col-lg-6">
-        <div class="inputbox"><input type="password" name="pass" maxlength="50" placeholder="비밀번호 확인">
+      <li class="col-lg-6">
+        <div class="inputbox">
+        <input type="password" name="pass2" maxlength="50" placeholder="비밀번호 확인">
           <label>비밀번호 확인<em>(필수)</em></label>
           <p class="valid">
             <i class="xi-check" title="비밀번호 일치"></i>
             <i class="xi-close" title="비밀번호 불일치"></i>
           </p>
         </div>
-      </li> -->
+      </li>
       
       <!-- 주민번호 -->
       <li class="col-lg-6">
-        <div class="inputbox _btn">
-        <input type="text" name="resident" id="nickname" placeholder="닉네임">
-          <label>주민번호<em>(필수)</em></label>            
-          <a href="javascript:;void(0);" id="nickname_check" class="btn">중복체크</a>
+        <div class="inputbox">
+        <ul class="num">
+            <li><input type="text" name="phone" id="mobile_1" maxlength="6"></li>
+            <li><input type="text" name="phone" id="mobile_2" maxlength="7"></li>
+          </ul>
+          <label>주민번호<em>(필수)</em></label>
         </div>
       </li>
       
       <!-- 성별 -->
       <li class="col-lg-6">
-        <div class="inputbox _btn">
-        <input type="text" name="gender" id="nickname" placeholder="닉네임">
-          <label>주민번호<em>(필수)</em></label>            
-          <a href="javascript:;void(0);" id="nickname_check" class="btn">중복체크</a>
+        <div class="inputbox" >
+        <!-- <input type="text" name="gender" id="nickname" placeholder="성별"> -->
+	        <div class="chk_area mt_20" style="border-bottom: 1px solid #d8d8d8; ">
+				<input type="radio" name="check_1" id="check_1_yes" value="ok">
+				<label for="check_1_yes">남자</label>
+	            <input type="radio" name="check_1" id="check_1_no" value="no">
+	            <label for="check_1_no">여자</label>
+	        </div>
+          <label>성별<em>(필수)</em></label>
         </div>
       </li>
-      
+   
       <!-- 닉네임 -->
-      <li class="col-lg-6">
+      <!-- <li class="col-lg-6">
         <div class="inputbox _btn">
         <input type="text" name="nickname" id="nickname" placeholder="닉네임">
           <label>닉네임<em>(필수)</em></label>            
           <a href="javascript:;void(0);" id="nickname_check" class="btn">중복체크</a>
         </div>
-      </li>
+      </li> -->
       
-      <!-- 폰번호 -->
-      <li class="col-lg-6">
+      <!-- 핸드폰 번호 -->
+      <li class="col-lg-6" style="margin: 1px;">
         <div class="inputbox">
           <ul class="num">
             <li><input type="text" name="phone" id="mobile_1" maxlength="12"></li>
-            <!-- 
             <li><input type="text" name="phone" id="mobile_2" maxlength="4"></li>
             <li><input type="text" name="phone" id="mobile_3" maxlength="4"></li>
-             -->
           </ul>
           <!-- <input type="text" placeholder="핸드폰"> -->
           <label for="">핸드폰<em>(필수)</em></label>
+        </div>
+      </li>
+      
+      <!-- 나이 -->
+      <!-- <li class="col-lg-6" style="margin: -1px;">
+        <div class="inputbox">            
+          <ul class="num">
+            <li><input type="text" name="tel_1" id="tel_1" maxlength="4"></li>
+            <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
+            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
+          </ul>
+          <label for="">나이</label>
+        </div>
+      </li> -->
+      
+      <!-- 전화번호 -->
+      <li class="col-lg-6" style="margin:-1px;">
+        <div class="inputbox">            
+          <ul class="num">
+            <li><input type="text" name="tel_1" id="tel_1" maxlength="4"></li>
+            <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
+            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
+          </ul>
+         <!-- <input type="text" placeholder="전화번호"> -->
+          <label for="">전화번호</label>
         </div>
       </li>
       
@@ -475,7 +511,8 @@
         <div class="inputbox">
           <div class="row_5">
             <div class="col-lg-3">
-            	<input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="readonly" onclick="DaumPostcode();"></div>
+            	<input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="readonly" onclick="DaumPostcode();">
+            </div>
             <div class="col-lg-3">
             	<a href="javascript:;void(0);" class="btn" onclick="DaumPostcode();">우편번호</a></div>
             <div class="col-lg-6">
@@ -487,25 +524,13 @@
       </li>
       
       <!-- 상세주소 -->
-      <!-- <li class="col-lg-6">
+      <li class="col-lg-6">
         <div class="inputbox">
           <input type="text" name="address" id="address2" maxlength="100" placeholder="상세주소">
           <label>상세주소</label>
         </div>
-      </li> -->
+      </li>
       
-      <!-- 전화번호 -->
-      <!-- <li class="col-lg-6">
-        <div class="inputbox">            
-          <ul class="num">
-            <li><input type="text" name="tel_1" id="tel_1" maxlength="4"></li>
-            <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
-            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
-          </ul>
-          <input type="text" placeholder="전화번호">
-          <label for="">전화번호</label>
-        </div>
-      </li> -->
       
       <!-- <li class="col-lg-6">
         <div class="inputbox"><input type="text" name="pet_species" placeholder="견종/묘종" maxlength="100">
@@ -527,7 +552,9 @@
           <label>남기는 말씀</label>
         </div>
       </li>
-      <li class="col-lg-12 chk_area mt_20">
+      -->
+      
+     <!--  <li class="col-lg-12 chk_area mt_20">
         <input type="checkbox" name="email_s" id="email_s" value="y"><label for="email_s">정보메일 수신 동의</label>
         <input type="checkbox" name="mobile_s" id="mobile_s" value="y"><label for="mobile_s">문자서비스 수신 동의</label>
       </li> -->
@@ -608,4 +635,5 @@
 
 <script src="../js/common.js?ver=2019-04-25"></script>
 </body>
+</html>
 

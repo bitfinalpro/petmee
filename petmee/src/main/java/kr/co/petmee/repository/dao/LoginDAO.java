@@ -15,7 +15,7 @@ public interface LoginDAO {
 		
 		// --------------------------------------
 		// 마이페이지
-		List<User> selectMypage();        // 조회
+		List<User> selectMypage(int userNo);        // 조회
 		void updateMypage(User user);     // 수정
 		int deleteMypage(int no);		  // 삭제
 

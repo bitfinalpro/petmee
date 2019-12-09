@@ -48,12 +48,13 @@ public class LoginController {
 	
 	// --------------------------------------------------
 	// 마이페이지 (페이지 호출)
-	@RequestMapping("/mypage.do")
-	public void mypage() {}
+//	@RequestMapping("/mypage.do")
+//	public void mypage() {}
 	
-	@RequestMapping("/mypageList.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
-	     model.addAttribute("mypagelist", service.selectMypage());
+	@RequestMapping("/mypage.do")
+	public void mypage(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+	     model.addAttribute("mypagelist", service.selectMypage(user.getUserNo()));
 	}
 	
 	@GetMapping("/mypageUpdateform.do")

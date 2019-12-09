@@ -3,22 +3,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class=" js no-touch">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
-	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-    <link href="<c:url value="/resources/css/shopping/login/mypage.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/page.css" />" rel="stylesheet">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=1200, maximum-scale=1.5, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+
+	<%@ include file="/WEB-INF/jsp/include/login/mypagecss.jsp" %>
     
     <script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
     <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
     <title>(주)펫미</title>
 </head>
 
-<body>
+<body cz-shortcut-listen="true">
+    <img src="http://asp8.http.or.kr/sr.gif?d=r6790607538803.14" style="width:1px;height:1px;position:absolute;display:none" onload="logCorpAnalysis_full.ch()" alt="">
+  <noscript><img src="http://asp8.http.or.kr/HTTP_MSN/Messenger/Noscript.php?key=minipet" style="display:none;width:0;height:0;" alt="" /></noscript>
+  <!-- LOG corp Web Analitics & Live Chat END -->
+  
+  <!-- 2019-02-26 banghg -->
+  <script src="http://pop.site3.co.kr/retg.php?c=1808"></script>
+  
+  <script src="http://pop.site3.co.kr/retg.php?c=1315"></script>
+  
+  <script src="http://pop.site3.co.kr/retg.php?c=1296"></script>
+  
   <!-- 2019-07-12 cafe24스마트 -->
   <!-- Enliple Common Tracker v3.5 [공용] start -->
   <script type="text/javascript">
@@ -336,26 +346,37 @@
     <input type="hidden" name="email_check_ok" id="email_check_ok" value="0">
     <p class="tit_36">회원정보 변경
     	<span class="label"><em>(필수)</em>입력사항을 꼭 써주시기 바랍니다.</span>
-    </p>  
+    </p>
     <div class="join_form">
       <ul class="row">
-	    <li class="col-lg-6">
+     <c:forEach var="m" items="${mypagelist}"> 
+<%-- 	    <li class="col-lg-6">
 	      <div class="inputbox">
 	        <label for="">아이디<em>(필수)</em></label>
-	        <p class="input">asdasda</p>
+	        <p class="input">${m.email}</p>
 	      </div>
-	    </li>
+	    </li> --%>
+	    <li class="col-lg-6">
+          <div class="inputbox _btn">
+          	<!-- <input type="text" name="email" id="user_email" placeholder="이메일" value=""> -->
+            <%-- <input type="hidden" name="old_user_email" value="${m.email}"> --%>
+            <label for="">이메일<em>(필수)</em></label>     
+            <p class="input">${m.email}</p>       
+            <!-- <a href="javascript:;void(0);" id="email_check" class="btn">중복체크</a> -->
+          </div>
+        </li>
         <li class="col-lg-6">
           <div class="inputbox">
             <label for="">이름<em>(필수)</em></label>
-            <p class="input"></p>
+            <p class="input">${m.name}</p>
           </div>
         </li>
         <li class="col-lg-12">
-          <div class="inputbox"><input type="password" name="userpasswd" maxlength="100" placeholder="보안을 위해 현재 사용 비밀번호를 입력해주세요.">
+          <div class="inputbox">
+          <input type="password" name="userpasswd" maxlength="100" placeholder="보안을 위해 현재 사용 비밀번호를 입력해주세요.">
             <label for="">비밀번호<em>(필수)</em></label>
             <p class="valid">
-              <i class="xi-check" title="비밀번호 일치"></i>            
+              <i class="xi-check" title="비밀번호 일치">${m.pass}</i>            
             </p>
           </div>
         </li>
@@ -378,20 +399,14 @@
             </p>
           </div>
         </li>
-        <li class="col-lg-6">
+<!--         <li class="col-lg-6">
           <div class="inputbox _btn"><input type="text" name="nickname" id="nickname" placeholder="닉네임" value="#">
             <input type="hidden" name="old_nickname" value="wnsdusdsa">
             <label for="">닉네임<em>(필수)</em></label>            
             <a href="javascript:;void(0);" id="nickname_check" class="btn">중복체크</a>
           </div>
-        </li>
-        <li class="col-lg-6">
-          <div class="inputbox _btn"><input type="text" name="user_email" id="user_email" placeholder="이메일" value="#">
-            <input type="hidden" name="old_user_email" value="paprble@naver.com">
-            <label for="">이메일<em>(필수)</em></label>            
-            <a href="javascript:;void(0);" id="email_check" class="btn">중복체크</a>
-          </div>
-        </li>
+        </li> -->
+        
         <li class="col-lg-6">
           <div class="inputbox">
             <div class="row_5">
@@ -428,34 +443,16 @@
               <li><input type="text" name="tel_2" id="tel_2" maxlength="4" value=""></li>
               <li><input type="text" name="tel_3" id="tel_3" maxlength="4" value=""></li>
             </ul>
-            <!-- <input type="text" placeholder="전화번호"> -->
+           <!--  <input type="text" placeholder="전화번호"> -->
             <label for="">전화번호</label>
           </div>
         </li>
-        <li class="col-lg-6">
-          <div class="inputbox"><input type="text" name="pet_species" placeholder="견종/묘종" maxlength="100" value="">
-            <label for="">견종/묘종</label>
-          </div>
-        </li>
-        <li class="col-lg-6">
-          <div class="inputbox"><input type="text" name="pet_name" placeholder="반려동물 이름" maxlength="100" value="">
-            <label for="">반려동물 이름</label>
-          </div>
-        </li>
-        <li class="col-lg-6">
-          <div class="inputbox"><input type="text" name="parcel_day" placeholder="(주)펫미에서 분양받으신 날" maxlength="100" value="">
-            <label for="">(주)펫미에서 분양받으신 날</label>
-          </div>
-        </li>
-        <li class="col-lg-6">
-          <div class="inputbox"><input type="text" name="memo" placeholder="남기는 말씀" maxlength="100" value="">
-            <label>남기는 말씀</label>
-          </div>
-        </li>
-        <li class="col-lg-12 chk_area mt_20">
+        </c:forEach>
+        
+      <!--   <li class="col-lg-12 chk_area mt_20">
           <input type="checkbox" name="email_s" id="email_s" value="y"><label for="email_s">정보메일 수신 동의</label>
           <input type="checkbox" name="mobile_s" id="mobile_s" value="y"><label for="mobile_s">문자서비스 수신 동의</label>
-        </li>
+        </li> -->
       </ul>
     </div>
   
