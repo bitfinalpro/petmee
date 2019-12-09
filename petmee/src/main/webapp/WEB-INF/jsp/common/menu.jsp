@@ -17,7 +17,7 @@
       </div>
       <div class="jbMenu">
         <div class="logo">
-        <a href="main.jsp"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
+        <a href="<c:url value="/main.do" />"><img src="<c:url value='/resources/images/menu/final_logo.png' />"></a>
       </div>
           <div class="menu">
                 <nav>

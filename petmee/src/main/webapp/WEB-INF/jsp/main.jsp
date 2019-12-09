@@ -37,7 +37,7 @@
     <c:forEach var="food" items="${food}">
     <div class="slide">
                   <div class="product_slide ">
-                    <a href="<c:url value="shopping/shoppingDetail.do?productId=${food.productId}" />">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
                       <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
                       <div class="product_text">
                         <strong>${food.productName}</strong>
@@ -64,7 +64,7 @@
       <c:forEach var="food" items="${food}">
     	<div class="slide">
           <div class="product_slide ">
-            <a href="#">
+            <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
               <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
               <div class="product_text">
                 <strong>${food.productName}</strong>
