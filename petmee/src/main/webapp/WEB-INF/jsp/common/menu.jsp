@@ -128,5 +128,7 @@
             <div class="black"></div>
         </div> <!-- modal -->
 	<%-- <script src="<c:url value="/js/jquery.magnific-popup.js" />"></script> --%>
+	<!-- 
 	<script src="<c:url value='/resources/js/common/jquery-3.4.1.js' />"></script>
+	 -->
 	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>
