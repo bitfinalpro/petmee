@@ -472,7 +472,7 @@ body {
     border: #d8d8d8 solid 1px;
   }
   
-  img {
+  .img {
     width: 70%;
     margin: 40px;
     box-shadow: 0 .5px 1px #d8d8d8

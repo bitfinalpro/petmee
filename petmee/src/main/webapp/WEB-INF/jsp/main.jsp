@@ -26,6 +26,7 @@
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test4.jpg" style="display: inline-block;"></div>
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test5.jpg" style="display: inline-block;"></div>
     </div>
+ 
 <section class="main_section">
   <div class="product_title">
     <h2>NEWEST PRODUCT</h2>
