@@ -74,8 +74,8 @@
 .pop-con-modal .mfp-close { 
     position: relative; 
     font-size: 30px; 
-    top: -30px; 
-    left: 200px; 
+    /* top: -30px;  */
+    left: 350px; 
     color: #fff;
     background-color: #000; 
     font-family: 'Noto Sans KR', sans-serif; 
@@ -165,9 +165,9 @@
     background-color: #fff; 
     color: black; 
 }
-#login-pop .modal-dialog, #login-pop .mfp-close, #login-pop a { 
+/* #login-pop .modal-dialog, #login-pop .mfp-close, #login-pop a { 
     color: #fff; 
-}
+} */
 #login-pop .chk_area input[type='checkbox'] + label:before { 
     background-image: url(../images/icon/chk.png); 
 }

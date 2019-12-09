@@ -10,7 +10,6 @@
 					<span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니</a></span>
                 </div>
                 <div>
-
                 	<c:if test="${empty user}">
 	                    <span><a onclick="$('#login-pop').modal('show');" href="javascript:;">LOGIN</a></span>
 	                    <span>/</span>

@@ -787,12 +787,20 @@ padding-top:120px;
 	position: relative; 
 	height: 500px; 
 	overflow: hidden; 
-    background: url("../images/shopping/login/join/join_main.jpg");
+    background-image: url("/petmee/resources/images/shopping/login/join_main.jpg"); 
     background-size: 100%;
     background-position: center;
 }
 
-.sub-visual .wrap { position: relative; z-index: 1; height: 100%; margin: 0 auto; width: 100%; max-width: 1200px; display: table; }
+.sub-visual .wrap { 
+	position: relative; 
+	z-index: 1; 
+	height: 100%; 
+	margin: 0 auto; 
+	width: 100%; 
+	max-width: 1200px; 
+	display: table; 
+}
 
 .sub-visual-title { 
     display: table-cell;
@@ -1484,21 +1492,21 @@ ol.deci_list li:first-child { margin-top: 0; }
 
 /* .join_page .join.scroll-con-y { border-color: #d8d8d8; height: 400px; padding: 20px; padding-right: 10px; }
  */
-.join_page._step1 .join_step { background-position-y: 0; }
+/* .join_page._step1 .join_step { background-position-y: 0; } */
 
 .join_page._step2 .join_step { background-position-y: 50%; }
 
 .join_page._step3 .join_step { background-position-y: 100%; }
 
-.join_page .join_step {
+/* .join_page .join_step {
       display: block;
       width: 500px;
       height: 70px;
       text-indent: -999999999999999px;
       margin: 0 auto 50px;
-      background-image: url("../images/shopping/login/join_step.jpg");
+      background-image: url("/petmee/resources/images/shopping/login/join_step.jpg');
       background-repeat: no-repeat;
-  }
+  } */
 
 .join_page .chk_area label { color: #888; letter-spacing: -0.4px; font-weight: 300; }
 

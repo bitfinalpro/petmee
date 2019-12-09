@@ -13,6 +13,8 @@
 	<link href="<c:url value='/resources/js/shopping/login/ch-plugin-web.js' />" rel="stylesheet">
 	<%-- <link href="<c:url value='/resources/js/shopping/login/validate.js' />" rel="stylesheet"> --%>
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
+	<script src="<c:url value='/resources/js/common/jquery-3.4.1.js' />"></script>
+	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>
 	<title>(주)펫미 </title>
 </head>
 
@@ -96,14 +98,14 @@
 	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
 	<script type="text/javascript" src="../resources/js/shopping/login/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="../resources/js/shopping/login/space_check.js"></script>
-	<script type="text/javascript" language="JavaScript">
+	<script type="text/javascript">
 	//<!--
 		window.history.forward(1);
 		
 		$(document).ready(function(){
 			$("#id_check").click(function() {								
 				var idReg =/^[A-Za-z0-9]{4,20}$/g;								
-				if(isFieldBlank(theForm.user_id)||isFieldSpace(theForm.user_id)) {
+/* 				if(isFieldBlank(theForm.user_id)||isFieldSpace(theForm.user_id)) {
 					alert("공백 문자없이 아이디 항목을 입력해주세요.");
 					theForm.user_id.focus();
 					return(false);
@@ -166,7 +168,7 @@
 					theForm.nickname.focus(); 
 				}
 				return(false);
-			});	
+			});	 */
 			
 			$("#email_check").click(function() {								
 				if(isFieldBlank(theForm.user_email)||isFieldSpace(theForm.user_email)) {
@@ -200,35 +202,16 @@
 		});									
 		
 		function sendcheck() {	
-			
 			var idReg =/^[A-Za-z0-9]{4,20}$/g;			
 			var pwReg =/^[A-Za-z0-9]{4,20}$/g;			
 			var numReg=/[0-9]/g;
 	        var engReg=/[a-z]/ig;
-							
-			
-			if(isFieldBlank(theForm.user_id)||isFieldSpace(theForm.user_id)) {
-				alert("공백 문자없이 아이디 항목을 입력해주세요.");
-				theForm.user_id.focus();
-				return(false);
-			}				
-			    		    
-			if (!idReg.test(theForm.user_id.value)) {
-	        	alert("아이디는 영문 또는 숫자 4~20자로 입력해주세요.");
-	        	return(false);
-	    	}	
-			
-			if (theForm.id_check_ok.value=="0") { 
-				alert("아이디 중복여부를 체크 해주세요.");	 		
-				return(false);
-			} 
 			
 			if(isFieldBlank(theForm.user_name)||isFieldSpace(theForm.user_name)) {
 				alert("이름을 공백문자 없이 입력해주세요.");
 				theForm.user_name.focus();
 				return(false);
 			}
-			
 									        	        							
 			if (isFieldBlank(theForm.userpasswd) || isFieldSpace(theForm.userpasswd)) {  	 			 			
 				alert("비밀번호 항목이 비었거나 공백문자를 사용하셨습니다.");
@@ -270,7 +253,7 @@
 			} 
 			
 				
-			if (isFieldBlank(theForm.user_email))	{
+			if (isFieldBlank(theForm.email))	{
 				alert("이메일 항목이 비어있습니다.");
 				theForm.user_email.focus(); 
 				return(false);
@@ -366,7 +349,19 @@
 	}			     
 	// -->
 	</script>
-
+<div class="sub-visual">
+	<div class="wrap">
+		<div class="sub-visual-title wowrap">
+			<h2 class="wow fadeInUp tit" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">회원가입</h2>
+			<p class="wow fadeInUp txt" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeInUp;">삶의 소중한 인연, 미니펫이 만남부터 동행하겠습니다.</p>
+		</div>		
+		<!-- <ul class="breadcrumb clearfix">
+			<li class="depth01" style="display: none;"><a href=""></a></li>
+			<li class="depth02"><a>회원가입</a></li>
+		</ul> -->
+	</div>
+	<div class="sub-visual-bg" style="background-image:url(../images/sub/member.jpg)"></div>
+</div>
 <!--// 2019-02-27 banghg 메뉴추가 -->      
 <div class="sub-con sub-pad join_page _step2">
         <div class="sub-title">
@@ -381,7 +376,7 @@
   <form action="<c:url value="/shopping/login/join02.do" />" method="post" name="theForm" id="theForm" autocomplete="off">
   <input type="hidden" name="id_check_ok" id="id_check_ok" value="0"> 
   <input type="hidden" name="nickname_check_ok" id="nickname_check_ok" value="0"> 
-  <input type="hidden" name="email_check_ok" id="email_check_ok" value="0"> 
+  <input type="hidden" name="email_check_ok" id="email_check_ok" value="0">
   <div class="join_form">
     <ul class="row">
  <!--      <li class="col-lg-6">
@@ -397,7 +392,7 @@
         <div class="inputbox _btn">
         <input type="text" name="email" id="user_email" placeholder="이메일">
           <label>이메일<em>(필수)</em></label>            
-          <a href="javascript:;void(0);" id="email_check" class="btn">중복체크</a>
+          <a href="javascript:;void(0);" id="email_check" class="btn" >중복체크</a>
         </div>
       </li>
       
@@ -449,7 +444,7 @@
       <li class="col-lg-6">
         <div class="inputbox" >
         <!-- <input type="text" name="gender" id="nickname" placeholder="성별"> -->
-	        <div class="chk_area mt_20" style="border-bottom: 1px solid #d8d8d8; ">
+	        <div class="chk_area mt_22" style="border-bottom: 1px solid #d8d8d8; ">
 				<input type="radio" name="check_1" id="check_1_yes" value="ok">
 				<label for="check_1_yes">남자</label>
 	            <input type="radio" name="check_1" id="check_1_no" value="no">
@@ -571,7 +566,9 @@
 </div>
 <!-- c -->
 <!-- footer -->
-<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+<div id="footer" class="footer_wrap clearfix">
+	<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> 
+</div>
 
 
 <!-- Channel Plugin Scripts -->
@@ -619,21 +616,8 @@
   })();
 </script>
 <!-- End Channel Plugin --> 
-  </div>
-<script src="../js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-<script src="../js/lib/jquery.easing.1.3.js"></script>
-
-<script src="../js/lib/wow.min.js"></script>
-<script src="../js/lib/slick.min.js"></script>
-<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
-<script src="../js/lib/modernizr.custom.js"></script>
-<script src="../js/lib/placeholders.min.js"></script>
-<script src="../js/lib/jquery.magnific-popup.js"></script>	
-
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<script src="../js/common.js?ver=2019-04-25"></script>
 </body>
 </html>
 

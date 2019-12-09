@@ -97,7 +97,7 @@ _tab
 
 .tab-wrap > .bar.tab > li a, .tabwrap > .bar.tab > li a { border: 0; width: 100%; letter-spacing: -0.5px; color: #666; font-size: 18px; position: relative; }
 
-.tab-wrap > .bar.tab > li a:after, .tabwrap > .bar.tab > li a:after { position: absolute; width: 0; height: 3px; content: ''; display: inline-block; bottom: 0; left: 0; background-color: #367639; -webkit-transition: width 300ms; transition: width 300ms; }
+.tab-wrap > .bar.tab > li a:after, .tabwrap > .bar.tab > li a:after { position: absolute; width: 0; height: 3px; content: ''; display: inline-block; bottom: 0; left: 0; /* background-color: #367639; */ -webkit-transition: width 300ms; transition: width 300ms; }
 
 .tab-wrap > .bar.tab > li a:hover, .tabwrap > .bar.tab > li a:hover { color: #367639; }
 
@@ -870,6 +870,7 @@ padding-top:120px;
 /*
 sub
 */
+/*
 .sub-visual { height: 500px; overflow: hidden; position: relative; }
 
 .sub-visual .wrap { position: relative; z-index: 1; height: 100%; margin: 0 auto; width: 100%; max-width: 1200px; display: table; }
@@ -881,7 +882,7 @@ sub
 .sub-visual-title .txt { font-size: 16px; margin-top: 10px; letter-spacing: 8px; }
 
 .sub-visual-bg { background-position: center top; background-repeat: no-repeat; background-size: cover; z-index: 0; display: block; width: 100%; height: 500px; position: absolute; top: 0; }
-
+*/
 .breadcrumb { position: absolute; top: 30px; left: 0; font-size: 12px; }
 
 .breadcrumb a { color: #aaa; }
@@ -1555,7 +1556,15 @@ ol.deci_list li:first-child { margin-top: 0; }
 
 .join_page._step3 .join_step { background-position-y: 100%; }
 
-.join_page .join_step { display: block; width: 500px; height: 70px; text-indent: -999999999999999px; margin: 0 auto 50px; background-image: url(../images/member/join_step.jpg); background-repeat: no-repeat; }
+.join_page .join_step { 
+	display: block; 
+	width: 500px; 
+	height: 70px; 
+	text-indent: -999999999999999px; 
+	margin: 0 auto 50px; 
+	background-image: url("/petmee/resources/images/shopping/login/join_step.jpg"); 
+	background-repeat: no-repeat;
+}
 
 .join_page .chk_area label { color: #888; letter-spacing: -0.4px; font-weight: 300; }
 
@@ -1619,7 +1628,7 @@ ol.deci_list li:first-child { margin-top: 0; }
 
 .pop-con-modal .modal-dialog { background-color: #fff; padding: 70px; }
 
-.pop-con-modal .mfp-close { font-size: 30px; top: 20px; right: 20px; color: #999; font-family: 'Noto Sans KR',sans-serif; }
+.pop-con-modal .mfp-close { font-size: 30px; right: 20px; font-family: 'Noto Sans KR',sans-serif; }
 
 .pop-con-modal .pop-head { padding: 0; text-align: center; font-size: 48px; font-weight: 100; letter-spacing: -1px; line-height: 1; margin-bottom: 40px; }
 
@@ -1661,7 +1670,7 @@ ol.deci_list li:first-child { margin-top: 0; }
 
 #login-pop .chk_area input[type='checkbox']:checked + label:before { background-image: url(../images/icon/chk_on.png); }
 
-#login-pop .modal-dialog { background-color: #367639; }
+/* #login-pop .modal-dialog { background-color: #367639; } */
 
 #login-pop .inputbox input::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.5); }
 
