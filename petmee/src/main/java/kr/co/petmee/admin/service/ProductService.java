@@ -1,5 +1,6 @@
 package kr.co.petmee.admin.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -14,4 +15,13 @@ public interface ProductService {
 	List<Product> selectCatecories();
 	//제품삭제
 	List<Product> deleteProduct(String productId);
+	//선택제품삭제
+	void deleteSelected(List<String> checkedbox);
+	//제품 정보 추출
+	Product selectProductInfo(String productId);
+	//제품 입고
+	void plusCount(HashMap map);
+	//제품 입고
+	void minusCount(HashMap map);
+	
 }
