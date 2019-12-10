@@ -81,8 +81,8 @@
           </div>
       </div>
 </header>
-       <!-- 로그인 모달창 -->
-        <div class="modal pop-con-modal" id="login-pop" style="display: none; z-index: 9999999;" aria-hidden="false" >
+<!-- 로그인 모달창 -->
+<div class="modal pop-con-modal" id="login-pop" style="display: none; z-index: 9999999; color:#fff;" aria-hidden="false" >
 			<div class="modal_standard">
                         <div class="modal_wrap">
                             <div class="modal-dialog">
@@ -104,7 +104,7 @@
                                                 <label for="save_id">아이디 저장하기</label>
                                             </div>
                                             <div class="right">
-                                                <a href="../member/find.html">아이디/비밀번호 찾기</a>
+                                                <a href="<c:url value="/shopping/login/find.do"/>">아이디/비밀번호 찾기</a>
                                             </div>
                                         </div>
                                 	</div>
@@ -112,7 +112,7 @@
 	                            	<input type="submit" class="btn" value="로그인" />
 	                            </form>
                                 <div class="join_linkbox">
-                                    <a href="../join.html">
+                                    <a href="<c:url value="/shopping/login/join.do"/>">
                                         <p class="f_24 _b2">회원가입</p>
                                         <p>아직 회원이 아니세요? 
                                         	<i class="xi-arrow-right _mc"></i>
