@@ -12,9 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick-theme.css" />">
-	<link href="<c:url value="/resources/css/shopping/login/login.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/shopping/login/pages.css " />" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/main/main.css" />">
 	
 	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>

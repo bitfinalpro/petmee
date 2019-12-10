@@ -1666,9 +1666,9 @@ ol.deci_list li:first-child { margin-top: 0; }
 
 #login-pop .modal-dialog, #login-pop .mfp-close, #login-pop a { color: #fff; }
 
-#login-pop .chk_area input[type='checkbox'] + label:before { background-image: url(../images/icon/chk.png); }
+#login-pop .chk_area input[type='checkbox'] + label:before { background-image: url("/petmee/resources/images/shopping/login/icon/chk.png"); }
 
-#login-pop .chk_area input[type='checkbox']:checked + label:before { background-image: url(../images/icon/chk_on.png); }
+#login-pop .chk_area input[type='checkbox']:checked + label:before { background-image: url("/petmee/resources/images/shopping/login/icon/chk_on.png"); }
 
 /* #login-pop .modal-dialog { background-color: #367639; } */
 
