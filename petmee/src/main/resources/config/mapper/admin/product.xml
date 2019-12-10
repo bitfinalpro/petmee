@@ -19,4 +19,22 @@
 		select *
 		  from tb_category
 	</select>
+<!-- 제품 정보 추출 -->
+	<select id="selectProductInfo" parameterType="string" resultType="Product">
+		select *
+		  from tb_product
+		 where product_id = #{productId}
+	</select>
+<!-- 제품 입고 -->
+	<update id="plusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock + #{productCount}
+		 where product_id = #{productId}
+	</update> 
+<!-- 제품 출고 -->
+	<update id="minusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock - #{productCount}
+		 where product_id = #{productId}
+	</update> 
 </mapper>

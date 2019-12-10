@@ -89,6 +89,10 @@ public class LoginController {
 	@RequestMapping("/joinform.do")
 	public void join02() {}
 	
+	// --------------------------------------------------
+	// 아이디/비번찾기
+	@RequestMapping("/find.do")
+	public void find() {}
 }
 
 
