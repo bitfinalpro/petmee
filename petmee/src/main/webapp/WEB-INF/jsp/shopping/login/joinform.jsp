@@ -13,8 +13,10 @@
 	<link href="<c:url value='/resources/js/shopping/login/ch-plugin-web.js' />" rel="stylesheet">
 	<%-- <link href="<c:url value='/resources/js/shopping/login/validate.js' />" rel="stylesheet"> --%>
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
-	<script src="<c:url value='/resources/js/common/jquery-3.4.1.js' />"></script>
+	<script src="<c:url value='/resources/js/shopping/login/lib/jquery-3.4.1.js' />"></script>
 	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>
+	
+	 <script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	<title>(주)펫미 </title>
 </head>
 
@@ -96,16 +98,153 @@
 	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script charset="UTF-8" type="text/javascript" src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
-	<script type="text/javascript" src="../resources/js/shopping/login/jquery-1.11.1.js"></script>
-	<script type="text/javascript" src="../resources/js/shopping/login/space_check.js"></script>
+	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/jquery-1.11.1.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/space_check.js' />"></script>
+	
+	  <script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
-	//<!--
-		window.history.forward(1);
+	 
+	    function checkz() {
+	      var getIntro = $("#theForm").val().replace(/\s|/gi,'');
+	      var hobbyCheck = false;
+	      var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+	      var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+	      var getName= RegExp(/^[가-힣]+$/);
+	      var fmt = RegExp(/^\d{6}[1234]\d{6}$/); //형식 설정
+	      var buf = new Array(13); //주민등록번호 배열
+	 
+	 
+/* 	      //아이디 공백 확인
+	      if($("#tbID").val() == ""){
+	        alert("아이디 입력바람");
+	        $("#tbID").focus();
+	        return false;
+	      }
+	 
+	      //이름의 유효성 검사
+	      if(!getCheck.test($("#tbID").val())){
+	        alert("형식에 맞게 입력해주세요");
+	        $("#tbID").val("");
+	        $("#tbID").focus();
+	        return false;
+	      } */
+	 
+	     //이메일 공백 확인
+	      if($("#user_email").val() == ""){
+	        alert("이메일을 입력해주세요");
+	        $("#user_email").focus();
+	        return false;
+	      }
+	           
+	      //이메일 유효성 검사
+	      if(!getMail.test($("#user_email").val())){
+	        alert("이메일형식에 맞게 입력해주세요")
+	        $("#user_email").val("");
+	        $("#user_email").focus();
+	        return false;
+	      }
+	      
+	      //비밀번호
+	      if(!getCheck.test($("#tbPwd").val())) {
+	      alert("형식에 맞춰서 PW를 입력해줘용");
+	      $("#tbPwd").val("");
+	      $("#tbPwd").focus();
+	      return false;
+	      }
+	 
+	      //아이디랑 비밀번호랑 같은지
+	      if ($("#user_email").val()==($("#pass").val())) {
+	      alert("비밀번호가 ID와 똑같으면 안!대!");
+	      $("#tbPwd").val("");
+	      $("#tbPwd").focus();
+	    }
+	 
+	      //비밀번호 똑같은지
+	      if($("#tbPwd").val() != ($("#cpass").val())){ 
+	      alert("비밀번호가 틀렸네용.");
+	      $("#tbPwd").val("");
+	      $("#cpass").val("");
+	      $("#tbPwd").focus();
+	      return false;
+	     }
+	 
+	      //이름 유효성
+	      if (!getName.test($("#user_name").val())) {
+	        alert("이름 똑바로 써주세용");
+	        $("#user_name").val("");
+	        $("#user_name").focus();
+	        return false;
+	      }
+	 
+	      //주민번호
+//	      if(($("#resident").val() == "") || ($("#id_num_back").val() == "")){
+	      /* if(($("#resident").val() == "")){
+	        alert("주민등록번호를 입력해주세요");
+	        $("#resident").focus();
+	        return false;
+	      }
+	 
+	      if(check_jumin() == false){
+	        return false;
+	      } */
+	    return true;
+	  }
+	
+	  //주민번호 확인 함수
+	  /* function check_jumin() {
+	    var jumins3 = $("#pnum").val() + $("#nnum").val();
+	      //주민등록번호 생년월일 전달
+	          
+	      var fmt = RegExp(/^\d{6}[1234]\d{6}$/)  //포멧 설정
+	      var buf = new Array(13);
+	 
+	      //주민번호 유효성 검사
+	      if (!fmt.test(jumins3)) {
+	        alert("주민등록번호 형식에 맞게 입력해주세요");
+	        $("#pnum").focus();
+	        return false;
+	      }
+	 
+	      //주민번호 존재 검사
+	      for (var i = 0; i < buf.length; i++){
+	        buf[i] = parseInt(jumins3.charAt(i));
+	      }
+	 
+	      var multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];// 밑에 더해주는 12자리 숫자들 
+	      var sum = 0;
+	 
+	      for (var i = 0; i < 12; i++){
+	      sum += (buf[i] *= multipliers[i]);// 배열끼리12번 돌면서 
+	    }
+	 
+	    if ((11 - (sum % 11)) % 10 != buf[12]) {
+	      alert("잘못된 주민등록번호 입니다.");
+	      $("#pnum").focus();
+	      return false;
+	    } */
+	 
+	    var birthYear = (jumins3.charAt(6) <= "2") ? "19" : "20";
+	    birthYear += $("#pnum").val().substr(0, 2);
+	    var birthMonth = $("#pnum").val().substr(2, 2);
+	    var birthDate = $("#pnum").val().substr(4, 2);
+	    var birth = new Date(birthYear, birthMonth, birthDate);
+	                              
+	             
+	    $("#year").val(birthYear);
+	    $("#month").val(birthMonth);
+	    $("#day").val(birthDate);
+	        
+	        }
+	 
+	  </script>
+	<script type="text/javascript">
+
+		/* window.history.forward(1);
 		
 		$(document).ready(function(){
 			$("#id_check").click(function() {								
 				var idReg =/^[A-Za-z0-9]{4,20}$/g;								
-/* 				if(isFieldBlank(theForm.user_id)||isFieldSpace(theForm.user_id)) {
+				if(isFieldBlank(theForm.user_id)||isFieldSpace(theForm.user_id)) {
 					alert("공백 문자없이 아이디 항목을 입력해주세요.");
 					theForm.user_id.focus();
 					return(false);
@@ -124,7 +263,8 @@
 			    	async: false,		    
 			    	data : {user_id:$("#user_id").val()}, 	    	
 			    	contentType: "application/x-www-form-urlencoded; charset=utf-8",
-			    	success:function(data) {			    				  				    				    		    				    				    				data_check = data;	
+			    	success:function(data) {			    				  				    				    		    				    				    				
+			    		data_check = data;	
 					}
 				});
 				if (data_check=="OK") {								
@@ -154,7 +294,8 @@
 			    	async: false,		    
 			    	data : {nickname:$("#nickname").val()}, 	    	
 			    	contentType: "application/x-www-form-urlencoded; charset=utf-8",
-			    	success:function(data) {			    				  				    				    		    				    				    				data_check = data;	
+			    	success:function(data) {			    				  				    				    		    				    				    				
+			    		data_check = data;	
 					}
 				});
 				if (data_check=="OK") {								
@@ -168,9 +309,10 @@
 					theForm.nickname.focus(); 
 				}
 				return(false);
-			});	 */
+			});	 
 			
-			$("#email_check").click(function() {								
+			$("#email_check").click(function() {		
+				var idReg =/^[A-Za-z0-9]{4,20}$/g;
 				if(isFieldBlank(theForm.user_email)||isFieldSpace(theForm.user_email)) {
 					alert("공백 문자없이 이메일을 입력해주세요.");
 					theForm.user_email.focus();
@@ -178,13 +320,14 @@
 				}
 										    		    	
 				$.ajax({ 
-					url : 'email_check.php', 
+					url : 'join04.do', 
 			    	type : "post", 
 			    	dataType:"JSON",
 			    	async: false,		    
 			    	data : {user_email:$("#user_email").val()}, 	    	
 			    	contentType: "application/x-www-form-urlencoded; charset=utf-8",
-			    	success:function(data) {			    				  				    				    		    				    				    				data_check = data;	
+			    	success:function(data) {			    				  				    				    		    				    				    				
+			    		data_check = data;	
 					}
 				});
 				if (data_check=="OK") {								
@@ -199,7 +342,7 @@
 				}
 				return(false);
 			});										
-		});									
+		});								
 		
 		function sendcheck() {	
 			var idReg =/^[A-Za-z0-9]{4,20}$/g;			
@@ -240,18 +383,17 @@
 				alert("비밀번호에 영문 또는 숫자만 있습니다.\n\n영문과 숫자를 혼용하여 4~20자로 입력해주세요.");
 	        	return(false);
 			}
-					
+			<!--		
 			if(isFieldBlank(theForm.nickname)||isFieldSpace(theForm.nickname)) {
 				alert("닉네임을 공백문자 없이 입력해주세요.");
 				theForm.nickname.focus();
 				return(false);
 			}				
-			
+			-->
 			if (theForm.nickname_check_ok.value=="0") { 
 				alert("닉네임 중복여부를 체크 해주세요.");	 		
 				return(false);
 			} 
-			
 				
 			if (isFieldBlank(theForm.email))	{
 				alert("이메일 항목이 비어있습니다.");
@@ -282,7 +424,6 @@
 				return(false);
 			} 	     	
 			
-			
 			if (numValue(theForm.mobile_1)) {   			 			
 		 		alert("휴대폰 번호를 입력해 주세요.");
 		 		theForm.mobile_1.focus();
@@ -301,9 +442,8 @@
 		 		return(false);
 			}
 					
-					
 			theForm.submit();			  								
-	    }	
+	    }	 */
 	
 	function DaumPostcode() {
 		new daum.Postcode({
@@ -347,9 +487,9 @@
 			}
 		}).open();
 	}			     
-	// -->
+
 	</script>
-<div class="sub-visual">
+	<div class="sub-visual">
 	<div class="wrap">
 		<div class="sub-visual-title wowrap">
 			<h2 class="wow fadeInUp tit" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">회원가입</h2>
@@ -360,10 +500,10 @@
 			<li class="depth02"><a>회원가입</a></li>
 		</ul> -->
 	</div>
-	<div class="sub-visual-bg" style="background-image:url(../images/sub/member.jpg)"></div>
-</div>
-<!--// 2019-02-27 banghg 메뉴추가 -->      
-<div class="sub-con sub-pad join_page _step2">
+	<!-- <div class="sub-visual-bg" style="background-image:url(../images/sub/member.jpg)"></div> -->
+	</div>
+	<!--// 2019-02-27 banghg 메뉴추가 -->      
+	<div class="sub-con sub-pad join_page _step2">
         <div class="sub-title">
           <p class="desc">회원가입</p>
           <p class="title_bold">CREATE YOUT ACCOUNT</p>
@@ -373,7 +513,7 @@
   <div class="join_step">회원정보 입력</div>
   <p class="tit_36">회원정보 입력<span class="label"><em>(필수)</em> 입력사항을 꼭 써주시기 바랍니다.</span></p>  
 
-  <form action="<c:url value="/shopping/login/join02.do" />" method="post" name="theForm" id="theForm" autocomplete="off">
+  <form action="<c:url value="/shopping/login/join02.do" />" enctype="text/plain"  method="post" name="theForm" id="theForm" autocomplete="off" onsubmit="return checkz()">
   <input type="hidden" name="id_check_ok" id="id_check_ok" value="0"> 
   <input type="hidden" name="nickname_check_ok" id="nickname_check_ok" value="0"> 
   <input type="hidden" name="email_check_ok" id="email_check_ok" value="0">
@@ -391,8 +531,10 @@
       <li class="col-lg-6">
         <div class="inputbox _btn">
         <input type="text" name="email" id="user_email" placeholder="이메일">
-          <label>이메일<em>(필수)</em></label>            
-          <a href="javascript:;void(0);" id="email_check" class="btn" >중복체크</a>
+          <label>이메일<em>(필수)</em>
+          	<label style="position: relative; left: 10px; font-weight: 400;">: 예)petmee@domain.com</label>
+          </label>
+          <a href="javascript:;void(0);" id="email_check" class="btn" onclick="sendIt();">중복체크</a>
         </div>
       </li>
       
@@ -407,21 +549,23 @@
       <!-- 패스워드 -->
       <li class="col-lg-6">
         <div class="inputbox">
-        <input type="password" name="pass" maxlength="50" placeholder="비밀번호">
-          <label>비밀번호<em>(필수)</em></label>
-          <!-- 
+        <input type="password" name="pass" id="pass" maxlength="50" placeholder="비밀번호">
+          <label>비밀번호<em>(필수)</em>
+          	<label style="position:relative; left: 10px; font-weight: 400;">: 4~12자리의 영문 대소문자와 숫자로만 입력</label>
+          </label>
           <p class="valid">
             <i class="xi-check" title="비밀번호 일치"></i>
             <i class="xi-close" title="비밀번호 불일치"></i>
-          </p> -->
         </div>
       </li>
       
       <!-- 패스워드확인 -->
       <li class="col-lg-6">
         <div class="inputbox">
-        <input type="password" name="pass2" maxlength="50" placeholder="비밀번호 확인">
-          <label>비밀번호 확인<em>(필수)</em></label>
+        <input type="password" name="pass2" id="pass2" maxlength="50" placeholder="비밀번호 확인">
+          <label>비밀번호 확인<em>(필수)</em>
+          	<label style="position:relative; left: 10px; font-weight: 400;">: 4~12자리의 영문 대소문자와 숫자로만 입력</label>
+          </label>
           <p class="valid">
             <i class="xi-check" title="비밀번호 일치"></i>
             <i class="xi-close" title="비밀번호 불일치"></i>
@@ -434,7 +578,7 @@
         <div class="inputbox">
         <ul class="num">
             <li><input type="text" name="phone" id="mobile_1" maxlength="6"></li>
-            <li><input type="text" name="phone" id="mobile_2" maxlength="7"></li>
+            <!-- <li><input type="text" name="phone" id="mobile_2" maxlength="7"></li> -->
           </ul>
           <label>주민번호<em>(필수)</em></label>
         </div>
@@ -468,8 +612,8 @@
         <div class="inputbox">
           <ul class="num">
             <li><input type="text" name="phone" id="mobile_1" maxlength="12"></li>
-            <li><input type="text" name="phone" id="mobile_2" maxlength="4"></li>
-            <li><input type="text" name="phone" id="mobile_3" maxlength="4"></li>
+           <!--  <li><input type="text" name="phone" id="mobile_2" maxlength="4"></li>
+            <li><input type="text" name="phone" id="mobile_3" maxlength="4"></li> -->
           </ul>
           <!-- <input type="text" placeholder="핸드폰"> -->
           <label for="">핸드폰<em>(필수)</em></label>
@@ -493,8 +637,8 @@
         <div class="inputbox">            
           <ul class="num">
             <li><input type="text" name="tel_1" id="tel_1" maxlength="4"></li>
-            <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
-            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
+          <!--   <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
+            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li> -->
           </ul>
          <!-- <input type="text" placeholder="전화번호"> -->
           <label for="">전화번호</label>

@@ -1,4 +1,3 @@
-<!--
 	function isFieldBlank(theField) 
 	{
 	 str = theField.value
@@ -73,5 +72,4 @@
 		}); 					
 				
 		}		
-		       
-//-->
+		      
