@@ -94,7 +94,7 @@ public class ParcelBoardController {
 		getParcelBoard.setWriter(sermernoteVo.getWriter());
 		getParcelBoard.setContent(sermernoteVo.getContent());
 //		썸네일
-		List<MultipartFile> getSumfile = sermernoteVo.getSumfile();
+		sermernoteVo.getSumfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = sermernoteVo.getBoardfile();
 
@@ -104,8 +104,8 @@ public class ParcelBoardController {
 		System.out.println(bno);
 //		썸네일 이미지 저장
 
-		if (getSumfile.isEmpty() == false) {
-			for (MultipartFile file : getSumfile) {
+		if (sermernoteVo.getSumfile().isEmpty() == false) {
+			for (MultipartFile file : sermernoteVo.getSumfile()) {
 //			저장할때의 파일명(확장자 포함)
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
