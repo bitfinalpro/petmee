@@ -14,9 +14,10 @@
 			where product_id = #{productId}
 	</select>
 	<!-- 파일 --> 
-	<select id="selectProductFile" parameterType="String" resultType="Image">
-		select * 
-			from tb_image
-		where product_id = #{productId}
+	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
+			select * from tb_image
+				where type = 'sum'
+			group by product_id
 	</select>
+
 </mapper>

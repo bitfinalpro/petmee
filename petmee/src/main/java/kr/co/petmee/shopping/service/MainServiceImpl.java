@@ -21,7 +21,7 @@ public class MainServiceImpl implements MainService {
 		
 	}
 	// 파일
-	public List<Image> selectProductFile(String a) {
-		return dao.selectProductFile(a);
+	public List<Image> selectProductFile() {
+		return dao.mainSelectProductFile();
 	}
 }

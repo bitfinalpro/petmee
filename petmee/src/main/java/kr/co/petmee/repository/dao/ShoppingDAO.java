@@ -10,5 +10,5 @@ public interface ShoppingDAO {
 	Product shoppingDetail(String productId);
 	
 	// 파일
-	List<Image> selectProductFile(String a);
+	List<Image> mainSelectProductFile();
 }

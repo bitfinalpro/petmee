@@ -53,7 +53,8 @@ public class ProductController {
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = product.getBoardfile();
-		
+		System.out.println(getProductfile);
+		System.out.println(getBoardfile);
 		// 게시판 등록
 		service.insertProduct(product);
 		

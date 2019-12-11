@@ -13,5 +13,5 @@ public interface MainService {
 	//상품 리스트
 	List<Product> foodList();
 	//상품 이미지
-	List<Image> selectProductFile(String a);
+	List<Image> selectProductFile();
 }

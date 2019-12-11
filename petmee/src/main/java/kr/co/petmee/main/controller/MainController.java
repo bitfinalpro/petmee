@@ -16,11 +16,10 @@ public class MainController {
 	@RequestMapping("/main.do")
 	public void main(Model model) {
 	
-		for (Image a:service.selectProductFile("fd-77")) {			
-			System.out.println(a.getPath()+a.getOriName());
-		}
+//		for (Image a:service.selectProductFile()) {			
+//			System.out.println(a.getPath()+a.getOriName());
+//		}
 		model.addAttribute("food", service.foodList());
-		System.out.println("123");
-		model.addAttribute("flist", service.selectProductFile("fd-77"));
+		model.addAttribute("flist", service.selectProductFile());
 	}
 }
