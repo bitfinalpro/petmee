@@ -12,9 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick-theme.css" />">
-	<link href="<c:url value="/resources/css/shopping/login/login.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
-	<link href="<c:url value="/resources/css/shopping/login/pages.css " />" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/main/main.css" />">
 	
 	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
@@ -350,13 +349,14 @@
         </div>
   </div>
 </section>
-<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+<div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+ 
 <script src="../js/lib/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
 	<script src="../js/lib/jquery.easing.1.3.js"></script>
 	
 	<script src="../js/lib/wow.min.js"></script>
-	<script src="../js/lib/slick.min.js"></script>
+	<!-- <script src="../js/lib/slick.min.js"></script> -->
 	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
 	<script src="../js/lib/modernizr.custom.js"></script>
 	<script src="../js/lib/placeholders.min.js"></script>

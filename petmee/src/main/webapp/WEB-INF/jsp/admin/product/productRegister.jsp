@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,101 +15,24 @@
 
   <title>Pet Me</title>
 
-  <!-- 이 템플릿의 사용자 지정 글꼴-->
+   <!-- Custom fonts for this template-->
   <link href="<c:url value="/resources/vendor/fontawesome-free/css/all.min.css"/>" rel="stylesheet" type="text/css">
 
-  <!-- 페이지 레벨 플러그인 CSS-->
+  <!-- Page level plugin CSS-->
   <link href="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.css"/>" rel="stylesheet">
 
-  <!-- 이 템플릿의 사용자 지정 스타일 -->
-   <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
-
-<style>
- .u {
-    width: 30%;
-      text-align: center;
-    margin: 0 auto;
-    padding-bottom: 10px;
-    font-size: 20px;
-      }
-    .u > strong {
-      text-align: center;
-      }
-    #usermodal {
-      border: solid 1px #e9e9e9;
-      width: 530px;
-      height: 400px;
-    }
-    #usermodal > tbody > tr > td {
-      border: solid 1px  #e9e9e9;
-  
-    }
-    #usermodal > tbody > tr > td:nth-child(2n + 1) {
-      background: #e5e5e5;
-      padding-left: 8px;
-      padding-right: 3px;
-    }
-    #usermodal > tbody > tr > td:nth-child(2n + 2) {
-      padding-left: 8px;
-    }
-
-    *{
-      margin:0;
-      padding:0;
-    }
-    ul,li{
-      list-style:none;
-    }
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-    .layer{
-      display:none;
-      justify-content:center;
-      align-items:center;
-      background:rgba(0,0,0, 0.5);
-      position:fixed;
-      left:0;
-      right:0;
-      top:0;
-      bottom:0;
-    }
-    .layer .box{
-      padding:20px 20px 60px;
-      margin:20px;
-      width:570px;
-      height: 530px;
-      background: white;
-      position:relative;
-    }
-    .layer .close{
-      position:absolute;
-      right:20px;
-      bottom:20px;
-      display:block;
-      background:#09F;
-      color:#fff;
-      text-align:center;
-      padding:5px 20px;
-      font-size:13px;
-    }
-    .layer:target{
-      display:flex;
-      animation:open 0.5s;
-    }
-    @keyframes open {
-      from {opacity:0;} to {opacity:1;}
-    }
-  
-  </style>
+  <!-- Custom styles for this template-->
+  <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
+  <link href ="<c:url value="/resources/css/admin/product.css"/>" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.jsp">PETME ADMIN</a>
+    <a class="navbar-brand mr-1" href="index.html">PETME ADMIN</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -179,38 +103,38 @@
         </li>
         <!-- 회원 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
+          <a class="nav-link" href="useradmin.html">
               <i class="fas fa-user"></i>
             <span>회원관리</span></a>
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-            <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
-              <i class="fas fa-user-slash"></i>
-                <span>신고관리</span>
-              </a>
-            </li>
-        <!-- 게시판 관리 -->
+          <a class="nav-link" href="reportadmin.html">
+            <i class="fas fa-user-slash"></i>
+              <span>신고관리</span>
+            </a>
+          </li>
+        <!-- 주문 관리 -->
         <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
+            <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
               <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
+              <span>주문관리</span></a>
           </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="boardadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li>
-  
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>통계</span></a>
         </li>
       </ul>
   
+
     <div id="content-wrapper">
 
       <div class="container-fluid">
@@ -218,112 +142,110 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">회원</a>
+            <a href="#">상품</a>
           </li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item active">Product</li>
         </ol>
 
         <!-- 회원정보 / 상세정보는 팝업창으로 -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-           회원관리</div>
+           상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>아이디</th>
-                    <th>이름</th>
-                    <th>주소</th>
-                    <th>성별</th>
-                    <th>나이</th>
-                    <th>주민번호</th>
-                    <th>수정/탈퇴</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>아이디</th>
-                        <th>이름</th>
-                        <th>주소</th>
-                        <th>성별</th>
-                        <th>나이</th>
-                        <th>주민번호</th>
-                        <th>수정/탈퇴</th>
-                      </tr>
-                </tfoot>
-                  <c:if test="${empty userList}">
-               <tr>
-                   <td colspan="5">게시물이 없습니다.</td>
-                 </tr>
-                 </c:if>
-                <c:forEach var="user" items="${userList}">
-                <tbody>
-                  <!-- <tr onclick="document.location.href='#popup'"> -->
-                  <tr onclick="popup('${user.email}','${user.name}',
-                                     '${user.resident}', '${user.address}',
-                                     '${user.phone}', '${user.gender}')
-                                     ">
-                        <td>${user.email}</td>
-                        <td>${user.name}</td>
-                        <td>${user.address}</td>
-                        <td>${user.gender}</td>
-                        <td>${user.age}</td>
-                        <td>${user.resident}</td>
-                        <td><a href="userdelete.do?userNo=${user.userNo}"><button type="button">탈퇴</button></a></td>
-                      </tr>
-                </tbody>
-             </c:forEach>
-              </table>
-               <!-- 모달창 시작 -->
-                <div id="popup" class="layer">
+               <!-- 등록 폼 시작 -->
+               <!-- #pForm div {
+    margin: 20px 10%;} 삭제 (product.css 58줄),
+ -->
+    <style>
+    #pForm #classify {width:100%; margin: 0px 0%;}
+    #pForm input {margin : 0px 0px 0px 7px}
+    #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+    #classify span{width: 80px; float: none; font-size: 16px; color: #000; margin-top: 0px; margin-left: 10px;}
+    #pForm ul {width: 1070px;
+    margin: 20px auto;  list-style:none;}
+     #pForm ul li {margin:10px; float: left;}
+     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 20px; margin-left: 20px;}
+     #pForm ul li span{float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+     .file_span {width:133px; }
+     .ad_infoinput{width:170px;}
+     .ad_file {width:300px}
+     #product_number {width:70px;height: 24px;}
+    </style> 
                   <div class="box">
-                    <div class="u"><strong>회원정보</strong></div>
-                    <table class ="usermodal" id="usermodal">
-                        <colgroup>
-                          <col width="17%">
-                          <col width="25%">
-                          <col width="17%">
-                          <col width="5%">
-                          <col width="7%">
-                          <col width="3%">
-                      </colgroup>                  
-                      <tr>
-                        <td>이름</td>
-                        <td id="name"></td>
-                        <td>아이디 </td>
-                        <td id="email" colspan="3"></td>
-                      </tr>
-                      <tr>
-                        <td>주민번호</td>
-                        <td id="resident"></td>
-                        <td>성별</td>	
-                        <td id="gender"></td>
-                        <td>나이</td>
-                        <td id="age"></td>
-                      </tr>
-                      <tr>
-                        <td>주소 </td>
-                        <td id="address"colspan="5"></td>
-                      </tr>
-                      <tr>
-                        <td>핸드폰번호</td>
-                        <td id="phone">010-9737-9060</td>
-                        <td>가입일자 </td>
-                        <td colspan="3">2019.11.12</td>
-                      </tr>
-                      <tr>
-                        <td>총구매횟수  </td>
-                        <td>3,152</td>
-                        <td>총구매금액</td>
-                        <td colspan="3">32,600,000</td>
-                      </tr>
-                    </table>
-                    <a href="#" class="close">닫기</a>
+                       <div id="inputtitle">제품 등록</div>
+                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" method="post"
+					enctype="multipart/form-data">    
+                        <div id="classify">
+                        <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
+                          <c:forEach var="c" items="${cList}">
+                            <option value="${c.categoryNo}">${c.categoryName}</option>
+                           </c:forEach>
+                          </select>   
+                          <div style="float: right; width: 713px; margin: 0px 0%;">
+                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1">
+                          		<span>판매상태 :</span><select name="sellCondition" id="">
+                           		<option value="0">판매대기중</option>
+                           		<option value="1">판매중</option>
+                           		<option value="2">품절</option>
+                          		</select> 
+                          		<span>애완종류 :</span><select name="sellCondition" id="">
+                           		<option value="1">강아지</option>
+                           		<option value="2">고양이</option>
+                           		</select> 
+                          	
+                          </div>
+                          </div>
+                            <ul>
+                        	<li><span>상품명 :</span> <input class="ad_infoinput" type="text" name="productName"/>
+                        	</li>
+                        	<li><span>품번 :</span> <input class="ad_infoinput" type="text" name="productId"/>
+                        	</li>
+                        	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="price"/></li>
+                        	
+                        </ul>
+                         <ul>
+                        	<li><span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productInfo"/></li>
+                        	<li><span>제조사 :</span> <input class="ad_infoinput" type="text" name="company"/></li>
+                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
+                        </ul>   
+                         <ul>
+                        	<li>
+                        		<span class="file_span">상품 이미지 :</span><input class="ad_file" name="productfile" multiple="multiple"  type="file" />
+                        	</li>
+                        	<li>
+                        	<span  class="file_span">상품 상세 이미지 :</span><input class="ad_file" name="boardfile" multiple="multiple" type="file" />
+                        	</li>
+                        </ul>   
+                     
+                        <div style="width: 200px; margin: 0 auto;"><button id="listupbtn" type="submit" >목록에 올리기</button></div>
+                      
+                        </form>
+                     
+                        <div id="registerlist">
+                          <table id="inputlisttable">
+                              <thead>
+                                  <tr>                                    
+                                    <th>분류</th>
+                                    <th>상품명</th>
+                                    <th>품번</th>                                    
+                                    <th>가격</th>
+                                    <th>제조사</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="registertbody">
+                                                                  
+                                </tbody>
+                          </table>
+                        </div>
+                           
+                       </div>
+                    <button id="completebtn1">완료</button>
                   </div>
-                </div>
-              <!-- 모달창 끝 -->
+              
+              <!-- 등록 폼 끝 -->            
+                
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -375,14 +297,15 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+ <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
   <!-- Core plugin JavaScript-->
- <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
 
   <!-- Page level plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/chart.js/Chart.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.js" />"></script>
 
@@ -390,10 +313,9 @@
   <script src="<c:url value="/resources/js/admin/sb-admin.min.js" />"></script>
 
   <!-- Demo scripts for this page-->
- <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
- 
- <script src="<c:url value="/resources/js/admin/userinfo.js" /> "></script>
-
+  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
+  <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
+  <script src="<c:url value="/resources/js/admin/product.js"/>"></script>
 </body>
 
 </html>

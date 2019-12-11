@@ -2,7 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ProductDAO">
-       
+<!-- 제품 글 등록 -->
+	<insert id="insertProduct" parameterType="Product">
+		insert into tb_product(product_id, product_name, product_info, price, stock, company, category_no, animal_no, sell_condition)
+		values(#{productId}, #{productName}, #{productInfo}, #{price}, #{stock}, #{company}, #{categoryNo}, #{animalNo}, #{sellCondition})
+	</insert>
+<!-- 제품이미지 등록 -->
+	<insert id="productImg" parameterType="Image">
+		insert into tb_image(product_id, ORI_NAME, NAME, PATH)
+		values(#{productId}, #{oriName}, #{name}, #{path})
+	</insert>        
 <!-- 제품목록 추출 -->       
        <select id="selectProducts" resultType="Product">
         select *
@@ -19,4 +28,22 @@
 		select *
 		  from tb_category
 	</select>
+<!-- 제품 정보 추출 -->
+	<select id="selectProductInfo" parameterType="string" resultType="Product">
+		select *
+		  from tb_product
+		 where product_id = #{productId}
+	</select>
+<!-- 제품 입고 -->
+	<update id="plusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock + #{productCount}
+		 where product_id = #{productId}
+	</update> 
+<!-- 제품 출고 -->
+	<update id="minusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock - #{productCount}
+		 where product_id = #{productId}
+	</update> 
 </mapper>

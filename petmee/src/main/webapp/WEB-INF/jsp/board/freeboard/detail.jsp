@@ -14,11 +14,85 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
   <style>
-   #crForm {
+   .s {
+    width: 30%;
+      text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 20px;
+    }
+    .box {
+      border-top:solid 15px lightcoral;
+    }
+ .reportcontent {
+      width: 420px;
+      height: 70px;
+      resize: none;
+      border: solid 1px #e5e5e5;
+    }
+    .reportli {
+      margin-left: 75px;
+    }
+    .username > ul > li {
+      display: inline-block;
+    }
+    .userbox {
+      display: inline-block;
+      width: 400px;
+    }
+      *{
+        margin:0;
+        padding:0;
+      }
+      ul,li{
+        list-style:none;
+      }
+      a{
+        text-decoration:none;
+        color:inherit;
+      }
+      .layer{
+        display:none;
+        justify-content:center;
+        align-items:center;
+        background:rgba(0,0,0, 0.5);
+        position:fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+      }
+      .layer .box{
+        padding:20px 20px 60px;
+        margin:20px;
+        width: 500px;
+        height: 350px;
+        background: white;
+        position:relative;
+      }
+      .layer .close{
+        position:absolute;
+        right:20px;
+        bottom:20px;
+        display:block;
+        background:#09F;
+        color:#fff;
+        text-align:center;
+        padding:5px 20px;
+        font-size:13px;
+      }
+      .layer:target{
+        z-index: 99999;
+        display:flex;
+        animation:open 0.5s;
+      }
+      @keyframes open {
+        from {opacity:0;} to {opacity:1;}
+      }
+     #crForm {
        width: 70%;
        margin: 0 auto;
    }
-   
   </style>
 </head>
    
@@ -45,7 +119,7 @@
                          <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
                          <div class="right">
                          <div id="view"><i class="far fa-eye"></i> ${board.viewCnt}</div>
-                         <div id="report" class="right"><img src="<c:url value="/resources/images/board/common/report.png" />"><button>신고</button></div>
+                         <div id="report" class="right"><img src="<c:url value="/resources/images/board/common/report.png" />"><button onclick="document.location.href='#popup'">신고</button></div>
                          </div>
                    </div>
                </div>
@@ -54,7 +128,7 @@
                    <div id="pic">
                        <img src="../resources/images/image/holly.jpg">
                    </div>
-                   -->
+             -->
                    <div id="Freecontent">
                           <c:out value="${board.content}" />
                    </div>
@@ -69,8 +143,43 @@
                          <input type="hidden" id="writer" value="권성진" /> 
                          <button type="submit" class="comment1" >등록</button>
                       </form>
+                         <!-- 모달창 시작 -->
+              <div id="popup" class="layer">
+                <div class="box">
+                  <div class="s"><strong>신고하기</strong></div>
+                  <hr>
+                     <div class="reporttitle">
+                      <ul>
+                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; boy9412@naver.com</div></li>
+                        <li><strong>내 용</strong>  : <div class="userbox">&nbsp; 토토사이트 대박 초보환영 ㅎㅎㅎㅎㅎㅎㅎㅎ</div></li>
+                      </ul>
+                     </div>
+                     <hr>
+                     <div>
+                       <span><strong>사유선택</strong> : 대표적인 1가지만 선택해주세요. </span>
+                     </div>
+                     <div>
+                       <form>
+                        <ul class="reportli">
+                          <li><input type="radio" name="report" value="">음란성 게시물
+                          <li><input type="radio" name="report" value="">광고성 게시물
+                          <li><input type="radio" name="report" value="">욕설/반말/부적절한 언어
+                          <li><input type="radio" name="report" value="">도배성게시물
+                          <li><input type="radio" name="report" value="">명예훼손/사생활 침해 및 저작권 침해
+                        </ul>
+                        </form>
+                        <hr>
+                        <span><strong>기타 내용</strong> : </span>
+                        <div>
+                          <textarea class="reportcontent"></textarea>
+                        </div>
+                     </div>
+                  <a href="#" class="sue">전송</a>
+                  <a href="#" class="close">닫기</a>
+                </div>
+              </div>
+            <!-- 모달창 끝 -->
                    <div class="comlist" id="commentList">
-  
                    </div>
                </div>
    </section>

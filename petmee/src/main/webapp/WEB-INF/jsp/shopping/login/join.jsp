@@ -9,16 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=1200, maximum-scale=1.5, user-scalable=yes">
     <meta name="format-detection" content="telephone=no, address=no, email=no">
-    
-	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>
-	<%-- 
-    <link href="<c:url value="/resources/css/shopping/login/join.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/board.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/login.css" />" rel="stylesheet"> --%>
-	
-	<script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
-    <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
-    
+	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>    
     <script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
     <title>(주)펫미</title>
 </head>
@@ -28,9 +19,10 @@
 	</div>
 	
     <div id="contents" class="sub-contents">
+		<div style="position:relative; top: 0; height: 20px; background-color: #550;"></div>
 		<div class="sub-visual">
               <div class="wrap">
-                  <div class="sub-visual-title wowrap" style="background-color: black;">
+                  <div class="sub-visual-title wowrap" >
                       <h2 class="wow fadeInUp tit" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">회원가입</h2>
                       <p class="wow fadeInUp txt" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeInUp;">삶의 소중한 인연, 펫미가 만남부터 동행하겠습니다.</p>
                   </div>		
@@ -41,16 +33,19 @@
           <div class="sub-con sub-pad join_page _step1">
                   <div class="sub-title">
                     <p class="desc">회원가입</p>
-                    <p class="title_bold">CREATE YOUT ACCOUNT</p>
+                    <p class="title_bold">CREATE YOUsT ACCOUNT</p>
                   </div>
           
           <div class="wrapper">
-            <form name="theForm" method="post" action="join_02.html">
+            <form name="theForm" method="post" action="join02.jsp">
             <div class="join_step">이용약관동의</div>
             <div class="row">
               <div class="col-lg-6">
                 <p class="tit_36">이용약관</p>
-                <div class="join scroll-con-y mCustomScrollbar _mCS_1"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr"><ul class="term_wrap">
+                <div class="join scroll-con-y mCustomScrollbar _mCS_1">
+                <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+                <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                <ul class="term_wrap">
               <!-- 이용약관 -->
               <li>
                   <h3>제1조(목적)</h3>
@@ -394,25 +389,25 @@
            theForm.submit();					        						        
     } 				
 	</script>
-	<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>
  	<!-- footer -->
 	<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 	
 	
-	<script src="../js/lib/jquery-1.11.1.min.js"></script>
+	<script src="<c:url value='/resources/js/shopping/login/lib/jquery-1.11.1.min.js' />"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-	<script src="../js/lib/jquery.easing.1.3.js"></script>
-	
-	<script src="../js/lib/wow.min.js"></script>
-	<script src="../js/lib/slick.min.js"></script>
-	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
-	<script src="../js/lib/modernizr.custom.js"></script>
-	<script src="../js/lib/placeholders.min.js"></script>
-	<script src="../js/lib/jquery.magnific-popup.js"></script>	
+	<script src="<c:url value='/resources/js/shopping/login/lib/jquery.easing.1.3.js' />"></script>
+	<script src="../resources/js/shopping/login/lib/wow.min.js"></script>
+	<script src="../resources/js/shopping/login/lib/slick.min.js"></script>
+	<script src="../resources/js/shopping/login/lib/jquery.mCustomScrollbar.min.js"></script>
+	<script src="../resources/js/shopping/login/lib/modernizr.custom.js"></script>
+	<script src="../resources/js/shopping/login/lib/placeholders.min.js"></script>
+	<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>	
 	
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
 	<script src="../js/common.js?ver=2019-04-25"></script>
-  
+  <div id="ch-plugin"><div id="ch-plugin-script" style="display:none"><iframe id="ch-plugin-script-iframe" style="position:relative!important;height:100%!important;width:100%!important;border:none!important;"></iframe></div><div id="ch-plugin-core"><style data-styled="" data-styled-version="4.3.2"></style><style data-styled="" data-styled-version="4.3.2"></style><div hidden="" class="sc-erNlkL gTFkWU sc-RbTVP hrWefY"><div class="sc-eNNmBn cXBieY"><div name="push-exit" width="45" height="45" size="24" class="sc-dnqmqq sc-cBrjTV iByMcc"></div><div class="sc-jUpvKA ccOxya"><div size="34" class="sc-kGXeez kGMzSU"></div><div class="sc-fkyLDJ epSaPl">(알 수 없음)</div><div class="sc-iCwjlJ hRSOFL">9:00am</div></div><div class="sc-eopZyb bYeAnX"><div class="sc-jRuhRL coGTKb"><span class=""></span></div></div></div></div><div hidden="" class="sc-kEmuub llDLR sc-RbTVP hrWefY"><div class="sc-eNNmBn cXBieY"><div name="push-exit" width="45" height="45" size="24" class="sc-dnqmqq sc-cBrjTV iByMcc"></div><div class="sc-jUpvKA ccOxya"><div size="34" class="sc-kGXeez kGMzSU"></div><div class="sc-fkyLDJ epSaPl">(알 수 없음)</div><div class="sc-iCwjlJ hRSOFL">9:00am</div></div><div class="sc-eopZyb bYeAnX"><div class="sc-jRuhRL coGTKb"><span class=""></span></div></div></div></div><style data-styled="" data-styled-version="4.3.2"></style><div class="sc-bZQynM bcTMnS"></div><div hidden="" class="sc-htpNat kpbyxq"><div class="sc-bxivhb fomTXD"><div class="textLauncherContent sc-ifAKCX JIEAE"></div><div class="textLauncherIcon sc-EHOje bMzbQj"><div hidden="" class="sc-bwzfXH sc-htoDjs jiXddj">0</div></div></div></div></div></div>
+  <style data-styled="" data-styled-version="4.3.2"></style>
 </body>
 </html>

@@ -11,4 +11,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/board.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/login.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/css.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/scroll.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/common.css" />">
+
+<!-- 애니메이션 -->
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/animate.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/justifiedGallery.min.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/magnific-popup.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/mCustomScrollbar.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/login/slick.css" />">

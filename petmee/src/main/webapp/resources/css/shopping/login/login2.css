@@ -74,8 +74,8 @@
 .pop-con-modal .mfp-close { 
     position: relative; 
     font-size: 30px; 
-    /* top: -30px;  */
-    left: 350px; 
+    top: -30px;
+    left: 200px; 
     color: #fff;
     background-color: #000; 
     font-family: 'Noto Sans KR', sans-serif; 
@@ -155,6 +155,9 @@
 #login-pop .util .right { 
     float: right; 
 }
+#login-pop .util .right > a{ 
+    color: #fff;
+}
 #login-pop .btn { 
     border: 1px solid #fff; 
     background-color: transparent; 
@@ -169,10 +172,10 @@
     color: #fff; 
 } */
 #login-pop .chk_area input[type='checkbox'] + label:before { 
-    background-image: url(../images/icon/chk.png); 
+    background-image: url("/petmee/resources/images/shopping/login/icon/chk.png"); 
 }
 #login-pop .chk_area input[type='checkbox']:checked + label:before { 
-    background-image: url(../images/icon/chk_on.png); 
+    background-image: url("/petmee/resources/images/shopping/login/icon/chk_on.png"); 
 }
 #login-pop .modal-dialog { 
     background-color: black; 

@@ -154,7 +154,7 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><button id="regNdel">제품등록</button><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
+            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -170,13 +170,13 @@
                 </thead>
                 <tfoot>
                     <tr>
-                      <th colspan="8"><button id="checkallbutton">전체선택</button><button id="cancelchoice">선택해제</button><button id="cancelorder">주문 취소</button></th>
+                      <th colspan="8"><button id="checkallbutton">전체선택</button><button id="cancelchoice">선택해제</button><button id="deleteSelected">선택삭제</button></th>
                     </tr>
                   </tfoot> 
                 <tbody>
                 <c:forEach var="p" items="${list}">
                   <tr>
-                    <td><input type="checkbox" name="a" value=""/> &nbsp ${p.productId}</td>
+                    <td><input type="checkbox" name="choice" value="${p.productId}"/> &nbsp ${p.productId}</td>
                     <td>${p.productName}</td>
                     <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
                     <td>
@@ -212,7 +212,7 @@
                         <div>품번 : <input type="text" name="productno"/></div>
                         <div>가격 : <input type="text" name="productprice"/></div>
                         <div>제조사 : <input type="text" name="company"/></div>
-                        <button id="listupbtn" type="button">목록에 올리기</button>
+                        <button id="registerlistupbtn" type="button">목록에 올리기</button>
                         </form>
                         <div id="registerlist">
                           <table id="inputlisttable">
@@ -225,7 +225,7 @@
                                     <th>제조사</th>
                                   </tr>
                                 </thead>
-                                <tbody id="registertbody">
+                                <tbody id="tbody">
                                                                   
                                 </tbody>
                           </table>
@@ -242,9 +242,9 @@
                        <div id="inputtitle">제품 입고</div>
                        <div>
                         <form id="pForm">                         
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>수량 : <input type="number" name="productcount" min="0" max="100" /></div>
-                        <button id="listupbtn">목록에 올리기</button>
+                        <div>품번 : <input type="text" name="productId"/></div>
+                        <div>수량 : <input type="number" name="productcount" min="1" max="50000" /></div>
+                        <button id="inputlistupbtn" type="button">목록에 올리기</button>
                         </form>
                         <div id="inputlist">
                           <table id="inputlisttable">
@@ -256,25 +256,8 @@
                                     <th>제조사</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>30</td>
-                                    <td>맛있는 식품</td>
-                                  </tr>
-                                  <tr>
-                                    <td>느낌있는 바바리코트</td>
-                                    <td>cl-001</td>
-                                    <td>5</td>
-                                    <td>예쁜옷</td>
-                                  </tr>
-                                  <tr>
-                                    <td>강아지용 헤드라이트</td>
-                                    <td>cl-031</td>
-                                    <td>15</td>
-                                    <td>실용적인 강아지옷</td>
-                                  </tr>
+                                <tbody id="inputTbody">                               
+                                  
                                 </tbody>
                           </table>
                         </div>
@@ -290,9 +273,9 @@
                        <div id="inputtitle">제품 출고</div>
                        <div>
                         <form id="pForm">                         
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>수량 : <input type="number" name="productcount" min="0" max="100" /></div>
-                        <button id="listupbtn">목록에 올리기</button>
+                        <div>품번 : <input type="text" name="outproductId"/></div>
+                        <div>수량 : <input type="number" name="outproductcount" min="0" max="100" /></div>
+                        <button id="outputlistupbtn" type="button">목록에 올리기</button>
                         </form>
                         <div id="outputlist">
                           <table id="inputlisttable">
@@ -301,39 +284,11 @@
                                     <th>상품명</th>
                                     <th>품번</th>                                    
                                     <th>출고수량</th>
-                                    <th>매출액</th>
-                                    <th>재고수량</th>
+                                    <th>제조사</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
+                                <tbody id="outputTbody">
+                                  
                                 </tbody>
                           </table>
                         </div>

@@ -76,43 +76,39 @@
   </nav>
 
   <div id="wrapper">
-    <!-- 사이드 바 -->
-    <ul class="sidebar navbar-nav">
-      <!-- 메인 -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-home"></i>
-          <span>메인</span>
-        </a>
-      </li>
-      <!-- 회원 관리 -->
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
-            <i class="fas fa-user"></i>
-            <span>회원관리</span>
-          </a>
-        </li> 
-        <!-- 신고 관리 -->
-        <li class="nav-item">
-          <a class="nav-link" href="reportadmin.html">
-            <i class="fas fa-user-slash"></i>
-              <span>신고관리</span>
-            </a>
-          </li>
-        
-      <!-- 주문 관리 -->
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
-          <i class="fas fa-fw fa-table"></i>
-            <span>주문관리</span>
+      <!-- 사이드 바 -->
+      <ul class="sidebar navbar-nav">
+        <!-- 메인 -->
+        <li class="nav-item active">
+          <a class="nav-link" href="<c:url value="/admin/user/menu.do" />">
+            <i class="fas fa-home"></i>
+            <span>Main</span>
           </a>
         </li>
-      <!-- 상품 관리 -->
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
-          <i class="fas fa-fw fa-table"></i>
-            <span>상품관리</span>
-          </a>
+        <!-- 회원 관리 -->
+        <li class="nav-item">
+          <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
+              <i class="fas fa-user"></i>
+            <span>회원관리</span></a>
+        </li>
+         <!-- 신고 관리 -->
+         <li class="nav-item">
+            <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
+              <i class="fas fa-user-slash"></i>
+                <span>신고관리</span>
+              </a>
+            </li>
+        <!-- 게시판 관리 -->
+        <li class="nav-item">
+            <a class="nav-link" href="boardadmin.html">
+              <i class="fas fa-fw fa-table"></i>
+              <span>게시판관리</span></a>
+          </li>
+        <!-- 상품 관리 -->
+        <li class="nav-item">
+          <a class="nav-link" href="boardadmin.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>상품관리</span></a>
         </li>
         
       <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
