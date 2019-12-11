@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ProductDAO;
+import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.Product;
 
 @Service
@@ -14,6 +16,15 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	private ProductDAO dao;
+	
+	// 제품이미지 등록 
+	public void productImage(Image image) {
+		dao.productImg(image);
+	}
+	// 제품이미지 등록 
+	public void insertProduct(Product product) {
+		dao.insertProduct(product);
+	}
 	//제품목록
 	public List<Product> productList() {
 		return dao.selectProducts();
@@ -51,4 +62,5 @@ public class ProductServiceImpl implements ProductService{
 			dao.minusCount(p);
 		}		
 	}
+
 }
