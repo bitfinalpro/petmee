@@ -4,8 +4,96 @@ $("#inputbutton").click((e)=>{
 $("#outputbutton").click((e)=>{
     location.href = "#outputpopup";
 });
-$("#regNdel").click((e)=>{
-    location.href = "#registerpopup";
+$(".stopnofresh").click((e) => {
+	function Reload(){
+		event.cancelBubble = false;
+		event.returnValue = true;
+	}
+	document.onkeydown = Reload;
+});
+$(".nofresh").click((e) => {
+	function doNotReload(){
+	    if((event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
+	    	keyCode = event.keyCode;
+	        event.keyCode = 0;
+	        event.cancelBubble = true;
+	        event.returnValue = false;
+	    } 
+	}
+	document.onkeydown = doNotReload;
+});
+$(".updateInfo").click((e)=>{	
+	e.preventDefault();	
+	$.ajax({
+		url: "updateModal.do",
+	   data: {productId: $(e.target).data("no")},
+	   async: false,
+	   success: result => {
+		   let query = `
+		   <div>품번 : <input type="text" id="updateId" name="productno" value="aaa"/></div>                            
+                        <div>상품명 : <input type="text" id="updateName" name="productname" value="${result.productName}"/></div>
+                        <div>판매대상 : <select name="animalCode">
+                        <c:choose>
+                        	<c:when test="${result.animalNo == 1}">
+                        		<option value="1" selected>강아지</option>
+                        		<option value="2">고양이</option>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<option value="1">강아지</option>
+                        		<option value="2" selected>고양이</option>                        	</c:otherwise>
+                        </c:choose>
+                        </select>
+                        </div>
+                         <div>
+                          분류: <select name="category" id="selectCategory">
+                          `;		   
+			   			  for(let i = 1; i <= document.getElementById("cList").value; i++){
+			   				  let categoryName = ""; 
+			   				  switch(i) {
+			   				  case 1: categoryName = "의류"; break;
+			   				  case 2: categoryName = "식품"; break;
+			   				  case 3: categoryName = "식기/주거"; break;
+			   				  case 4: categoryName = "장난감"; break;
+			   				  case 5: categoryName = "위생"; break;
+			   				  }
+			   				  if(result.categoryNo === i) {
+			   					  query += `<option value="` + i + `" selected>` + categoryName +`</option>` ;		   					  
+			   				  } else {
+			   					query += `<option value="` + i + `">` + categoryName +`</option> `; 
+			   				  }
+			   			  };                          
+                          query += `
+                          </select>
+                        </div>              
+                        <div>가격 : <input type="text" name="productprice" value="${result.price}"/></div>
+                        <div>상품설명 : <input type="text" name="productInfo" value="${result.productInfo}"/></div>
+                        <div>제조사 : <input type="text" name="company" value="${result.company}"/></div>
+                        <div>재고량 : <input type="number" name="stock" value="${result.stock}"/></div>
+                        <div>판매상태 : <select name="sellCondition">
+                        <c:choose>
+                        	<c:when test="${result.sellCondition == 0}">
+                        		<option value="0" selected>품절</option>
+                        		<option value="1">판매대기중</option>
+                        		<option value="2">판매중</option>
+                        	</c:when>
+                        	<c:when test="${result.sellCondition == 1}">
+                        		<option value="0" >품절</option>
+                        		<option value="1" selected>판매대기중</option>
+                        		<option value="2">판매중</option>
+                        	</c:when>                        	
+                        	<c:otherwise>
+                        		<option value="0" >품절</option>
+                        		<option value="1" >판매대기중</option>
+                        		<option value="2" selected>판매중</option>
+                        	</c:otherwise>
+                        </c:choose>                        	
+                        </select>
+                        </div>                        
+		   `;
+		   $("#updateForm").html(query);		   
+	   }
+	})	
+	location.href = "#updatepopup";	
 });
 $("#checkallbutton").click((e)=>{
 	 $("input[type=checkbox]").prop("checked",true);
@@ -179,7 +267,6 @@ $("#completebtn3").click((e) => {
 });
 //선택항목삭제
 $("#deleteSelected").click((e) => {
-	console.log("aaa");
 	let checkedbox = [];
 	let checkboxes = document.querySelectorAll("input[name=choice]");
 	for(let i = 0; i < checkboxes.length; i++){
@@ -198,5 +285,4 @@ $("#deleteSelected").click((e) => {
 		success: () => {}
 	})
 	location.href="product.do";
-
 });

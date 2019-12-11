@@ -1,5 +1,7 @@
 package kr.co.petmee.repository.vo;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -14,4 +16,6 @@ public class Product {
 	private int stock;
 	private String company;	
 	private int productCount;	
+	private int sellCondition;	
+	private Date date;	
 }

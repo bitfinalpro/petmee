@@ -154,7 +154,7 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><button id="regNdel">제품등록</button><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
+            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
                <!-- 등록 폼 시작 -->
                <!-- #pForm div {
     margin: 20px 10%;} 삭제 (product.css 58줄),

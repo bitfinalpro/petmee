@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.petmee.admin.service.ProductService;
 import kr.co.petmee.repository.vo.Product;
@@ -23,15 +25,20 @@ public class ProductController {
 	private ProductService service;
 			
 	@RequestMapping("/product.do")
-	public void List(Model model) {	
+	public void List(Model model){	
 		//상품목록
 		model.addAttribute("list",service.productList());
 		//카테고리 목록
-		model.addAttribute("cList",service.selectCatecories());
-	   }	
+		model.addAttribute("cList",service.selectCatecories());		
+	}
+	
+	@RequestMapping("/productRegister.do")
+	public void productRegister(Model model) {
+		
+	}	
+	
 
 	//제품정보 삭제
-
 	@RequestMapping("/delete.do")	
 	public String deleteProduct(String productId) {
 		service.deleteProduct(productId);
@@ -72,5 +79,12 @@ public class ProductController {
 		HashMap map = new HashMap();
 		map.put("list", userList);
 		service.minusCount(map);		
+	}
+	//제품정보 변경 모달
+	@RequestMapping("updateModal.do")
+	@ResponseBody
+	public Product updateProductInfo(String productId) {
+		Product p = service.selectProductInfo(productId);
+		return p;
 	}
 }
