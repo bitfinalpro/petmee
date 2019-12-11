@@ -3,10 +3,16 @@ package kr.co.petmee.repository.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.Product;
 
 public interface ProductDAO {
 	
+	// 제품 이미지등록  
+	void productImg(Image image);
+	// 제품 글등록  
+	void insertProduct(Product product);
 	//전체 제품목록 추출
 	List<Product> selectProducts();
 	//카테고리 추출

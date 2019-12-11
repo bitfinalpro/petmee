@@ -36,7 +36,7 @@
       }
     #usermodal {
       border: solid 1px #e9e9e9;
-      width: 510px;
+      width: 530px;
       height: 400px;
     }
     #usermodal > tbody > tr > td {
@@ -77,7 +77,7 @@
     .layer .box{
       padding:20px 20px 60px;
       margin:20px;
-      width:550px;
+      width:570px;
       height: 530px;
       background: white;
       position:relative;
@@ -260,7 +260,11 @@
                  </c:if>
                 <c:forEach var="user" items="${userList}">
                 <tbody>
-                  <tr onclick="document.location.href='#popup'">
+                  <!-- <tr onclick="document.location.href='#popup'"> -->
+                  <tr onclick="popup('${user.email}','${user.name}',
+                                     '${user.resident}', '${user.address}',
+                                     '${user.phone}', '${user.gender}')
+                                     ">
                         <td>${user.email}</td>
                         <td>${user.name}</td>
                         <td>${user.address}</td>
@@ -273,7 +277,6 @@
              </c:forEach>
               </table>
                <!-- 모달창 시작 -->
-               <c:forEach var="u" items="${userList}">
                 <div id="popup" class="layer">
                   <div class="box">
                     <div class="u"><strong>회원정보</strong></div>
@@ -288,26 +291,26 @@
                       </colgroup>                  
                       <tr>
                         <td>이름</td>
-                        <td>${u.name}</td>
+                        <td id="name"></td>
                         <td>아이디 </td>
-                        <td colspan="3">${email}</td>
+                        <td id="email" colspan="3"></td>
                       </tr>
                       <tr>
                         <td>주민번호</td>
-                        <td>941221 - 1000000</td>
-                        <td>성별</td>
-                        <td>남</td>
+                        <td id="resident"></td>
+                        <td>성별</td>	
+                        <td id="gender"></td>
                         <td>나이</td>
-                        <td>26</td>
+                        <td id="age"></td>
                       </tr>
                       <tr>
                         <td>주소 </td>
-                        <td colspan="5">서울시 마포구 마포동 마포읍 마포리 303-151232===132114321321</td>
+                        <td id="address"colspan="5"></td>
                       </tr>
                       <tr>
                         <td>핸드폰번호</td>
-                        <td>010-9737-9060</td>
-                        <td>가입일자  </td>
+                        <td id="phone">010-9737-9060</td>
+                        <td>가입일자 </td>
                         <td colspan="3">2019.11.12</td>
                       </tr>
                       <tr>
@@ -320,7 +323,6 @@
                     <a href="#" class="close">닫기</a>
                   </div>
                 </div>
-                </c:forEach>
               <!-- 모달창 끝 -->
             </div>
           </div>
@@ -389,6 +391,8 @@
 
   <!-- Demo scripts for this page-->
  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
+ 
+ <script src="<c:url value="/resources/js/admin/userinfo.js" /> "></script>
 
 </body>
 

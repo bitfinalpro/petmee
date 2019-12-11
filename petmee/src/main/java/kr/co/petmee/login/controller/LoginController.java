@@ -89,6 +89,15 @@ public class LoginController {
 	@RequestMapping("/joinform.do")
 	public void join02() {}
 	
+	// 회원가입 중복검사
+	@RequestMapping("/join04.do")
+	public void join04() {
+		 System.out.println("sss");
+	}
+	// --------------------------------------------------
+	// 아이디/비번찾기
+	@RequestMapping("/find.do")
+	public void find() {}
 }
 
 

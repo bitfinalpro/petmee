@@ -9,16 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
 	<meta name="viewport" content="width=1200, maximum-scale=1.5, user-scalable=yes">
     <meta name="format-detection" content="telephone=no, address=no, email=no">
-    
-	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>
-	<%-- 
-    <link href="<c:url value="/resources/css/shopping/login/join.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/board.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/shopping/login/login.css" />" rel="stylesheet"> --%>
-	
-	<%-- <script src="<c:url value='/resources/js/login/jquery-1.11.1.min.js' />"></script>
-    <script src="<c:url value='/resources/js/login/ch-plugin-web.js' />"></script> --%>
-    
+	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>    
     <script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
     <title>(주)펫미</title>
 </head>
@@ -42,7 +33,7 @@
           <div class="sub-con sub-pad join_page _step1">
                   <div class="sub-title">
                     <p class="desc">회원가입</p>
-                    <p class="title_bold">CREATE YOUT ACCOUNT</p>
+                    <p class="title_bold">CREATE YOUsT ACCOUNT</p>
                   </div>
           
           <div class="wrapper">
@@ -403,10 +394,9 @@
 	<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 	
 	
-	<script src="../resources/js/shopping/login/lib/jquery-1.11.1.min.js"></script>
+	<script src="<c:url value='/resources/js/shopping/login/lib/jquery-1.11.1.min.js' />"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-	<script src="../resources/js/shopping/login/lib/jquery.easing.1.3.js"></script>
-	
+	<script src="<c:url value='/resources/js/shopping/login/lib/jquery.easing.1.3.js' />"></script>
 	<script src="../resources/js/shopping/login/lib/wow.min.js"></script>
 	<script src="../resources/js/shopping/login/lib/slick.min.js"></script>
 	<script src="../resources/js/shopping/login/lib/jquery.mCustomScrollbar.min.js"></script>

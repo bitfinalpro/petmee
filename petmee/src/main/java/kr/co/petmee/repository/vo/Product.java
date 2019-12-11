@@ -1,7 +1,8 @@
 package kr.co.petmee.repository.vo;
 
 import java.util.Date;
-
+import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
@@ -15,7 +16,9 @@ public class Product {
 	private int price;
 	private int stock;
 	private String company;	
+	private Date date;
 	private int productCount;	
 	private int sellCondition;	
-	private Date date;	
+	private List<MultipartFile> productfile;
+	private List<MultipartFile> boardfile;
 }

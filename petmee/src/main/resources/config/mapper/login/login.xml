@@ -13,9 +13,9 @@
 	<!-- 회원가입 -->
 	<insert id="insertJoin" parameterType="User">
 		insert into tb_user (
-			email, pass, name, phone, resident, gender, nickname, address
+			email, pass, name, phone, resident, address
 		) values (
-			#{email}, #{pass}, #{name}, #{phone}, #{resident}, #{gender}, #{nickname}, #{address}
+			#{email}, #{pass}, #{name}, #{phone}, #{resident}, #{address}
 		);
 	</insert>
 	

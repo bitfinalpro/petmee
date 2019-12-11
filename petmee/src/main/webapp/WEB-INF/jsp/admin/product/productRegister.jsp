@@ -154,7 +154,10 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
+<<<<<<< HEAD
             <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
+=======
+>>>>>>> develop
                <!-- 등록 폼 시작 -->
                <!-- #pForm div {
     margin: 20px 10%;} 삭제 (product.css 58줄),
@@ -164,60 +167,63 @@
     #pForm input {margin : 0px 0px 0px 7px}
     #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
     #classify span{width: 80px; float: none; font-size: 16px; color: #000; margin-top: 0px; margin-left: 10px;}
-    #pForm ul {margin:20px 0px 0px 20px;  list-style:none;}
-     #pForm ul li { margin:10px; float: left;}
-     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block;     margin-top: 20px;
-    margin-left: 20px;}
-     #pForm ul li span{width:80px; float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
-     .ad_infoinput{width:150px;}
+    #pForm ul {width: 1070px;
+    margin: 20px auto;  list-style:none;}
+     #pForm ul li {margin:10px; float: left;}
+     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 20px; margin-left: 20px;}
+     #pForm ul li span{float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+     .file_span {width:133px; }
+     .ad_infoinput{width:170px;}
      .ad_file {width:300px}
+     #product_number {width:70px;height: 24px;}
     </style> 
                   <div class="box">
                        <div id="inputtitle">제품 등록</div>
-                       <div>
-                        <form id="pForm">    
-                        <ul>
+                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" method="post"
+					enctype="multipart/form-data">    
                         <div id="classify">
-                        <strong>분류:</strong> <select name="category" id="selectCategory">
+                        <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
                             <option value="${c.categoryNo}">${c.categoryName}</option>
                            </c:forEach>
                           </select>   
-                          <span>수량 :<input type="number" value="1">
-                        		<span>품절 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />
-                        		<span>베스트 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />
-                        		<span>최신 :</span><input type="checkbox" name="topChk" value="1" id="topchk" />           
-                        </div>
-                        	<li>
-                        		<span>상품명 :</span> <input class="ad_infoinput" type="text" name="productname"/>
+                          <div style="float: right; width: 713px; margin: 0px 0%;">
+                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1">
+                          		<span>판매상태 :</span><select name="sellCondition" id="">
+                           		<option value="0">판매대기중</option>
+                           		<option value="1">판매중</option>
+                           		<option value="2">품절</option>
+                          		</select> 
+                          		<span>애완종류 :</span><select name="sellCondition" id="">
+                           		<option value="1">강아지</option>
+                           		<option value="2">고양이</option>
+                           		</select> 
+                          	
+                          </div>
+                          </div>
+                            <ul>
+                        	<li><span>상품명 :</span> <input class="ad_infoinput" type="text" name="productName"/>
                         	</li>
-                        	<li>
-                        	<span>품번 :</span> <input class="ad_infoinput" type="text" name="productno"/>
+                        	<li><span>품번 :</span> <input class="ad_infoinput" type="text" name="productId"/>
                         	</li>
-                        	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
-                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
+                        	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="price"/></li>
+                        	
                         </ul>
                          <ul>
-                        	<li>
-                        		<span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productname"/>
-                        	</li>
-                        	<li>
-                        	<span>품번 :</span> <input class="ad_infoinput" type="text" name="productno"/>
-                        	</li>
-                        	<li><span>배송정보 :</span><input class="ad_infoinput" type="text" name="company"/></li>
-                        	
-                        	<li><span>배송비 :</span><input class="ad_infoinput" type="text" name="company"/></li>
+                        	<li><span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productInfo"/></li>
+                        	<li><span>제조사 :</span> <input class="ad_infoinput" type="text" name="company"/></li>
+                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
                         </ul>   
                          <ul>
                         	<li>
-                        		<input class="ad_file" type="file" />
+                        		<span class="file_span">상품 이미지 :</span><input class="ad_file" name="productfile" multiple="multiple"  type="file" />
                         	</li>
                         	<li>
-                        	<input class="ad_file" type="file" />
+                        	<span  class="file_span">상품 상세 이미지 :</span><input class="ad_file" name="boardfile" multiple="multiple" type="file" />
                         	</li>
                         </ul>   
                      
-                        <div><button id="listupbtn" type="button" style="display:block; margin:0 auto"; width:80px;>목록에 올리기</button></div>
+                        <div style="width: 200px; margin: 0 auto;"><button id="listupbtn" type="submit" >목록에 올리기</button></div>
                       
                         </form>
                      
@@ -243,113 +249,7 @@
                   </div>
               
               <!-- 등록 폼 끝 -->            
-              <!-- 입고모달창 시작 -->
-              <div id="inputpopup" class="layer">
-                  <div class="box">
-                       <a href="#"><span>x</span></a>
-                       <div id="inputtitle">제품 입고</div>
-                       <div>
-                        <form id="pForm">                         
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>수량 : <input type="number" name="productcount" min="0" max="100" /></div>
-                        <button id="listupbtn">목록에 올리기</button>
-                        </form>
-                        <div id="inputlist">
-                          <table id="inputlisttable">
-                              <thead>
-                                  <tr>                                    
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>입고수량</th>
-                                    <th>제조사</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>30</td>
-                                    <td>맛있는 식품</td>
-                                  </tr>
-                                  <tr>
-                                    <td>느낌있는 바바리코트</td>
-                                    <td>cl-001</td>
-                                    <td>5</td>
-                                    <td>예쁜옷</td>
-                                  </tr>
-                                  <tr>
-                                    <td>강아지용 헤드라이트</td>
-                                    <td>cl-031</td>
-                                    <td>15</td>
-                                    <td>실용적인 강아지옷</td>
-                                  </tr>
-                                </tbody>
-                          </table>
-                        </div>
-                       </div>
-                    <button id="completebtn2">완료</button>
-                  </div>
-                </div>
-              <!-- 모달창 끝 -->            
-              <!-- 출고모달창 시작 -->
-              <div id="outputpopup" class="layer">
-                  <div class="box">
-                       <a href="#"><span>x</span></a>
-                       <div id="inputtitle">제품 출고</div>
-                       <div>
-                        <form id="pForm">                         
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>수량 : <input type="number" name="productcount" min="0" max="100" /></div>
-                        <button id="listupbtn">목록에 올리기</button>
-                        </form>
-                        <div id="outputlist">
-                          <table id="inputlisttable">
-                              <thead>
-                                  <tr>                                    
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>출고수량</th>
-                                    <th>매출액</th>
-                                    <th>재고수량</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                  <tr>
-                                    <td>참맛있는 개껌</td>
-                                    <td>fd-001</td>
-                                    <td>3</td>
-                                    <td>36,000</td>
-                                    <td>2</td>
-                                  </tr>
-                                </tbody>
-                          </table>
-                        </div>
-                       </div>
-                    <button id="completebtn3">완료</button>
-                  </div>
-                </div>
-              <!-- 모달창 끝 -->            
+                
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
