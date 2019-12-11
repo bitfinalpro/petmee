@@ -54,13 +54,11 @@ public class ProductController {
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = product.getBoardfile();
 		
+		// 게시판 등록
 		service.insertProduct(product);
 		
 		// 이미지 파일	
-
-
 		String bno = product.getProductId();
-		
 		
 //		제품 상세 이미지 저장
 		if (getProductfile.isEmpty() == false) {
@@ -77,7 +75,7 @@ public class ProductController {
 				String fileName = UUID.randomUUID() + orgName;
 				System.out.println("fileName :" + fileName);
 //			저장되는 경로
-				String ysumpath = "/resources/upload/sum/";
+				String ysumpath = "/resources/upload/productImg/";
 				String sumpath = context.getRealPath(ysumpath);
 				System.out.println(sumpath);
 //			DB에 파일 정보 저장
@@ -91,6 +89,9 @@ public class ProductController {
 				image.setOriName(fileName);
 //				저장된 경로
 				image.setPath(ysumpath);
+				// 이미지 타입
+				image.setType("sum");
+				
 //				f.setPath(); 게시판 에서 
 
 //				DB에 실제 저장
@@ -100,9 +101,7 @@ public class ProductController {
 				file.transferTo(new File(sumpath + fileName));
 
 			}
-		}
-		
-		
+		}		
 		
 		if (getBoardfile.isEmpty() == false) {
 			for (MultipartFile file : getBoardfile) {
@@ -118,7 +117,7 @@ public class ProductController {
 				String fileName = UUID.randomUUID() + orgName;
 				System.out.println("fileName :" + fileName);
 //			저장되는 파일경로
-				String ypath = "/resources/upload/product/";
+				String ypath = "/resources/upload/productContentImg/";
 				String path = context.getRealPath(ypath);
 				System.out.println(path);
 //			DB에 파일 정보 저장
@@ -140,8 +139,7 @@ public class ProductController {
 //		메모리에 있는 파일을 실제 폴더에 저장
 				file.transferTo(new File(path + fileName));
 			}
-		}
-		
+		}	
 		return "redirect:product.do";
 	}	
 

@@ -67,11 +67,11 @@
     <span>베스트상품을 소개합니다.</span>
   </div>
   <div class="autoplay">
-      <c:forEach var="food" items="${food}">
+      <c:forEach var="food" items="${food}" varStatus="status">
     	<div class="slide">
           <div class="product_slide ">
             <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
-              <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+              <div class="over-hidden"><img src="<c:url value="" />" class="scale"></div>
               <div class="product_text">
                 <strong>${food.productName}</strong>
                 <span>21,0000</span>
@@ -134,73 +134,7 @@
           </c:if>
           	</c:forEach>
           </ul>
-          <ul>
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
-                      <div class="product_text">
-                        <strong>핏펫 어헤드 소변검사키트</strong>
-                        <span>21,0000</span>
-                        <span>21,0000</span>
-                      </div>
-                      <div class="sb_img">
-                        <img src="<c:url value="/resources/images/main/sale.png" />">
-            			<img src="<c:url value="/resources/images/main/best.png" />">
-                      </div>
-                    </a>
-                  </div>
-              </li>
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
-                      <div class="product_text">
-                        <strong>핏펫 어헤드 소변검사키트</strong>
-                        <span>21,0000</span>
-                        <span>21,0000</span>
-                      </div>
-                      <div class="sb_img">
-                        <img src="<c:url value="/resources/images/main/sale.png" />">
-            			<img src="<c:url value="/resources/images/main/best.png" />">
-                      </div>
-                    </a>
-                  </div>
-              </li>
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
-                      <div class="product_text">
-                        <strong>핏펫 어헤드 소변검사키트</strong>
-                        <span>21,0000</span>
-                        <span>21,0000</span>
-                      </div>
-                      <div class="sb_img">
-                        <img src="<c:url value="/resources/images/main/sale.png" />">
-            			<img src="<c:url value="/resources/images/main/best.png" />">
-                      </div>
-                    </a>
-                  </div>
-              </li>
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
-                      <div class="product_text">
-                        <strong>핏펫 어헤드 소변검사키트</strong>
-                        <span>21,0000</span>
-                        <span>21,0000</span>
-                      </div>
-                      <div class="sb_img">
-                        <img src="<c:url value="/resources/images/main/sale.png" />">
-            			<img src="<c:url value="/resources/images/main/best.png" />">
-                      </div>
-                    </a>
-                  </div>
-              </li>
-          </ul>
-    
+         
         </div>
         <div id="tab-2" class="tab-content">
      	 <ul>

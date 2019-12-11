@@ -12,5 +12,11 @@
 		select *
 			from tb_product
 			where product_id = #{productId}
-	</select> 
+	</select>
+	<!-- 파일 --> 
+	<select id="selectProductFile" parameterType="String" resultType="Image">
+		select * 
+			from tb_image
+		where product_id = #{productId}
+	</select>
 </mapper>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.shopping.service.MainService;
 
 
@@ -13,7 +14,13 @@ public class MainController {
 	@Autowired
 	private MainService service;
 	@RequestMapping("/main.do")
-	public void main(Model model) {	
+	public void main(Model model) {
+	
+		for (Image a:service.selectProductFile("fd-77")) {			
+			System.out.println(a.getPath()+a.getOriName());
+		}
 		model.addAttribute("food", service.foodList());
+		System.out.println("123");
+		model.addAttribute("flist", service.selectProductFile("fd-77"));
 	}
 }
