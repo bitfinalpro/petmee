@@ -263,7 +263,7 @@
                   <!-- <tr onclick="document.location.href='#popup'"> -->
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
-                                     '${user.phone}', '${user.gender}')
+                                     '${user.phone}', '${user.gender}', '${user.age}')
                                      ">
                         <td>${user.email}</td>
                         <td>${user.name}</td>
@@ -309,7 +309,7 @@
                       </tr>
                       <tr>
                         <td>핸드폰번호</td>
-                        <td id="phone">010-9737-9060</td>
+                        <td id="phone"></td>
                         <td>가입일자 </td>
                         <td colspan="3">2019.11.12</td>
                       </tr>

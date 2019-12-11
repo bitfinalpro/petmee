@@ -150,8 +150,8 @@
                   <hr>
                      <div class="reporttitle">
                       <ul>
-                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; boy9412@naver.com</div></li>
-                        <li><strong>내 용</strong>  : <div class="userbox">&nbsp; 토토사이트 대박 초보환영 ㅎㅎㅎㅎㅎㅎㅎㅎ</div></li>
+                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${board.writer} </div></li>
+                        <li><strong>제 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
                       </ul>
                      </div>
                      <hr>
@@ -177,6 +177,7 @@
                   <a href="#" class="sue">전송</a>
                   <a href="#" class="close">닫기</a>
                 </div>
+                    
               </div>
             <!-- 모달창 끝 -->
                    <div class="comlist" id="commentList">
