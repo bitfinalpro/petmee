@@ -103,7 +103,7 @@ public class ProductController {
 
 			}
 		}		
-		
+//		제품 상세 이미지 저장	
 		if (getBoardfile.isEmpty() == false) {
 			for (MultipartFile file : getBoardfile) {
 //			저장할때의 파일명(확장자 포함)

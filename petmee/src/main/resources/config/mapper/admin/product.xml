@@ -9,7 +9,7 @@
 	</insert>
 <!-- 제품이미지 등록 -->
 	<insert id="productImg" parameterType="Image">
-		insert into tb_image(product_id, type ORI_NAME, NAME, PATH)
+		insert into tb_image(product_id, type, ORI_NAME, NAME, PATH)
 		values(#{productId}, #{type}, #{oriName}, #{name}, #{path})
 	</insert>        
 <!-- 제품목록 추출 -->       
