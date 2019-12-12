@@ -123,22 +123,12 @@ $("#checkall").click(function(){
 	 $("#cancelchoice").click((e) => {
 	    $("input[type=checkbox]").prop("checked",false);
 	 });
-function check(list) {
-	console.log("넘어옴");
-	let categoryName = "";
-	let animal = "";
-	for(let i = 0; i < list.length; i++){
-		if ($("select[name=categoryNo]").val() === list[i].categoryNo) {
-			categoryName = list[i].categoryName;
-		}
-	}
-	if($("select[name=animalNo]").val() === 1) {		
-		animal = "강아지";
-	} else {animal = "고양이";}
+function check() {
+	console.log("넘어옴");	
 	let con = confirm("상품명 : " + $("input[name=productName]").val() + "\n품번 : " + $("input[name=productId]").val()
 			+ "\n가격 : " + $("input[name=price]").val() + "\n제조사 : " + $("input[name=company]").val() 
-			+"\n분류 : " + categoryName + "\n판매대상 : " + animal
-			+ "\n상품설명 : " + $("input[name=productInfo]").val());
+			+"\n분류 : " + $("select[name=categoryNo] option:checked").text() + "\n판매대상 : " + $("select[name=animalNo] option:checked").text()
+			+ "\n상품설명 : " + $("input[name=productInfo]").val() + "\n판매상태 : " + $("select[name=sellCondition] option:checked").text());
 	if(con) {return true;}
 	return false;
 }
