@@ -54,8 +54,10 @@
   #registerlist{border: 1px solid lightgray; margin-top: 30px; height: 160px; overflow:scroll;}
   #inputlisttable{width: 100%; text-align: center;}
   #inputlisttable thead {border-bottom: 1px solid lightgray;}
-  #completebtn1, #completebtn2, #completebtn3{width: 80px; margin-left: 43%; margin-top: 20px;}
-  #pForm div {margin: 20px 10%;}
+  #completebtn1, #completebtn2, #completebtn3, #updateCompletebtn {width: 80px; margin-left: 32%; margin-top: 20px; float: left;}
+  #completebtn1 {margin-left: 40%;}
+  .cancelModalbtn {margin-left: 15px; margin-top: 20px; width: 80px;}
+  #pForm div, #updateForm div {margin: 20px 10%;}
   tfoot tr th button {margin-right: 10px; background: #E9ECEF; border: 1px solid lightgray;  border-radius: 5px;}
   .ordertablehead {color: white; padding-right: -10px; width: 50px;}
   

@@ -26,6 +26,7 @@
   <link href ="<c:url value="/resources/css/admin/product.css"/>" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
 </head>
 
 <body id="page-top">
@@ -175,8 +176,8 @@
     </style> 
                   <div class="box">
                        <div id="inputtitle">제품 등록</div>
-                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" method="post"
-					enctype="multipart/form-data">    
+                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" onSubmit="return check();" method="post"
+						enctype="multipart/form-data">    
                         <div id="classify">
                         <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
@@ -184,13 +185,13 @@
                            </c:forEach>
                           </select>   
                           <div style="float: right; width: 713px; margin: 0px 0%;">
-                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1">
+                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1" min="0">
                           		<span>판매상태 :</span><select name="sellCondition" id="">
                            		<option value="0">판매대기중</option>
                            		<option value="1">판매중</option>
                            		<option value="2">품절</option>
                           		</select> 
-                          		<span>애완종류 :</span><select name="sellCondition" id="">
+                          		<span>애완종류 :</span><select name="animalNo" id="">
                            		<option value="1">강아지</option>
                            		<option value="2">고양이</option>
                            		</select> 
@@ -218,30 +219,10 @@
                         	<span  class="file_span">상품 상세 이미지 :</span><input class="ad_file" name="boardfile" multiple="multiple" type="file" />
                         	</li>
                         </ul>   
-                     
-                        <div style="width: 200px; margin: 0 auto;"><button id="listupbtn" type="submit" >목록에 올리기</button></div>
-                      
-                        </form>
-                     
-                        <div id="registerlist">
-                          <table id="inputlisttable">
-                              <thead>
-                                  <tr>                                    
-                                    <th>분류</th>
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>가격</th>
-                                    <th>제조사</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="registertbody">
-                                                                  
-                                </tbody>
-                          </table>
-                        </div>
-                           
-                       </div>
-                    <button id="completebtn1">완료</button>
+                      <button id="completebtn1">완료</button>
+                      <button class="cancelModalbtn" type="button">취소</button>
+                        </form>     
+                       </div>                    
                   </div>
               
               <!-- 등록 폼 끝 -->            
@@ -316,6 +297,8 @@
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
   <script src="<c:url value="/resources/js/admin/product.js"/>"></script>
+ 
+  
 </body>
 
 </html>

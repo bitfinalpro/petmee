@@ -14,8 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import org.springframework.web.multipart.MultipartFile;
+
 
 import kr.co.petmee.admin.service.ProductService;
 import kr.co.petmee.repository.vo.Filevo;
@@ -33,7 +38,7 @@ public class ProductController {
 	private ServletContext context;
 			
 	@RequestMapping("/product.do")
-	public void List(Model model) {	
+	public void List(Model model){	
 		//상품목록
 		model.addAttribute("list",service.productList());
 		//카테고리 목록
@@ -44,23 +49,22 @@ public class ProductController {
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
 	   }
-	@RequestMapping("/productRegister2.do")
-	public String productRegister(Model model, Product product) throws Exception {	
+	@RequestMapping(value="/productRegister2.do")
+	public String productRegister(Model model, Product product) throws Exception {
+		
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
-		
+
 //		파일 상세 이미지
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = product.getBoardfile();
-		
+
+		// 게시판 등록
 		service.insertProduct(product);
 		
 		// 이미지 파일	
-
-
 		String bno = product.getProductId();
-		
 		
 //		제품 상세 이미지 저장
 		if (getProductfile.isEmpty() == false) {
@@ -69,17 +73,13 @@ public class ProductController {
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 경로
-				String ysumpath = "/resources/upload/sum/";
-				String sumpath = context.getRealPath(ysumpath);
-				System.out.println(sumpath);
+				String ypath = "/resources/upload/productImg/";
+				String spath = context.getRealPath(ypath);
 //			DB에 파일 정보 저장
 //				객체생성
 				Image image = new Image();
@@ -90,37 +90,34 @@ public class ProductController {
 //				실제 저장된 파일명
 				image.setOriName(fileName);
 //				저장된 경로
-				image.setPath(ysumpath);
+				image.setPath(ypath);
+				// 이미지 타입
+				image.setType("sum");
+				
 //				f.setPath(); 게시판 에서 
 
 //				DB에 실제 저장
 				service.productImage(image);
 
 //		메모리에 있는 파일을 실제 폴더에 저장
-				file.transferTo(new File(sumpath + fileName));
-
+				file.transferTo(new File(spath + fileName));
+				System.out.println(spath + fileName);
 			}
-		}
-		
-		
-		
+		}		
+//		제품 컨텐츠 이미지 저장	
 		if (getBoardfile.isEmpty() == false) {
 			for (MultipartFile file : getBoardfile) {
 //			저장할때의 파일명(확장자 포함)
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 파일경로
-				String ypath = "/resources/upload/product/";
+				String ypath = "/resources/upload/productContentImg/";
 				String path = context.getRealPath(ypath);
-				System.out.println(path);
 //			DB에 파일 정보 저장
 //				객체생성
 				Image image = new Image();
@@ -139,14 +136,14 @@ public class ProductController {
 
 //		메모리에 있는 파일을 실제 폴더에 저장
 				file.transferTo(new File(path + fileName));
+
 			}
-		}
-		
+
+		}	
+	
 		return "redirect:product.do";
-	}	
-
+	}
 	//제품정보 삭제
-
 	@RequestMapping("/delete.do")	
 	public String deleteProduct(String productId) {
 		service.deleteProduct(productId);
@@ -187,5 +184,18 @@ public class ProductController {
 		HashMap map = new HashMap();
 		map.put("list", userList);
 		service.minusCount(map);		
+	}
+	//제품정보 변경 모달
+	@RequestMapping("updateModal.do")
+	@ResponseBody
+	public Product updateProductModal(String productId) {
+		Product p = service.selectProductInfo(productId);
+		return p;
+	}
+	//제품정보 변경
+	@RequestMapping("updateProduct.do")
+	public String updateProductInfo(Product product) {
+		service.updateProductInfo(product);
+		return "redirect:product.do";
 	}
 }
