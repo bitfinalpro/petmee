@@ -25,8 +25,10 @@ public class MainController {
 //			System.out.println(a.getPath()+a.getOriName());
 //		}
 		List<Product> foodlist = service.foodList();
+		List<Image> flist =  service.selectProductFile();
 		Collections.reverse(foodlist);
+		Collections.reverse(flist);
 		model.addAttribute("food", foodlist);
-		model.addAttribute("flist", service.selectProductFile());
+		model.addAttribute("flist",flist);
 	}
 }

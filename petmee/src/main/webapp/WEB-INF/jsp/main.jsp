@@ -41,13 +41,13 @@
     <span>최신상품을 소개합니다.</span>
   </div>
     <div class="autoplay">
-    <c:forEach var="food" items="${food}">
+    <c:forEach var="food" items="${food}" varStatus="status">
     <div class="slide">
                   <div class="product_slide ">
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
-                      <div class="over-hidden"><img src="<c:url value="${flist[status.index].path}${flist[status.index].oriName}" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
-                        <strong>${food.productName}</strong>
+                        <strong>${food.productName}${food.productId}</strong>
                         <span>21,0000</span>
                         <span>${food.price}</span>
                         <span><fmt:formatDate pattern="yyyy-MM-dd-HH-mm-ss" value="${food.date}" /></span>
