@@ -29,7 +29,8 @@ public class QnABoardController {
 	private QnaBoardDAO dao;
 	
 	@RequestMapping("/qna-list.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page) {
+	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page,
+							@RequestParam(value="key",  defaultValue="0") int key, String val) {
 		page.setPageNo(pageNo);
 		List<QnaBoard> l = service.listQnaBoard(page);
 		for (QnaBoard b : l) {

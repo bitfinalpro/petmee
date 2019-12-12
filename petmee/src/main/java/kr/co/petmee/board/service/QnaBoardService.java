@@ -10,7 +10,10 @@ import kr.co.petmee.repository.vo.Page;
 
 @Service
 public interface QnaBoardService {
-    List<QnaBoard> listQnaBoard(Page page);
+    
+	List<QnaBoard> listQnaBoard(Page page);
+	
+	int selectQnaCount();
     
     void insertQnaBoard(QnaBoard board);
 	

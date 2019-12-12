@@ -108,7 +108,7 @@
 		</c:if>
         </div>
         		
-                   <div class="qna-go_write"><button type="button" onclick="location.href='<c:url value="/qna/qna-writeform.do"/>'">글 쓰기</button></div>
+                   <div class="qna-go_write"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 쓰기</button></div>
                    
                     <!-- 검색창 -->
 				<div class='qna-container' tabindex='1'>

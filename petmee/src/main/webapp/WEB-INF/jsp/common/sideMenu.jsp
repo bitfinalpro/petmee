@@ -10,6 +10,6 @@
                 <li><a href='<c:url value="/board/parcelboard/parcelList.do" />'>분양게시판</a></li>
                 <li><a href='<c:url value="/board/volunteerreviewboard/list.do" />'>후기게사판</a></li>
                 <li><a href='<c:url value="/board/reviewboard/review_list.do" />'>리뷰게사판</a></li>
-                <li><a href='<c:url value="/board/reviewboard/qna-list.do" />'>Q&A</a></li>
+                <li><a href='<c:url value="/board/qnaboard/qna-list.do" />'>Q&A</a></li>
             </ul>
 </aside>

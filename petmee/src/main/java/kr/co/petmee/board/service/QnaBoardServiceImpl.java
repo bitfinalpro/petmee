@@ -8,11 +8,13 @@ import org.springframework.stereotype.Service;
 import kr.co.petmee.repository.dao.CommentDAO;
 import kr.co.petmee.repository.dao.QnaBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
+import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 
 @Service
-public class QnaBoardServiceimpl implements QnaBoardService {
+public class QnaBoardServiceImpl implements QnaBoardService {
 	
 	@Autowired
 	private QnaBoardDAO dao;
@@ -20,10 +22,17 @@ public class QnaBoardServiceimpl implements QnaBoardService {
 	@Autowired
 	private CommentDAO dao1;
 	
+	@Override
 	public List<QnaBoard> listQnaBoard(Page page) {
 		return dao.selectQnaBoard(page);
 	}
 	
+	@Override
+	   public int selectQnaCount() {   
+	      return dao.selectQnaCount();
+	   }
+	
+	@Override
 	public void insertQnaBoard(QnaBoard board) {
 		dao.insertQnaBoard(board);
 	}
@@ -64,7 +73,5 @@ public class QnaBoardServiceimpl implements QnaBoardService {
 		dao1.updateComment(comment);
 		return dao1.selectComment(comment.getNo());
 	}
-	
-	
 
 }
