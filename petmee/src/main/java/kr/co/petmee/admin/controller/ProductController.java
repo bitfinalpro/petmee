@@ -53,7 +53,6 @@ public class ProductController {
 	public String productRegister(Model model, Product product) throws Exception {	
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
-		
 //		파일 상세 이미지
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
@@ -74,17 +73,13 @@ public class ProductController {
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 경로
 				String ysumpath = "/resources/upload/sum/";
 				String sumpath = context.getRealPath(ysumpath);
-				System.out.println(sumpath);
 //			DB에 파일 정보 저장
 //				객체생성
 				Image image = new Image();
@@ -115,17 +110,13 @@ public class ProductController {
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 파일경로
 				String ypath = "/resources/upload/product/";
 				String path = context.getRealPath(ypath);
-				System.out.println(path);
 //			DB에 파일 정보 저장
 //				객체생성
 				Image image = new Image();
@@ -145,8 +136,7 @@ public class ProductController {
 //		메모리에 있는 파일을 실제 폴더에 저장
 				file.transferTo(new File(path + fileName));
 			}
-		}
-		
+		}		
 		return "redirect:product.do";
 	}
 	//제품정보 삭제
@@ -194,8 +184,14 @@ public class ProductController {
 	//제품정보 변경 모달
 	@RequestMapping("updateModal.do")
 	@ResponseBody
-	public Product updateProductInfo(String productId) {
+	public Product updateProductModal(String productId) {
 		Product p = service.selectProductInfo(productId);
 		return p;
+	}
+	//제품정보 변경
+	@RequestMapping("updateProduct.do")
+	public String updateProductInfo(Product product) {
+		service.updateProductInfo(product);
+		return "redirect:product.do";
 	}
 }

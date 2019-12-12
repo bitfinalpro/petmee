@@ -154,10 +154,6 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-<<<<<<< HEAD
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
-=======
->>>>>>> develop
                <!-- 등록 폼 시작 -->
                <!-- #pForm div {
     margin: 20px 10%;} 삭제 (product.css 58줄),
@@ -188,13 +184,13 @@
                            </c:forEach>
                           </select>   
                           <div style="float: right; width: 713px; margin: 0px 0%;">
-                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1">
+                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1" min="0">
                           		<span>판매상태 :</span><select name="sellCondition" id="">
                            		<option value="0">판매대기중</option>
                            		<option value="1">판매중</option>
                            		<option value="2">품절</option>
                           		</select> 
-                          		<span>애완종류 :</span><select name="sellCondition" id="">
+                          		<span>애완종류 :</span><select name="animalNo" id="">
                            		<option value="1">강아지</option>
                            		<option value="2">고양이</option>
                            		</select> 
@@ -223,7 +219,7 @@
                         	</li>
                         </ul>   
                      
-                        <div style="width: 200px; margin: 0 auto;"><button id="listupbtn" type="submit" >목록에 올리기</button></div>
+                        <div style="width: 200px; margin: 0 auto;"><button id="registerlistupbtn" type="button" >목록에 올리기</button></div>
                       
                         </form>
                      
@@ -235,7 +231,13 @@
                                     <th>상품명</th>
                                     <th>품번</th>                                    
                                     <th>가격</th>
+                                    <th>판매상태</th>
+                                    <th>판매대상</th>
+                                    <th>재고량</th>
                                     <th>제조사</th>
+                                    <th>제품설명</th>
+                                    <th>제품이미지</th>
+                                    <th>본문이미지</th>
                                   </tr>
                                 </thead>
                                 <tbody id="registertbody">

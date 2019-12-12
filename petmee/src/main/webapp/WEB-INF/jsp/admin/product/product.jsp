@@ -205,11 +205,10 @@
                        <a href="#" class="stopnofresh"><span>x</span></a>
                        <div id="inputtitle">제품정보 변경</div>
                        <div>
-                        <form id="updateForm">
+                        <form id="updateForm" action="updateProduct.do">
                         
                         </form>                        
-                       </div>
-                    <button id="completebtn1" class="stopnofresh">완료</button>
+                       </div>                    
                   </div>
                 </div>
               <!-- 모달창 끝 -->            

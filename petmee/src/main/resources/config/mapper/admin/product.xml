@@ -46,4 +46,18 @@
 		   set stock = stock - #{productCount}
 		 where product_id = #{productId}
 	</update> 
+<!-- 제품 정보 변경 -->
+	<update id="updateProductInfo" parameterType="Product">
+		update tb_product
+		   set product_Id = #{productId},
+		   	   product_name = #{productName},
+		   	   product_info = #{productInfo},
+		   	   price = #{price},
+		   	   stock = #{stock},
+		   	   company = #{company},
+		   	   category_no = #{categoryNo},
+		   	   animal_no = #{animalNo},
+		   	   sell_condition = #{sellCondition}		   	   
+		 where product_id = #{orgProductId}
+	</update> 
 </mapper>

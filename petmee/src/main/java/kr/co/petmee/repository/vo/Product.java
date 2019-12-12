@@ -16,6 +16,7 @@ public class Product {
 	private int price;
 	private int stock;
 	private String company;	
+	private String orgProductId;	
 	private Date date;
 	private int productCount;	
 	private int sellCondition;	
