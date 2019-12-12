@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,7 @@
     <span>최신상품을 소개합니다.</span>
   </div>
     <div class="autoplay">
-    <c:forEach var="food" items="${food}" varStatus="status">
+    <c:forEach var="food" items="${food}">
     <div class="slide">
                   <div class="product_slide ">
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
@@ -49,6 +50,7 @@
                         <strong>${food.productName}</strong>
                         <span>21,0000</span>
                         <span>${food.price}</span>
+                        <span><fmt:formatDate pattern="yyyy-MM-dd-HH-mm-ss" value="${food.date}" /></span>
                       </div>
                       <div class="sb_img">
                         <img src="<c:url value="/resources/images/main/sale.png" />">
@@ -58,7 +60,6 @@
                       </div>
                     </div>
           	</c:forEach>     
-      
       </div>
 </section>
 <section class="main_section">

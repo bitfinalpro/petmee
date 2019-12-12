@@ -48,7 +48,7 @@ public class ProductController {
 	public String productRegister(Model model, Product product) throws Exception {	
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
-		
+
 //		파일 상세 이미지
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
@@ -141,6 +141,7 @@ public class ProductController {
 				file.transferTo(new File(path + fileName));
 			}
 		}	
+	
 		return "redirect:product.do";
 	}	
 
