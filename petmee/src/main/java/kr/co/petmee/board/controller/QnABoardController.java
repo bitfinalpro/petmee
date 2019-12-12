@@ -1,5 +1,5 @@
 package kr.co.petmee.board.controller;
-/*
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.controller.QnABoardController")
 @RequestMapping("/board/qnaboard")
-*/
+
 public class QnABoardController {
-	/*
+	
 	@Autowired
 	private QnaBoardService service;
 	
@@ -101,7 +101,7 @@ public class QnABoardController {
 	public List<Comment> commentUpdateAjax(Comment comment) {
 		return service.commentUpdate(comment);
 	}
-	*/
+	
 	
 		
 }

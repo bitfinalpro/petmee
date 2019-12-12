@@ -1,3 +1,4 @@
+/*
 package kr.co.petmee.board.QnA.controller;
 
 import java.util.List;
@@ -104,3 +105,4 @@ public class QnABoardController {
 	
 		
 }
+*/
