@@ -28,5 +28,7 @@ public interface ProductService {
 	void plusCount(HashMap map);
 	//제품 입고
 	void minusCount(HashMap map);
+	//제품 정보 변경
+	void updateProductInfo(Product product);
 	
 }

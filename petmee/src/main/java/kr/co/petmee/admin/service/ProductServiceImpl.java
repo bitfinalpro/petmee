@@ -62,5 +62,9 @@ public class ProductServiceImpl implements ProductService{
 			dao.minusCount(p);
 		}		
 	}
+	//제품정보 변경
+	public void updateProductInfo(Product product) {
+			dao.updateProductInfo(product);
+	}
 
 }
