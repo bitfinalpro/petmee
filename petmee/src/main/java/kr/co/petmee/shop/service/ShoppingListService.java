@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -19,4 +20,6 @@ public interface ShoppingListService {
 
 	List<ShoppingList> updateamount(Map<String, Integer> map, User user);
 
+//	쿠폰
+	List<Coupon> couponList(User user);
 }

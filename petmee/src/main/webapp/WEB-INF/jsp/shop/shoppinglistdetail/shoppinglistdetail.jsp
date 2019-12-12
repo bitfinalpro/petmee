@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,7 +30,7 @@
 			<hr />
 			<div id="y-con-content" class="float-l">
 				<!-- 장바구니정보 -->
-					<h3>주문상품</h3>
+				<h3>주문상품</h3>
 				<div class="con-box float-l">
 					<div id="shoppinglist" class="float-l">
 						<hr class="hr1" />
@@ -56,7 +57,27 @@
 					</div>
 
 					<!-- 쿠폰정보 -->
-					<div id="coupon-box" class="float-r"></div>
+					<div id="coupon-box" class="float-r">
+						<h2 class="h2-title">쿠폰 정보</h2>
+						<hr />
+						<div id="coupon-list">
+							<c:forEach var="coupon" items="${coupon}">
+								<div class="coupon">
+									<span>${coupon.name }</span>
+									<span><fmt:formatDate value="${coupon.regdate}" pattern="yyyy-MM-dd" /> 까지</span>
+									<span>(-)${coupon.discount }</span>
+									<input type="checkbox" name="coupon" class="coupon-ch">
+								</div>
+							</c:forEach>
+						</div>
+						<hr />
+						<div>
+							<input type="text" placeholder="쿠폰번호를 입력하세요." name="couponNo"
+								id="couponNo">
+							<button id="couponbtn">추가하기</button>
+						</div>
+						<hr />
+					</div>
 					<!-- 총 가격 -->
 					<div id="y-price-box" class="float-r"></div>
 				</div>
@@ -64,7 +85,7 @@
 					<!-- 배송지 폼 -->
 					<div id="delivery-info" class="float-l">
 						<form action="" name="">
-							<h2>배송지 정보</h2>
+							<h2 class="h2-title">배송지 정보</h2>
 							<hr />
 							<div id="info">
 								<div>받는분</div>
@@ -87,9 +108,26 @@
 
 					</div>
 					<!-- 주문자 정보 -->
-					<div id="order" class="float-r"></div>
+					<div id="orderbox" class="float-r">
+						<h2 class="h2-title">주문자 정보</h2>
+						<hr />
+						<div id="order">
+							<div class="margin-tb-30">
+								주문자<span>${order.name}</span>
+							</div>
+							<hr />
+							<div class="margin-tb-30">
+								이메일<span>${order.email}</span>
+							</div>
+						</div>
+						<hr class="bottom-10" />
+
+					</div>
 					<!-- 결제방식 박스 -->
-					<div id="payment-box" class="float-r"></div>
+					<div id="paymentbox" class="float-r">
+						<h2 class="h2-title">결제방식</h2>
+						<hr />
+					</div>
 				</div>
 			</div>
 		</div>

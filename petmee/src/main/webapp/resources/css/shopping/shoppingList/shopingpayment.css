@@ -55,25 +55,49 @@
 /* 쿠폰박스 */
 #coupon-box {
 	width: 550px;
-	height: 400px;
+	height: 450px;
 	margin: 7px;
 	border: 3px solid #ffff00;
+}
+
+#coupon-box>hr {
+	width: 95%;
+}
+
+#coupon-list {
+	height: 280px;
+	margin: 20px 0 5px 0;
+	overflow: auto;
+}
+
+#couponNo {
+	width: 80%;
+	height: 20px; margin-left : 20px;
+	margin-left: 20px
+}
+
+.coupon>span {
+	margin: 0 35px 0 35px;
+}
+.coupon {
+	margin: 5px 0;
+	text-align: center;
+}
+
+#couponbtn {
+	width: 65px;
+	height: 20px;
 }
 /* 총 가격 박스 */
 #y-price-box {
 	width: 550px;
-	height: 400px;
+	height: 450px;
 	margin: 7px;
 	border: 3px solid orange;
 }
 /* 배송지 정보 */
 #delivery-info {
 	width: 49%;
-}
-
-#delivery-info h2 {
-	padding-left: 10px;
-	margin-bottom: 20px;
 }
 
 #info {
@@ -93,23 +117,44 @@
 .info-text:focus {
 	border: 2px solid gainsboro;
 }
+
 .info-text:hover {
 	border: 2px solid gainsboro;
 }
 /* 주문자 정보 */
-#order {
+#orderbox {
 	width: 49%;
-	height: 200px;
-	border: 1px solid black;
-}
-/* 결제방식 정보 */
-#payment-box {
-	width: 49%;
-	height: 300px;
-	border: 1px solid black;
 }
 
+.bottom-10 {
+	position: relative;
+	bottom: 14px;
+}
+
+.margin-tb-30 {
+	margin: 37px 0 37px 0;
+}
+
+#order {
+	padding: 0 10px;
+}
+
+.margin-tb-30>span {
+	margin-left: 25%;
+	font-weight: bold;
+}
+/* 결제방식 정보 */
+#paymentbox {
+	width: 49%;
+	height: 300px;
+	/* border: 1px solid black; */
+}
 /* 공용 */
+.h2-title {
+	padding-left: 10px;
+	margin-bottom: 20px;
+}
+
 .hr1 {
 	width: 90%;
 	position: relative;

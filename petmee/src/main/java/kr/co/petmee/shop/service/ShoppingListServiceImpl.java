@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ShoppingListDAO;
+import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -34,6 +35,11 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 	public List<ShoppingList> updateamount(Map<String, Integer> map, User user) {
 		dao.updateamount(map);
 		return dao.selectShoppingList(user);
+	}
+
+//	쿠폰정보 리스트
+	public List<Coupon> couponList(User user) {
+		return dao.selectCoupon(user);
 	}
 
 }
