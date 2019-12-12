@@ -26,6 +26,7 @@
   <link href ="<c:url value="/resources/css/admin/product.css"/>" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
 </head>
 
 <body id="page-top">
@@ -175,8 +176,8 @@
     </style> 
                   <div class="box">
                        <div id="inputtitle">제품 등록</div>
-                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" method="post"
-					enctype="multipart/form-data">    
+                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" onsubmit="return check(${cList});" method="post"
+						enctype="multipart/form-data">    
                         <div id="classify">
                         <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
@@ -218,9 +219,8 @@
                         	<span  class="file_span">상품 상세 이미지 :</span><input class="ad_file" name="boardfile" multiple="multiple" type="file" />
                         	</li>
                         </ul>   
-                     
-                        <div style="width: 200px; margin: 0 auto;"><button id="registerlistupbtn" type="button" >목록에 올리기</button></div>
-                      
+                      <input id="completebtn1" type="submit" value="완료">
+                      <button class="cancelModalbtn" type="button">취소</button>
                         </form>
                      
                         <div id="registerlist">
@@ -246,8 +246,7 @@
                           </table>
                         </div>
                            
-                       </div>
-                    <button id="completebtn1">완료</button>
+                       </div>                    
                   </div>
               
               <!-- 등록 폼 끝 -->            
@@ -322,6 +321,8 @@
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
   <script src="<c:url value="/resources/js/admin/product.js"/>"></script>
+ 
+  
 </body>
 
 </html>

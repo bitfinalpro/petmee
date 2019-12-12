@@ -4,6 +4,9 @@ $("#inputbutton").click((e)=>{
 $("#outputbutton").click((e)=>{
     location.href = "#outputpopup";
 });
+$(".cancelModalbtn").click((e) => {
+	location.href = "product.do";
+});
 //모달창 새로고침 금지 이벤트
 $(".stopnofresh").click((e) => {
 	function Reload(){
@@ -72,25 +75,33 @@ $(".updateInfo").click((e)=>{
                         <div>상품설명 : <input type="text" name="productInfo" value="${result.productInfo}"/></div>
                         <div>제조사 : <input type="text" name="company" value="${result.company}"/></div>
                         <div>재고량 : <input type="number" name="stock" value="${result.stock}"/></div>
-                        <div>판매상태 : 
-                        <select name="sellCondition">
-                         <c:choose>
-                        	<c:when test="${result.sellCondition == 0}">
-                        		<option value="0" selected>품절1</option>
-                        		<option value="1">판매대기중1</option>
-                        		<option value="2">판매중1</option>
-                        	</c:when>
-                        	<c:when test="${result.sellCondition == 1}">
-                        		<option value="0" >품절2</option>
-                        		<option value="1" selected>판매대기중2</option>
-                        		<option value="2">판매중2</option>
-                        	</c:when>                        	
-                        	<c:otherwise>
-                        		<option value="0" >품절3</option>
-                        		<option value="1" >판매대기중3</option>
-                        		<option value="2" selected>판매중3</option>
-                        	</c:otherwise>
-                        </c:choose>                        	
+                        <div>판매상태 :
+                        <select name="sellCondition">`;
+                        switch(result.sellCondition) {
+                        case 0 : 
+                        query += `
+                        		<option value="0" selected>품절</option>
+                        		<option value="1">판매대기중</option>
+                        		<option value="2">판매중</option>
+                        `;
+                        break;
+                        case 1 : 
+                        query += `
+                        		<option value="0" >품절</option>
+                        		<option value="1" selected>판매대기중</option>
+                        		<option value="2">판매중</option>
+                        `;
+                        break;
+                        default : 
+                        query += `
+                        		<option value="0" >품절</option>
+                        		<option value="1">판매대기중</option>
+                        		<option value="2" selected>판매중</option>
+                        `;
+                        break;
+                        }
+                        
+                 query +=`                    
                         </select>                        
                         </div>   
                         <div><input type="hidden" name="orgProductId" value="${result.productId}"/></div>
@@ -112,6 +123,25 @@ $("#checkall").click(function(){
 	 $("#cancelchoice").click((e) => {
 	    $("input[type=checkbox]").prop("checked",false);
 	 });
+function check(list) {
+	console.log("넘어옴");
+	let categoryName = "";
+	let animal = "";
+	for(let i = 0; i < list.length; i++){
+		if ($("select[name=categoryNo]").val() === list[i].categoryNo) {
+			categoryName = list[i].categoryName;
+		}
+	}
+	if($("select[name=animalNo]").val() === 1) {		
+		animal = "강아지";
+	} else {animal = "고양이";}
+	let con = confirm("상품명 : " + $("input[name=productName]").val() + "\n품번 : " + $("input[name=productId]").val()
+			+ "\n가격 : " + $("input[name=price]").val() + "\n제조사 : " + $("input[name=company]").val() 
+			+"\n분류 : " + categoryName + "\n판매대상 : " + animal
+			+ "\n상품설명 : " + $("input[name=productInfo]").val());
+	if(con) {return true;}
+	return false;
+}
 let registerList = [];
 var inputList = [];
 let product = {};
@@ -267,19 +297,19 @@ function makeList(msg){
   }
 }
 //등록 완료 버튼 클릭 이벤트
-$("#completebtn1").click((e) => {	
-	$.ajax({
-		url: "productRegister2.do",
-		dataType: "json",
-		contentType: "application/json",
-		type: "POST",
-		data: JSON.stringify(registerList),
-		success: () => {}
-	})
-	alert("제품등록이 완료되었습니다");
-	registerList = [];
-	location.href="product.do";
-});
+//$("#completebtn1").click((e) => {	
+//	$.ajax({
+//		url: "productRegister2.do",
+//		dataType: "json",
+//		contentType: "application/json",
+//		type: "POST",
+//		data: JSON.stringify(registerList),
+//		success: () => {}
+//	})
+//	alert("제품등록이 완료되었습니다");
+//	registerList = [];
+//	location.href="product.do";
+//});
 //입고 완료 버튼 클릭 이벤트
 $("#completebtn2").click((e) => {
 	let userList = inputList;

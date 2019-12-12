@@ -49,16 +49,16 @@ public class ProductController {
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
 	   }
-	@RequestMapping("/productRegister2.do")
-	public String productRegister(Model model, Product product) throws Exception {	
+	@RequestMapping(value="/productRegister2.do")
+	public String productRegister(Model model, Product product) throws Exception {
+		
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
 //		파일 상세 이미지
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = product.getBoardfile();
-		System.out.println(getProductfile);
-		System.out.println(getBoardfile);
+
 		// 게시판 등록
 		service.insertProduct(product);
 		
@@ -135,9 +135,10 @@ public class ProductController {
 
 //		메모리에 있는 파일을 실제 폴더에 저장
 				file.transferTo(new File(path + fileName));
-			
-		}	
-		}		
+
+			}
+		}
+
 		return "redirect:product.do";
 	}
 	//제품정보 삭제
