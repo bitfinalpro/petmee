@@ -1,4 +1,3 @@
-<%@page import="kr.co.petmee.repository.vo.Product"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -207,7 +206,8 @@
                        <div>
                         <form id="updateForm" action="updateProduct.do">
                         
-                        </form>                        
+                        </form>
+                        <button class="cancelModalbtn">취소</button>                        
                        </div>                    
                   </div>
                 </div>
@@ -240,6 +240,7 @@
                         </div>
                        </div>
                     <button id="completebtn2" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            
@@ -271,6 +272,7 @@
                         </div>
                        </div>
                     <button id="completebtn3" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            
