@@ -25,4 +25,6 @@ public interface ProductDAO {
 	void plusCount(Product product);
 	//제품 출고
 	void minusCount(Product product);
+	//제품 정보 변경
+	void updateProductInfo(Product product);
 }

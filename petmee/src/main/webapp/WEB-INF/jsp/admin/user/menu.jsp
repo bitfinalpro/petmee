@@ -100,13 +100,13 @@
             </li>
         <!-- 게시판 관리 -->
         <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
+            <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
               <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
+              <span>주문관리</span></a>
           </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="boardadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li>

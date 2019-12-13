@@ -9,8 +9,8 @@
 	</insert>
 <!-- 제품이미지 등록 -->
 	<insert id="productImg" parameterType="Image">
-		insert into tb_image(product_id, ORI_NAME, NAME, PATH)
-		values(#{productId}, #{oriName}, #{name}, #{path})
+		insert into tb_image(product_id, type, ORI_NAME, NAME, PATH)
+		values(#{productId}, #{type}, #{oriName}, #{name}, #{path})
 	</insert>        
 <!-- 제품목록 추출 -->       
        <select id="selectProducts" resultType="Product">
@@ -45,5 +45,19 @@
 		update tb_product
 		   set stock = stock - #{productCount}
 		 where product_id = #{productId}
+	</update> 
+<!-- 제품 정보 변경 -->
+	<update id="updateProductInfo" parameterType="Product">
+		update tb_product
+		   set product_Id = #{productId},
+		   	   product_name = #{productName},
+		   	   product_info = #{productInfo},
+		   	   price = #{price},
+		   	   stock = #{stock},
+		   	   company = #{company},
+		   	   category_no = #{categoryNo},
+		   	   animal_no = #{animalNo},
+		   	   sell_condition = #{sellCondition}		   	   
+		 where product_id = #{orgProductId}
 	</update> 
 </mapper>

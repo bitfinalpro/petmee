@@ -28,4 +28,8 @@
 
 	</insert>
 
+	<!-- 쿠폰정보 select -->
+	<select id="selectCoupon" parameterType="User" resultType="Coupon">
+		select * from tb_coupon where email = #{email} order by REG_DATE
+	</select>
 </mapper>

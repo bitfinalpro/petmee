@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="<c:url value='/resources/css/shopping/shoppingList/shopingList.css'/>">
 
-<title>시바 먼치킨</title>
+<title>(주)펫미</title>
 
 </head>
 
