@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.FreeBoardService;
-import kr.co.petmee.repository.dao.FreeBoardDAO;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.util.PageResult;
@@ -26,7 +26,7 @@ public class FreeBoardController {
 	private FreeBoardService service;
 	
 	@Autowired
-	private FreeBoardDAO dao;
+	private BoardDAO dao;
 	
 	@RequestMapping("/list.do")
 	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page,
@@ -43,7 +43,7 @@ public class FreeBoardController {
 			search.setPageNo(page.getPageNo());
 			search.setKeyword(key);
 			search.setSearchText(val);
-			List<FreeBoard> list = service.searchlistBoard(page, search);
+			List<Board> list = service.searchlistBoard(page, search);
 			model.addAttribute("list", list);
 			count = list.size();
 		}
@@ -59,7 +59,7 @@ public class FreeBoardController {
 	public void writeform() {}
 	
 	@RequestMapping("/write.do")
-	public String write(FreeBoard  board) {
+	public String write(Board  board) {
 		service.insertBoard(board);
 		return "redirect:list.do";
 	}
@@ -81,7 +81,7 @@ public class FreeBoardController {
 	}
 	
 	@RequestMapping(value="/update.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
-	public String update(FreeBoard board) {
+	public String update(Board board) {
 		service.updateBoard(board);
 		return "redirect:list.do";
 	}

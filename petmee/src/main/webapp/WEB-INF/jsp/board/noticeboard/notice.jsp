@@ -45,7 +45,7 @@
             <tr>
                 <th>NO</th>
                 <th>TITLE</th>
-                <th>WRITER</th>
+                <th>email</th>
                 <th>DATE</th>
                 <th>VIEW</th>
                 <th></th>
@@ -67,8 +67,8 @@
 					</c:when>
 					</c:choose>
 					<td>${b.title}</td>
-					<td>${b.writer}</td>
-					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
+					<td>${b.email}</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<td>${b.viewCnt}</td>
 					<td>
                      <a href="<c:url value="/board/noticeboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>

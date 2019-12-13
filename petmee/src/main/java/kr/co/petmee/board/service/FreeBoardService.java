@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.FreeBoard;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
-import kr.co.petmee.repository.vo.VolunteerReviewBoard;
+
 
 @Service
 public interface FreeBoardService {
 	
 	//자유게시판 리스트, 페이징
-    List<FreeBoard> listBoard(Page page);
+    List<Board> listBoard(Page page);
     
-    void insertBoard(FreeBoard board);
+    void insertBoard(Board board);
 	
     int selectBoardCount();
     
-	 FreeBoard detailBoard(int no);
+	 Board detailBoard(int no);
 
 	 void deleteBoard(int no);
 	 
-	 void updateBoard(FreeBoard board);
+	 void updateBoard(Board board);
 	 
-	 FreeBoard updateFormBoard(int no);
+	 Board updateFormBoard(int no);
 	 
 	 List<Comment> commentList(int no);
 	 
@@ -36,7 +36,7 @@ public interface FreeBoardService {
 		
 	 List<Comment> commentUpdate(Comment comment);
 	 
-	 List<FreeBoard> searchlistBoard(Page page, Search search);
+	 List<Board> searchlistBoard(Page page, Search search);
 	
 	
 	
