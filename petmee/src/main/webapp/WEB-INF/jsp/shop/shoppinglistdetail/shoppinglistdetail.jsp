@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -63,9 +63,8 @@
 						<div id="coupon-list">
 							<c:forEach var="coupon" items="${coupon}">
 								<div class="coupon">
-									<span>${coupon.name }</span>
-									<span><fmt:formatDate value="${coupon.regdate}" pattern="yyyy-MM-dd" /> 까지</span>
-									<span>(-)${coupon.discount }</span>
+									<span>${coupon.name }</span> <span><fmt:formatDate
+											value="${coupon.regdate}" pattern="yyyy-MM-dd" /> 까지</span> <span>(-)${coupon.discount }</span>
 									<input type="checkbox" name="coupon" class="coupon-ch">
 								</div>
 							</c:forEach>
@@ -79,7 +78,37 @@
 						<hr />
 					</div>
 					<!-- 총 가격 -->
-					<div id="y-price-box" class="float-r"></div>
+					<div id="y-price-box" class="float-r">
+
+						<div id="p-box1">
+							<div class="p-blank">총 결제금액</div>
+							<div class="price-box">
+								<div class="p-div1">
+									<span>총 상품금액</span> <span>\ 12000</span>
+									<hr />
+								</div>
+								<div class="p-div1">
+									<span>할인금액</span> <span>(-) 12000</span>
+									<hr />
+								</div>
+								<div class="p-div1">
+									<span>배송비</span> <span>\ 2500</span>
+									<hr />
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div id="p-box2">
+							<div class="p-blank">최종 결제금액</div>
+							<div class="price-box pading-t20">
+								<div class="font-30 text-align-c">\ 12000</div>
+								<div class="text-align-c p-btn">
+									<button id="paymentBtn" class="mousepoint">결제하기</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
 				<div class="con-box float-l">
 					<!-- 배송지 폼 -->
