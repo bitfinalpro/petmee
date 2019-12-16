@@ -1,9 +1,13 @@
 package kr.co.petmee.shopping.service;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ShoppingDAO;
+import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Product;
 
 @Service
@@ -14,9 +18,12 @@ public class DeatilServiceImpl implements DetailService{
 	
 	@Override
 	public Product ShoppingDetail(String productId) {
-
 		return dao.shoppingDetail(productId);
-
+	}
+	
+	@Override
+	public List<Image> SelectProductImage(String productId) {
+		return dao.selectProductImage(productId);
 	}
 
 }
