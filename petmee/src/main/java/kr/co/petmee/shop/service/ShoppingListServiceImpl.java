@@ -42,4 +42,10 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 		return dao.selectCoupon(user);
 	}
 
+//	쿠폰 아이디 업데이트
+	public List<Coupon> couponUpdate(Map<String, String> map, User user) {
+		dao.updateCoupon(map);
+		return dao.selectCoupon(user);
+	}
+
 }

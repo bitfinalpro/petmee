@@ -77,8 +77,18 @@
 	margin-left: 20px
 }
 
-.coupon>span {
+.coupon>div {
+	display:inline-block;
 	margin: 0 35px 0 0;
+}
+.coupon>div:nth-child(1) {
+	width: 20px;
+}
+.coupon>div:nth-child(2) {
+	width: 122px;
+}
+.coupon>div:nth-child(3) {
+	width: 65px;
 }
 
 .coupon {

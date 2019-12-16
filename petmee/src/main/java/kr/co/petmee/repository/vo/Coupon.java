@@ -8,7 +8,7 @@ import lombok.Data;
 public class Coupon {
 
 	private String email;
-	private Date regdate;
+	private String regdate;
 	private	int discount;
 	private String name;
 	private String no;
