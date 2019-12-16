@@ -27,12 +27,16 @@
 			<div class="product_img">
 							<div id="imgGallery">
 								<div id="smallImgs">
-									<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/food3.jpg">
-									<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/food2.jpg">
-									<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/food1.jpg">
+								<c:forEach var="f" items="${flist}">
+								<c:if test="${f.type eq 'sum'}">
+									<img src="<c:url value='${f.path}${f.oriName}'/>" />
+								</c:if>
+								</c:forEach>
 								</div>
 								<div id="bigImg">
-									<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/food3.jpg" id="a">								
+								<c:forEach var="f" begin="0" end="0" items="${flist}" varStatus="status">
+										<img src="<c:url value='${f.path}${f.oriName}'/>" id="a"/>
+								</c:forEach>							
 								</div>
 							</div>
 
@@ -56,7 +60,7 @@
 	<tr>
 			
 		<th>상품간략설명</th>
-		<td>천연성분,각질/세균/진드기 예방</td>
+		<td>${product.productInfo}</td>
 	</tr>
 </tbody>
 <tbody class="pinfo-price">
@@ -72,8 +76,8 @@
 
 	<tbody class="pinfo-info">
 		<tr>
-			<th>원산지/판매원</th>
-			<td>캐나다 / (주)모나미	</td>
+			<th>제조사</th>
+			<td>${product.company}</td>
 		</tr>
 		<tr>
 			<th>배송정보</th>
@@ -131,11 +135,11 @@
 
 	<div id="detailInfo" class="detailinfo">
  	<h3 class="hide">상품상세정보</h3>
- 	<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/content_img1.jpg">
- 	<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/content_img2.jpg">
- 	<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/content_img3.jpg">
- 	<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/content_img4.jpg">
- 	<img src="${pageContext.request.contextPath}/resources/images/shopping/detail/content_img5.jpg">
+ 		<c:forEach var="f" items="${flist}">
+			<c:if test="${f.type ne 'sum'}">
+				<img src="<c:url value='${f.path}${f.oriName}'/>" />
+			</c:if>
+		</c:forEach>
 	</div>
 				 				
 				
@@ -423,9 +427,5 @@
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 </body>
 </html>

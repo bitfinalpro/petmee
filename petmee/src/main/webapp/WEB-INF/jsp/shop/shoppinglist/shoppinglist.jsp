@@ -92,6 +92,6 @@
 	<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 	
-	<script src="<c:url value="/resources/js/shopping/shoppinglist.js" />"></script>
+	<script src="<c:url value="/resources/js/shopping/shoppinglist/shoppinglist.js" />"></script>
 </body>
 </html>
