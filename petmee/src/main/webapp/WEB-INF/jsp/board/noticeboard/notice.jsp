@@ -77,7 +77,8 @@
 				</tr>
 			</c:forEach>
         </table>
-        <style>.foot_btn {width: 70%; margin: 0 auto; margin-top: 10px;}
+        <style>
+        .foot_btn {width: 70%; margin: 0 auto; margin-top: 10px;}
            .foot_btn button{width: 80px; height: 30px; margin: 10 0; color: #fff;font-weight: bold;
             background-image: linear-gradient(30deg,#002a50,#006ecf);
             float : right;}</style>

@@ -68,8 +68,8 @@
                 <td>${b.email}</td>
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
-            </tr>
-                </c:forEach>
+         </tr>
+          </c:forEach>
         </table>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/freeboard/writeform.do"/>'">글 등록</button></div>
         

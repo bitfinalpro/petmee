@@ -51,8 +51,6 @@ public class FreeBoardController {
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
 		page = new Page(pageNo);
-		  
-		
 	   }
 	
 	@RequestMapping("/writeform.do")
