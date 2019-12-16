@@ -72,28 +72,115 @@
 
 #couponNo {
 	width: 80%;
-	height: 20px; margin-left : 20px;
+	height: 20px;
+	margin-left: 20px;
 	margin-left: 20px
 }
 
-.coupon>span {
-	margin: 0 35px 0 35px;
+.coupon>div {
+	display:inline-block;
+	margin: 0 35px 0 0;
 }
+.coupon>div:nth-child(1) {
+	width: 20px;
+}
+.coupon>div:nth-child(2) {
+	width: 122px;
+}
+.coupon>div:nth-child(3) {
+	width: 65px;
+}
+
 .coupon {
 	margin: 5px 0;
 	text-align: center;
+}
+
+.coupon-name {
+	display: inline-block;
+	width: 150px;
 }
 
 #couponbtn {
 	width: 65px;
 	height: 20px;
 }
+
+.discount {
+	display: inline-block;
+	width: 75px;
+}
 /* 총 가격 박스 */
 #y-price-box {
 	width: 550px;
 	height: 450px;
 	margin: 7px;
+	padding: 20px;
 	border: 3px solid orange;
+	box-sizing: border-box;
+}
+
+.p-blank {
+	float: left;
+	width: 40%;
+	height: 100%;
+	/* text-align: right; */
+	font-size: 30px;
+	padding: 20px 0 0 0px;
+	box-sizing: border-box;
+	font-weight: bold;
+	position: relative;
+	left: 40px;
+}
+
+.price-box {
+	float: left;
+	width: 60%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 0px 20px 0 75px;
+	font-size: 20px;
+}
+
+#p-box1 {
+	height: 60%;
+}
+
+.p-div1 {
+	color: gray;
+	margin: 30px 0;
+}
+
+.p-div1>span:nth-child(1) {
+	margin: 0 0 0 5px;
+}
+
+.p-div1>span:nth-child(2) {
+	margin: 0 5px 0 0;
+	float: right;
+}
+
+.font-30 {
+	font-size: 30px;
+}
+
+#p-box2 {
+	height: 40%;
+}
+
+.pading-t20 {
+	padding-top: 20px;
+}
+
+.p-btn {
+	height: 80px;
+	line-height: 80px;
+}
+
+#paymentBtn {
+	width: 130px;
+	height: 45px;
+	font-size: 25px;
 }
 /* 배송지 정보 */
 #delivery-info {
@@ -167,6 +254,10 @@
 
 .float-r {
 	float: right;
+}
+
+.text-align-c {
+	text-align: center;
 }
 
 .y-amount {
