@@ -23,7 +23,7 @@
         <h2>공지사항 글쓰기</h2>   
             <input type="text" name="title" class="write_input" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="checkbox" name="topChk" value="1" id="topchk" /> 공지
-       		<input type="hidden" name="writer" value="기모찌" class="write_input" placeholder="작성자" />
+       		<input type="hidden" name="email" value="권성진" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
