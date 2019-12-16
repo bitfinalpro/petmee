@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,11 +45,14 @@
     <div class="slide">
                   <div class="product_slide ">
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
-                      <div class="over-hidden"><img src="<c:url value="${flist[status.index].path}${flist[status.index].oriName}" />" class="scale"></div>
+                      <div class="over-hidden">
+                      	<img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale" />
+                      	</div>
                       <div class="product_text">
-                        <strong>${food.productName}</strong>
-                        <span>21,0000</span>
+                        <strong>${food.productName}${food.productId}</strong>
+                        <span>21,000110</span>
                         <span>${food.price}</span>
+                       <!-- <span><fmt:formatDate pattern="yyyy-MM-dd-HH-mm-ss" value="${food.date}" /></span>  -->
                       </div>
                       <div class="sb_img">
                         <img src="<c:url value="/resources/images/main/sale.png" />">
@@ -58,7 +62,6 @@
                       </div>
                     </div>
           	</c:forEach>     
-      
       </div>
 </section>
 <section class="main_section">
@@ -71,7 +74,7 @@
     	<div class="slide">
           <div class="product_slide ">
             <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
-              <div class="over-hidden"><img src="<c:url value="" />" class="scale"></div>
+              <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
               <div class="product_text">
                 <strong>${food.productName}</strong>
                 <span>21,0000</span>
@@ -112,12 +115,12 @@
       
         <div id="tab-1" class="tab-content current">
           <ul>
-          	<c:forEach var="food" items="${food}">
+          	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
           	<c:if test="${food.categoryNo eq 2}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
@@ -138,12 +141,12 @@
         </div>
         <div id="tab-2" class="tab-content">
      	 <ul>
-          	<c:forEach var="food" items="${food}">
+          	<c:forEach var="food" items="${food}" begin="0" end="7"  varStatus="status">
      	 		<c:if test="${food.categoryNo eq 1}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong>${food.productName}</strong>
                         <span>21,0000</span>
@@ -160,14 +163,14 @@
           	</c:forEach>
           </ul>
         </div>
-        <div id="tab-3" class="tab-content">
+        <div id="tab-3" class="tab-content"> 
       		 <ul>
-          	<c:forEach var="food" items="${food}">
+          	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 4}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
@@ -187,12 +190,12 @@
         </div>
         <div id="tab-4" class="tab-content">
          <ul>
-          	<c:forEach var="food" items="${food}">
+          	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 5}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
@@ -212,12 +215,12 @@
         </div>
         <div id="tab-5" class="tab-content">
          <ul>
-          	<c:forEach var="food" items="${food}">
+          	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 3}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
-                      <div class="over-hidden"><img src="<c:url value="/resources/images/main/1.jpg" />" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>

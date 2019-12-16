@@ -8,6 +8,7 @@ import kr.co.petmee.repository.vo.Product;
 public interface ShoppingDAO {
 	List<Product> selectFood();
 	Product shoppingDetail(String productId);
+	List<Image> selectProductImage(String productId);
 	
 	// 파일
 	List<Image> mainSelectProductFile();

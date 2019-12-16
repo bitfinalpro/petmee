@@ -47,6 +47,7 @@ public class ProductController {
 		
 		//카테고리 목록
 		model.addAttribute("cList",service.selectCatecories());
+
 //		파일 상세 이미지
 		List<MultipartFile> getProductfile = product.getProductfile();
 //		게시판 내부 파일(이미지)
@@ -70,8 +71,8 @@ public class ProductController {
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
 //			저장되는 경로
-				String ysumpath = "/resources/upload/productImg/";
-				String sumpath = context.getRealPath(ysumpath);
+				String ypath = "/resources/upload/productImg/";
+				String spath = context.getRealPath(ypath);
 //			DB에 파일 정보 저장
 //				객체생성
 				Image image = new Image();
@@ -82,7 +83,7 @@ public class ProductController {
 //				실제 저장된 파일명
 				image.setOriName(fileName);
 //				저장된 경로
-				image.setPath(ysumpath);
+				image.setPath(ypath);
 				// 이미지 타입
 				image.setType("sum");
 				
@@ -92,11 +93,11 @@ public class ProductController {
 				service.productImage(image);
 
 //		메모리에 있는 파일을 실제 폴더에 저장
-				file.transferTo(new File(sumpath + fileName));
-
+				file.transferTo(new File(spath + fileName));
+				System.out.println(spath + fileName);
 			}
 		}		
-//		제품 상세 이미지 저장	
+//		제품 컨텐츠 이미지 저장	
 		if (getBoardfile.isEmpty() == false) {
 			for (MultipartFile file : getBoardfile) {
 //			저장할때의 파일명(확장자 포함)
@@ -130,8 +131,9 @@ public class ProductController {
 				file.transferTo(new File(path + fileName));
 
 			}
-		}
 
+		}	
+	
 		return "redirect:product.do";
 	}
 	//제품정보 삭제
