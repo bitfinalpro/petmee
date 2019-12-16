@@ -30,5 +30,7 @@ public interface ProductService {
 	void minusCount(HashMap map);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
+	//쿠폰등록
+	void registerCoupon(HashMap map);
 	
 }

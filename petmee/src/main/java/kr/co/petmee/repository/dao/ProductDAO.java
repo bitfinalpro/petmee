@@ -27,4 +27,6 @@ public interface ProductDAO {
 	void minusCount(Product product);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
+	//쿠폰등록
+	void registerCoupon(Coupon coupon);
 }

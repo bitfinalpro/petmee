@@ -3,7 +3,6 @@ package kr.co.petmee.admin.controller;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -14,16 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import org.springframework.web.multipart.MultipartFile;
 
-
 import kr.co.petmee.admin.service.ProductService;
-import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Product;
 
@@ -196,4 +189,16 @@ public class ProductController {
 		service.updateProductInfo(product);
 		return "redirect:product.do";
 	}
+	//쿠폰등록
+		@RequestMapping(value="/registerCoupon.do", method=RequestMethod.POST)
+		@ResponseBody
+		public void registerCoupon(@RequestBody List<Coupon> userList) {
+			for(Product p : userList) {
+				System.out.println("id : " + p.getProductId());
+			}
+			HashMap map = new HashMap();
+			map.put("list", userList);
+			service.registerCoupon(map);		
+		}
+	
 }

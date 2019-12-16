@@ -238,12 +238,11 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<c:url value="/resources/js/admin/sb-admin.min.js"/>"></script>
-
+  
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-bar-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-pie-demo.js"/>"></script>
-
 </body>
 
 </html>

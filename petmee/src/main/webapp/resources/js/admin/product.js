@@ -4,6 +4,9 @@ $("#inputbutton").click((e)=>{
 $("#outputbutton").click((e)=>{
     location.href = "#outputpopup";
 });
+$("#inputcouponbutton").click((e) => {
+	location.href = "#inputcouponpopup";
+});
 $(".cancelModalbtn").click((e) => {
 	location.href = "product.do";
 });
@@ -134,6 +137,7 @@ function check() {
 }
 let registerList = [];
 var inputList = [];
+let couponList = [];
 let product = {};
 
 //제품등록 리스트업 버튼 이벤트
@@ -167,6 +171,34 @@ $("#registerlistupbtn").click((e) => {
 	makeList("register");
 	$("input").val("");	
 	}
+});
+//쿠폰 리스트업 이벤트
+$("#inputcouponlistupbtn").click((e) => {
+	if( $("input[name=couponName]").val() === "" ||
+	    $("input[name=couponNo]").val() === "" ||
+	    $("input[name=couponDiscount]").val() === "" ) {
+		alert("쿠폰등록에 필요한 정보를 모두 기입하세요.");
+		return;
+	}
+	let coupon = {
+			couponName: $("input[name=couponName]").val(),
+			couponNo: $("input[name=couponNo]").val(),
+			couponDiscount: $("input[name=couponDiscount]").val()
+	}
+	couponList.push(coupon);
+	let query = "";
+	for(let i = 0; i < couponList.length; i++) {
+		query += `
+			<tr>
+				<td>${couponList[i].couponName}</td>
+				<td>${couponList[i].couponNo}</td>
+				<td>${couponList[i].couponDiscount}</td>
+			</tr>
+		`;
+	}
+	
+	$("#inputcouponTbody").html(query);
+	$("input").val("");
 });
 //제품입고 리스트업 버튼 이벤트
 $("#inputlistupbtn").click((e) => {
@@ -328,6 +360,20 @@ $("#completebtn3").click((e) => {
 	})
 	alert("제품출고가 완료되었습니다");
 	inputlist = [];
+	location.href="product.do";
+});
+//쿠폰등록 완료 이벤트
+$("#couponcompletebtn").click((e) => {
+	let userList = couponList;
+	$.ajax({
+		url: "registerCoupon.do",
+		contentType: "application/json",
+		type: "POST",
+		data: JSON.stringify(userList),
+		success: () => {}
+	})
+	alert("쿠폰등록이 완료되었습니다");
+	couponList = [];
 	location.href="product.do";
 });
 // 제품변경 완료 버튼 클릭 이벤트

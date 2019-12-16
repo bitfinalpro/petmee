@@ -62,6 +62,13 @@ public class ProductServiceImpl implements ProductService{
 			dao.minusCount(p);
 		}		
 	}
+	//쿠폰등록
+	public void registerCoupon(HashMap map) {
+		List<Coupon> list = (List<Coupon>)map.get("list");
+		for(Coupon c : list) {
+			dao.registerCoupon(c);
+		}		
+	}
 	//제품정보 변경
 	public void updateProductInfo(Product product) {
 			dao.updateProductInfo(product);
