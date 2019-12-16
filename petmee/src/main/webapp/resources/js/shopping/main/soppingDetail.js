@@ -11,6 +11,8 @@
 /*-----------------------  product su chek----------------- */
 var sell_price;
 			var amount;
+			var subA;
+			var subB;
 			var big;
 			var smallImgs;
 
@@ -18,10 +20,16 @@ var sell_price;
 			var smallImgThumb;
 			
 			function init () {
+				if (amount == 10) {
+					return;
+				}
+				
 				sell_price = document.form.sell_price.value;
 				amount = document.form.amount.value;
 				document.form.sum.value = sell_price;
+				document.form.sum1.value = sell_price;
 				change();
+				
 				big = document.getElementById('bigImg');
 				smallImgs= document.getElementById('smallImgs');
 
@@ -38,30 +46,62 @@ var sell_price;
 				hm = document.form.amount;
 				sum = document.form.sum;
 				hm.value ++ ;
-			
-				sum.value = parseInt(hm.value) * sell_price;
+				hm1 = document.form.subA;
+				sum1 = document.form.sum1;
+				hm1.value ++ ;
+				hm2 = document.form.subB;
+				hm2.value ++ ;
+				sum.value = parseInt(hm.value) * sell_price;				
+				sum1.value = parseInt(hm1.value) * sell_price;
+				
 			}
 			
 			function del () {
 				hm = document.form.amount;
 				sum = document.form.sum;
+				hm1 = document.form.subA;
+				sum1 = document.form.sum1;
+				hm2 = document.form.subB;
 					if (hm.value > 1) {
 						hm.value -- ;
 						sum.value = parseInt(hm.value) * sell_price;
+					}
+					if (hm1.value > 1) {
+						hm1.value -- ;
+						sum1.value = parseInt(hm1.value) * sell_price;
+					}
+					if (hm2.value > 1) {
+						hm2.value -- ;
 					}
 			}
 			
 			function change () {
 				hm = document.form.amount;
 				sum = document.form.sum;
+				hm1 = document.form.subA;
+				sum1 = document.form.sum1;
+				hm2 = document.form.subB;
+				sum2 = document.form.sum2;
 			
 					if (hm.value < 0) {
 						hm.value = 0;
 					}
+					if (hm1.vaue < 0) {
+						hm1.value = 0;
+					}
+					if (hm2.vaue < 0) {
+						hm2.value = 0;
+					}
 				sum.value = parseInt(hm.value) * sell_price;
+				sum1.value = parseInt(hm1.value) * sell_price;
+				sum2.value = parseInt(hm1.value) * sell_price;
 			}  
 /*-----------------------  product su chek end----------------- */
+			
+/*-------------------------proudct price check----------------- */			
 
+			
+/*-------------------------proudct price check end----------------- */			
 
 var fn = (function() {
     return {
