@@ -35,6 +35,6 @@
 	
 	<!-- 쿠폰정보 update -->
 	<update id="updateCoupon" parameterType="hashmap">
-		update tb_coupon set email = #{email} where no = #{no}
+		update tb_coupon set email = #{email}, used = 1 where no = #{no}
 	</update>
 </mapper>

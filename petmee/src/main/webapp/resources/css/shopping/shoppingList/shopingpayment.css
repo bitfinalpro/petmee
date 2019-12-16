@@ -208,6 +208,20 @@
 .info-text:hover {
 	border: 2px solid gainsboro;
 }
+/* 주소지 설정 */
+#info input[type=text] {
+	font-size: 15px;
+	padding: 3px;
+}
+#address1 {
+	width: 550px;
+}
+.address-box input[type=text] {
+	margin: 15px 0;
+}
+.padding10{
+	padding: 10px;
+}
 /* 주문자 정보 */
 #orderbox {
 	width: 49%;
