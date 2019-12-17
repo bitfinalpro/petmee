@@ -34,3 +34,24 @@ function popup(email, title, content,
 	document.location.href="#popup";
 	
 }
+
+
+function report_chk() {
+	// 신고내용 Name 가져오기
+	var report = document.getElementsByName("report");	
+	var report_check = 0;
+	for(var i = 0; i<report.length; i++) {
+		
+		if(report[i].checked==true) {
+			alert(report[i].value);
+			report_check++;
+		}
+	}
+	if(report_check==0) {
+		alert("신고사유를 선택해주세요");
+		return;
+	} else {
+		alert("신고되었습니다.");
+	}
+}
+

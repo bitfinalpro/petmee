@@ -103,6 +103,15 @@
   
   </style>
 </head>
+<script>
+ function ck_age() {
+	 var year=parseInt(new Date().getYear());
+	 var resident=document.getElementsByName('age');
+	 var ck=parseInt(resident[0].value.substr(0,4));
+	 form.resident.value=(year-ck)+1;
+ }
+
+</script>
 
 <body id="page-top">
 
@@ -237,7 +246,6 @@
                     <th>이름</th>
                     <th>주소</th>
                     <th>성별</th>
-                    <th>나이</th>
                     <th>주민번호</th>
                     <th>수정/탈퇴</th>
                   </tr>
@@ -248,7 +256,6 @@
                         <th>이름</th>
                         <th>주소</th>
                         <th>성별</th>
-                        <th>나이</th>
                         <th>주민번호</th>
                         <th>수정/탈퇴</th>
                       </tr>
@@ -263,13 +270,11 @@
                   <!-- <tr onclick="document.location.href='#popup'"> -->
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
-                                     '${user.phone}', '${user.gender}', '${user.age}')
-                                     ">
+                                     '${user.phone}', '${user.gender}', '${user.age}','${user.stringUserDate}')">
                         <td>${user.email}</td>
                         <td>${user.name}</td>
                         <td>${user.address}</td>
                         <td>${user.gender}</td>
-                        <td>${user.age}</td>
                         <td>${user.resident}</td>
                         <td><a href="userdelete.do?userNo=${user.userNo}"><button type="button">탈퇴</button></a></td>
                       </tr>
@@ -311,7 +316,7 @@
                         <td>핸드폰번호</td>
                         <td id="phone"></td>
                         <td>가입일자 </td>
-                        <td colspan="3">2019.11.12</td>
+                        <td id="regDate" colspan="3"></td>
                       </tr>
                       <tr>
                         <td>총구매횟수  </td>
@@ -326,13 +331,6 @@
               <!-- 모달창 끝 -->
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
-
       </div>
       <!-- /.container-fluid -->
 
