@@ -14,13 +14,14 @@ import kr.co.petmee.board.service.QnaBoardService;
 import kr.co.petmee.repository.dao.QnaBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.QnaBoard;
+import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.controller.QnABoardController")
 @RequestMapping("/board/qnaboard")
 
-public class QnABoardController {
+public class QnaBoardController {
 	
 	@Autowired
 	private QnaBoardService service;
@@ -31,22 +32,29 @@ public class QnABoardController {
 	@RequestMapping("/qna-list.do")
 	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page,
 							@RequestParam(value="key",  defaultValue="0") int key, String val) {
-		page.setPageNo(pageNo);
-		List<QnaBoard> l = service.listQnaBoard(page);
-		for (QnaBoard b : l) {
-			System.out.println("board : " + b);
+		int count = 0;
+		if(key == 0 || val == null) {
+			
+			model.addAttribute("list", service.listQnaBoard(page));
+			count = dao.selectQnaCount();
 		}
-		model.addAttribute("list", service.listQnaBoard(page));
-		int count = dao.selectQnaCount(); 
+		else {
+			Search search = new Search();
+			search.setListSize(page.getListSize());
+			search.setPageNo(page.getPageNo());
+			search.setKeyword(key);
+			search.setSearchText(val);
+			List<QnaBoard> list = service.searchlistBoard(page, search);
+			model.addAttribute("list", list);
+			count = list.size();
+		}
 		
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
-		 page = new Page(pageNo);
-		System.out.println("요청 페이지 번호 : " + pageNo);
-		System.out.println("요청 페이지 시작 번호 : " + page.getBegin());
-		System.out.println("요청 페이지 종료 번호 : " + page.getEnd());
+		page = new Page(pageNo);
+		  
 		
-	}
+	   }
 	
 	@RequestMapping("/qna-writeform.do")
 	public void writeform() {}

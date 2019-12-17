@@ -44,44 +44,65 @@
           .foot_btn button{width: 80px; height: 30px; margin: 10 0; color: #fff;font-weight: bold;
            background-image: linear-gradient(30deg,#002a50,#006ecf);
            float : right;}
-</style>    
+</style>
 <body>
-   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
-           <div>
-                <section class="qna-content" style="margin-bottom:0">
-                
-                   <h1 class="qna-title">Q & A</h1>
-                   
-                   <div class="qna-table">
-                       <ul class="qna-TableListHead">
-                           <li>
-                               <span>번호</span>
-                               <span>제목</span>
-                               <span>작성자</span>
-                               <span>작성일</span>
-                               <span>조회수</span>
-                           </li>
-                       </ul>
-                       <ul class="qna-TableListBody">
-                       <c:forEach var="b" items="${list}">
-                         <li>
-                             <span>${b.qnaNo}</span>
-                             <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
-                             <span>${b.qnaWriter}</span>
-                             <span><fmt:formatDate value="${b.qnaRegDate}" pattern="yyyy-MM-dd"/></span>
-                             <span>${b.viewCnt}</span>
-                         </li>
-                       </c:forEach> 
-                       <c:if test="${empty list}">
-                       <li >
-                           <span></span>
-                           <span colspan='4'>입력된 게시물이 없습니다.</span>
-                          </li>
-                        </c:if>
-                      </ul>
-                    </div>
-                   
-                   <!-- 페이징   -->
+  <div id="header">
+        <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+    </div>
+    <!-- 사이드메뉴 -->
+    <section id="wrap" >
+            <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
+        <c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>   
+
+        <div class="top_input">
+            <div>
+                <strong>Q&A게시판</strong>
+            </div>
+            <div>
+                <select name="searchkeyword" id="top_sel">
+                    <option value="0">전체</option>
+                    <option value="1">작성자</option>
+                    <option value="2">제목</option>
+                    <option value="3">작성자+제목</option>
+                </select>
+                <input type="text"  id="searchtext" placeholder="검색어 입력" />
+                <button id="searchbutton">검색</button>
+            </div>
+        </div>
+        <table class="notice_tb">
+            <colgroup>
+                <col width=7%;>
+                <col width=50%;>
+                <col width=7%;>
+                <col width=10%;>
+                <col width=7%;>
+                <col width=10%;>
+            </colgroup>
+            <tr>
+                <th>NO</th>
+                <th>TITLE</th>
+                <th>WRITER</th>
+                <th>DATE</th>
+                <th>VIEW</th>
+            </tr>
+            <c:if test="${empty list}">
+               <tr>
+                   <td colspan="5">게시물이 없습니다.</td>
+            </tr>
+         </c:if>
+         <c:forEach var="b" items="${list}">
+         <tr>
+                <td>${b.qnaNo}</td>
+                <td><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></td>
+                <td>${b.qnaWriter}</td>
+                <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /> </td>
+                <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
+            </tr>
+                </c:forEach>
+        </table>
+        <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 등록</button></div>
+        
+        <!-- 페이징   -->
         <div id="page">
             	<c:if test="${pr.count != 0 }">
 		<nav>
@@ -107,26 +128,10 @@
 </nav>
 		</c:if>
         </div>
-        		
-                   <div class="qna-go_write"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 쓰기</button></div>
-                   
-                    <!-- 검색창 -->
-				<div class='qna-container' tabindex='1'>
-					<div class='qna-search-container' tabindex='1'>
-						<input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
-						<a class='qna-button' id='qna-submit-button'>
-							<i class="fa fa-search icon-search" ></i>
-						</a>	
-					</div>
-						<a class='qna-button' id='qna-refresh-button'>
-							<i class="fa fa-retweet icon-search" ></i>
-						</a>
-				</div>
-               </section>  
- 
-           </div>
-        <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
-    </div>
-    </div>
+    </section>  
+        <div id="footer" class="footer_wrap clearfix">
+        <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
+        </div>
+        <script src="<c:url value='/resources/js/freeboard.js' />"></script>
 </body>
 </html>

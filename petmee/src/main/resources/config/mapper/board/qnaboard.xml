@@ -4,7 +4,7 @@
 <mapper namespace="kr.co.petmee.repository.dao.QnaBoardDAO">
 
 <!-- 리스트 , 페이징 -->
-	<select id="selectQnaBoard" resultType="QnaBoard" parameterType="Page" flushCache="true" useCache="true">
+	<select id="selectQnaBoard" resultType="QnaBoard" parameterType="Page">
 	   select *
 	     from bitfinalproject.tb_qna
 	    order by qna_no desc
@@ -34,12 +34,6 @@
 		   set view_cnt = view_cnt + 1
 		 where qna_no = #{qnaNo}
 	</update>
-	
-	<select id="selectViewCntQna" parameterType="int" resultType="int">
-		select view_cnt
-		  from bitfinalproject.tb_qna
-		 where qna_no = #{qnaNo}    
-	</select>
 <!--  글 수정 -->	
 	<update id="updateQnaBoard" parameterType="QnaBoard">
 		update bitfinalproject.tb_qna

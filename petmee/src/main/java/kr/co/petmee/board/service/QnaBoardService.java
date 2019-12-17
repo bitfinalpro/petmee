@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.QnaBoard;
+import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 
 @Service
 public interface QnaBoardService {
@@ -14,24 +16,26 @@ public interface QnaBoardService {
 	List<QnaBoard> listQnaBoard(Page page);
 	
 	int selectQnaCount();
-    
-    void insertQnaBoard(QnaBoard board);
-	
-	 QnaBoard detailQnaBoard(int no);
+    	
+	QnaBoard detailQnaBoard(int no);
+	 
+	void insertQnaBoard(QnaBoard board);
 
-	 void deleteQnaBoard(int no);
+	void deleteQnaBoard(int no);
 	 
-	 void updateQnaBoard(QnaBoard board);
+	void updateQnaBoard(QnaBoard board);
 	 
-	 QnaBoard updateFormBoard(int no);
+	QnaBoard updateFormBoard(int no);
 	 
-	 List<Comment> commentList(int no);
+	List<Comment> commentList(int no);
 	 
-	 List<Comment> commentRegist(Comment comment);
+	List<Comment> commentRegist(Comment comment);
 	 
-	 List<Comment> commentDelete(Comment comment);
+	List<Comment> commentDelete(Comment comment);
 		
-	 List<Comment> commentUpdate(Comment comment);
+	List<Comment> commentUpdate(Comment comment);
+	 
+	List<QnaBoard> searchlistBoard(Page page, Search search);
 	
 	
 	

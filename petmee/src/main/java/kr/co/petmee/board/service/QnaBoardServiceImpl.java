@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import kr.co.petmee.repository.dao.CommentDAO;
 import kr.co.petmee.repository.dao.QnaBoardDAO;
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
@@ -72,6 +71,16 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 	public List<Comment> commentUpdate(Comment comment) {
 		dao1.updateComment(comment);
 		return dao1.selectComment(comment.getNo());
+	}
+	@Override
+	public List<QnaBoard> searchlistBoard(Page page, Search search){
+		switch(search.getKeyword()) {
+		case 0: System.out.println(0);return dao.selectQnaBoard(page);
+		case 1: System.out.println(1);return dao.selectSearchWriter(search);
+		case 2: System.out.println(2);return dao.selectSearchTitle(search);
+		case 3: System.out.println(3);return dao.selectSearchBoth(search);
+		default: return null;
+		}
 	}
 
 }

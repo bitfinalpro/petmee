@@ -5,179 +5,79 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="<c:url value="/resources/css/common/gnb.css" />">
-  <script src="<c:url value="/resources/js/common/jquery-1.12.4.js" /> "></script>
-  <link href="../resources/css/common/base.css" rel="stylesheet">
-  <link href="../resources/css/qna/style.css" rel="stylesheet"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+    <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <title>Pet Mee</title>
+  <title>Pet Me</title>
+  <style>
+   #crForm {
+       width: 70%;
+       margin: 0 auto;
+   }
+  </style>
 </head>
-<script type="text/javascript">
-	let qnaNo = '${qnaDetail.qnaNo}';
-	let cmtPageNo = '${cpr.pageNo}';
-	// let UserGrade = '${sessionScope.user.userGrade}';
-	// let UserNo = '${sessionScope.user.userNo}';
 
-    $(document).ready(function(){
-       $("#header").load("menu.html")    
-    });
-    $(document).ready(function(){
-       $("#footer").load("footer.html")    
-    });
-</script>
-	<script src="<c:url value='/resources/js/qna/like.js' />"></script>
-    <script src="<c:url value='/resources/js/qna/qnaComment.js' />"></script>
-    <script src="<c:url value='/resources/js/qna/qnaWriteCheckForm.js' />"></script>
 <body>
-   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
-    <div>
-        <section class="qna-content" style="margin-bottom:0">
-            <h1 class="qna-title">Q & A</h1>
-           
-            <div class="qna-table">
-                <ul class="qna-TableListHead">
-                    <li>
-                        <span>${board.qnaNo}</span>
-                        <span>${board.qnaTitle}</span>
-                        <span>${board.qnaWriter}</span>
-                        <span><fmt:formatDate value="${board.qnaRegDate}" pattern="MM-dd hh:mm"/></span>
-                        <span>조회수${board.viewCnt}</span>
-                    </li>
-     
-                </ul>
-                <ul class="qna-TableDetailBody">
-                  <li>
-                    ${board.qnaContent}
-                  </li>                  
-                </ul>
-                <a class="qna-qna_like" href="javascript:;" onclick="likeUpdateAjax(${qnaDetail.qnaNo}, ${pr.pageNo})">
-                   <!-- <i class="far fa-thumbs-up fa-2x" id="likeUpdate">1</i> -->
-                    <i class="far fa-thumbs-up fa-2x" id="likeUpdate">${qnaDetail.likeCnt}</i>
-                </a>
-                <ul class="qna-TableListBody">
-         		        <div id="qna-list"></div>
-                </ul>
-             
-		              <div class="qna-go_update"> 
-			            <a href="qna-updateForm.do?no=${board.qnaNo}"> 
-			               	 수정
-			            </a>
-		              </div>
-			            <a class="qna-go_delete" href="qna-delete.do?no=${board.qnaNo}"> 
-			              <div> 
-			               	 삭제
-			              </div>
-			            </a>
-	           
-    
- 		<div class="qna-coment_list">
-          <div id="qna-cmt"></div>
-           <div class="qna-member_coment">
- 															
-        <form  method="post" name="updateForm" onsubmit="return inputCheck();">
-				<input type="hidden" name="boardqnaNo" value="${qnaDetail.qnaNo}" />
-				<input type="hidden" name="cmtNo" value="${param.cmtNo}" />
-				<input type="hidden" name="pageNo" value="${pr.pageNo}" />
-				<input type="hidden" name="cmtPageNo" value="${cpr.pageNo}" />
-        <div id="AjaxCmtList">      
-          
-          <c:if test="${empty comment}">
-				 <tr>
-				    <td colspan='4'>댓글이 존재하지 않습니다.</td>
-				 </tr>
-			</c:if>	 
-       
-      </div>
-			</form>	
-
-			 </div>
-		
+        <div id="header">
+            <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+        </div>
+<section>
+       <div class="background">
+           <h2 class="free"><i class="fas fa-users"></i> Q&A게시판</h2>
        </div>
-      </div>
-      </div>
-				<form class="qna-comment_write" method="post" 
-			       name="writeForm" onsubmit="return inputCheck();">
-                    <input type="text" name=cmtContent id="cmtContent" class="qna-comment_write" placeholder="댓글을 입력하세요">
-                    <input type="hidden" name="userNo" value="${sessionScope.user.userNo}"/>
-                    <input type="hidden" name="boardqnaNo" value="${qnaDetail.qnaNo}"/>
-                    <input type="hidden" name="pageNo" value="${pr.pageNo}"/>
-                  	<button onclick="inputCheck();" type="button" class="qna-comment_do">등록</button>
-				</form>
-            </div>
-          
-          
-             
-           <c:choose>
-	          <c:when test="${ not empty sessionScope.user.userNo }">
-		          <a class="qna-go_write" href="/petmee/qna/qna-writeForm.do"> 
-		            <div> 
-		            	  글쓰기
-		            </div>
-		          </a>
-	          </c:when>
-	          <c:otherwise></c:otherwise>
-           </c:choose>
-          
-          
-           <div class="qna-table">
-              <ul class="qna-TableListHead">
-                  <li>
-                      <span>번호</span>
-                      <span>제목</span>
-                      <span>작성자</span>
-                      <span>작성일</span>
-                      <span>조회수</span>
-                  </li>
-              </ul>
-              <ul class="qna-TableListBody">
-                  <c:forEach var="b" items="${list}">
-                  	<li>
-                      <span>${b.qnaNo}</span>
-                      <span><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></span>
-                      <span>${b.qnaWriter}</span>
-                      <span><fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /></span>
-                      <span>${b.viewCnt}</span>
-                    </li>
-                   </c:forEach> 
-                   <c:if test="${empty list}">
-                       <li >
-                          <span></span>
-                          <span colspan='5'>입력된 게시물이 없습니다.</span>
-                       </li>
-                    </c:if>
-                </ul>
-                   
-    
-              <!--    <c:if test="${sessionScope.user.userGrade eq 3 }">  --> 
-                 <a class="qna-go_write" href="/petmee/jsp/qna/qna-write.do"> 
-                  <div> 
-                      	글쓰기
-                  </div>
-                </a>
-        <!--  </c:if> --> 
-              <!-- 검색창 -->
-				<div class='qna-container' tabindex='1'>
-					<div class='qna-search-container' tabindex='1'>
-						<input class='qna-input' id='qna-input-content' placeholder='search' type='text'> 				
-						<a class='qna-button' id='qna-submit-button'>
-							<i class="fa fa-search icon-search" ></i>
-						</a>	
-					</div>
-						<a class='qna-button' id='qna-refresh-button'>
-							<i class="fa fa-retweet icon-search" ></i>
-						</a>
-				</div>
-          
-        </section>
-    </div>
-    <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
-  </div>
-  </div>
+   </section>
+<section id="layout">
+       <div class="freeboard">
+           <div class="board_list">
+                <div id="types">
+                      <div class="ll">
+                          <div class="left" style="font-size: 24px;"> <c:out value="${board.qnaTitle}" /></div>
+                            <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.qnaRegDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
+                       </div>
+               </div>
+               <div id="types1">
+                   <div class="ll">
+                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.qnaWriter}</div>
+                         <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>
+                   </div>
+               </div>
+           </div>
+           <!--
+                   <div id="pic">
+                       <img src="../resources/images/image/holly.jpg">
+                   </div>
+                   -->
+                   <div id="Freecontent">
+                          <c:out value="${board.qnaContent}" />
+                   </div>
+                   <div class="button">
+                       <a href="qna-updateform.do?no=${board.qnaNo}"><button class="b1">수정</button></a>
+                       <a href="qna-delete.do?no=${board.qnaNo}"><button class="b1">삭제</button></a>
+                       <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
+                   </div>
+                     <form id="crForm" method="post" action="comment_regist.do" >
+                        <input type="hidden" id="no" value="${board.qnaNo}" />  
+                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
+                         <input type="hidden" id="writer" value="" /> 
+                         <button type="submit" class="comment1" >등록</button>
+                      </form>
+                   <div class="comlist" id="commentList">
+  
+                   </div>
+               </div>
+   </section>
+        <div id="footer" class="footer_wrap clearfix">
+        <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
+        </div>
+         <script>
+           let no = ${board.qnaNo};
+         </script>
+        
+        <script src="<c:url value='/resources/js/freeboard.js' />"></script>
 </body>
+
 </html>
