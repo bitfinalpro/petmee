@@ -17,7 +17,6 @@ public class Report {
 	private String content;          // 신고내용
 	private String title;               // 제목
 	private String other;             // 기타사유
-	private int boardType;          // 게시판 타입 (어느 게시판에서 가져왔는지)
+	private String boardType;          // 게시판 타입 (어느 게시판에서 가져왔는지)
 	
-		
 }

@@ -43,7 +43,6 @@ function report_chk() {
 	for(var i = 0; i<report.length; i++) {
 		
 		if(report[i].checked==true) {
-			alert(report[i].value);
 			report_check++;
 		}
 	}
@@ -51,7 +50,24 @@ function report_chk() {
 		alert("신고사유를 선택해주세요");
 		return;
 	} else {
+		$.ajax({
+			url: "/petmee/admin/user/insertReport.do",
+			type: "POST",
+			data: {
+				no: $("#no").val(),
+				reportEmail: $("#reportEmail").val(),
+ 				reportReason: $("input[name=report]:checked").val(),
+				content: contentVal,
+				title: titleVal,
+				other: $(".reportcontent").val(),
+				boardType: $(".reporttitle").data("type")
+			},
+			error: () => {console.log("err");},
+			success: (result) => {alert(result);}
+		});
+		console.log("bbb");
 		alert("신고되었습니다.");
 	}
+	
 }
 
