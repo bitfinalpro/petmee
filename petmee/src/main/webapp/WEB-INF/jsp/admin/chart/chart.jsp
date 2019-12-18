@@ -22,6 +22,8 @@
 
   <!-- Custom styles for this template-->
   <link href="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
+  <link href="<c:url value="/resources/css/admin/chart.css"/>" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -139,9 +141,19 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">통계</a>
+           통계
           </li>
           <li class="breadcrumb-item active">차트</li>
+          <li>
+          	<select id="searchCategory">
+          		<option value="1">회원아이디</option>
+          		<option value="2">제품번호</option>
+          	</select>
+          </li>
+          <li>
+          	<input type="text" id="searchKeyword" />
+          </li>
+          <li><button id="search-UserStatistics" type="button">검색</button></li>
         </ol>
 
         <!-- Area Chart Example-->
@@ -224,8 +236,7 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div>	
   <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
@@ -243,6 +254,19 @@
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-bar-demo.js"/>"></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-pie-demo.js"/>"></script>
+  <!-- 검색 모달창 시작 -->
+              <div id="searchstasticspopup" class="modal">
+                  <div class="modal-content"> 
+                   <span class="close">&times;</span>
+                    <div class="card-body">
+            			<canvas id="myAreaChart" width="100%" height="30"></canvas>
+          			</div>                     
+                  </div>
+                </div>
+              <!-- 모달창 끝 -->
+  <script src="<c:url value="/resources/js/admin/chartmain.js"/>"></script>
+   
+              
 </body>
 
 </html>

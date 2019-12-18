@@ -25,11 +25,29 @@
 	</select>
 	<!-- 카테고리 별 통계 -->
 	<select id="categoryStatistics" resultType="Product">
-		select c.category_name,
+		select
+		c.category_name,
 		sum(o.product_cnt) as productCnt
-		from tb_product p, tb_order o, tb_category c
-		where (p.product_id = o.product_id) and p.category_no = c.category_no
+		from tb_product p,
+		tb_order o, tb_category c
+		where (p.product_id = o.product_id) and
+		(p.category_no = c.category_no) and (o.order_date between
+		date_add(now(),interval -1 month) and now())
 		group by c.category_no
 		order by productCnt;
+	</select>
+	<!-- 회원 아이디 검색 통계 -->
+	<select id="searchById">
+		select count(*)
+		from (select * from tb_order group by order_id) e
+		where date_format(order_date, '%Y-%m') in ("2019-12")
+		group by date_format(order_date, '%Y-%m')
+		union all
+		select 0
+		from dual
+		where not exists(select count(*)
+		from (select * from tb_order group by order_id) e
+		where date_format(order_date, '%Y-%m') in ("2019-12")
+		group by date_format(order_date, '%Y-%m'));
 	</select>
 </mapper>

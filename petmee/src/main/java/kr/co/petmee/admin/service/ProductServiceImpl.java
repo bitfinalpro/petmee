@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ProductDAO;
+import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.Image;
-import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.Product;
 
 @Service
@@ -68,6 +68,16 @@ public class ProductServiceImpl implements ProductService{
 		for(Coupon c : list) {
 			dao.registerCoupon(c);
 		}		
+	}
+	//쿠폰중복검사
+	public int checkCoupon(Coupon coupon) {
+		int nameCnt = dao.checkCouponName(coupon.getName());
+		int noCnt = dao.checkCouponNo(coupon.getNo());
+		if (nameCnt == 1 && noCnt == 1) return 3;
+		if (nameCnt == 1) return 1;
+		if (noCnt == 1) return 2;
+		
+	    return 0;
 	}
 	//제품정보 변경
 	public void updateProductInfo(Product product) {

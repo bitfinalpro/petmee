@@ -181,24 +181,39 @@ $("#inputcouponlistupbtn").click((e) => {
 		return;
 	}
 	let coupon = {
-			couponName: $("input[name=couponName]").val(),
-			couponNo: $("input[name=couponNo]").val(),
-			couponDiscount: $("input[name=couponDiscount]").val()
+			name: $("input[name=couponName]").val(),
+			no: $("input[name=couponNo]").val(),
+			discount: $("input[name=couponDiscount]").val()
 	}
-	couponList.push(coupon);
-	let query = "";
-	for(let i = 0; i < couponList.length; i++) {
-		query += `
-			<tr>
-				<td>${couponList[i].couponName}</td>
-				<td>${couponList[i].couponNo}</td>
-				<td>${couponList[i].couponDiscount}</td>
-			</tr>
-		`;
-	}
+	console.log("aaa");
+	$.ajax({
+		url: "checkCoupon.do",
+		type: "post",
+		async: false,
+		data: coupon,
+		success: result => {
+			console.log("bbb");
+			switch (result) {
+			case 0:
+				couponList.push(coupon);
+				makeList("coupon");				
+				return;
+			case 1: 
+				alert("이미 같은 이름의 쿠폰이 존재합니다"); 
+				$("input[name=couponName]").focus();
+				return;
+			case 2:
+				alert("이미 같은 번호의 쿠폰이 존재합니다"); 
+				$("input[name=couponNo]").focus();
+				return;
+			case 3: 
+				alert("이미 같은 이름,번호의 쿠폰이 존재합니다"); 
+				$("input[name=couponName]").focus();
+				return;
+			}
+		}		
+	});
 	
-	$("#inputcouponTbody").html(query);
-	$("input").val("");
 });
 //제품입고 리스트업 버튼 이벤트
 $("#inputlistupbtn").click((e) => {
@@ -272,6 +287,20 @@ function makeList(msg){
 	var categoryName = "";
 	var animal = "";
 	var sellCondition = "";
+	if(msg === "coupon") {
+		for(let i = 0; i < couponList.length; i++) {
+			query += `
+				<tr>
+					<td>${couponList[i].name}</td>
+					<td>${couponList[i].no}</td>
+					<td>${couponList[i].discount}</td>
+				</tr>
+			`;
+		}
+		console.log("ddd");
+		$("#inputcouponTbody").html(query);
+		$("input").val(""); return;
+	}
 	if(msg === "register"){
 	for(let i = 0; i < registerList.length; i++) {
 		switch(registerList[i].categoryNo) {

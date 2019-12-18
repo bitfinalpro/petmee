@@ -2,6 +2,7 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 let categoryList = [];
+let sellRateList = [];
 $.ajax({
 	url: "categorystatistics.do",
 	dataType: "json",
@@ -9,6 +10,7 @@ $.ajax({
 	success: (result) => {
 		for(let p of result) {
 			categoryList.push(p.categoryName);
+			sellRateList.push(p.sellRate);
 		}
 	}
 });
@@ -19,7 +21,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: categoryList,
     datasets: [{
-      data: [12.21, 15.58, 10.24, 8.32, 1],
+      data: sellRateList,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', "#e5e5e5"],
     }],
   },

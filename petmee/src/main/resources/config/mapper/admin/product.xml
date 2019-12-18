@@ -62,7 +62,19 @@
 	</update>
 	<!--쿠폰 등록 -->
 	<insert id="registerCoupon" parameterType="Coupon">
-		insert into tb_image(no, name, discount)
+		insert into tb_coupon(no, name, discount)
 		values(#{no}, #{name}, #{discount})
-	</insert> 
+	</insert>
+	<!-- 쿠폰명 중복검사 -->
+	<select id="checkCouponName" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where name = #{name}
+	</select> 
+	<!-- 쿠폰번호 중복검사 -->
+	<select id="checkCouponNo" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where no = #{no}
+	</select> 
 </mapper>

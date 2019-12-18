@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.admin.service.ChartService;
+import kr.co.petmee.repository.vo.Order;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.Profit;
 
@@ -39,7 +40,21 @@ public class ChartController {
 	//카테고리별 통계
 	@RequestMapping("/categorystatistics.do")
 	@ResponseBody
-	public List<Product> categoryStatistics() {
-		return service.categoryStatistics();
+	public List<Product> categoryStatistics() {	
+		List<Product> pList = service.categoryStatistics();
+		double sum = 0;
+		for (Product p : pList) {
+			sum += p.getProductCnt();
+		}
+		for (Product p : pList) {
+			p.setSellRate(Math.round((p.getProductCnt() / (double)sum) * 100 * 100) / 100.0);
+		}
+		return pList;
+	}
+	//검색 통계
+	@RequestMapping("/searchStatistics.do")
+	@ResponseBody
+	public Order searchStatistics(String val, int category) {
+		return service.searchStatistics(val, category);
 	}
 }

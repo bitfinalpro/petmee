@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Order;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.Profit;
 
@@ -15,4 +16,6 @@ public interface ChartService {
 	List<Profit> selectMonthTop();
 	//카테고리별 통계
 	List<Product> categoryStatistics();
+	//검색 통계
+	Order searchStatistics(String val, int category);
 }
