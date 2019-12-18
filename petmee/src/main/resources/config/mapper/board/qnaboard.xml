@@ -48,6 +48,29 @@
 		  from bitfinalproject.tb_qna 
 		 where qna_no = #{qnaNo}
 	</delete>
+<!-- 자원봉사 후기 검색 게시물 추출  -->
+	<select id="selectSearchWriter" resultType="QnaBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_qna
+	    where writer like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchTitle" resultType="QnaBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_qna 
+	    where title like concat('%',#{searchText},'%')
+	    order by no desc
+	     limit #{begin}, 10
+	</select>	
+	<select id="selectSearchBoth" resultType="QnaBoard" parameterType="Search">
+	   select *
+	     from bitfinalproject.tb_qna
+	    where (title like concat('%',#{searchText},'%')) OR (writer like concat('%',#{searchText},'%'))
+	    order by no desc
+	     limit #{begin}, 10
+	</select>		
+	
 </mapper>
 
 
