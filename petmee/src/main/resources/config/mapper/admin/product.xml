@@ -59,5 +59,22 @@
 		   	   animal_no = #{animalNo},
 		   	   sell_condition = #{sellCondition}		   	   
 		 where product_id = #{orgProductId}
-	</update> 
+	</update>
+	<!--쿠폰 등록 -->
+	<insert id="registerCoupon" parameterType="Coupon">
+		insert into tb_coupon(no, name, discount)
+		values(#{no}, #{name}, #{discount})
+	</insert>
+	<!-- 쿠폰명 중복검사 -->
+	<select id="checkCouponName" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where name = #{name}
+	</select> 
+	<!-- 쿠폰번호 중복검사 -->
+	<select id="checkCouponNo" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where no = #{no}
+	</select> 
 </mapper>

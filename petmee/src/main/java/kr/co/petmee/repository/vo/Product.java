@@ -18,7 +18,8 @@ public class Product {
 	private String company;	
 	private String orgProductId;	
 	private Date date;
-	private int productCount;	
+	private int productCnt;	
+	private double sellRate;	
 	private int sellCondition;	
 	private List<MultipartFile> productfile;
 	private List<MultipartFile> boardfile;

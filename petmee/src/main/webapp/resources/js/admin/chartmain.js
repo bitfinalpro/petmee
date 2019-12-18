@@ -1,4 +1,22 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
+let modal = document.getElementById("searchstasticspopup");
+$("#search-UserStatistics").click((e) => {
+//	let category = $("searchCategory").val();
+//	$.post({
+//		url: "searchStatistics.do",
+//		data: {category: category, val: $("#searchKeyword").val()},
+//		success: result => {}
+//	})
+	modal.style.display = "block";
+});
+$(".close").click((e) => {
+	modal.style.display = "none";
+});
+window.onclick = (e) => {
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
+}
+//Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 var labelList = [];
@@ -19,7 +37,7 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: labelList,
+    labels: [15000, 3000, 5000, 6000],
     datasets: [{
       label: "profit:",
       lineTension: 0.3,
@@ -32,7 +50,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: dataList
+      data: ["a", "b", "c", d]
     }],
   },
   options: {
@@ -64,5 +82,3 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
-
-

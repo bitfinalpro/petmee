@@ -10854,3 +10854,6 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+#search-UserStatistics {
+	width: 100px; margin-left: 20px; background: #E9ECEF; border: 1px solid lightgray;  border-radius: 5px; font-weight: bold;
+}

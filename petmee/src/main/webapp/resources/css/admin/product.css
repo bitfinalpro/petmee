@@ -49,18 +49,24 @@
       font-weight: bold;
       padding-bottom: 5px;
   }
-  #registerlistupbtn, #inputlistupbtn, #outputlistupbtn {margin-left: 38%;}
-  #inputlist, #outputlist{border: 1px solid lightgray; margin-top: 30px; height: 300px; }
+  #registerlistupbtn, #inputlistupbtn, #outputlistupbtn, #inputcouponlistupbtn {margin-left: 38%;}
+  #inputlist, #outputlist{border: 1px solid lightgray; margin-top: 30px; height: 300px; overflow: scroll;}
+  #inputcouponlist{border: 1px solid lightgray; margin-top: 30px; height: 250px; overflow: scroll;}
   #registerlist{border: 1px solid lightgray; margin-top: 30px; height: 160px; overflow:scroll;}
   #inputlisttable{width: 100%; text-align: center;}
   #inputlisttable thead {border-bottom: 1px solid lightgray;}
-  #completebtn1, #completebtn2, #completebtn3, #updateCompletebtn {width: 80px; margin-left: 32%; margin-top: 20px; float: left;}
+  #completebtn1, #completebtn2, #completebtn3, #updateCompletebtn, #couponcompletebtn {width: 80px; margin-left: 32%; margin-top: 20px; float: left;}
   #completebtn1 {margin-left: 40%;}
   .cancelModalbtn {margin-left: 15px; margin-top: 20px; width: 80px;}
   #pForm div, #updateForm div {margin: 20px 10%;}
   tfoot tr th button {margin-right: 10px; background: #E9ECEF; border: 1px solid lightgray;  border-radius: 5px;}
   .ordertablehead {color: white; padding-right: -10px; width: 50px;}
-  
+  #orderbox {margin-top: 15px;}
+  #orderbox > div{font-size: 18px; margin-left: 25px; margin-bottom: 5px;  padding-left: 30px;}
+   #orderbox > div > div {margin-left: -10px;} 
+   #orderProducts {position: relative; left: 25px; border: 1px solid black; width: 80%; height: 150px; overflow: scroll;}
+   #orderProducts p {display: inline-block; font-size: 17px; margin-right: 20px; margin-bottom: 3px; }
+   #orderpopup button {margin-left: 40%;}
   @keyframes open {
     from {opacity:0;} to {opacity:1;}
   }
