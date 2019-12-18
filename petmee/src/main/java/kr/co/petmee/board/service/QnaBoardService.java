@@ -8,7 +8,7 @@ import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.VolunteerReviewBoard;
+
 
 @Service
 public interface QnaBoardService {
