@@ -94,7 +94,7 @@
                           <textarea class="reportcontent"></textarea>
                         </div>
                      </div>
-                  <input type="button" value="신고" onclick="report_chk();" />
+                  <input id="clo" type="button" value="신고" onclick="report_chk();" />
                   <a href="#" class="close">닫기</a>
                   </form>
                 </div>                   
@@ -112,6 +112,7 @@
            let contentVal = "${board.content}";
            let titleVal = "${board.title}";
            
+           $("#clo").modal('hide');
          </script>
         
         <script src="<c:url value='/resources/js/freeboard.js' />"></script>
