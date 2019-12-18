@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Report;
 
 @Service
@@ -12,5 +13,4 @@ public interface ReportService {
 		
 		 void insertReport(Report report);
 		 void deleteReport(int no);
-
 }

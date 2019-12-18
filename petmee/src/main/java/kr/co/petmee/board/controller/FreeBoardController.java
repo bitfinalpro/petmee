@@ -65,7 +65,16 @@ public class FreeBoardController {
 	@RequestMapping("/detail.do")
 	public void detail(int no, Model model) {
 		model.addAttribute("board", service.detailBoard(no));
-	}
+		model.addAttribute("comment", service.commentList(no));
+	} 
+	@RequestMapping("/selectReportedMember.do")
+	@ResponseBody
+	public Comment selectReportedMember(int commentNo) {
+		System.out.println(commentNo);
+		Comment c = service.selectReportedMember(commentNo);
+		System.out.println(c.getEmail());
+		 return c;
+	} 
 	
 	@RequestMapping("/delete.do")
 	public String delete(int no) {
@@ -86,7 +95,7 @@ public class FreeBoardController {
 	
 	@RequestMapping("/comment_list.do")
 	@ResponseBody
-	public List<Comment> commentListAjax(int no) {
+	public List<Comment> commentListAjax(int no, Model model) {
 		return service.commentList(no);
 	}
 	

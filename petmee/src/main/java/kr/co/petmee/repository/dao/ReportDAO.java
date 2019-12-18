@@ -12,4 +12,5 @@ public interface ReportDAO {
 	
 	void deleteReport(int no);
 
+	void insertComReport(Report report);
 }

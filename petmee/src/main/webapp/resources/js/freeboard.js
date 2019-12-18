@@ -82,7 +82,27 @@ function commentListAjax() {
 function toPad(val) {
 	return val < 10 ? "0" + val : val;
 }
-
+$(document).on("click", "#reportbtn", (e) => {
+	console.log("aaa");
+	$.ajax({
+		url: "selectReportedMember.do",
+		data: {commentNo: $(e.target).data("no")},
+		dataType: "json",
+		async: false,
+		success: result => {
+			console.log(result);
+			let query = `
+				<ul>
+                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${result.email} </div></li>
+                        <li><strong>내  용</strong>  : <div class="userbox">&nbsp; ${result.content}</div></li>
+                </ul>
+                <input type="hidden" id="reportEmail1" value="${result.email}"/>
+			`;
+			$(".reporttitle1").html(query);
+		}
+	});
+	location.href="#popup1";
+});
 function makeCommentList(list) {
     $di = $("<div></div>");
 	$.each(list, (i, c) => {
@@ -98,12 +118,14 @@ function makeCommentList(list) {
 				<div class="com_com">
 				<div class="nick">${c.email}</div>
 				<div class="time">${time}</div>
+				<button id="reportbtn" data-no="${c.commentNo}">신고</button>
 				<a href="#" data-no="${c.commentNo}" class="del">삭제</a>
 				<a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
 				</div>
 				<br><br>
 			    <div class="com_content">${c.content}</div>
-		    </div>`		
+		    </div>
+		    `		
 		);
 	});
 	$("#commentList").html($di);

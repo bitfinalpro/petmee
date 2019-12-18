@@ -16,6 +16,8 @@ public interface FreeBoardService {
 	//자유게시판 리스트, 페이징
     List<Board> listBoard(Page page);
     
+    Comment selectReportedMember(int commentNo);
+    
     void insertBoard(Board board);
 	
     int selectBoardCount();

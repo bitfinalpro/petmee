@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ReportDAO;
 import kr.co.petmee.repository.vo.Board;
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Report;
 
 @Service
