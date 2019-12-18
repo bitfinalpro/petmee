@@ -26,9 +26,9 @@
 	<!-- 게시글 등록 -->
 	<insert id="insertBoard" parameterType="Board">
 		insert into tb_board (
-		title, email, content, topChk
+		title, email, content, topChk, type
 		) values (
-		#{title}, #{email}, #{content}, #{topChk}
+		#{title}, #{email}, #{content}, #{topChk}, #{type}
 		)
 	</insert>
 	<insert id="insertBoard2" parameterType="Board">
