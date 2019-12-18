@@ -21,7 +21,8 @@
          <form method="post" action="write.do" id="">
         <div class="write_form">
         <h2>자원봉사 후기게시판</h2>   
-            <input type="text" name="title" class="write_input" placeholder="제목을 입력해 주세요!" maxlength="29" />         
+            <input type="text" name="title" class="write_input" placeholder="제목을 입력해 주세요!" maxlength="29" />
+            <input type="hidden" name="type" value="volunteerreview" />         
        		<input type="hidden" name="email" value="유휘준" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">

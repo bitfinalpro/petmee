@@ -62,6 +62,7 @@
             </tr>
          </c:if>
          <c:forEach var="b" items="${list}">
+         <c:if test="${b.type eq free}">
          <tr>
                 <td>${b.no}</td>
                 <td><a href="detail.do?no=${b.no}">${b.title}</a></td>
@@ -69,6 +70,7 @@
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
          </tr>
+         </c:if>
           </c:forEach>
         </table>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/freeboard/writeform.do"/>'">글 등록</button></div>

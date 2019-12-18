@@ -1,10 +1,9 @@
 package kr.co.petmee.repository.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
+import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.Image;
-import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.Product;
 
 public interface ProductDAO {
@@ -27,4 +26,10 @@ public interface ProductDAO {
 	void minusCount(Product product);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
+	//쿠폰등록
+	void registerCoupon(Coupon coupon);
+	//쿠폰명중복검사
+	int checkCouponName(String name);
+	//쿠폰번호중복검사
+	int checkCouponNo(String no);
 }

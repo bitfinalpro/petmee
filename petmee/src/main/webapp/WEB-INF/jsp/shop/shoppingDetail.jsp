@@ -67,8 +67,8 @@
 		<tr>
 			<th>판매가</th>
 			<td>
-					<del><em>91,000</em>원</del>
-				<span class="txt-price"><em>${product.price}</em>원</span>
+				<del><em>91,000</em>원</del>
+				<span class="txt-price"><em><fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/></em>원</span>
 			</td>
 		</tr>
 	</tbody>
@@ -92,18 +92,24 @@
 	<tbody class="pinfo-info">
 		<tr>
 			<th>수량 :</th>
-			<td><input type=hidden name="sell_price" value="${product.price}"><input type="text" name="amount" value="1" size="3" onchange="change();">
-				<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+			<td>		
+			<input type=hidden name="sell_price" value="${product.price}"><input type="text" name="amount" value="1" size="2" onchange="change();">
+				<input type="button" value=" + " onclick="add();">
+				<input type="button" value=" - " onclick="del();">
 				<span id="product_su_txt">(최소준문수량 1개 이상)</span>
 			</td>
+			
 		</tr>
 	</tbody>
 	</table>
 	</div>
+
 		<fieldset>
 			<div class="pro-total">
 				<strong>총 상품금액(수량)</strong>
-				<em id="totalPrice_A"><input type="text" name="sum" size="11" value="${product.price}" readonly></em>원(1개)
+				<em id="totalPrice_A">
+				<input id="proinput" type="text" name="sum" size="11" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/>" readonly>
+				</em>원(<input value="1" name="subA" id="subA" onchange="change();"/>개)
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">
@@ -112,7 +118,7 @@
 			</div>
 			<!-- //default -->
 		</fieldset>
-	</form>
+
 	</div>
 			<!-- //proinfo -->
 		</div>
@@ -204,102 +210,54 @@
 			<table class="notice_tb">
 					<colgroup>
 						<col width=7%;>
-						<col width=50%;>
-						<col width=7%;>
+						<col width=20%;>
+						<col width=20%;>
+						<col width=10%;>
+						<col width=10%;>
 						<col width=10%;>
 						<col width=7%;>
 						<col width=10%;>
 					</colgroup>
 					<tr>
 						<th>NO</th>
+						<th>PRODUCT</th>
 						<th>TITLE</th>
 						<th>WRITER</th>
 						<th>DATE</th>
+						<th>RATING</th>
 						<th>VIEW</th>
 						<th></th>
 					</tr>
-					
-					<tr onclick="document.location.href='wirte.html'">
-						<td>3</td>
-							<td>비트 이벤트 </td>
-							<td>관리자</td>
-							<td><i class="far fa-clock"></i>&nbsp;2019.11.11</td>
-							<td>123</td>
-							<td>
-								<button>수정</button>
-								<button>삭제</button>
-							</td>
-						</tr>
+					 <c:if test="${empty list}">
 					<tr>
-						<td>2</td>
-						<td>빼빼로 이벤트 </td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>빼빼로 이벤트 </td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>빼빼로 이벤트 </td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>빼빼로 이벤트 </td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>빼빼로 이벤트 </td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>사이트 서비스 안내</td>
-						<td>관리자</td>
-						<td>2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
+						<td colspan="5">게시물이 없습니다.</td>
+					</tr>				
+				</c:if>
+			<c:forEach var="b" items="${list}">
+				<tr onclick="document.location.href='detail.do?no=${b.no}'">
+					<td>${b.no}</td>
+					<%-- <td>${b.product}</td> --%>
+					<td>${b.title}</td>
+					<td>${b.writer}</td>
+					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
+					<%--<td>${b.rating}</td>--%>
+					<td>${b.viewCnt}</td>
+					<td>
+                     <a href="<c:url value="/board/reviewboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
+                     <a href="<c:url value="/board/reviewboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
+                   </td>
+				</tr>
+			</c:forEach>
 				</table>
-				<div id="page">
-						<span> << &nbsp;1 &nbsp; / &nbsp; 2 &nbsp; / &nbsp; 3 &nbsp; / &nbsp; 4 &nbsp; / &nbsp; 5 &nbsp; >></span>
-				</div>
+		<div id="page" >
+        	<nav>
+			  <ul class="pagination">
+			    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
+			    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="notice.do?pageNo=${i}">${i}</a></li>
+			    </c:forEach>
+			  </ul>
+			</nav>
+		</div>
  	</div>
 			 						
  <div id="storyPick" class="storypick">
@@ -404,12 +362,11 @@
 					<span> << &nbsp;1 &nbsp; / &nbsp; 2 &nbsp; / &nbsp; 3 &nbsp; / &nbsp; 4 &nbsp; / &nbsp; 5 &nbsp; >></span>
 			</div>
  </div>
-
 		<!-- bottombuybtn// -->
 		<div class="bottombuybtn">
 			<div class="inner">
-				<div class="bbuybtn" id="addCartArea_B">
-					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input type="text" name="sum" size="11" value="5500" readonly></em>원(1개)</strong></span>
+				<div class="bbuybtn" id="">
+					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input type="text" name="sum1" size="11" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/>" readonly /></em>원(<input value="1" name="subB" id="subB" onchange="change();"/>개)</strong></span>
 						<!-- default// -->
 						<div class="btn-area btnarea-default active">
 							<button type="button" class="btn-black btn-buy" onclick="_orderGoods();">바로 구매하기</button>							
@@ -423,7 +380,7 @@
 	</main>
 	<!-- //contents -->
 </div>
-    
+    	</form>
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 

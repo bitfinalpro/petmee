@@ -56,6 +56,7 @@
 					</tr>				
 				</c:if>
 			<c:forEach var="b" items="${list}">
+			<c:if test="${b.type eq 'notice'}" >
 				<tr onclick="document.location.href='detail.do?no=${b.no}'">
 					<c:choose>
 					<c:when test="${b.topChk eq 1}" >
@@ -75,6 +76,7 @@
                      <a href="<c:url value="/board/noticeboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
                    </td>
 				</tr>
+				</c:if>
 			</c:forEach>
         </table>
         <style>
