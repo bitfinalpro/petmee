@@ -67,6 +67,7 @@ function report_chk() {
 		});
 		console.log("bbb");
 		alert("신고되었습니다.");
+		$("#popup").hide();
 	}
 }
 

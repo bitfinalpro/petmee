@@ -14,9 +14,9 @@
 <!-- 댓글 등록  -->
 <insert id="insertComment" parameterType="Comment">
     insert into tb_comment(
-        no, writer, content
+        no, email, content
     ) values (
-       #{no}, #{writer}, #{content} 
+       #{no}, #{email}, #{content} 
     )
 </insert>
 

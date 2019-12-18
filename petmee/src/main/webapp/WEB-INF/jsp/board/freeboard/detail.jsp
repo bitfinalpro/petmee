@@ -111,8 +111,6 @@
            let no = ${board.no};
            let contentVal = "${board.content}";
            let titleVal = "${board.title}";
-           
-           $("#clo").modal('hide');
          </script>
         
         <script src="<c:url value='/resources/js/freeboard.js' />"></script>

@@ -41,7 +41,7 @@ public class ReportController {
 		User user = (User)session.getAttribute("user");
 		report.setEmail(user.getEmail());		
 		service.insertReport(report);
-		return "redirect:detail.do";
+		return "aaa";
 	}
 	
 	@RequestMapping("/insertDelete.do")
