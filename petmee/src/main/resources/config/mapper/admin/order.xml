@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.OrderDAO">
+	<!--주문내역 뽑기 -->
+	<select id="selectOrderList" resultType="Order">
+		select product_id, order_id, order_date, user_id, delievery_status, sum(price) as sumPrice, count(*) as countOfProducts
+		from tb_order
+		group by order_id;
+	</select>
+	<!--선택한 주문내역 뽑기 -->
+	<select id="detailOrder" parameterType="string"
+		resultType="Order">
+		select *
+		from tb_order
+		where order_id = #{orderId}
+	</select>
+	<!--주문내역 삭제 -->
+	<delete id="deleteOrder" parameterType="string">
+		delete
+		from tb_order
+		where
+		order_id = #{orderId}
+	</delete>
+	<!--배송상태 변경 -->
+	<update id="updateStatus" parameterType="Order">
+		update tb_order
+		set delievery_status = #{delieveryStatus}
+		where order_id = #{orderId}
+	</update>
+</mapper>

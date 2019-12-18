@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.petmee.repository.dao.NoticeBoardDAO;
-import kr.co.petmee.repository.vo.NoticeBoard;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Page;
 
 @Service
 public class NoticeBoardServiceImpl implements NoticeBoardService{
 
 	@Autowired
-	private NoticeBoardDAO dao;
+	private BoardDAO dao;
 	
 	@Override
-	public List<NoticeBoard> listBoard(Page page) {
+	public List<Board> listBoard(Page page) {
 		return dao.selectBoard(page);
 	}
 	
@@ -25,19 +25,19 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 		return dao.selectBoardCount();
 	}
 	
-	public NoticeBoard detailBoard(int no) {
+	public Board detailBoard(int no) {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
 	}
-	public void insertBoard(NoticeBoard board) {
+	public void insertBoard(Board board) {
 		dao.insertBoard(board);
 	}
 	
-	public NoticeBoard updateFormBoard(int no) {
+	public Board updateFormBoard(int no) {
 		return dao.selectOneBoard(no);
 	}
 	
-	public void updateBoard(NoticeBoard board) {
+	public void updateBoard(Board board) {
 		dao.updateBoard(board);
 	}
 	

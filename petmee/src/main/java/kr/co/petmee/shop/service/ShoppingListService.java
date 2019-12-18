@@ -22,4 +22,7 @@ public interface ShoppingListService {
 
 //	쿠폰
 	List<Coupon> couponList(User user);
+
+//	쿠폰 아이디 업데이트
+	List<Coupon> couponUpdate(Map<String, String> map, User user);
 }

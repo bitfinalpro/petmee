@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class Profit {
-	private int yearNmonth;
-	private int profit;	
+	private String date;
+	private int profit;
+	private int cnt;
+	private String productId;
 }

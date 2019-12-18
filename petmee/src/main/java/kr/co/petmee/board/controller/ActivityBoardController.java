@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.VolunteerReviewBoardService;
-import kr.co.petmee.repository.dao.VolunteerReviewBoardDAO;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
-import kr.co.petmee.repository.vo.VolunteerReviewBoard;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.activity.controller.ActivityBoardController")
@@ -25,7 +25,7 @@ public class ActivityBoardController {
 	private VolunteerReviewBoardService service;
 	
 	@Autowired
-	private VolunteerReviewBoardDAO dao;
+	private BoardDAO dao;
 	
 	//봉사후기 전체 게시물 목록 호출
 	@RequestMapping("/list.do")
@@ -41,7 +41,7 @@ public class ActivityBoardController {
 			search.setPageNo(page.getPageNo());
 			search.setKeyword(key);
 			search.setSearchText(val);
-			List<VolunteerReviewBoard> list = service.searchlistBoard(page, search);
+			List<Board> list = service.searchlistBoard(page, search);
 			model.addAttribute("list", list);
 			count = list.size();
 		}		
@@ -69,7 +69,7 @@ public class ActivityBoardController {
 	
 	//게시물 등록
 	@RequestMapping("/write.do")
-	public String write(VolunteerReviewBoard board) {
+	public String write(Board board) {
 		service.insertBoard(board);
 		return "redirect:list.do";
 	}
@@ -80,7 +80,7 @@ public class ActivityBoardController {
 	}
 	//봉사후기 게시물 수정
 	@RequestMapping(value="/update.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
-	public String update(VolunteerReviewBoard board) {
+	public String update(Board board) {
 		service.updateBoard(board);
 		return "redirect:list.do";
 	}

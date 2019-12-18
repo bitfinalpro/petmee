@@ -4,23 +4,23 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.petmee.repository.vo.NoticeBoard;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Page;
 
 @Service
 public interface NoticeBoardService {
 	// 공지사항 리스트 뽑기
-	List<NoticeBoard> listBoard(Page page);
+	List<Board> listBoard(Page page);
 	
 	int selectBoardCount();
 	
-	NoticeBoard detailBoard(int no);
+	Board detailBoard(int no);
 	
-	NoticeBoard updateFormBoard(int no);
+	Board updateFormBoard(int no);
 	
-	void insertBoard(NoticeBoard board);
+	void insertBoard(Board board);
 	
-	void updateBoard(NoticeBoard board);
+	void updateBoard(Board board);
 	
 	void deleteBoard(int no);
 

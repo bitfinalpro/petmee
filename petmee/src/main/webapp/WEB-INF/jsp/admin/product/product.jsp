@@ -26,7 +26,6 @@
   <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
   <link href ="<c:url value="/resources/css/admin/product.css"/>" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
   	let Project;
   </script>
@@ -158,7 +157,7 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton" class="nofresh">제품 입고</button><button id="outputbutton" class="nofresh">제품 출고</button></div>
+            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputcouponbutton" class="nofresh">쿠폰등록</button><button id="inputbutton" class="nofresh">제품 입고</button><button id="outputbutton" class="nofresh">제품 출고</button></div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -209,6 +208,38 @@
                         </form>
                         <button class="cancelModalbtn">취소</button>                        
                        </div>                    
+                  </div>
+                </div>
+              <!-- 모달창 끝 -->            
+              <!-- 쿠폰등록 모달창 시작 -->
+              <div id="inputcouponpopup" class="layer">
+                  <div class="box">
+                       <a href="#" class="stopnofresh"><span>x</span></a>
+                       <div id="inputtitle">쿠폰 등록</div>
+                       <div>
+                        <form id="pForm">                         
+                        <div>쿠폰이름 : <input type="text" name="couponName"/></div>
+                        <div>쿠폰번호 : <input type="text" name="couponNo"/></div>
+                        <div>할인금액 : <input type="text" name="couponDiscount"/></div>
+                        <button id="inputcouponlistupbtn" type="button">목록에 올리기</button>
+                        </form>
+                        <div id="inputcouponlist">
+                          <table id="inputlisttable">
+                              <thead>
+                                  <tr>                                    
+                                    <th>쿠폰이름</th>
+                                    <th>쿠폰번호</th>                                    
+                                    <th>할인금액</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="inputcouponTbody">                               
+                                  
+                                </tbody>
+                          </table>
+                        </div>
+                       </div>
+                    <button id="couponcompletebtn" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            

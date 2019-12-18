@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Product;
 
@@ -30,5 +31,9 @@ public interface ProductService {
 	void minusCount(HashMap map);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
+	//쿠폰등록
+	void registerCoupon(HashMap map);
+	//쿠폰 중복 검사
+	int checkCoupon(Coupon coupon);
 	
 }

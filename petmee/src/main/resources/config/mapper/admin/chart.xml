@@ -2,12 +2,52 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.petmee.repository.dao.ChartDAO">	
-
-	<select id="selectMarginList" parameterType="Profit" resultType="Profit">
-		select sum(profit)
-		  from tb_profit
-		 where purchase_date = #{yearNmonth}
-		 group by purchase_date		
+<mapper namespace="kr.co.petmee.repository.dao.ChartDAO">
+	<!-- 월별 매출 -->
+	<select id="selectMarginList" resultType="Profit">
+		select
+		date_format(order_date, '%Y-%m') date, sum(price) as profit
+		from
+		tb_order
+		group by date
+		order by date limit 13
+	</select>
+	<!--이번달 주문수 top 5 -->
+	<select id="selectMonthTop" resultType="Profit">
+		select product_id,
+		sum(product_cnt) as cnt
+		from tb_order
+		where order_date between
+		date_add(now(),interval -1 month) and now()
+		group by product_id
+		order by
+		cnt desc limit 5
+	</select>
+	<!-- 카테고리 별 통계 -->
+	<select id="categoryStatistics" resultType="Product">
+		select
+		c.category_name,
+		sum(o.product_cnt) as productCnt
+		from tb_product p,
+		tb_order o, tb_category c
+		where (p.product_id = o.product_id) and
+		(p.category_no = c.category_no) and (o.order_date between
+		date_add(now(),interval -1 month) and now())
+		group by c.category_no
+		order by productCnt;
+	</select>
+	<!-- 회원 아이디 검색 통계 -->
+	<select id="searchById">
+		select count(*)
+		from (select * from tb_order group by order_id) e
+		where date_format(order_date, '%Y-%m') in ("2019-12")
+		group by date_format(order_date, '%Y-%m')
+		union all
+		select 0
+		from dual
+		where not exists(select count(*)
+		from (select * from tb_order group by order_id) e
+		where date_format(order_date, '%Y-%m') in ("2019-12")
+		group by date_format(order_date, '%Y-%m'));
 	</select>
 </mapper>

@@ -45,7 +45,7 @@
             <tr>
                 <th>NO</th>
                 <th>TITLE</th>
-                <th>WRITER</th>
+                <th>email</th>
                 <th>DATE</th>
                 <th>VIEW</th>
                 <th></th>
@@ -67,8 +67,8 @@
 					</c:when>
 					</c:choose>
 					<td>${b.title}</td>
-					<td>${b.writer}</td>
-					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
+					<td>${b.email}</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<td>${b.viewCnt}</td>
 					<td>
                      <a href="<c:url value="/board/noticeboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
@@ -77,7 +77,8 @@
 				</tr>
 			</c:forEach>
         </table>
-        <style>.foot_btn {width: 70%; margin: 0 auto; margin-top: 10px;}
+        <style>
+        .foot_btn {width: 70%; margin: 0 auto; margin-top: 10px;}
            .foot_btn button{width: 80px; height: 30px; margin: 10 0; color: #fff;font-weight: bold;
             background-image: linear-gradient(30deg,#002a50,#006ecf);
             float : right;}</style>

@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.CommentDAO;
-import kr.co.petmee.repository.dao.FreeBoardDAO;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.FreeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
 
@@ -16,14 +16,14 @@ import kr.co.petmee.repository.vo.Search;
 public class FreeBoardServiceImpl implements FreeBoardService {
 	
 	@Autowired
-	private FreeBoardDAO dao;
+	private BoardDAO dao;
 	
 	@Autowired
 	private CommentDAO dao1;
 	
 	
 	@Override
-	public List<FreeBoard> listBoard(Page page) {
+	public List<Board> listBoard(Page page) {
 		return dao.selectBoard(page);
 	}
 	
@@ -33,11 +33,11 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	   }
 
 	
-	public void insertBoard(FreeBoard board) {
+	public void insertBoard(Board board) {
 		dao.insertBoard(board);
 	}
 	
-	public FreeBoard detailBoard(int no) {
+	public Board detailBoard(int no) {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
 	}
@@ -46,11 +46,11 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		dao.deleteBoard(no);
 	}
 	
-	public void updateBoard(FreeBoard board) {
+	public void updateBoard(Board board) {
 		dao.updateBoard(board);
 	}
 	
-	public FreeBoard updateFormBoard(int no) {
+	public Board updateFormBoard(int no) {
 		return dao.selectOneBoard(no);
 	}
 	
@@ -74,7 +74,7 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		return dao1.selectComment(comment.getNo());
 	}
 	@Override
-	public List<FreeBoard> searchlistBoard(Page page, Search search){
+	public List<Board> searchlistBoard(Page page, Search search){
 		switch(search.getKeyword()) {
 		case 0: System.out.println(0);return dao.selectBoard(page);
 		case 1: System.out.println(1);return dao.selectSearchWriter(search);

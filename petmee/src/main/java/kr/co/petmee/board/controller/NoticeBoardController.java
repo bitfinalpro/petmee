@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.petmee.board.service.NoticeBoardService;
-import kr.co.petmee.repository.vo.NoticeBoard;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
@@ -34,7 +34,7 @@ public class NoticeBoardController {
 	public void WriteForm() {}
 	
 	@RequestMapping("/write.do")
-	public String Write(NoticeBoard board) {
+	public String Write(Board board) {
 		service.insertBoard(board);
 		return "redirect:notice.do";
 	}
@@ -45,7 +45,7 @@ public class NoticeBoardController {
 	}
 	
 	@RequestMapping("/update.do")
-	public String Update(NoticeBoard board) {
+	public String Update(Board board) {
 		service.updateBoard(board);
 		return "redirect:notice.do";
 	}

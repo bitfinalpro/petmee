@@ -30,6 +30,11 @@
 
 	<!-- 쿠폰정보 select -->
 	<select id="selectCoupon" parameterType="User" resultType="Coupon">
-		select * from tb_coupon where email = #{email} order by REG_DATE
+		select email, date_format(reg_date,'%Y-%m-%d') as reg_date,discount,name,no from tb_coupon where email = #{email} order by REG_DATE
 	</select>
+	
+	<!-- 쿠폰정보 update -->
+	<update id="updateCoupon" parameterType="hashmap">
+		update tb_coupon set email = #{email} where no = #{no}
+	</update>
 </mapper>

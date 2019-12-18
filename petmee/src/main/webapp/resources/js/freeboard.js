@@ -3,11 +3,11 @@ $(() => {
 	$("#crForm").submit(() => {
 		$.post({
 			url: "comment_regist.do",
-			data: {no, writer: $("#writer").val(), content: $("#content").val()},
+			data: {no, email: $("#email").val(), content: $("#content").val()},
 			dataType: "json",
 			success: (list) => makeCommentList(list)
 		});
-		$("#writer", "#content").val("");
+		$("#email", "#content").val("");
 		return false;
 	});
 	
@@ -96,7 +96,7 @@ function makeCommentList(list) {
 		$di.append(
 		    `<div id="row${c.commentNo}">
 				<div class="com_com">
-				<div class="nick">${c.writer}</div>
+				<div class="nick">${c.email}</div>
 				<div class="time">${time}</div>
 				<a href="#" data-no="${c.commentNo}" class="del">삭제</a>
 				<a href="#" data-no="${c.commentNo}" class="mod">수정</a>	
