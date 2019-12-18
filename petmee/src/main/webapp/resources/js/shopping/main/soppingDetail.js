@@ -3,36 +3,21 @@
 * FUNCTION JS
 * --------------------------------
 */
-
-
-
-
-
 /*-----------------------  product su chek----------------- */
-var sell_price;
+			var sell_price;
 			var amount;
 			var subA;
 			var subB;
+			var inputNumber = document.getElementById('#proinput');
 			var big;
 			var smallImgs;
-
 			var bigImg;
 			var smallImgThumb;
 			
 			function init () {
-				if (amount == 10) {
-					return;
-				}
-				
-				sell_price = document.form.sell_price.value;
-				amount = document.form.amount.value;
-				document.form.sum.value = sell_price;
-				document.form.sum1.value = sell_price;
-				change();
 				
 				big = document.getElementById('bigImg');
 				smallImgs= document.getElementById('smallImgs');
-
 				bigImg = big.getElementsByTagName('img')[0];
 				smallImgThumb = smallImgs.getElementsByTagName('img');
 				for(var i = 0; i<smallImgThumb.length; i++){
@@ -40,6 +25,14 @@ var sell_price;
 						bigImg.src=this.src;
 					}
 				}
+				
+				sell_price = document.form.sell_price.value;
+				amount = document.form.amount.value;
+				sum.value = inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				document.form.sum.value = sell_price;
+				document.form.sum1.value = sell_price;
+				change();
+			
 			}
 			
 			function add () {
@@ -51,7 +44,7 @@ var sell_price;
 				hm1.value ++ ;
 				hm2 = document.form.subB;
 				hm2.value ++ ;
-				sum.value = parseInt(hm.value) * sell_price;				
+				sum.value = (parseInt(hm1.value) * sell_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				sum1.value = parseInt(hm1.value) * sell_price;
 				
 			}
@@ -73,6 +66,7 @@ var sell_price;
 					if (hm2.value > 1) {
 						hm2.value -- ;
 					}
+					sum.value = (parseInt(hm1.value) * sell_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 			
 			function change () {
@@ -92,7 +86,7 @@ var sell_price;
 					if (hm2.vaue < 0) {
 						hm2.value = 0;
 					}
-				sum.value = parseInt(hm.value) * sell_price;
+				sum.value = inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 				sum1.value = parseInt(hm1.value) * sell_price;
 				sum2.value = parseInt(hm1.value) * sell_price;
 			}  

@@ -166,7 +166,7 @@ tt, code, kbd, samp, pre {font-family:"Lato", "Noto Sans KR", sans-serif, Malgun
 .board_title strong {font-size: 2rem;line-height: 2r-.5rem;}
 /*--------------------shopping price check-------------------------------*/
 #subA {width: 20px;font-size: 18px;margin: 0;}
-#proinput {width: 130px;}
+#proinput {width: 140px;}
 /*--------------------shopping price check end-------------------------------*/
 /*------------shopping board--------------------*/
 .notice_tb {width: 100%; margin: 0px auto; border-top: 2px solid #333; text-align: center;}

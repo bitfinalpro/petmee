@@ -94,7 +94,8 @@
 			<th>수량 :</th>
 			<td>		
 			<input type=hidden name="sell_price" value="${product.price}"><input type="text" name="amount" value="1" size="2" onchange="change();">
-				<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+				<input type="button" value=" + " onclick="add();">
+				<input type="button" value=" - " onclick="del();">
 				<span id="product_su_txt">(최소준문수량 1개 이상)</span>
 			</td>
 			
@@ -102,6 +103,7 @@
 	</tbody>
 	</table>
 	</div>
+
 		<fieldset>
 			<div class="pro-total">
 				<strong>총 상품금액(수량)</strong>
