@@ -21,7 +21,7 @@ import kr.co.petmee.util.PageResult;
 @Controller("kr.co.petmee.board.controller.QnABoardController")
 @RequestMapping("/board/qnaboard")
 
-public class QnaBoardController {
+public class QnABoardController {
 	
 	@Autowired
 	private QnaBoardService service;
