@@ -27,12 +27,12 @@
                 <div id="types">
                       <div class="ll">
                           <div class="left" style="font-size: 24px;"> <c:out value="${board.title}" /></div>
-                          <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
+                          <div class="right" style="font-size: 16px;"><i class="far fa-clock"></i> <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
                        </div>
                </div>
                <div id="types1">
                    <div class="ll">
-                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.writer}</div>
+                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i> ${board.email}</div>
                          <div class="right"><i class="far fa-eye"></i> ${board.viewCnt}</div>
                    </div>
                </div>

@@ -9,7 +9,7 @@ public class Comment {
 	
 	private int commentNo;
 	private int no;
-	private String writer;
+	private String email;
 	private String Content;
 	private Date regDate;
 

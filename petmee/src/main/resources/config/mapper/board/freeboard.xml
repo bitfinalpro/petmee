@@ -1,75 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.petmee.repository.dao.FreeBoardDAO">
-
-<!-- 리스트 , 페이징 -->
-	<select id="selectBoard" resultType="FreeBoard" parameterType="Page">
-	   select *
-	     from bitfinalproject.tb_freeboard
-	    order by no desc
-	     limit #{begin}, 10
-	</select>
-	<select id="selectBoardCount" resultType="int">
-	select count(*)
-		from bitfinalproject.tb_freeboard
-	</select>
-<!-- 글 상세 조회 -->
-	<select id="selectOneBoard" parameterType="int" resultType="FreeBoard">
+<mapper namespace="kr.co.petmee.repository.dao.BoardDAO">
+	<!-- 리스트 , 페이징 -->
+	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
-		  from bitfinalproject.tb_freeboard
-		 where no = #{no} 
+		from tb_board
+		order by topChk desc, no desc
+		limit #{begin}, 10
 	</select>
-<!-- 게시글 등록 -->
-	<insert id="insertBoard" parameterType="FreeBoard">
-		insert into bitfinalproject.tb_freeboard (
-			 title, writer, content
+
+	<!-- 글 상세 조회 -->
+	<select id="selectOneBoard" parameterType="int"
+		resultType="Board">
+		select *
+		from tb_board
+		where no = #{no}
+	</select>
+	<!-- 페이징 -->
+	<select id="selectBoardCount" resultType="int">
+		select count(*)
+		from tb_board
+	</select>
+	
+	<!-- 게시글 등록 -->
+	<insert id="insertBoard" parameterType="Board">
+		insert into tb_board (
+		title, email, content, topChk, type
 		) values (
-			 #{title}, #{writer}, #{content}
+		#{title}, #{email}, #{content}, #{topChk}, #{type}
 		)
 	</insert>
-<!--  조회 수 -->	
+	<insert id="insertBoard2" parameterType="Board">
+		insert into tb_board (
+		title, email, content, topChk
+		) values (
+		#{title}, #{email}, #{content}, #{topChk}
+		)
+	</insert>
+	<!-- 조회 수 -->
 	<update id="updateViewCnt" parameterType="int">
-		update bitfinalproject.tb_freeboard 
-		   set view_cnt = view_cnt + 1
-		 where no = #{no}
+		update tb_board
+		set view_cnt = view_cnt + 1
+		where no = #{no}
 	</update>
-<!--  글 수정 -->	
-	<update id="updateBoard" parameterType="FreeBoard">
-		update bitfinalproject.tb_freeboard 
-		   set title = #{title},
-		       writer = #{writer}, 
-		       content = #{content}
-		 where no = #{no}
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="Board">
+		update tb_board
+		set title = #{title},
+		email = #{email},
+		content = #{content}
+		where no = #{no}
 	</update>
-<!--  글삭제 -->
+	<!-- 글삭제 -->
 	<delete id="deleteBoard" parameterType="int">
-		delete 
-		  from bitfinalproject.tb_freeboard
-		 where no = #{no}
+		delete
+		from tb_board
+		where no = #{no}
 	</delete>
-<!-- 자원봉사 후기 검색 게시물 추출  -->
-	<select id="selectSearchWriter" resultType="FreeBoard" parameterType="Search">
-	   select *
-	     from bitfinalproject.tb_freeboard 
-	    where writer like concat('%',#{searchText},'%')
-	    order by no desc
-	     limit #{begin}, 10
-	</select>	
-	<select id="selectSearchTitle" resultType="FreeBoard" parameterType="Search">
-	   select *
-	     from bitfinalproject.tb_freeboard 
-	    where title like concat('%',#{searchText},'%')
-	    order by no desc
-	     limit #{begin}, 10
-	</select>	
-	<select id="selectSearchBoth" resultType="FreeBoard" parameterType="Search">
-	   select *
-	     from bitfinalproject.tb_freeboard 
-	    where (title like concat('%',#{searchText},'%')) OR (writer like concat('%',#{searchText},'%'))
-	    order by no desc
-	     limit #{begin}, 10
-	</select>	
+	<!-- 검색 -->
+	<select id="selectSearchWriter" resultType="Board"
+		parameterType="Search">
+		select *
+		from tb_board
+		where writer like concat('%',#{searchText},'%')
+		order by no desc
+		limit #{begin}, 10
+	</select>
+	<select id="selectSearchTitle" resultType="Board"
+		parameterType="Search">
+		select *
+		from tb_board
+		where title like concat('%',#{searchText},'%')
+		order by no desc
+		limit #{begin}, 10
+	</select>
+	<select id="selectSearchBoth" resultType="Board"
+		parameterType="Search">
+		select *
+		from tb_board
+		where (title like concat('%',#{searchText},'%')) OR (writer like
+		concat('%',#{searchText},'%'))
+		order by no desc
+		limit #{begin}, 10
+	</select>
 
 </mapper>
 

@@ -9,5 +9,8 @@ import kr.co.petmee.repository.vo.Report;
 @Service
 public interface ReportService {
 		List<Report> reportList();	   // 모든 신고당한 회원
+		
+		 void insertReport(Report report);
+		 void deleteReport(int no);
 
 }

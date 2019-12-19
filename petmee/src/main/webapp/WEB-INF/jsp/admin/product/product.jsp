@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -25,7 +26,9 @@
   <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
   <link href ="<c:url value="/resources/css/admin/product.css"/>" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+  	let Project;
+  </script>
 </head>
 
 <body id="page-top">
@@ -154,7 +157,7 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton">제품 입고</button><button id="outputbutton">제품 출고</button></div>
+            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputcouponbutton" class="nofresh">쿠폰등록</button><button id="inputbutton" class="nofresh">제품 입고</button><button id="outputbutton" class="nofresh">제품 출고</button></div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -177,7 +180,7 @@
                 <c:forEach var="p" items="${list}">
                   <tr>
                     <td><input type="checkbox" name="choice" value="${p.productId}"/> &nbsp ${p.productId}</td>
-                    <td>${p.productName}</td>
+                    <td><a href="" data-no="${p.productId}" class="updateInfo nofresh">${p.productName}</a></td>
                     <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
                     <td>
                     	<c:if test="${p.categoryNo == 1}">의류</c:if>
@@ -194,51 +197,56 @@
                 </c:forEach>
                 </tbody>
               </table>
-              <!-- 등록모달창 시작 -->
-              <div id="registerpopup" class="layer">
+              <!-- 제품정보 변경 모달창 시작 -->
+              <div id="updatepopup" class="layer">
                   <div class="box">
-                       <a href="#"><span>x</span></a>
-                       <div id="inputtitle">제품 등록</div>
+                       <a href="#" class="stopnofresh"><span>x</span></a>
+                       <div id="inputtitle">제품정보 변경</div>
                        <div>
-                        <form id="pForm">                            
-                        <div>
-                          분류: <select name="category" id="selectCategory">
-                          <c:forEach var="c" items="${cList}">
-                            <option value="${c.categoryNo}">${c.categoryName}</option>
-                           </c:forEach>
-                          </select>
-                        </div>
-                        <div>상품명 : <input type="text" name="productname"/></div>                             
-                        <div>품번 : <input type="text" name="productno"/></div>
-                        <div>가격 : <input type="text" name="productprice"/></div>
-                        <div>제조사 : <input type="text" name="company"/></div>
-                        <button id="registerlistupbtn" type="button">목록에 올리기</button>
+                        <form id="updateForm" action="updateProduct.do">
+                        
                         </form>
-                        <div id="registerlist">
+                        <button class="cancelModalbtn">취소</button>                        
+                       </div>                    
+                  </div>
+                </div>
+              <!-- 모달창 끝 -->            
+              <!-- 쿠폰등록 모달창 시작 -->
+              <div id="inputcouponpopup" class="layer">
+                  <div class="box">
+                       <a href="#" class="stopnofresh"><span>x</span></a>
+                       <div id="inputtitle">쿠폰 등록</div>
+                       <div>
+                        <form id="pForm">                         
+                        <div>쿠폰이름 : <input type="text" name="couponName"/></div>
+                        <div>쿠폰번호 : <input type="text" name="couponNo"/></div>
+                        <div>할인금액 : <input type="text" name="couponDiscount"/></div>
+                        <button id="inputcouponlistupbtn" type="button">목록에 올리기</button>
+                        </form>
+                        <div id="inputcouponlist">
                           <table id="inputlisttable">
                               <thead>
                                   <tr>                                    
-                                    <th>분류</th>
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>가격</th>
-                                    <th>제조사</th>
+                                    <th>쿠폰이름</th>
+                                    <th>쿠폰번호</th>                                    
+                                    <th>할인금액</th>
                                   </tr>
                                 </thead>
-                                <tbody id="tbody">
-                                                                  
+                                <tbody id="inputcouponTbody">                               
+                                  
                                 </tbody>
                           </table>
                         </div>
                        </div>
-                    <button id="completebtn1">완료</button>
+                    <button id="couponcompletebtn" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            
               <!-- 입고모달창 시작 -->
               <div id="inputpopup" class="layer">
                   <div class="box">
-                       <a href="#"><span>x</span></a>
+                       <a href="#" class="stopnofresh"><span>x</span></a>
                        <div id="inputtitle">제품 입고</div>
                        <div>
                         <form id="pForm">                         
@@ -262,14 +270,15 @@
                           </table>
                         </div>
                        </div>
-                    <button id="completebtn2">완료</button>
+                    <button id="completebtn2" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            
               <!-- 출고모달창 시작 -->
               <div id="outputpopup" class="layer">
                   <div class="box">
-                       <a href="#"><span>x</span></a>
+                       <a href="#" class="stopnofresh"><span>x</span></a>
                        <div id="inputtitle">제품 출고</div>
                        <div>
                         <form id="pForm">                         
@@ -293,7 +302,8 @@
                           </table>
                         </div>
                        </div>
-                    <button id="completebtn3">완료</button>
+                    <button id="completebtn3" class="stopnofresh">완료</button>
+                    <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
               <!-- 모달창 끝 -->            
@@ -347,7 +357,7 @@
       </div>
     </div>
   </div>
-
+  <input type="hidden" value="${cList.size()}" id="cList" />	
  <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
@@ -366,7 +376,6 @@
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
-  <script src="<c:url value="/resources/js/admin/product.js"/>"></script>
+  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
 </body>
-
 </html>

@@ -2,7 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ProductDAO">
-       
+<!-- 제품 글 등록 -->
+	<insert id="insertProduct" parameterType="Product">
+		insert into tb_product(product_id, product_name, product_info, price, stock, company, category_no, animal_no, sell_condition)
+		values(#{productId}, #{productName}, #{productInfo}, #{price}, #{stock}, #{company}, #{categoryNo}, #{animalNo}, #{sellCondition})
+	</insert>
+<!-- 제품이미지 등록 -->
+	<insert id="productImg" parameterType="Image">
+		insert into tb_image(product_id, type, ORI_NAME, NAME, PATH)
+		values(#{productId}, #{type}, #{oriName}, #{name}, #{path})
+	</insert>        
 <!-- 제품목록 추출 -->       
        <select id="selectProducts" resultType="Product">
         select *
@@ -37,4 +46,35 @@
 		   set stock = stock - #{productCount}
 		 where product_id = #{productId}
 	</update> 
+<!-- 제품 정보 변경 -->
+	<update id="updateProductInfo" parameterType="Product">
+		update tb_product
+		   set product_Id = #{productId},
+		   	   product_name = #{productName},
+		   	   product_info = #{productInfo},
+		   	   price = #{price},
+		   	   stock = #{stock},
+		   	   company = #{company},
+		   	   category_no = #{categoryNo},
+		   	   animal_no = #{animalNo},
+		   	   sell_condition = #{sellCondition}		   	   
+		 where product_id = #{orgProductId}
+	</update>
+	<!--쿠폰 등록 -->
+	<insert id="registerCoupon" parameterType="Coupon">
+		insert into tb_coupon(no, name, discount)
+		values(#{no}, #{name}, #{discount})
+	</insert>
+	<!-- 쿠폰명 중복검사 -->
+	<select id="checkCouponName" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where name = #{name}
+	</select> 
+	<!-- 쿠폰번호 중복검사 -->
+	<select id="checkCouponNo" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where no = #{no}
+	</select> 
 </mapper>

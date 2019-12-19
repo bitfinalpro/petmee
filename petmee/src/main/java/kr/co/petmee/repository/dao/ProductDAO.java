@@ -1,12 +1,17 @@
 package kr.co.petmee.repository.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
+import kr.co.petmee.repository.vo.Coupon;
+import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Product;
 
 public interface ProductDAO {
 	
+	// 제품 이미지등록  
+	void productImg(Image image);
+	// 제품 글등록  
+	void insertProduct(Product product);
 	//전체 제품목록 추출
 	List<Product> selectProducts();
 	//카테고리 추출
@@ -19,4 +24,12 @@ public interface ProductDAO {
 	void plusCount(Product product);
 	//제품 출고
 	void minusCount(Product product);
+	//제품 정보 변경
+	void updateProductInfo(Product product);
+	//쿠폰등록
+	void registerCoupon(Coupon coupon);
+	//쿠폰명중복검사
+	int checkCouponName(String name);
+	//쿠폰번호중복검사
+	int checkCouponNo(String no);
 }

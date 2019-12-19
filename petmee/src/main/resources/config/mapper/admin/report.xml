@@ -7,4 +7,20 @@
        select *
          from tb_report
    </select>
+   <!-- 신고당한 회원 추가  -->
+   <insert id="insertReport" parameterType="Report">
+   insert into tb_report (
+    no, email, report_Email,  report_Reason, content, title, other,  board_Type ) 
+    values (
+    #{no}, #{email}, #{reportEmail}, 
+    #{reportReason}, #{content}, #{title}, #{other}, #{boardType}
+    )
+   </insert>
+   <!-- 강퇴  -->
+   <delete id ="deleteReport" parameterType="int">
+    delete
+    from tb_report 
+    where report_No = #{reportNo}
+   </delete>
+   
 </mapper>

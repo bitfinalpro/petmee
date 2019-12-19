@@ -13,25 +13,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freewrite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
 
-<style>
-.wirte_form {width: 70%; margin:  0 auto; }
-.wirte_form #title {width: 100%; height: 30px; margin: 30px 0px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; height: 30px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; border: 1px solid #333;} 
-.files {clear: both; margin: 15px 0px; width: 100%; height: 33px;  border: 1px solid #eee; color: #333; border-radius: 3px 0 0 3px;}
-.files > div:nth-child(1){ float: left; margin-top: -1px; text-align: center; width: 30px; height: 34px;  color: #333; border-radius: 2px 0 0 3px; background-color: #eee;}
-.files > div:nth-child(1) > i {vertical-align: middle; padding-top: 5px;}
-.files > div:nth-child(2){ float: left; padding: 5px 5px; height: 30px; color: #333; }
-.btn {width: 100%; margin: 0 auto; margin-bottom: 20%; margin-top: 5%; text-align: center;}
-.btn button {width: 8%; height: 30px;}
-.btn button:nth-child(1) { margin: 10 0; color: #fff;font-weight: bold;
-background-image: linear-gradient(30deg,#002a50,#006ecf);}
-.btn button:nth-child(2) { margin: 10 0; color: #fff;font-weight: bold;
-    background-image: linear-gradient(30deg,#333, #333);}
- </style>    
 <body>
  <div id="header">
       <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
@@ -42,7 +27,8 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
          <form method="post" action="write.do" id="" onsubmit="return check()">
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
-            <input type="hidden" name="writer" value="우희준" class="write_input" placeholder="작성자" />
+            <input type="hidden" name="type" value="free" />
+            <input type="hidden" name="email" value="이지은" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,85 @@
 
   <!-- 이 템플릿의 사용자 지정 스타일 -->
    <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
+<style>
+ .u {
+    width: 30%;
+      text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 20px;
+      }
+    .u > strong {
+      text-align: center;
+      }
+    #usermodal {
+      border: solid 1px #e9e9e9;
+      width: 530px;
+      height: 400px;
+    }
+    #usermodal > tbody > tr > td {
+      border: solid 1px  #e9e9e9;
+  
+    }
+    #usermodal > tbody > tr > td:nth-child(2n + 1) {
+      background: skyblue;
+      padding-left: 8px;
+      padding-right: 3px;
+    }
+    #usermodal > tbody > tr > td:nth-child(2n + 2) {
+      padding-left: 8px;
+    }
 
+    *{
+      margin:0;
+      padding:0;
+    }
+    ul,li{
+      list-style:none;
+    }
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+    .layer{
+      display:none;
+      justify-content:center;
+      align-items:center;
+      background:rgba(0,0,0, 0.5);
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+    }
+    .layer .box{
+      padding:20px 20px 60px;
+      margin:20px;
+      width:570px;
+      height: 530px;
+      background: white;
+      position:relative;
+    }
+    .layer .close{
+      position:absolute;
+      right:20px;
+      bottom:20px;
+      display:block;
+      background:#09F;
+      color:#fff;
+      text-align:center;
+      padding:5px 20px;
+      font-size:13px;
+    }
+    .layer:target{
+      display:flex;
+      animation:open 0.5s;
+    }
+    @keyframes open {
+      from {opacity:0;} to {opacity:1;}
+    }
+  
+  </style>
 </head>
 
 <body id="page-top">
@@ -139,7 +218,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">회원</a>
+            <a href="#">신고</a>
           </li>
           <li class="breadcrumb-item active">Tables</li>
         </ol>
@@ -154,22 +233,22 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>신고번호</th>
-                    <th>신고게시판</th>
-                    <th>아이디</th>
+                    <th>번호</th>
+                    <th>분류</th>
+                    <th>작성자</th>
                     <th>신고사유</th>
-                    <th>신고내용</th>
+                    <th>제목</th>
                     <th>신고자</th>
                     <th>탈퇴</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>신고번호</th>
-                    <th>신고게시판</th>
-                    <th>아이디</th>
+                    <th>번호</th>
+                    <th>분류</th>
+                    <th>작성자</th>
                     <th>신고사유</th>
-                    <th>신고내용</th>
+                    <th>제목</th>
                     <th>신고자</th>
                     <th>탈퇴</th>
                   </tr>
@@ -181,18 +260,67 @@
                 </c:if>
                 <c:forEach var="report" items="${reportList}">
                 <tbody>
-                    <tr>
+                    <tr onclick="popup('${report.email}', '${report.title}', '${report.content}',
+                                       '${report.reportEmail}', '${report.other}', '${report.reportReason}',
+                                       '${report.boardType}', '${report.stringReportDate}')">
                         <td>${report.reportNo}</td>
                         <td>${report.boardType}</td>
                         <td>${report.email}</td>
                         <td>${report.reportReason}</td>
-                        <td>${report.reportContent}</td>
+                        <td>${report.title}</td>
                         <td>${report.reportEmail}</td>
                         <td><a href="#"><button type="button">탈퇴</button></a></td>
                       </tr>
                 </tbody>
                 </c:forEach>
               </table>
+              
+                <!-- 모달창 시작 -->
+                <div id="popup" class="layer">
+                  <div class="box">
+                    <div class="u"><strong>신고정보</strong></div>
+                    <table class ="usermodal" id="usermodal">
+                        <colgroup>
+                          <col width="17%">
+                          <col width="25%">
+                          <col width="10%">
+                          <col width="10%">
+                          <col width="7%">
+                          <col width="3%">             
+                      </colgroup>                  
+                      <tr>
+                        <td>작성자 </td>
+                        <td id="email"colspan="5"></td>
+                      </tr>
+                      <tr>
+                        <td>제목</td>
+                        <td id="title" colspan="5"></td>
+                      </tr>
+                      <tr>
+                        <td>신고사유 </td>
+                        <td id="reason"colspan="2"></td>
+                        <td>분류 </td>
+                        <td id="type"colspan="2"></td>
+                      </tr>
+                      <tr>
+                        <td>신고자</td>
+                        <td id="reportEmail" colspan="2"></td>
+                        <td>일자</td>
+                        <td id="date" colspan="2"></td>
+                      </tr>
+                      <tr>
+                        <td>신고내용  </td>
+                        <td id="content" colspan="5"></td>
+                      </tr>
+                      <tr>
+                        <td>기타사유 </td>
+                        <td id="other" colspan="5"></td>
+                      </tr>
+                    </table>
+                    <a href="#" class="close">닫기</a>
+                  </div>
+                </div>
+              <!-- 모달창 끝 -->
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -260,7 +388,7 @@
 
   <!-- Demo scripts for this page-->
  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
-
+ <script src="<c:url value="/resources/js/admin/userreport.js" /> "></script>
 </body>
 
 </html>

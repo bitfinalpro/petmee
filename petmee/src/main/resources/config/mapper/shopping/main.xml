@@ -12,5 +12,20 @@
 		select *
 			from tb_product
 			where product_id = #{productId}
-	</select> 
+	</select>
+	
+	<select id="selectProductImage" parameterType="String" resultType="Image">
+		select img.path, img.ori_name, img.type
+			from tb_image img
+			inner join tb_product pro
+			on img.product_id = pro.product_id
+            where pro.product_id = #{productId}
+	</select>
+	<!-- 파일 --> 
+	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
+			select * from tb_image
+				where type = 'sum'
+			group by product_id
+	</select>
+
 </mapper>

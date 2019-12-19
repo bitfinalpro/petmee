@@ -1,5 +1,7 @@
 package kr.co.petmee.repository.vo;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -12,9 +14,9 @@ public class User {
 	private String phone; // 핸드폰 번호
 	private String resident; // 주민번호
 	private String gender; // 성별
-	private String withdrawal; // 탈퇴
 	private String usertype; // 유저타입 ( 일반 / 관리자)
-	private String nickname; // 닉네임 (쓸지말지)
 	private String address; // 주소
 	private int age; // 나이
+	private Date regDate; // 가입 날짜
+	private String stringUserDate; // 가입날짜 문자열
 }

@@ -10,27 +10,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freeupdate.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
-
-<style>
-.wirte_form {width: 70%; margin:  0 auto; }
-.wirte_form #title {width: 100%; height: 30px; margin: 30px 0px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; height: 30px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
-.wirte_form textarea {width: 100%; border: 1px solid #333;} 
-.files {clear: both; margin: 15px 0px; width: 100%; height: 33px;  border: 1px solid #eee; color: #333; border-radius: 3px 0 0 3px;}
-.files > div:nth-child(1){ float: left; margin-top: -1px; text-align: center; width: 30px; height: 34px;  color: #333; border-radius: 2px 0 0 3px; background-color: #eee;}
-.files > div:nth-child(1) > i {vertical-align: middle; padding-top: 5px;}
-.files > div:nth-child(2){ float: left; padding: 5px 5px; height: 30px; color: #333; }
-.btn {width: 100%; margin: 0 auto; margin-bottom: 20%; margin-top: 5%; text-align: center;}
-.btn button {width: 8%; height: 30px;}
-.btn button:nth-child(1) { margin: 10 0; color: #fff;font-weight: bold;
-background-image: linear-gradient(30deg,#002a50,#006ecf);}
-.btn button:nth-child(2) { margin: 10 0; color: #fff;font-weight: bold;
-    background-image: linear-gradient(30deg,#333, #333);}
- </style>    
 <body>
    <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
 
@@ -40,7 +23,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
          <input type="hidden" name="no" value="${board.no}" />
         <div class="wirte_form">
              <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" value='<c:out value="${board.title}" /> '> 
-            <input type="hidden" name="writer" id="writer" maxlength="29" value="${board.writer}"/>
+            <input type="hidden" name="email" id="email" maxlength="29" value="${board.email}"/>
             <textarea name="content" id="summernote"><c:out value="${board.content}" /></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
