@@ -18,10 +18,9 @@ import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
-@Controller("kr.co.petmee.board.controller.QnABoardController")
+@Controller("kr.co.petmee.board.controller.QnaBoardController")
 @RequestMapping("/board/qnaboard")
-
-public class QnABoardController {
+public class QnaBoardController {
 	
 	@Autowired
 	private QnaBoardService service;
