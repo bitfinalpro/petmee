@@ -325,7 +325,7 @@
               <li class="depth02"><a>마이페이지</a></li>
           </ul> -->
       </div>
-      <div class="sub-visual-bg" style="background-image:url(../images/sub/mypage.jpg)"></div>
+      <!-- <div class="sub-visual-bg" style="background-image:url(../images/sub/mypage.jpg)"></div> -->
   </div>      
   <div class="sub-menu-list sub_dep02" style="display:block;">
     <ul class="clearfix tab tab2">
@@ -340,7 +340,7 @@
             <p class="title_bold">CHANGE INFORMATION</p>
           </div>
   <div class="wrapper">
-    <form method="post" name="theForm" action="join_edit_end.php">
+    <form method="post" name="theForm" action="<c:url value="/shopping/login/mypageUpdate.do" />"><!-- /shopping/login/mypageDelete.do -->
   
     <input type="hidden" name="nickname_check_ok" id="nickname_check_ok" value="0"> 
     <input type="hidden" name="email_check_ok" id="email_check_ok" value="0">
@@ -383,7 +383,7 @@
         <li class="col-lg-6">
           <div class="inputbox">
           	<input type="password" name="c_userpasswd" maxlength="100" placeholder="비밀번호 변경시에만 입력해주세요.">
-            <label for="">새비밀번호</label>
+            <label for="">새비밀번호<em>(필수)</em></label>
             <p class="valid">
               <!-- <i class="xi-check" title="비밀번호 일치"></i> -->
               <i class="xi-close" title="비밀번호 불일치"></i>
@@ -392,7 +392,7 @@
         </li>
         <li class="col-lg-6">
           <div class="inputbox"><input type="password" name="c_userpasswd2" maxlength="100" placeholder="비밀번호 변경시에만 입력해주세요.">
-            <label for="">새비밀번호 확인</label>
+            <label for="">새비밀번호 확인<em>(필수)</em></label>
             <p class="valid">
               <!-- <i class="xi-check" title="비밀번호 일치"></i> -->
               <i class="xi-close" title="비밀번호 불일치"></i>
@@ -409,27 +409,10 @@
         
         <li class="col-lg-6">
           <div class="inputbox">
-            <div class="row_5">
-              <div class="col-lg-3"><input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="" onclick="DaumPostcode();" value="#"></div>
-              <div class="col-lg-3"><a href="javascript:;" class="btn">우편번호</a></div>
-              <div class="col-lg-6"><input type="text" maxlength="100" name="address1" id="address1" readonly="" value="#"></div>
-            </div>
-            <label for="">주소<em>(필수)</em></label>
-          </div>
-        </li>
-        <li class="col-lg-6">
-          <div class="inputbox">
-            <input type="text" maxlength="100" name="address2" id="address2" value="#">
-            <label for="">상세주소</label>
-          </div>
-        </li>
-        
-        <li class="col-lg-6">
-          <div class="inputbox">
             <ul class="num">
-              <li><input type="text" name="mobile_1" id="mobile_1" maxlength="4" value=""></li>
-              <li><input type="text" name="mobile_2" id="mobile_2" maxlength="4" value=""></li>
-              <li><input type="text" name="mobile_3" id="mobile_3" maxlength="4" value=""></li>
+              <li><input type="text" name="mobile_1" id="mobile_1" maxlength="4" value="${m.phone}"></li>
+<!--               <li><input type="text" name="mobile_2" id="mobile_2" maxlength="4" value=""></li>
+              <li><input type="text" name="mobile_3" id="mobile_3" maxlength="4" value=""></li> -->
             </ul>
             <!-- <input type="text" placeholder="핸드폰"> -->
             <label for="">핸드폰<em>(필수)</em></label>
@@ -447,43 +430,73 @@
             <label for="">전화번호</label>
           </div>
         </li>
-        </c:forEach>
         
+        <li class="col-lg-6">
+          <div class="inputbox">
+            <div class="row_5">
+              <div class="col-lg-3"><input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="" onclick="DaumPostcode();" value="#"></div>
+              <div class="col-lg-3"><a href="javascript:;" class="btn">우편번호</a></div>
+              <div class="col-lg-6"><input type="text" maxlength="100" name="address1" id="address1" readonly="" value="${m.address}"></div>
+            </div>
+            <label for="">주소<em>(필수)</em></label>
+          </div>
+        </li>
+        <li class="col-lg-6">
+          <div class="inputbox">
+            <input type="text" maxlength="100" name="address2" id="address2" value="#">
+            <label for="">상세주소</label>
+          </div>
+        </li>
+        
+        </c:forEach>
       <!--   <li class="col-lg-12 chk_area mt_20">
           <input type="checkbox" name="email_s" id="email_s" value="y"><label for="email_s">정보메일 수신 동의</label>
           <input type="checkbox" name="mobile_s" id="mobile_s" value="y"><label for="mobile_s">문자서비스 수신 동의</label>
         </li> -->
       </ul>
     </div>
-  
-  
     <div class="con-margin-02 text_center posi_r">
-      <input type="button" value="변경완료" class="btn-type-01" onclick="return sendcheck('edit');">
+    	 <button type="submit" class="btn-type-01">변경완료</button>
+    	<!-- 원본 -->
+       <!-- <input type="button" value="변경완료" class="btn-type-01" onclick="return sendcheck('edit');"> -->
        <a href="javascript:;" onclick="$('.quit-pop').modal('show');" class="btn-type-02">회원탈퇴</a>
     </div>
   </form>
   </div>
 </div>
- </div> 
- <!-- c -->
-    </div>
-    <div class="modal pop-con-modal quit-pop " id="quit-pop" style="display: none;" aria-hidden="false">
-  <div class="modal_standard text_left">
-  <div class="modal_wrap">
-  <div class="modal-dialog">
-  <div class="modal-con">
-      <button title="Close (Esc)" type="button" class="mfp-close" data-dismiss="modal"><i class="xi-close-thin"></i></button>
-      <div class="pop-head _b2">회원탈퇴</div>
-      <div class="pop-box text_left">
-          <div class="join scroll-con-y mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
-              그동안 MINIPET를 이용해 주셔서 감사합니다.
-              <br>더 좋은 서비스와 품질로 보답하겠습니다.
-              <br>
-              <br>* 탈퇴 후에는 아이디와 예약내역 등의 데이터 복구가 불가능합니다.
-              <br>* 탈퇴 후에는 등록된 게시물 삭제가 불가능합니다.
-          </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+</div> 
+<!-- c -->
+</div>
+	<div class="modal pop-con-modal quit-pop " id="quit-pop" style="display: none;" aria-hidden="false">
+	<div class="modal_standard text_left">
+ 	<div class="modal_wrap">
+	<div class="modal-dialog">
+	<div class="modal-con">
+	<button title="Close (Esc)" type="button" class="mfp-close" data-dismiss="modal">
+		<i class="xi-close-thin"></i>
+	</button>
+	<div class="pop-head _b2">회원탈퇴</div>
+	<div class="pop-box text_left">
+		<div class="join scroll-con-y mCustomScrollbar _mCS_1 mCS_no_scrollbar">
+			<div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+				<div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+					그동안 펫미를 이용해 주셔서 감사합니다.
+		              <br>더 좋은 서비스와 품질로 보답하겠습니다.
+		              <br>
+		              <br>* 탈퇴 후에는 아이디와 예약내역 등의 데이터 복구가 불가능합니다.
+		              <br>* 탈퇴 후에는 등록된 게시물 삭제가 불가능합니다.
+		          </div>
+		          <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;">
+			          <div class="mCSB_draggerContainer">
+				          <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;" oncontextmenu="return false;">
+				          	<div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+				          </div>
+				          <div class="mCSB_draggerRail"></div>
+			          </div>
+		          </div>
+	          </div>
+          </div>
           <script type="text/javascript" language="JavaScript">
-          <!--	
               function memout_check(form) {				        													
                   if (form.check_1.checked!=true) { 
                       alert("내용 확인을 체크해 주세요.");      	      					
@@ -491,16 +504,16 @@
                   }    	    	    	
                   form.submit();					        						        
               } 
-                          
-              //-->
           </script>
-          <form method="post" name="Memout" action="/pc/mypage/join_out_end.php">
+          <form method="post" name="Memout" action="<c:url value="/shopping/login/mypageDelete.do" />">
               <div class="chk_area mt_20">
-                  <input type="checkbox" name="check_1" id="quit_chk" value="ok"><label for="quit_chk">위 내용을 모두 확인하였습니다.</label>
+                  <input type="checkbox" name="check_1" id="quit_chk" value="ok">
+                  <label for="quit_chk">위 내용을 모두 확인하였습니다.</label>
               </div>
               <div class="con-margin-01 row_5">
                   <div class="col-lg-6">
-                      <input type="button" style="width:100%" class="btn-type-01" onclick="memout_check(this.form);" value="회원탈퇴">
+                  	  <a href='mypageDelete.do?no=${user.userNo}' class="btn-type-01">회원탈퇴</a>
+                      <!-- <input type="button" style="width:100%" class="btn-type-01" onclick="memout_check(this.form);" value="회원탈퇴"> -->
                   </div>
                   <div class="col-lg-6">
                       <a href="javascript:;void(0);" style="width:100%" data-dismiss="modal" class="btn-type-02">취소</a>

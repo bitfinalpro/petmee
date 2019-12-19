@@ -68,8 +68,8 @@
     max-width: 510px; 
 }
 .pop-con-modal .modal-dialog { 
-    background-color: #999;
-    padding: 70px; 
+/*     background-color: #999;
+ */    padding: 70px; 
 }
 .pop-con-modal .mfp-close { 
     position: relative; 

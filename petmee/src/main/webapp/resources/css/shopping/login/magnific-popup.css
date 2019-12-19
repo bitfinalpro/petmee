@@ -10,6 +10,7 @@
   background: #0b0b0b;
   opacity: 0.5;
   filter: alpha(opacity=50);
+  display: none;
 }
 .mfp-wrap {
   top: 0;
@@ -20,6 +21,7 @@
   position: fixed;
   outline: none !important;
   -webkit-backface-visibility: hidden;
+   display: none;
 }
 .mfp-container {
   text-align: center;
@@ -71,6 +73,7 @@
 .mfp-auto-cursor .mfp-content {
   cursor: auto;
   text-align: center;
+/*   display: none; */
 }
 .mfp-close,
 .mfp-arrow,
@@ -154,7 +157,9 @@ button::-moz-focus-inner {
   top: 1px;
 }
 .mfp-close-btn-in .mfp-close {
-  color: #333333;
+  color: #000;
+  background-color: #fff;
+  top: -15px;
 }
 .mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {

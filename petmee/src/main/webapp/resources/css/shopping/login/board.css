@@ -716,10 +716,12 @@ textarea { margin: 0; border: solid 1px #ccc; background-color: #fff; overflow: 
     left: 0; 
     text-align: center; 
     background-position: center; 
-    background-image: url(../images/icon/chk-b.png); 
+    background-image: url(/petmee/resources/images/shopping/login/icon/chk-b.png); 
 }
 
-.chk_area input[type='checkbox']:checked + label:before { background-image: url(../images/icon/chk-b_on.png); }
+.chk_area input[type='checkbox']:checked + label:before { 
+	background-image: url(/petmee/resources/images/shopping/login/icon/chk-b_on.png); 
+}
 
 .chk_area input[type='radio'] { line-height: 19px; }
 

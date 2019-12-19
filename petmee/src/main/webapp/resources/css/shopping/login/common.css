@@ -250,7 +250,7 @@ start popup
 
 .modal-footer .check-area { float: left; }
 
-.modal_standard { position: fixed; /* left: 0; */ top: 0; display: table; height: 100%; width: 100%; overflow: hidden; text-align: center; }
+.modal_standard { /* position: fixed; left: 0; */ top: 0; display: table; height: 100%; width: 100%; overflow: hidden; text-align: center; }
 
 .modal-dialog { margin: 0 auto; width: 100%; }
 

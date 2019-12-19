@@ -11,7 +11,23 @@
     <meta name="format-detection" content="telephone=no, address=no, email=no">
 	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>    
     <script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
-    <title>(주)펫미</title>
+    <title>PetMee</title>
+    <script type="text/javascript" src="<c:url value='/resources/js/shopping/login/lib/jquery-1.11.1.js' />"></script>
+    <script type="text/javascript" language="JavaScript">
+	function sendcheck() {	
+	
+		if ($("input:radio[name='check_1']:checked").val()!="ok") {
+			alert("이용약관에 동의하셔야 회원 가입이 가능합니다.");      	      					
+      		return(false); 
+		}
+		
+		if ($("input:radio[name='check_2']:checked").val()!="ok") {
+			alert("개인정보 취급방침에 동의하셔야 회원 가입이 가능합니다.");      	      					
+      		return(false); 
+		}					        													
+   		theForm.submit();					        						        
+	} 				
+</script>
 </head>
   <body cz-shortcut-listen="true">
     <div id="header">
@@ -37,7 +53,7 @@
                   </div>
           
           <div class="wrapper">
-            <form name="theForm" method="post" action="join02.jsp">
+            <form name="theForm" method="post" action="<c:url value="/shopping/login/joinform.do" />">
             <div class="join_step">이용약관동의</div>
             <div class="row">
               <div class="col-lg-6">
@@ -368,27 +384,13 @@
             <div class="con-margin-02 text_center posi_r">
               <!-- 원본 (jsp로 변환후 작업, 현재 하드코딩으로 경로 잡아놓겠습) -->
               <!-- <a href="javascript:;void(0);" class="btn-type-02" onclick="sendcheck();">다음 단계</a> -->
-              <a href="<c:url value="/shopping/login/joinform.do" />" class="btn-type-02" onclick="sendcheck();">다음 단계</a>
+              <!-- <a href="<c:url value="/shopping/login/joinform.do" />" class="btn-type-02" onclick="sendcheck();">다음 단계</a> -->
+              <a href="javascript:;void(0);" class="btn-type-02" onclick="sendcheck();">다음 단계</a>
             </div>
             </form>
           </div>
         </div>
     </div>
-  <script type="text/javascript" language="JavaScript">	
-    function sendcheck() {	
-    
-        if ($("input:radio[name='check_1']:checked").val()!="ok") {
-            alert("이용약관에 동의하셔야 회원 가입이 가능합니다.");      	      					
-              return(false); 
-        }
-        
-        if ($("input:radio[name='check_2']:checked").val()!="ok") {
-            alert("개인정보 취급방침에 동의하셔야 회원 가입이 가능합니다.");      	      					
-              return(false); 
-        }					        													
-           theForm.submit();					        						        
-    } 				
-	</script>
 	<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>
  	<!-- footer -->
 	<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
