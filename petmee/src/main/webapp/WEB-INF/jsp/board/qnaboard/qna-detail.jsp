@@ -62,7 +62,7 @@
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.qnaNo}" />  
                         <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
-                         <input type="hidden" id="writer" value="" /> 
+                         <input type="hidden" id="email" value="오동훈" /> 
                          <button type="submit" class="comment1" >등록</button>
                       </form>
                    <div class="comlist" id="commentList">
