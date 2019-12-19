@@ -13,4 +13,7 @@ public interface ReportService {
 		
 		 void insertReport(Report report);
 		 void deleteReport(int no);
+        
+		 List<Comment> insertComReport(Report report);
+		 
 }

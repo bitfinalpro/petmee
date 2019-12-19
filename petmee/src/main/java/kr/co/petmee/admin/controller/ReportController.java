@@ -53,18 +53,14 @@ public class ReportController {
 		service.deleteReport(no); 
 		return "redirect:reportlist.do";
 	}
-	
-	/*
-	// 댓글 신고 등록 
+	// 댓글 신고 등록
 	@RequestMapping("/insertComReport.do")
 	@ResponseBody
-	public String insertComReport(Report report, HttpSession session) {
+	public List<Comment> insertComReport(Report report, HttpSession session) {
 		User user = (User)session.getAttribute("user");
 		report.setEmail(user.getEmail());
-		service.insertComReport(report);
-		return "aaa";
+		return service.insertComReport(report);
+		
 	}
-	*/
 	
-     
 }

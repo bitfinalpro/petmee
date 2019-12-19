@@ -65,7 +65,6 @@ function report_chk() {
 			error: () => {console.log("err");},
 			success: (result) => {alert(result);}
 		});
-		console.log("bbb");
 		alert("신고되었습니다.");
 		$("#popup").hide();
 	}
@@ -74,7 +73,7 @@ function report_chk() {
 
 // 댓글 신고
 function report_comChk() {
-	var report = document.getElementsByName("report");	
+	var report = document.getElementsByName("report1");	
 	var report_check = 0;
 	for(var i = 0; i<report.length; i++) {
 		
@@ -85,21 +84,21 @@ function report_comChk() {
 	if(report_check==0) {
 		alert("신고사유를 선택해주세요");
 		return;
+		
 	} else {
+		console.log("ajax호출");
 		$.ajax({
-			url: "/petmee/admin/user/insertReport.do",
+			url: "/petmee/admin/user/insertComReport.do",
 			type: "POST",
 			data: {
 				no: $("#no").val(),
 				reportEmail: $("#reportEmail1").val(),
- 				reportReason: $("input[name=report]:checked").val(),
+ 				reportReason: $("input[name=report1]:checked").val(),
 				content: contentVal,
-				title: titleVal,
 				other: $(".reportcontent1").val(),
 				boardType: $(".reporttitle1").data("type")
 			},
 			error: () => {console.log("err");},
-			success: (result) => {alert(result);}
 		});
 		alert("신고되었습니다.");
 		$("#popup1").hide();

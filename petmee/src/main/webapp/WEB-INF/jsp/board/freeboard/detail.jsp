@@ -85,7 +85,7 @@
                           <li><input type="radio" name="report" value="음란성 게시물"> 음란성 게시물
                           <li><input type="radio" name="report" value="광고성 게시물"> 광고성 게시물
                           <li><input type="radio" name="report" value="욕설/반말/부적절한 언어"> 욕설/반말/부적절한 언어
-                          <li><input type="radio" name="report" value="도배성게시물"> 도배성게시물
+                          <li><input type="radio" name="report" value="도배성 게시물"> 도배성 게시물
                           <li><input type="radio" name="report" value="명예훼손/사생활 침해 및 저작권 침해"> 명예훼손/사생활 침해 및 저작권 침해
                         </ul>
                         <hr>
@@ -112,11 +112,13 @@
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
                      <div class="reporttitle1" data-type="free">
+                     <!--  
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${c.email} </div></li>
                         <li><strong>내  용</strong>  : <div class="userbox">&nbsp; ${c.content}</div></li>
                       </ul>
                       <input type="hidden" id="reportEmail1" value="${c.email}"/>
+                     -->
                      </div>
                      <hr>
                      <div>
@@ -125,11 +127,11 @@
                        <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
                      <div>
                         <ul class="reportli">
-                          <li><input type="radio" name="report" value="음란성 게시물"> 음란성 게시물
-                          <li><input type="radio" name="report" value="광고성 게시물"> 광고성 게시물
-                          <li><input type="radio" name="report" value="욕설/반말/부적절한 언어"> 욕설/반말/부적절한 언어
-                          <li><input type="radio" name="report" value="도배성게시물"> 도배성게시물
-                          <li><input type="radio" name="report" value="명예훼손/사생활 침해 및 저작권 침해"> 명예훼손/사생활 침해 및 저작권 침해
+                          <li><input type="radio" name="report1" value="음란성 댓글"> 음란성 댓글
+                          <li><input type="radio" name="report1" value="광고성 댓글"> 광고성 댓글
+                          <li><input type="radio" name="report1" value="욕설/반말/부적절한 언어"> 욕설/반말/부적절한 언어
+                          <li><input type="radio" name="report1" value="도배성 댓글"> 도배성 댓글
+                          <li><input type="radio" name="report1" value="명예훼손/사생활 침해 및 저작권 침해"> 명예훼손/사생활 침해 및 저작권 침해
                         </ul>
                         <hr>
                         <span><strong>기타 내용</strong> : </span>

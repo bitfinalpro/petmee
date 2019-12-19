@@ -83,7 +83,6 @@ function toPad(val) {
 	return val < 10 ? "0" + val : val;
 }
 $(document).on("click", "#reportbtn", (e) => {
-	console.log("aaa");
 	$.ajax({
 		url: "selectReportedMember.do",
 		data: {commentNo: $(e.target).data("no")},
