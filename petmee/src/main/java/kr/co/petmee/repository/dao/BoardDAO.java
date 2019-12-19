@@ -3,6 +3,7 @@ package kr.co.petmee.repository.dao;
 import java.util.List;
 
 import kr.co.petmee.repository.vo.Board;
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
 
@@ -10,6 +11,7 @@ public interface BoardDAO {
 	
 List<Board> selectBoard(Page page);
 	
+	Comment selectReportedMember(int CommentNo);
 	int selectBoardCount();
 	
 	Board selectOneBoard(int no);

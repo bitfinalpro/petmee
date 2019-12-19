@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ReportDAO;
 import kr.co.petmee.repository.vo.Board;
+import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Report;
 
 @Service
@@ -25,6 +26,10 @@ public class ReportServiceImpl implements ReportService {
 	
 	public void deleteReport(int no) {
 		dao.deleteReport(no);
+	}
+	public List<Comment> insertComReport(Report report) {
+		dao.insertComReport(report);
+		return null;
 	}
 
 }

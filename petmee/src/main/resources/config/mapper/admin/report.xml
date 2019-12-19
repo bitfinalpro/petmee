@@ -23,4 +23,13 @@
     where report_No = #{reportNo}
    </delete>
    
+   <!-- 댓글 신고  -->
+   <insert id="insertComReport" parameterType="Report">
+   insert into tb_report (
+   no, comment_No, email, report_Email, report_Reason, content, other, board_Type)
+   values (
+   #{no}, #{commentNo}, #{email}, #{reportEmail}, #{reportReason}, #{content}, #{other}, #{boardType}
+   )
+   </insert>
+ 
 </mapper>
