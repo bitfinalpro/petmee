@@ -12,6 +12,7 @@ public interface BoardDAO {
 List<Board> selectBoard(Page page);
 	
 	Comment selectReportedMember(int CommentNo);
+	
 	int selectBoardCount();
 	
 	Board selectOneBoard(int no);
