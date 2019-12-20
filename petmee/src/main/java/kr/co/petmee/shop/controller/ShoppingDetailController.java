@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.repository.vo.Coupon;
+import kr.co.petmee.repository.vo.DeliInfo;
+import kr.co.petmee.repository.vo.Purchase;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shop.service.ShoppingListService;
@@ -27,10 +30,22 @@ public class ShoppingDetailController {
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
 		List<Coupon> coupon = service.couponList(user);
-		
+
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
+	}
+
+	@RequestMapping("/shop/shoppinglistdetail/payment.do")
+	@ResponseBody
+	public void payment(HttpSession session, DeliInfo deliInfo, List<ShoppingList> shoppingLists) {
+
+		
+//		Purchase purchase
+		
+		
+		service.deliInfo(deliInfo);
+		
 	}
 
 }

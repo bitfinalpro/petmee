@@ -36,7 +36,7 @@
 						<hr class="hr1" />
 						<c:set var="price" scope="page" value="0" />
 						<c:forEach var="list" items="${list}">
-						<c:set var="price" scope="page" value="${price + list.price }" />
+							<c:set var="price" scope="page" value="${price + list.price }" />
 							<div class="y-content-box">
 
 								<div class="floatbox">
@@ -66,9 +66,10 @@
 							<c:forEach var="coupon" items="${coupon}">
 								<div class="coupon">
 									<div>${coupon.name }</div>
-									<div>${coupon.regdate} 까지</div>
+									<div>${coupon.regdate}까지</div>
 									<div>(-)${coupon.discount }</div>
-									<input type="checkbox" name="coupon" class="coupon-ch" value="${coupon.discount }"  >
+									<input type="checkbox" name="coupon" class="coupon-ch"
+										value="${coupon.discount }">
 								</div>
 							</c:forEach>
 						</div>
@@ -121,19 +122,35 @@
 							<hr />
 							<div id="info">
 								<div>받는분</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="name" class="info-text" />
 								<hr />
 								<div>휴대폰</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="phone" class="info-text" />
 								<hr />
 								<div>이메일</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="email" class="info-text" />
 								<hr />
 								<div>주소</div>
-								<input type="text" name="" class="info-text" />
+								<div class="address-box">
+									<div class="">
+										<input type="text" name="zipcode" id="zipcode" maxlength="5"
+											readonly="readonly" onclick="DaumPostcode();">
+										<button type="button" class="btn" onclick="DaumPostcode();">우편번호</button>
+										<div class="">
+											<input type="text" name="address" id="address1"
+												readonly="readonly" maxlength="100"
+												onclick="DaumPostcode();" placeholder="주소">
+										</div>
+									</div>
+								</div>
+								<div class="inputbox">
+									<label>상세주소</label> <input type="text" class="info-text"
+										name="address" id="address2" maxlength="100"
+										placeholder="상세주소를 입력해주세요">
+								</div>
 								<hr />
 								<div>배송메모</div>
-								<textarea name="" class="info-text"></textarea>
+								<textarea id="content" class="info-text padding10"></textarea>
 								<hr />
 							</div>
 						</form>
@@ -159,6 +176,22 @@
 					<div id="paymentbox" class="float-r">
 						<h2 class="h2-title">결제방식</h2>
 						<hr />
+						<div>
+							<label for="p-naverapy">네이버페이</label> <input type="radio"
+								name="pay" id="p-naverapy" />
+						</div>
+						<div>
+							<label for="p-kakaopay">카카오페이</label> <input type="radio"
+								name="pay" id="p-kakaopay" />
+						</div>
+						<div>
+							<label for="p-cash">무통장 입금</label> <input type="radio" name="pay"
+								id="p-cash" />
+						</div>
+						<div>
+							<label for="p-card">카드결제</label> <input type="radio" name="pay"
+								id="p-card" />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -169,14 +202,23 @@
 	</div>
 
 	<script>
+	/* textarea 자동으로 칸늘려주는 스크립트 */
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
-		
+
 		let p = ${price};
+		let product_id = ${price};
+		
+		
 	</script>
-	<script src="<c:url value="/resources/js/shopping/shoppinglist/payment.js" />"></script>
-	<script src="<c:url value="/resources/js/shopping/shoppinglist/couponUpdate.js" />"></script>
-	
+	<script
+		src="<c:url value="/resources/js/shopping/shoppinglist/payment.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/shopping/shoppinglist/couponUpdate.js" />"></script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script charset="UTF-8" type="text/javascript"
+		src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
+
 </body>
 </html>
