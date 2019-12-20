@@ -75,27 +75,30 @@ function DaumPostcode() {
 // 결제 
 
 $("#paymentBtn").click(()=>{
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
+	console.log("장바구니 리스트",slist)
+	console.log("제품 id",pid)
+	console.log("주문자 id",oid)
+	console.log("결제방법",pay)
+	console.log("배송자 받는분",name)
+	console.log("전번",phone)
+	console.log("받는사람이메일",email)
+	console.log("우편번호",zipcode)
+	console.log("주소1",address1)
+	console.log("주소2",address2)
+	console.log("배송메모",content)
+	console.log("쿠폰할인가",cdis)
 	
-	$.ajax({
-		url:"payment.do",
-		data:{
-			
-		},
-		async: false,
-		success:() => {
-			alert("결제되었습니다.")
-			location.href("")
-			}
-	})
+//	$.ajax({
+//		url:"payment.do",
+//		data:{
+//			
+//		},
+//		async: false,
+//		success:() => {
+//			alert("결제되었습니다.")
+//			location.href("")
+//			}
+//	})
 }) 
 
 

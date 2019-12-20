@@ -178,19 +178,19 @@
 						<hr />
 						<div>
 							<label for="p-naverapy">네이버페이</label> <input type="radio"
-								name="pay" id="p-naverapy" />
+								name="pay" value="p-naverapy" id="p-naverapy" class="payment" />
 						</div>
 						<div>
 							<label for="p-kakaopay">카카오페이</label> <input type="radio"
-								name="pay" id="p-kakaopay" />
+								name="pay" value="p-kakaopay" id="p-kakaopay" class="payment" />
 						</div>
 						<div>
 							<label for="p-cash">무통장 입금</label> <input type="radio" name="pay"
-								id="p-cash" />
+								id="p-cash" value="p-cash" class="payment" />
 						</div>
 						<div>
 							<label for="p-card">카드결제</label> <input type="radio" name="pay"
-								id="p-card" />
+								id="p-card" value="p-card" class="payment" />
 						</div>
 					</div>
 				</div>
@@ -206,10 +206,20 @@
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
-
-		let p = ${price};
-		let product_id = ${price};
-		
+		// payment 테이블 넣을값
+		let slist = ${list};
+		let pid = ${price};
+		let oid = ${order.email}
+		let pay = $(".payment").val();
+		//배송/종합 테이블 넣을값
+		let name = $("#name").val();
+		let phone = $("#phone").val();
+		let email = $("#email").val();
+		let zipcode = $("#zipcode").val();
+		let address1 = $("#address1").val();
+		let address2 = $("#address2").val();
+		let content = $("#content").val();
+		let cdis = $("#discount").val();
 		
 	</script>
 	<script
