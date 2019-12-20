@@ -27,7 +27,7 @@ window.onload = function() { //실행될 코드 }
 		}
 	})
 }
-
+// 주소 입력 api (다음)
 function DaumPostcode() {
 	new daum.Postcode({
 		oncomplete: function(data) {
@@ -70,6 +70,33 @@ function DaumPostcode() {
 		}
 	}).open();
 }		
+
+
+// 결제 
+
+$("#paymentBtn").click(()=>{
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	console.log()
+	
+	$.ajax({
+		url:"payment.do",
+		data:{
+			
+		},
+		async: false,
+		success:() => {
+			alert("결제되었습니다.")
+			location.href("")
+			}
+	})
+}) 
 
 
 

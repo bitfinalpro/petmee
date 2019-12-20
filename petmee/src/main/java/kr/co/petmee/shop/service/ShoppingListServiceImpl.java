@@ -6,8 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.dao.DeliInfoDAO;
+import kr.co.petmee.repository.dao.PurchaseDAO;
 import kr.co.petmee.repository.dao.ShoppingListDAO;
 import kr.co.petmee.repository.vo.Coupon;
+import kr.co.petmee.repository.vo.DeliInfo;
+import kr.co.petmee.repository.vo.Purchase;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -15,37 +19,51 @@ import kr.co.petmee.repository.vo.User;
 public class ShoppingListServiceImpl implements ShoppingListService {
 
 	@Autowired
-	ShoppingListDAO dao;
+	ShoppingListDAO dao1;
+	@Autowired
+	DeliInfoDAO dao2;
+	@Autowired
+	PurchaseDAO dao3;
 
 	public List<ShoppingList> ShoppingList(User user) {
-		return dao.selectShoppingList(user);
+		return dao1.selectShoppingList(user);
 	}
 
 	public List<ShoppingList> deleteList(User user, int no) {
-		dao.deleteShoppingList(no);
-		return dao.selectShoppingList(user);
+		dao1.deleteShoppingList(no);
+		return dao1.selectShoppingList(user);
 	}
 
 	public List<ShoppingList> alldeleteList(User user) {
-		dao.alldeleteShoppingList(user);
-		return dao.selectShoppingList(user);
+		dao1.alldeleteShoppingList(user);
+		return dao1.selectShoppingList(user);
 	}
 
-	@Override
 	public List<ShoppingList> updateamount(Map<String, Integer> map, User user) {
-		dao.updateamount(map);
-		return dao.selectShoppingList(user);
+		dao1.updateamount(map);
+		return dao1.selectShoppingList(user);
 	}
 
 //	쿠폰정보 리스트
 	public List<Coupon> couponList(User user) {
-		return dao.selectCoupon(user);
+		return dao1.selectCoupon(user);
 	}
 
 //	쿠폰 아이디 업데이트
 	public List<Coupon> couponUpdate(Map<String, String> map, User user) {
-		dao.updateCoupon(map);
-		return dao.selectCoupon(user);
+		dao1.updateCoupon(map);
+		return dao1.selectCoupon(user);
+	}
+
+//	결제 
+//	배송지 등록
+	public void deliInfo(DeliInfo deliInfo) {
+		dao2.insertDeliInfo(deliInfo);
+	}
+
+//	구매 내역 등록 
+	public void purchase(Purchase purchase) {
+		dao3.insertPurchase(purchase);
 	}
 
 }

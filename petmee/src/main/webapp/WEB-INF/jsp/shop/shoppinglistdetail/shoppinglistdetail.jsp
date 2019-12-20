@@ -122,13 +122,13 @@
 							<hr />
 							<div id="info">
 								<div>받는분</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="name" class="info-text" />
 								<hr />
 								<div>휴대폰</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="phone" class="info-text" />
 								<hr />
 								<div>이메일</div>
-								<input type="text" name="" class="info-text" />
+								<input type="text" id="email" class="info-text" />
 								<hr />
 								<div>주소</div>
 								<div class="address-box">
@@ -150,7 +150,7 @@
 								</div>
 								<hr />
 								<div>배송메모</div>
-								<textarea name="" class="info-text padding10"></textarea>
+								<textarea id="content" class="info-text padding10"></textarea>
 								<hr />
 							</div>
 						</form>
@@ -202,14 +202,15 @@
 	</div>
 
 	<script>
+	/* textarea 자동으로 칸늘려주는 스크립트 */
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
 
-		let p = $
-		{
-			price
-		};
+		let p = ${price};
+		let product_id = ${price};
+		
+		
 	</script>
 	<script
 		src="<c:url value="/resources/js/shopping/shoppinglist/payment.js" />"></script>
