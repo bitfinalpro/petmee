@@ -22,7 +22,7 @@ public class ShoppingDetailController {
 
 	@Autowired
 	private ShoppingListService service;
-
+	 
 	@RequestMapping("/shop/shoppinglistdetail/shoppinglistdetail.do")
 	public void selectShoppingListDetail(Model model, HttpSession session) {
 		User user = new User();
@@ -30,19 +30,39 @@ public class ShoppingDetailController {
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
 		List<Coupon> coupon = service.couponList(user);
-
+		
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
+		System.out.println("sss");
 	}
 
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
 	@ResponseBody
-	public void payment(HttpSession session, DeliInfo deliInfo, List<ShoppingList> shoppingLists) {
+//	@Autowired
+	public void payment(HttpSession session,DeliInfo deliInfo,String pay) {
 
+		User user = new User();
+		user = (User) session.getAttribute("user");
+		user.setEmail(user.getEmail());
+		List<ShoppingList> list = service.ShoppingList(user);
 		
-//		Purchase purchase
-		
+		for(ShoppingList s : list) {		
+			System.out.println(s.getProduct());
+			System.out.println(s.getEmail());
+			System.out.println(s.getImage());
+			Purchase p = new Purchase();
+			p.setOrder_id(deliInfo.getOrder_id());
+			p.setProduct_id(s.getProduct());
+			p.setProduct_cnt(s.getAmount());
+			p.setContent(s.getExplain());
+			p.setPrice(s.getPrice());
+			p.setEmail(s.getEmail());
+			p.setPayment(pay);
+			p.setDiscount(s.getDcprice());
+			p.setImage(s.getImage());
+			service.purchase(p);
+		}
 		
 		service.deliInfo(deliInfo);
 		

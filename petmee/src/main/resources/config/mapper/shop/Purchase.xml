@@ -5,8 +5,8 @@
 	
 	<!-- 구매내역 insert -->
 	<insert id="insertPurchase" parameterType="Purchase">
-		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount)
-		 VALUES (#{order_id},#{product_id},#{product_cnt},#{content},#{price},#{email},#{payment},#{discount});
+		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount,image)
+		 VALUES (#{order_id},#{product_id},#{product_cnt},#{content},#{price},#{email},#{payment},#{discount},#{image});
 	</insert>
 	
 </mapper>

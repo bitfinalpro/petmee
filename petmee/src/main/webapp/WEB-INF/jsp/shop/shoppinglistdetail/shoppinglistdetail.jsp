@@ -31,12 +31,14 @@
 			<div id="y-con-content" class="float-l">
 				<!-- 장바구니정보 -->
 				<h3>주문상품</h3>
+				
 				<div class="con-box float-l">
 					<div id="shoppinglist" class="float-l">
 						<hr class="hr1" />
-						<c:set var="price" scope="page" value="0" />
-						<c:forEach var="list" items="${list}">
-							<c:set var="price" scope="page" value="${price + list.price }" />
+						<c:set var="sum" scope="page" value="0" />
+						<c:forEach var="ylist" items="${list}">
+
+							<c:set var="sum" scope="page" value="${sum + ylist.price }" />
 							<div class="y-content-box">
 
 								<div class="floatbox">
@@ -44,17 +46,17 @@
 									<div>
 										<img class="y-img float-l" src="" />
 									</div>
-									<div class="y-list-content float-l">${list.explain}</div>
+									<div class="y-list-content float-l">${ylist.explain}</div>
 									<div class="y-check-del-box float-r"></div>
 									<div class="y-s-amount float-r">
-										<span class="y-amount">${list.amount} 개</span>
+										<span class="y-amount">${ylist.amount} 개</span>
 									</div>
 								</div>
 
 								<span class="y-price float-r"> <i
-									class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>
+									class="fas fa-won-sign fa-lg"></i> <span class="price">${ylist.price}</span>
 								</span>
-							</div>
+							</div> 
 						</c:forEach>
 					</div>
 
@@ -88,7 +90,7 @@
 							<div class="p-blank">총 결제금액</div>
 							<div class="price-box">
 								<div class="p-div1">
-									<span>총 상품금액</span> <span>\ ${price}</span>
+									<span>총 상품금액</span> <span>\ ${sum}</span>
 									<hr />
 								</div>
 								<div class="p-div1" id="discount">
@@ -105,7 +107,7 @@
 						<div id="p-box2">
 							<div class="p-blank">최종 결제금액</div>
 							<div class="price-box pading-t20">
-								<div class="font-30 text-align-c" id="p-price">\ ${price}</div>
+								<div class="font-30 text-align-c" id="p-price">\ ${sum + 2500}</div>
 								<div class="text-align-c p-btn">
 									<button id="paymentBtn" class="mousepoint">결제하기</button>
 								</div>
@@ -178,19 +180,19 @@
 						<hr />
 						<div>
 							<label for="p-naverapy">네이버페이</label> <input type="radio"
-								name="pay" id="p-naverapy" />
+								name="pay" value="p-naverapy" id="p-naverapy" class="payment" />
 						</div>
 						<div>
 							<label for="p-kakaopay">카카오페이</label> <input type="radio"
-								name="pay" id="p-kakaopay" />
+								name="pay" value="p-kakaopay" id="p-kakaopay" class="payment" />
 						</div>
 						<div>
 							<label for="p-cash">무통장 입금</label> <input type="radio" name="pay"
-								id="p-cash" />
+								id="p-cash" value="p-cash" class="payment" />
 						</div>
 						<div>
 							<label for="p-card">카드결제</label> <input type="radio" name="pay"
-								id="p-card" />
+								id="p-card" value="p-card" class="payment" />
 						</div>
 					</div>
 				</div>
@@ -206,12 +208,14 @@
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
-
-		let p = ${price};
-		let product_id = ${price};
-		
-		
 	</script>
+	
+	<script>
+	let p = ${sum};
+	console.log(p)
+	let oid = '${order.email}';
+	</script>
+	
 	<script
 		src="<c:url value="/resources/js/shopping/shoppinglist/payment.js" />"></script>
 	<script
