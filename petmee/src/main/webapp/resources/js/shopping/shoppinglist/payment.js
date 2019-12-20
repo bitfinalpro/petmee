@@ -6,7 +6,7 @@ window.onload = function() { //실행될 코드 }
 		alert("먹고있느ㄴ중")
 		let ch = $(".coupon-ch").is(":checked")
 		let discount = $(".coupon-ch:checked").val()
-		let allprice = `\\ ${p-discount}`
+		let allprice = `\\ ${p}-${discount}`
 			if(ch) {
 				cnt += 1  
 				let v = `(-) ${discount}`

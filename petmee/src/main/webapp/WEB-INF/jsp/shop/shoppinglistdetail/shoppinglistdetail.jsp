@@ -206,9 +206,9 @@
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
+		let p = ${price};
 		// payment 테이블 넣을값
-		let slist = ${list};
-		let pid = ${price};
+		let slist = ${(list)};
 		let oid = ${order.email}
 		let pay = $(".payment").val();
 		//배송/종합 테이블 넣을값
@@ -220,7 +220,6 @@
 		let address2 = $("#address2").val();
 		let content = $("#content").val();
 		let cdis = $("#discount").val();
-		
 	</script>
 	<script
 		src="<c:url value="/resources/js/shopping/shoppinglist/payment.js" />"></script>
