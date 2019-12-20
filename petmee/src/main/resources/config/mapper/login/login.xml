@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.LoginDAO">
+	<!-- : 로그인 ================================================= -->
 	<!-- 로그인 -->
 	<select id="selectLogin" parameterType="User" resultType="User">
 		select *
@@ -10,15 +11,24 @@
 		   and pass = #{pass} 
 	</select>
 	
-	<!-- 회원가입 -->
+	<!-- : 회원가입 ================================================= -->
+	<!-- 회원가입 등록-->
 	<insert id="insertJoin" parameterType="User">
 		insert into tb_user (
-			email, pass, name, phone, resident, address
+			email, pass, name, phone, gender, resident, address
 		) values (
-			#{email}, #{pass}, #{name}, #{phone}, #{resident}, #{address}
+			#{email}, #{pass}, #{name}, #{phone}, #{gender}, #{resident}, #{address}
 		);
 	</insert>
 	
+	<!-- 이메일 중복 검사 -->
+	<select id="emailcheck" parameterType="String" resultType="User">
+	      select email 
+	      from tb_user
+	      where email = #{email}
+	</select>
+	
+	<!-- : 마이페이지 ================================================= -->
 	<!-- 마이페이지 조회 -->
 	<select id="selectMypage" resultType="User" parameterType="int">
 		select *
@@ -26,20 +36,35 @@
 		 where user_no = #{userNo}
 	</select>
 	
-	<!-- 마이 페이지 수정 -->
+	<!-- 마이페이지 수정 -->
 	<update id="updateMypage" parameterType="User">
 		update tb_user 
 		   set title = #{title},
 		       content = #{content}
-		 where no = #{no}
 	</update>
 	
-	<!-- 마이 페이지 삭제 -->
+	<!-- 마이페이지 회원탈퇴 -->
 	<delete id="deleteMypage" parameterType="int">
 		delete 
-		  from tb_user 
-		 where no = #{no}
+		  from tb_user
+		 where user_no = #{userNo}
 	</delete>
+	
+	<!-- : 이메일 찾기 ================================================= -->
+	<select id="selectfind" parameterType="User" resultType="string">
+	      select email 
+	      from tb_user
+	      where name = #{name}
+	        and phone = #{phone}
+	</select>
+	
+	<!-- : 비밀번호 찾기 ================================================= -->
+	<select id="selectpass" parameterType="User" resultType="string">
+	      select pass 
+	      from tb_user
+	      where email = #{email}
+	        and name = #{name}
+	</select>
 </mapper>
 
 

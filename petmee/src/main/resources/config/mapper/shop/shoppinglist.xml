@@ -23,11 +23,6 @@
 		update tb_shopping set amount = #{amount} where no = #{no}
 	</update>
 
-	<!-- 배송정보 insert -->
-	<insert id="">
-
-	</insert>
-
 	<!-- 쿠폰정보 select -->
 	<select id="selectCoupon" parameterType="User" resultType="Coupon">
 		select email, date_format(reg_date,'%Y-%m-%d') as reg_date,discount,name,no from tb_coupon where email = #{email} order by REG_DATE
@@ -35,6 +30,18 @@
 	
 	<!-- 쿠폰정보 update -->
 	<update id="updateCoupon" parameterType="hashmap">
-		update tb_coupon set email = #{email} where no = #{no}
+		update tb_coupon set email = #{email}, used = 1 where no = #{no}
 	</update>
+	
+	<!-- 배송정보 insert -->
+	<insert id="insertDeliInfo" parameterType="DeliInfo">
+		INSERT INTO tb_deliinfo (name, phone, email, zipcode, address1, address2, content, order_id)
+		 VALUES (#{name},#{phone},#{email},#{zipcode},#{address1},#{address2},#{content},#{order_id});
+	</insert>
+	
+	<!-- 구매내역 insert -->
+	<insert id="insertPurchase" parameterType="Purchase">
+		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount)
+		 VALUES (#{order_id},#{product_id},#{product_cnt},#{content},#{price},#{email},#{payment},#{discount});
+	</insert>
 </mapper>

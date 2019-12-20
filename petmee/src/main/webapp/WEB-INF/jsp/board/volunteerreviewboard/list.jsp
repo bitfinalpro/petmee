@@ -60,6 +60,7 @@
             </tr>
          </c:if>
          <c:forEach var="b" items="${list}">
+         <c:if test="${b.type eq volunteerreview}"></c:if>
          <tr>
                 <td>${b.no}</td>
                 <td><a href="detail.do?no=${b.no}">${b.title}</a></td>

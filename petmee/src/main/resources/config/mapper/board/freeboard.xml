@@ -26,9 +26,9 @@
 	<!-- 게시글 등록 -->
 	<insert id="insertBoard" parameterType="Board">
 		insert into tb_board (
-		title, email, content, topChk
+		title, email, content, topChk, type
 		) values (
-		#{title}, #{email}, #{content}, #{topChk}
+		#{title}, #{email}, #{content}, #{topChk}, #{type}
 		)
 	</insert>
 	<insert id="insertBoard2" parameterType="Board">
@@ -84,7 +84,13 @@
 		order by no desc
 		limit #{begin}, 10
 	</select>
-
+  <!-- 댓글 작성자 정보 추출 -->
+   <select id="selectReportedMember" parameterType="int" resultType="Comment">
+   	select * 
+   	  from tb_comment
+   	 where comment_No = #{commentNo}
+   </select>
+   
 </mapper>
 
 

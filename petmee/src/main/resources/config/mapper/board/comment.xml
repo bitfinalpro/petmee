@@ -8,15 +8,15 @@
     select *
       from tb_comment
      where no = #{no}
-     order by comment_no
+     order by comment_No
 </select>
 
 <!-- 댓글 등록  -->
 <insert id="insertComment" parameterType="Comment">
     insert into tb_comment(
-        no, writer, content
+        no, email, content
     ) values (
-       #{no}, #{writer}, #{content} 
+       #{no}, #{email}, #{content} 
     )
 </insert>
 
@@ -24,15 +24,13 @@
 <delete id="deleteComment" parameterType="int">
 	delete 
 	  from tb_comment	     
-	 where comment_no = #{commentNo}	
+	 where comment_No = #{commentNo}	
 </delete>	
 
 <!-- 댓글 수정  -->
 <update id="updateComment" parameterType="comment">
 	update tb_comment
 	   set content = #{content}
-	 where comment_no = #{commentNo}
+	 where comment_No = #{commentNo}
 	</update>
-
-
 </mapper>	

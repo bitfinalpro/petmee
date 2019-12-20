@@ -42,6 +42,10 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		return dao.selectOneBoard(no);
 	}
 	
+	public Comment selectReportedMember(int commentNo) {
+		return dao.selectReportedMember(commentNo);
+	}
+	
 	public void deleteBoard(int no) {
 		dao.deleteBoard(no);
 	}
