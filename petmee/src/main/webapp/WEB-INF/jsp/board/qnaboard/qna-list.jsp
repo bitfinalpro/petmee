@@ -91,13 +91,15 @@
             </tr>
          </c:if>
          <c:forEach var="b" items="${list}">
+         <c:if test="${b.type eq 'QnA'}">
          <tr>
-                <td>${b.qnaNo}</td>
-                <td><a href="qna-detail.do?no=${b.qnaNo}">${b.qnaTitle}</a></td>
-                <td>${b.qnaWriter}</td>
-                <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.qnaRegDate}" /> </td>
+                <td>${b.no}</td>
+                <td><a href="qna-detail.do?no=${b.no}">${b.title}</a></td>
+                <td>${b.email}</td>
+                <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
             </tr>
+            </c:if>
                 </c:forEach>
         </table>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 등록</button></div>

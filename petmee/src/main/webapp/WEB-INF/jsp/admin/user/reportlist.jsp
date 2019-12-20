@@ -227,7 +227,10 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-           신고관리</div>
+           신고관리
+           <button type="button" id="Bulletin">게시글</button>
+           <button type="button" id="Comment">댓글</button>
+           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -235,10 +238,10 @@
                   <tr>
                     <th>번호</th>
                     <th>분류</th>
-                    <th>작성자</th>
+                    <th>신고자</th>
                     <th>신고사유</th>
                     <th>제목</th>
-                    <th>신고자</th>
+                    <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
                 </thead>
@@ -246,10 +249,10 @@
                   <tr>
                     <th>번호</th>
                     <th>분류</th>
-                    <th>작성자</th>
+                    <th>신고자</th>
                     <th>신고사유</th>
                     <th>제목</th>
-                    <th>신고자</th>
+                    <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
                 </tfoot>
@@ -289,7 +292,7 @@
                           <col width="3%">             
                       </colgroup>                  
                       <tr>
-                        <td>작성자 </td>
+                        <td>신고자 </td>
                         <td id="email"colspan="5"></td>
                       </tr>
                       <tr>
@@ -303,7 +306,7 @@
                         <td id="type"colspan="2"></td>
                       </tr>
                       <tr>
-                        <td>신고자</td>
+                        <td>작성자</td>
                         <td id="reportEmail" colspan="2"></td>
                         <td>일자</td>
                         <td id="date" colspan="2"></td>

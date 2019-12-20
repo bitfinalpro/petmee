@@ -93,9 +93,10 @@ $(document).on("click", "#reportbtn", (e) => {
 			let query = `
 				<ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${result.email} </div></li>
-                        <li><strong>내  용</strong>  : <div class="userbox">&nbsp; ${result.content}</div></li>
+                        <li><strong>내  용</strong>  : <div id="com_content" class="userbox">${result.content}</div></li>
                 </ul>
                 <input type="hidden" id="reportEmail1" value="${result.email}"/>
+                <input type="hidden" id="commentNo" value="${result.commentNo}"/>
 			`;
 			$(".reporttitle1").html(query);
 		}

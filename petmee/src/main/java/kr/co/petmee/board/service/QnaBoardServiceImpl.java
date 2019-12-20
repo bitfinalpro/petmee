@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.dao.BoardDAO;
 import kr.co.petmee.repository.dao.CommentDAO;
-import kr.co.petmee.repository.dao.QnaBoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
 
@@ -16,40 +16,44 @@ import kr.co.petmee.repository.vo.Search;
 public class QnaBoardServiceImpl implements QnaBoardService {
 	
 	@Autowired
-	private QnaBoardDAO dao;
+	private BoardDAO dao;
 	
 	@Autowired
 	private CommentDAO dao1;
 	
 	@Override
-	public List<QnaBoard> listQnaBoard(Page page) {
-		return dao.selectQnaBoard(page);
+	public List<Board> listBoard(Page page) {
+		return dao.selectBoard(page);
 	}
 	
 	@Override
-	   public int selectQnaCount() {   
-	      return dao.selectQnaCount();
+	   public int selectBoardCount() {   
+	      return dao.selectBoardCount();
 	   }
 	
 	@Override
-	public void insertQnaBoard(QnaBoard board) {
-		dao.insertQnaBoard(board);
+	public void insertBoard(Board board) {
+		dao.insertBoard(board);
 	}
 	
-	public QnaBoard detailQnaBoard(int no) {
+	public Comment selectReportedMember(int commentNo) {
+		return dao.selectReportedMember(commentNo);
+	}
+	
+	public Board detailBoard(int no) {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
 	}
 	
-	public void deleteQnaBoard(int no) {
-		dao.deleteQnaBoard(no);
+	public void deleteBoard(int no) {
+		dao.deleteBoard(no);
 	}
 	
-	public void updateQnaBoard(QnaBoard board) {
-		dao.updateQnaBoard(board);
+	public void updateBoard(Board board) {
+		dao.updateBoard(board);
 	}
 	
-	public QnaBoard updateFormBoard(int no) {
+	public Board updateFormBoard(int no) {
 		return dao.selectOneBoard(no);
 	}
 	
@@ -73,9 +77,9 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 		return dao1.selectComment(comment.getNo());
 	}
 	@Override
-	public List<QnaBoard> searchlistBoard(Page page, Search search){
+	public List<Board> searchlistBoard(Page page, Search search){
 		switch(search.getKeyword()) {
-		case 0: System.out.println(0);return dao.selectQnaBoard(page);
+		case 0: System.out.println(0);return dao.selectBoard(page);
 		case 1: System.out.println(1);return dao.selectSearchWriter(search);
 		case 2: System.out.println(2);return dao.selectSearchTitle(search);
 		case 3: System.out.println(3);return dao.selectSearchBoth(search);
