@@ -91,7 +91,7 @@ public class ParcelBoardController {
 //		게시판 정보
 		ParcelBoard getParcelBoard = new ParcelBoard();
 		getParcelBoard.setTitle(sermernoteVo.getTitle());
-		getParcelBoard.setWriter(sermernoteVo.getWriter());
+		getParcelBoard.setEmail(sermernoteVo.getWriter());
 		getParcelBoard.setContent(sermernoteVo.getContent());
 //		썸네일
 		sermernoteVo.getSumfile();

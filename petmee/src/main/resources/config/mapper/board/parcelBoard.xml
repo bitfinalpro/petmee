@@ -24,7 +24,7 @@
 	<insert id="insertBoard" useGeneratedKeys="true"
 		keyProperty="no" parameterType="ParcelBoard">
 		insert into parcelboard (
-		title, writer,
+		title, email,
 		content
 		) values (
 		#{title}, 'admin', #{content}
@@ -87,9 +87,9 @@
 	
 	<insert id="insertComment" parameterType="Comment">
 		insert into parcelboardcomment(
-			no, writer, content
+			no, email, content
 		) values (
-			 #{no}, #{writer}, #{content}
+			 #{no}, #{email}, #{content}
 		)
 	</insert>	
 			
