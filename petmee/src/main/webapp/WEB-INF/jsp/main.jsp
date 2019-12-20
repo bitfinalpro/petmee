@@ -35,6 +35,7 @@
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test4.jpg" style="display: inline-block;"></div>
       <div class="slide"><img src="${pageContext.request.contextPath}/resources/images/main/test5.jpg" style="display: inline-block;"></div>
     </div>
+    
 <section class="main_section">
   <div class="product_title">
     <h2>NEWEST PRODUCT</h2>
@@ -50,7 +51,7 @@
                       	</div>
                       <div class="product_text">
                         <strong>${food.productName}${food.productId}</strong>
-                        <span>21,000110</span>
+                        <span>21,000</span>
                         <span>${food.price}</span>
                        <!-- <span><fmt:formatDate pattern="yyyy-MM-dd-HH-mm-ss" value="${food.date}" /></span>  -->
                       </div>

@@ -238,8 +238,8 @@
 					<td>${b.no}</td>
 					<%-- <td>${b.product}</td> --%>
 					<td>${b.title}</td>
-					<td>${b.writer}</td>
-					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
+					<%-- <td>${b.writer}</td> --%>
+					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<%--<td>${b.rating}</td>--%>
 					<td>${b.viewCnt}</td>
 					<td>

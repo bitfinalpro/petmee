@@ -8,6 +8,8 @@ article, figcaption, figure, footer, header, hgroup, menu, nav, section, aside, 
 
 div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, button, textarea, select { margin: 0; padding: 0; }
 
+a {text-decoration: none; color:#000}
+
 img { border: 0; vertical-align: top; max-width: 100%; }
 
 ul, ol, dl, dt, dd, li { list-style: none; }
