@@ -18,9 +18,9 @@
 	<delete id="deleteShoppingList" parameterType="int">
 		DELETE FROM tb_shopping WHERE no = #{no}
 	</delete>
-	
+	<!-- 장바구니 업데이트 -->
 	<update id="updateamount" parameterType="hashmap">
-		update tb_shopping set amount = #{amount} where no = #{no}
+		update tb_shopping set amount = #{amount} , price = #{price} where no = #{no}
 	</update>
 
 	<!-- 쿠폰정보 select -->
