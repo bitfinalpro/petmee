@@ -22,7 +22,9 @@
   <link href="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.css"/>" rel="stylesheet">
 
   <!-- 이 템플릿의 사용자 지정 스타일 -->
+   
    <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
  .u {
     width: 30%;
@@ -114,37 +116,16 @@
       <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
+  
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+   
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
           <span class="badge badge-danger">7</span>
         </a>
+        
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -152,6 +133,7 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
@@ -190,21 +172,21 @@
                 <span>신고관리</span>
               </a>
             </li>
-        <!-- 게시판 관리 -->
+         <!-- 주문 관리 -->
         <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
-              <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
+           <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
+             <i class="fas fa-fw fa-table"></i>
+              <span>주문관리</span></a>
           </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="boardadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li> 
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>통계</span></a>
         </li>
@@ -231,6 +213,11 @@
            <button type="button" id="Bulletin">게시글</button>
            <button type="button" id="Comment">댓글</button>
            </div>
+           
+           
+           
+           
+           <!-- 부트스트랩 검색 찾기 -->
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -261,8 +248,8 @@
                 <td colspan="5">신고당한 회원이 없습니다.</td>
                 </tr>
                 </c:if>
-                <c:forEach var="report" items="${reportList}">
                 <tbody>
+                <c:forEach var="report" items="${reportList}">
                     <tr onclick="popup('${report.email}', '${report.title}', '${report.content}',
                                        '${report.reportEmail}', '${report.other}', '${report.reportReason}',
                                        '${report.boardType}', '${report.stringReportDate}')">
@@ -274,8 +261,8 @@
                         <td>${report.reportEmail}</td>
                         <td><a href="#"><button type="button">탈퇴</button></a></td>
                       </tr>
-                </tbody>
                 </c:forEach>
+                </tbody>
               </table>
               
                 <!-- 모달창 시작 -->
