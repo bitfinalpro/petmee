@@ -28,7 +28,7 @@
 		insert into tb_board (
 		title, email, content, topChk, type
 		) values (
-		#{title}, #{email}, #{content}, #{topChk}, #{type}
+		#{title}, '이지은', #{content}, #{topChk}, #{type}
 		)
 	</insert>
 	<insert id="insertBoard2" parameterType="Board">
@@ -91,6 +91,30 @@
    	  from tb_comment
    	 where comment_No = #{commentNo}
    </select>
+   
+   <!-- 파일파트  -->
+   
+   <select id="selectSumFiles" resultType="Filevo">
+		select *
+		  from parcelboardfile
+		 where sum_path is not null
+		 order by no desc;
+	</select>
+
+	<select id="selectBaordFile" parameterType="int" resultType="Filevo">
+		select *
+		  from parcelboardfile
+		 where no = #{no}
+		   and PATH is not null;
+	</select>
+
+	<insert id="insertFile" parameterType="Filevo">
+		insert into
+		parcelboardfile(
+		no, ORI_NAME, NAME, PATH, sum_path
+		) values(
+		#{no}, #{oriName}, #{name}, #{path}, #{sumpath})
+	</insert>
    
 </mapper>
 

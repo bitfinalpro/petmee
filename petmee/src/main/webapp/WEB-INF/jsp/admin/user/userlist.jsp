@@ -36,7 +36,7 @@
       }
     #usermodal {
       border: solid 1px #e9e9e9;
-      width: 530px;
+      width: 660px;
       height: 400px;
     }
     #usermodal > tbody > tr > td {
@@ -77,7 +77,7 @@
     .layer .box{
       padding:20px 20px 60px;
       margin:20px;
-      width:570px;
+      width:700px;
       height: 530px;
       background: white;
       position:relative;
@@ -122,18 +122,6 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
@@ -199,12 +187,6 @@
                 <span>신고관리</span>
               </a>
             </li>
-        <!-- 게시판 관리 -->
-        <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
-              <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
-          </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
           <a class="nav-link" href="boardadmin.html">
@@ -287,11 +269,11 @@
                     <div class="u"><strong>회원정보</strong></div>
                     <table class ="usermodal" id="usermodal">
                         <colgroup>
-                          <col width="17%">
+                          <col width="12%">
                           <col width="25%">
+                          <col width="12%">
                           <col width="17%">
-                          <col width="5%">
-                          <col width="7%">
+                          <col width="6%">
                           <col width="3%">
                       </colgroup>                  
                       <tr>
