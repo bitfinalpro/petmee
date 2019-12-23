@@ -6,6 +6,7 @@
 	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
 		from tb_board
+		where type = "free"
 		order by topChk desc, no desc
 		limit #{begin}, 10
 	</select>
@@ -63,7 +64,8 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where writer like concat('%',#{searchText},'%')
+		where (email like concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>
@@ -71,7 +73,8 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where title like concat('%',#{searchText},'%')
+		where (title like concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>
@@ -79,8 +82,9 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where (title like concat('%',#{searchText},'%')) OR (writer like
+		where (title like concat('%',#{searchText},'%')) OR (email like
 		concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>

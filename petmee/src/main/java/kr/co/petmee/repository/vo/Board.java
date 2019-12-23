@@ -19,6 +19,7 @@ public class Board {
 	private String product;              // 상품명
 	private String proCatgo;            // 카테고리
 	private int price;                      // 가격
+	private String stringDate; //스트링형태 날짜
 	
 
 }
