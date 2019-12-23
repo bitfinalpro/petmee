@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.admin.service.ChartService;
-import kr.co.petmee.repository.vo.Order;
+import kr.co.petmee.repository.vo.Chart;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.Profit;
 
@@ -28,7 +28,7 @@ public class ChartController {
 	//월별 매출 리스트
 	@RequestMapping("/monthlyMargin.do")
 	@ResponseBody
-	public List<Profit> monthlyMargin() {
+	public Chart monthlyMargin() {
 		return service.selectMarginList();
 	}
 	//이번달 매출 top5 리스트
@@ -54,7 +54,11 @@ public class ChartController {
 	//검색 통계
 	@RequestMapping("/searchStatistics.do")
 	@ResponseBody
-	public Order searchStatistics(String val, int category) {
-		return service.searchStatistics(val, category);
+	public Chart selectTotalById(String id, int categoryNo) {
+		Chart c = new Chart();
+		if(categoryNo == 1) c = service.selectTotalById(id);
+		else c = service.selectTotalByProduct(id);
+		return c;
+		
 	}
 }

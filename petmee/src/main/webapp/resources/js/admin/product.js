@@ -8,7 +8,7 @@ $("#inputcouponbutton").click((e) => {
 	location.href = "#inputcouponpopup";
 });
 $(".cancelModalbtn").click((e) => {
-	location.href = "product.do";
+	location.href = "#";
 });
 //모달창 새로고침 금지 이벤트
 $(".stopnofresh").click((e) => {

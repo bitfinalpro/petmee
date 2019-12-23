@@ -40,19 +40,6 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
@@ -106,13 +93,13 @@
         </li>
         <!-- 회원 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="useradmin.html">
+          <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
               <i class="fas fa-user"></i>
             <span>회원관리</span></a>
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-          <a class="nav-link" href="reportadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
             <i class="fas fa-user-slash"></i>
               <span>신고관리</span>
             </a>
