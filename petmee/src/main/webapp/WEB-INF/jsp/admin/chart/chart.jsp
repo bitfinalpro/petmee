@@ -291,7 +291,9 @@
 		<div style="width: 100%;">
 			<div id="canvasbox2">
 				<canvas id="myProductChart"></canvas>
-			</div>
+		</div>
+		<span id="changeCountChart2">구매횟수</span>
+		<span id="changePriceChart2">구매총액</span>	
 		<div id="statisticsInfo2">
 			
 		</div>

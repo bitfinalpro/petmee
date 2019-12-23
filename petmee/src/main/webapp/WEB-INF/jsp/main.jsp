@@ -289,7 +289,7 @@
 </section>
 <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
  
-<script src="../js/lib/jquery-1.11.1.min.js"></script>
+<!-- <script src="../js/lib/jquery-1.11.1.min.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
 	<script src="../js/lib/jquery.easing.1.3.js"></script>
 	

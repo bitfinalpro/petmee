@@ -73,7 +73,7 @@ $("#checkall").click(function(){
 			   <div>배송지 : ${result.delieveryAddress}</div>
 	           <div>배송상태 : ${result.delieveryStatus}</div>              
 	           <div>요청사항  : ${result.orderRequest}</div>	                                 
-			   <div>주문금액 : ${result.orderRequest}원</div>	                                 
+			   <div>주문금액 : ${result.sumPrice}원</div>	                                 
 			   <div>주문내역</div>
 			   <div id="orderProducts">
 				   ${result.orderedProduct}

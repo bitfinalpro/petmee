@@ -62,7 +62,7 @@
                             </ul>
                         </li>
                         <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=10" />">장난감</a></li>
-                        <li class="drop01"><a href="#" />">커뮤니티</a>
+                        <li class="drop01"><a href="#" />커뮤니티</a>
                             <ul>
                                 <li><a class="gnb_a" href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
@@ -76,22 +76,60 @@
           </div>
       </div>
 </header>
+
+<script type="text/javascript" >
+window.onload = function(){
+$(document).ready(function(){
+	$("#logi").click(function(e) {
+		let check1 = document.querySelector("#inputs_user_email");
+		let check2 = document.querySelector("#inputs_user_pass");
+		if(check1.value.length!=check1.value.trim().length) {
+			alert("공백 문자없이 이메일을 입력해주세요.");
+			check1.focus();
+			return(false);
+		}
+		if(check2.value.length!=check2.value.trim().length) {
+			alert("공백문자없이 비밀번호를 입력해주세요.");
+			check2.focus();
+			return(false);
+		}
+		
+		$.ajax({ 
+			url : '<c:url value="/shopping/login/login.do" />',
+			type: "POST",
+			async: false, // 비동기식 앞에꺼말고 뒤에꺼 처리할때 기다려라
+	    	data : {email:$("#inputs_user_email").val(), pass:$("#inputs_user_pass").val()},
+	    	dataType:"text",
+	        cache: false,
+	    	success:function(data) {
+				if (data == "f") {
+					alert("해당 회원정보를 찾을 수 없습니다.");
+				 }
+				else {
+					alert("로그인되었습니다.");
+					location.href="main.do"
+				}
+			}
+		});
+	});	
+});
+}
+</script>
 <!-- 로그인 모달창 -->
 <div class="modal pop-con-modal" id="login-pop" style="display: none; z-index: 9999999; color:#fff;" aria-hidden="false" >
-			<div class="modal_standard">
-                        <div class="modal_wrap">
-                            <div class="modal-dialog">
-                                <div class="modal-con">
-                                    <button title="Close (Esc)" type="button" class="mfp-close" data-dismiss="modal"><i class="xi-close-thin"></i></button>
-                                    <div class="pop-head">로그인</div>
-<!--                                      onsubmit="return login_check(this); -->
-                                    <form method="post" name="LoginForm" id="LoginForm" action="<c:url value="/shopping/login/login.do" />">
-                                    <div class="pop-box login-box">   
+	<div class="modal_standard">
+		<div class="modal_wrap">
+			<div class="modal-dialog">
+				<div class="modal-con">
+				<button title="Close (Esc)" type="button" class="mfp-close" data-dismiss="modal"><i class="xi-close-thin"></i></button>
+				<div class="pop-head">로그인</div>
+                <form method="post" name="LoginForm" id="LoginForm" action="<c:url value="/shopping/login/login.do" />">
+				<div class="pop-box login-box">   
                                         <div class="inputbox">
-                                        	<input type="text" name="email" placeholder="이메일주소" value=""><label>이메일</label>
+                                        	<input type="text" name="email" id="inputs_user_email" placeholder="이메일주소" value=""><label>이메일</label>
                                         </div>
                                         <div class="inputbox">
-                                        	<input type="password" name="pass"  placeholder="비밀번호"><label>비밀번호</label>
+                                        	<input type="password" name="pass" id="inputs_user_pass" placeholder="비밀번호"><label>비밀번호</label>
                                         </div>			
                                         <div class="util clearfix">
                                             <div class="left chk_area">
@@ -104,7 +142,7 @@
                                         </div>
                                 	</div>
                                 
-	                            	<input type="submit" class="btn" value="로그인" />
+	                            	<input type="button" id="logi" class="btn" value="로그인" />
 	                            </form>
                                 <div class="join_linkbox">
                                     <a href="<c:url value="/shopping/login/join.do"/>">

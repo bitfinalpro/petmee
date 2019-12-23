@@ -6,6 +6,8 @@ let searchCountList =[];
 let searchPriceList=[];
 let orderList = [];
 var myLine = null;
+var myLine2 = null;
+
 
 //모달창 닫기
 $(".closeModal").click((e) => {
@@ -269,6 +271,12 @@ $("#changeCountChart").click((e) => {
 });
 $("#changePriceChart").click((e) => {
 	myLine.destroy(); myLine = new Chart(ctx,chartData2);
+});
+$("#changeCountChart2").click((e) => {
+	myLine2.destroy(); myLine2 = new Chart(ctx2,chartData);
+});
+$("#changePriceChart2").click((e) => {
+	myLine2.destroy(); myLine2 = new Chart(ctx2,chartData2);
 });
 function makeProductModal() {
 	$.ajax({

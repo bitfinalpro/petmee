@@ -116,3 +116,5 @@
 #closebtn2 {display: block; margin: 0 auto; margin-top: 10px; width: 70px;}
 #changeCountChart { color: #666; background: #F1F1F1; position: relative; left: -2%; top: 9%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}
 #changePriceChart { color: #666; background: #F1F1F1; position: relative; left: -8.3%; top: 18%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}
+#changeCountChart2 { color: #666; background: #F1F1F1; position: absolute; left: 58.9%; top: 25%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}
+#changePriceChart2 { color: #666; background: #F1F1F1; position: absolute; left: 58.9%; top: 30%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}
