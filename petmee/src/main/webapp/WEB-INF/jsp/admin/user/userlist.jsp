@@ -187,16 +187,22 @@
                 <span>신고관리</span>
               </a>
             </li>
+        <!-- 주문 관리 -->
+        <li class="nav-item">
+            <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
+              <i class="fas fa-fw fa-table"></i>
+              <span>주문관리</span></a>
+          </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="boardadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li>
   
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>통계</span></a>
         </li>
@@ -247,8 +253,8 @@
                    <td colspan="5">게시물이 없습니다.</td>
                  </tr>
                  </c:if>
-                <c:forEach var="user" items="${userList}">
                 <tbody>
+                <c:forEach var="user" items="${userList}">
                   <!-- <tr onclick="document.location.href='#popup'"> -->
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
@@ -260,8 +266,8 @@
                         <td>${user.resident}</td>
                         <td><a href="userdelete.do?userNo=${user.userNo}"><button type="button">탈퇴</button></a></td>
                       </tr>
-                </tbody>
              </c:forEach>
+                </tbody>
               </table>
                <!-- 모달창 시작 -->
                 <div id="popup" class="layer">
@@ -355,14 +361,15 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+ <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
   <!-- Core plugin JavaScript-->
- <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
 
   <!-- Page level plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/chart.js/Chart.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.js" />"></script>
 
@@ -370,9 +377,9 @@
   <script src="<c:url value="/resources/js/admin/sb-admin.min.js" />"></script>
 
   <!-- Demo scripts for this page-->
- <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
- 
- <script src="<c:url value="/resources/js/admin/userinfo.js" /> "></script>
+  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
+  <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
+  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
 
 </body>
 
