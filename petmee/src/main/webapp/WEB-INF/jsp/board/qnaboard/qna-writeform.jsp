@@ -41,9 +41,10 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
          <form method="post" action="qna-write.do" id="" onsubmit="return check()">
         <div class="wirte_form">
-            <input type="text" name="qnaTitle" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
-            <input type="hidden" name="qnaWriter" value="" class="write_input" placeholder="작성자" />
-            <textarea name="qnaContent" id="summernote"></textarea>
+            <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
+            <input type="hidden" name="type" value="QnA" />
+            <input type="hidden" name="email" value="아린" class="write_input" placeholder="작성자" />
+            <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
                 <div><input type="file" /></div>

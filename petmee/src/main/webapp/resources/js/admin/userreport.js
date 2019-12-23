@@ -92,9 +92,10 @@ function report_comChk() {
 			type: "POST",
 			data: {
 				no: $("#no").val(),
+				commentNo: $("#commentNo").val(),
 				reportEmail: $("#reportEmail1").val(),
  				reportReason: $("input[name=report1]:checked").val(),
-				content: contentVal,
+				content: $("#com_content").html(),
 				other: $(".reportcontent1").val(),
 				boardType: $(".reporttitle1").data("type")
 			},

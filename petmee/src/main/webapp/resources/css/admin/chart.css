@@ -11,23 +11,56 @@
 	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity
 */
 }
-
+.product-chart-modal {background-color: #fefefe;
+    margin: 10% auto;
+    padding-top: 10px;
+    border: 1px solid ligthgray;
+    width: 70%;
+    height: 60%}
 .modal-content {
 	background-color: #fefefe;
-	margin: 8% auto; /* 15% from the top and centered */
-	padding: 20px;
+	margin: 2% auto; /* 15% from the top and centered */
+	padding-top: 10px;
 	border: 1px solid ligthgray;
-	width: 40%; /* Could be more or less, depending on screen size */
+	width: 80%; /* Could be more or less, depending on screen size */
+	height: 95%;
+}
+.modal-content2 {
+	background-color: #fefefe;
+	margin: 5% auto; /* 15% from the top and centered */
+	padding-top: 10px;
+	border: 1px solid ligthgray;
+	width: 80%; /* Could be more or less, depending on screen size */
 	height: 70%;
 }
-
-.close {
-	color: #aaa;
+.searchTitle {
+	display:inlin-block;
+	width: 400px;
+	font-size: 25px;
+	text-align: center;
+	margin-top: -42px;
+	margin-left: 420px;
+	color: white;
+}
+.searchTitle2 {
+	display:inlin-block;
+	width: 400px;
+	font-size: 25px;
+	text-align: center;
+	margin-top: 3px;
+	margin-left: 420px;
+	color: white;
+}
+#titleLine{height: 43px; background: #ff7f50;}
+.closeModal {
 	float: right;
+	padding-right: 10px;
+	color: #aaa;
 	font-size: 28px;
 	font-weight: bold;
+	text-align: right;
 }
-.close:hover, .close:focus {
+.closeModal:hover, .closeModal:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
@@ -40,3 +73,46 @@
 	border-radius: 5px;	
 }
 .chartbox {width: 100%; border: 1px solid black;}
+#canvasbox{display: inline-block; width: 800px; float: left;}
+#canvasbox2{display: inline-block; width: 800px; float: left; margin-top: 30px;}
+#myChart{display: inline-block; float: left;}
+#statisticsInfo{
+	display: inline-block;
+	width: 25%;
+	float: left;
+    margin-left: 72px;
+    margin-top: 6px;
+}
+#statisticsInfo2 {
+	display: inline-block;
+	width: 25%;
+    margin-left: 55px;
+    margin-top: 55px;
+}
+#statisticsInfo div,#statisticsInfo2 div{
+	margin-bottom: 15px;
+	border-bottom: 1px solid lightgray;
+	font-size: 18px;	
+}
+#statisticsInfo img, #statisticsInfo2 img {width: 40px; height: 40px;}
+#searchOrderList{
+	width: 90%;
+	height: 25%;
+	margin-left: 5%;
+	margin-top: 2px;
+	border: 1px solid lightgray;
+	overflow: scroll;
+}
+#searchOrderTitle{
+	margin: 0 auto; width: 90%; background: #DFDFDF; margin-top: 5px; padding: 3px 0; text-align: center; font-size: 1.1em; font-weight: bold; ]
+}
+#orderListTable{
+	width: 100%;
+	height: 100%;
+	text-align: center;	
+}
+#orderListTable tr, #orderListTable td,  #orderListTable th{border: 1px solid lightgray; border-collapse: collapse;} 
+#closebtn {margin: 0 auto; margin-top: 10px; width: 70px;}
+#closebtn2 {display: block; margin: 0 auto; margin-top: 10px; width: 70px;}
+#changeCountChart { color: #666; background: #F1F1F1; position: relative; left: -2%; top: 9%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}
+#changePriceChart { color: #666; background: #F1F1F1; position: relative; left: -8.3%; top: 18%; padding: 5px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; cursor: pointer;}

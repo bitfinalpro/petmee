@@ -1,15 +1,16 @@
-window.onload = function() { //실행될 코드 }
+//window.onload = function() { //실행될 코드 }
 
 	let cnt = 0
+	let dc = 0
 	
-	$("#coupon-list").on("click",".coupon-ch",(e)=> {
-		alert("먹고있느ㄴ중")
+	$(".con-box").on("click",".coupon-ch",(e)=> {
 		let ch = $(".coupon-ch").is(":checked")
 		let discount = $(".coupon-ch:checked").val()
-		let allprice = `\\ ${p-discount}`
+		let allprice = `\\ ${p-discount+2500}`
 			if(ch) {
 				cnt += 1  
 				let v = `(-) ${discount}`
+					dc = discount;
 					$('#discount > span:nth-child(2)').html(v);
 				$("#p-price").html(allprice);
 			}
@@ -26,7 +27,8 @@ window.onload = function() { //실행될 코드 }
 			$("#p-price").html(p);
 		}
 	})
-}
+//}
+
 // 주소 입력 api (다음)
 function DaumPostcode() {
 	new daum.Postcode({
@@ -72,32 +74,39 @@ function DaumPostcode() {
 }		
 
 
-// 결제 
-
-$("#paymentBtn").click(()=>{
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	console.log()
-	
+$(".con-box").on("click","#paymentBtn",(e)=>{
+	let pay = $(".payment").val();
+//배송/종합 테이블 넣을값
+	let name = $("#name").val();
+	let phone = $("#phone").val();
+	let email = $("#email").val();
+	let zipcode = $("#zipcode").val();
+	let address1 = $("#address1").val();
+	let address2 = $("#address2").val();
+	let content = $("#content").val();
+	sendData = {
+				order_id:oid,
+				name:name,
+				phone:phone,
+				email:email,
+				zipcode:zipcode,
+				address1:address1,
+				address2:address2,
+				content:content,
+				coupon_dc:dc,
+				pay:pay
+			}
 	$.ajax({
+		
 		url:"payment.do",
-		data:{
-			
-		},
+		data:sendData,
 		async: false,
 		success:() => {
 			alert("결제되었습니다.")
-			location.href("")
+			location.href = "/petmee/main.do";
 			}
 	})
 }) 
-
 
 
 

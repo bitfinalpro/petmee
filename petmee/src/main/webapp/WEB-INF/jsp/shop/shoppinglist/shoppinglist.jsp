@@ -34,8 +34,7 @@
 			<c:set scope="page" var="sum" value="0" />
 			
 			<c:forEach var="list" items="${list}" varStatus="status">
-			<c:set scope="page" var="price" value="${list.price*list.amount}" />
-			<c:set scope="page" var="sum" value="${sum + price}" />
+			<c:set scope="page" var="sum" value="${sum + list.price}" />
 				<div class="y-content-box">
 					<div class="floatbox">
 
@@ -52,12 +51,12 @@
 
 					<div class="y-amountbox ">
 						<div class="y-s-amount">
-							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}"></i> 
+							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i> 
 							<span class="y-amount">${list.amount}</span> 
-							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}"></i>
+							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i>
 						</div>
 						<span class="y-price float-r"> 
-						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${price}</span>
+						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>
 						</span>
 					</div>
 				</div>
@@ -92,6 +91,8 @@
 	<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 	
+	<script>
+	</script>
 	<script src="<c:url value="/resources/js/shopping/shoppinglist/shoppinglist.js" />"></script>
 </body>
 </html>

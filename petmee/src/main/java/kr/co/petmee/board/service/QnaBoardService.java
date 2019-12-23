@@ -4,28 +4,31 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
-import kr.co.petmee.repository.vo.QnaBoard;
-import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 
 
 @Service
 public interface QnaBoardService {
     
-	List<QnaBoard> listQnaBoard(Page page);
+	List<Board> listBoard(Page page);
 	
-	int selectQnaCount();
+	 
+    Comment selectReportedMember(int commentNo);
+	
+	int selectBoardCount();
     	
-	QnaBoard detailQnaBoard(int no);
+	Board detailBoard(int no);
 	 
-	void insertQnaBoard(QnaBoard board);
+	void insertBoard(Board board);
 
-	void deleteQnaBoard(int no);
+	void deleteBoard(int no);
 	 
-	void updateQnaBoard(QnaBoard board);
+	void updateBoard(Board board);
 	 
-	QnaBoard updateFormBoard(int no);
+	Board updateFormBoard(int no);
 	 
 	List<Comment> commentList(int no);
 	 
@@ -35,7 +38,7 @@ public interface QnaBoardService {
 		
 	List<Comment> commentUpdate(Comment comment);
 	 
-	List<QnaBoard> searchlistBoard(Page page, Search search);
+	List<Board> searchlistBoard(Page page, Search search);
 	
 	
 	

@@ -7,8 +7,12 @@ public class ShoppingList {
 
 	private int no;
 	private String email;
-	private String name;
+	private String product;
 	private String explain;
 	private int amount;
 	private int price;
+	private int oriprice;
+	private int dcprice;
+	private String image;
+	
 }

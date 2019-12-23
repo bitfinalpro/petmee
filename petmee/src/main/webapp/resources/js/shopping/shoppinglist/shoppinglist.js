@@ -19,9 +19,10 @@ $(() => {
 
 
 $("#y-con-content").on("click",".plus",(e)=>{
+	console.log($(e.target).data("oriprice"))
 	$.ajax({
 		url: "updateamount.do",
-		data: {amount: $(e.target).data("amount")+1,no: $(e.target).data("no")},
+		data: {amount: $(e.target).data("amount")+1,no: $(e.target).data("no"),oriprice: $(e.target).data("oriprice")},
 		success: (list) => {
 			console.log("업데이트 성공");
 			makeList(list);
@@ -30,6 +31,7 @@ $("#y-con-content").on("click",".plus",(e)=>{
 });
 
 $("#y-con-content").on("click",".minus",(e)=>{
+	console.log($(e.target).data("oriprice"))
 	if($(e.target).data("amount")-1 <=0) {
 		alert("최소갯수입니다.");
 	}
@@ -37,7 +39,7 @@ $("#y-con-content").on("click",".minus",(e)=>{
 	if($(e.target).data("amount")-1 >0)	{
 		$.ajax({
 		url: "updateamount.do",
-		data: {amount: $(e.target).data("amount")-1,no: $(e.target).data("no")},
+		data: {amount: $(e.target).data("amount")-1,no: $(e.target).data("no"),oriprice: $(e.target).data("oriprice")},
 		success: (list) => {console.log("업데이트 성공");makeList(list);}
 		});
 	}
@@ -49,11 +51,11 @@ function makeList(list) {
 	let sum = 0;
 	$.each(list, (i, list) => {
 		
-		let price = `${list.price*list.amount}`
+		let price = `${list.price}`
 			sum += parseInt(price);
 			
 		$tbl.append(`
-		<c:set scope="page" var="price" value="${list.price*list.amount}" />
+		<c:set scope="page" var="price" value="${list.oriprice*list.amount}" />
 				<div class="y-content-box">
 					<div class="floatbox">
 
@@ -70,12 +72,12 @@ function makeList(list) {
 
 					<div class="y-amountbox ">
 						<div class="y-s-amount">
-							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}"></i> 
+							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i> 
 							<span class="y-amount">${list.amount}</span> 
-							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}"></i>
+							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i>
 						</div>
 						<span class="y-price float-r"> 
-						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${price}</span>
+						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>
 						</span>
 					</div>
 				</div>

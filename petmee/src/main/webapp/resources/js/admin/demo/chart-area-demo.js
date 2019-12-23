@@ -4,13 +4,12 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 var labelList = [];
 var dataList = [];
 $.ajax({
-	url: "monthlyMargin.do",
-	dataType: "json",
+	url: "monthlyMargin.do",	
 	async: false,
 	success: (result) => {
-		for(let p of result) {
-			labelList.push(p.date);
-			dataList.push(p.profit);			
+		for(let i = 0; i < result.dateList.length; i++) {
+			labelList.push(result.dateList[i]);
+			dataList.push(result.priceList[i]);			
 		}
 	}
 });

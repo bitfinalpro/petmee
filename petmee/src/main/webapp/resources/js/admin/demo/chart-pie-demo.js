@@ -22,7 +22,7 @@ var myPieChart = new Chart(ctx, {
     labels: categoryList,
     datasets: [{
       data: sellRateList,
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', "#e5e5e5"],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', "#e5e5e5", "#ff7f50", "tomato", "purple", "orange", "lightblue"],
     }],
   },
 });

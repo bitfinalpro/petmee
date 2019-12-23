@@ -2,32 +2,32 @@ package kr.co.petmee.board.service;
 
 import java.util.List;
 
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.ParcelBoard;
 
 public interface ParcelBoardService {
 
-	List<ParcelBoard> listBoard(Page page);
+	List<Board> listBoard(Page page);
 	
 	int selectBoardCount();
 
-	ParcelBoard detailBoard(int no);
+	Board detailBoard(int no);
 
-	ParcelBoard updateFormBoard(int no);
+	Board updateFormBoard(int no);
 
 	void deleteBoard(int no);
 
-	void insertBoard(ParcelBoard board);
+	void insertBoard(Board board);
 
-	void updateBoard(ParcelBoard board);
+	void updateBoard(Board board);
 	
 //	파일
 	
 	List<Filevo> selectSumFiles();
 	
-	List<Filevo> selectBaordFile(int no);
+	List<Filevo> selectBoardFile(int no);
 
 	void insertFile(Filevo filevo);
 

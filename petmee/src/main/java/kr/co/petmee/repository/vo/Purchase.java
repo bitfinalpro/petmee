@@ -15,9 +15,8 @@ public class Purchase {
 	private int price;
 	private String status;
 	private String email;
-	private String refund;
-	private String payment;
 	private int discount;
 	private Date regDate;
-	
+	private String image;
+	private String payment;
 }
