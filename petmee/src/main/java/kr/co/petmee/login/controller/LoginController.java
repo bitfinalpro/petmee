@@ -31,15 +31,16 @@ public class LoginController {
 	// --------------------------------------------------
 	// 로그인
 	@RequestMapping("/login.do")
+	@ResponseBody 
 	public String login(User u, HttpSession session) {
 		User user = service.login(u);
 		// 로그인 실패
 		if (user == null) {
-			return "redirect:/main.do";
+			return "f";
 		}
 		// 로그인 성공 시 메인페이지 이동
 		session.setAttribute("user", user);
-		return "redirect:/main.do";
+		return "s";
 	}
 	
 	// 로그인 ajax
