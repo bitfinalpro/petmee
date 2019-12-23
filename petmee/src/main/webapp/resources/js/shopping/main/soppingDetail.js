@@ -1,14 +1,10 @@
+
 /**
 * --------------------------------
 * FUNCTION JS
 * --------------------------------
 */
-/*-----------------------  product su chek----------------- */
-			var sell_price;
-			var amount;
-			var subA;
-			var subB;
-			var inputNumber = document.getElementById('#proinput');
+/*-----------------------  product detail mouseOver img----------------- */
 			var big;
 			var smallImgs;
 			var bigImg;
@@ -24,73 +20,11 @@
 					smallImgThumb[i].onmouseover = function(){
 						bigImg.src=this.src;
 					}
-				}
-				
-				sell_price = document.form.sell_price.value;
-				amount = document.form.amount.value;
-				sum.value = inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-				document.form.sum.value = sell_price;
-				document.form.sum1.value = sell_price;
-				change();
-			
+				}	
 			}
 			
-			function add () {
-				hm = document.form.amount;
-				sum = document.form.sum;
-				hm.value ++ ;
-				hm1 = document.form.subA;
-				sum1 = document.form.sum1;
-				hm1.value ++ ;
-				hm2 = document.form.subB;
-				hm2.value ++ ;
-				sum.value = (parseInt(hm1.value) * sell_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-				sum1.value = parseInt(hm1.value) * sell_price;
-				
-			}
 			
-			function del () {
-				hm = document.form.amount;
-				sum = document.form.sum;
-				hm1 = document.form.subA;
-				sum1 = document.form.sum1;
-				hm2 = document.form.subB;
-					if (hm.value > 1) {
-						hm.value -- ;
-						sum.value = parseInt(hm.value) * sell_price;
-					}
-					if (hm1.value > 1) {
-						hm1.value -- ;
-						sum1.value = parseInt(hm1.value) * sell_price;
-					}
-					if (hm2.value > 1) {
-						hm2.value -- ;
-					}
-					sum.value = (parseInt(hm1.value) * sell_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			}
-			
-			function change () {
-				hm = document.form.amount;
-				sum = document.form.sum;
-				hm1 = document.form.subA;
-				sum1 = document.form.sum1;
-				hm2 = document.form.subB;
-				sum2 = document.form.sum2;
-			
-					if (hm.value < 0) {
-						hm.value = 0;
-					}
-					if (hm1.vaue < 0) {
-						hm1.value = 0;
-					}
-					if (hm2.vaue < 0) {
-						hm2.value = 0;
-					}
-				sum.value = inputNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-				sum1.value = parseInt(hm1.value) * sell_price;
-				sum2.value = parseInt(hm1.value) * sell_price;
-			}  
-/*-----------------------  product su chek end----------------- */
+/*-----------------------  product detail mouseOver img end----------------- */
 			
 /*-------------------------proudct price check----------------- */			
 
@@ -352,4 +286,3 @@ $(document).ready(function(){
 	}
 });
 
- 

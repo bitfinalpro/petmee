@@ -20,7 +20,7 @@ cursor: pointer;
 }
 
 </style>
-<title>시바 먼치킨</title>
+<title>Pet Me</title>
 
 </head>
 
@@ -31,26 +31,28 @@ cursor: pointer;
 	</div>
 
 
-	<section>
+	<section id="wrap">
 		<div id="y-container">
+		   <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
 			<c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>
 
 			<div id="y-content">
 				<div id="y-parcel-board">
-					<strong>Community</strong>
+					분양게시판
 				</div>
 				<div id="y-list">
-				
-					<c:forEach var="blist" items="${blist}" varStatus="status">
+				<c:forEach var="blist" items="${blist}" varStatus="status">
+					<c:if test="${blist.type eq 'parcel'}">
 					<a href="/petmee/board/parcelboard/parcelDtail.do?no=${blist.no}">
-						<li><img class="img-src" src="<c:url value='${flist[status.index].sumpath}${flist[status.index].oriName}'/>">
+						<li>
+						<img class="img-src" src="<c:url value='${flist[status.index].sumpath}${flist[status.index].oriName}'/>">
 							<div class="txt-box">
-								<span>${blist.title}:${blist.viewCnt}</span>
-							</div></li>
+								<p>${blist.title}:${blist.viewCnt}</p>
+							</div>
+						</li>
 					</a>
-
+					</c:if>
 					</c:forEach>
-
 				</div>
 				<br>
 				<button id="y-writeform" >글쓰기</button>

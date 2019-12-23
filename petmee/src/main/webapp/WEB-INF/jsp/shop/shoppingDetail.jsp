@@ -93,13 +93,14 @@
 		<tr>
 			<th>수량 :</th>
 			<td>		
-			<input type=hidden name="sell_price" value="${product.price}"><input type="text" name="amount" value="1" size="2" onchange="change();">
-				<input type="button" value=" + " onclick="add();">
-				<input type="button" value=" - " onclick="del();">
-				<span id="product_su_txt">(최소준문수량 1개 이상)</span>
+				<input class="excessCnt subinput" name="excessCnt" value=1 /><span>개</span>
+				<button class="amount_btn" onclick="addtnNofpr.add('amount')" type="button">+</button>
+				<button class="amount_btn" onclick="addtnNofpr.remove('amount')" type="button">-</button>
+				<span class="subinput">(최소준문수량 1개 이상)</span>
 			</td>
 			
 		</tr>
+	
 	</tbody>
 	</table>
 	</div>
@@ -108,8 +109,9 @@
 			<div class="pro-total">
 				<strong>총 상품금액(수량)</strong>
 				<em id="totalPrice_A">
-				<input id="proinput" type="text" name="sum" size="11" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/>" readonly>
-				</em>원(<input value="1" name="subA" id="subA" onchange="change();"/>개)
+				<input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />" />
+				</em>원
+				(<input id="asd" value="1" name="excessCnt" class="excessCnt" onchange="change();"/>개)
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">
@@ -238,8 +240,8 @@
 					<td>${b.no}</td>
 					<%-- <td>${b.product}</td> --%>
 					<td>${b.title}</td>
-					<td>${b.writer}</td>
-					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.date}" /></td>
+					<%-- <td>${b.writer}</td> --%>
+					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<%--<td>${b.rating}</td>--%>
 					<td>${b.viewCnt}</td>
 					<td>
@@ -366,7 +368,8 @@
 		<div class="bottombuybtn">
 			<div class="inner">
 				<div class="bbuybtn" id="">
-					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input type="text" name="sum1" size="11" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/>" readonly /></em>원(<input value="1" name="subB" id="subB" onchange="change();"/>개)</strong></span>
+					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />">
+				(<input value="1" name="excessCnt" class="excessCnt" onchange="change();"/>개)</strong></span>
 						<!-- default// -->
 						<div class="btn-area btnarea-default active">
 							<button type="button" class="btn-black btn-buy" onclick="_orderGoods();">바로 구매하기</button>							
@@ -383,6 +386,54 @@
     	</form>
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+	<script>
+		function AddtnNofpr(){
 
+			//상품에서 아래 내용 세팅
+			this.constMnmmAccptCnt = 1;
+			this.constMxmmAccptCnt = ${product.stock};
+			
+			//상품 최소수량으로 세팅
+			this.amount = 1;//수량
+			
+			this.chargeYn = "Y";
+			this.perPersonAmt = (this.chargeYn=="Y") ? ${product.price} : 1;
+			
+			var p = this;
+			
+			this.add = function (type){
+				var nowCnt = p.amount;
+			
+				if(nowCnt > p.constMxmmAccptCnt){
+					alert("최대 수량을 초과했습니다."); 
+					return false;
+				}
+				
+				eval("p."+type+"++;");
+				p.afterProc();			
+			}
+			
+			this.remove = function (type){
+				if($('.'+type).val()==1) return false;
+				
+				eval("p."+type+"--;");
+				p.afterProc();			
+			}
+			
+			//계산 후처리.
+			this.afterProc = function (){
+				
+				// 계산
+				var nowCnt = p.amount;
+				var excessCnt = (nowCnt - p.constMnmmAccptCnt < 0 )? 0 : nowCnt - p.constMnmmAccptCnt ;
+				$('.excessCnt').val(excessCnt);
+				//초과 가격 계산
+				$('.price').val((excessCnt*p.perPersonAmt).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+			}
+
+		}
+					
+		var addtnNofpr = new AddtnNofpr();
+		</script>
 </body>
 </html>

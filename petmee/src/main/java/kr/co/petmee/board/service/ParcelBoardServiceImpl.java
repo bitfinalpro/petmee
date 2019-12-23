@@ -5,19 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.petmee.repository.dao.ParcelBoardDao;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.dao.CommentDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.ParcelBoard;
 
 @Service
 public class ParcelBoardServiceImpl implements ParcelBoardService {
 
 	@Autowired
-	private ParcelBoardDao dao;
+	private BoardDAO dao;
+	
+	@Autowired
+	private CommentDAO dao1;
 
-	public List<ParcelBoard> listBoard(Page page) {
+	public List<Board> listBoard(Page page) {
 		return dao.selectBoard(page);
 	}
 	
@@ -26,12 +30,12 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 		return dao.selectBoardCount();
 	}
 
-	public ParcelBoard detailBoard(int no) {
+	public Board detailBoard(int no) {
 		dao.updateViewCnt(no);
 		return dao.selectOneBoard(no);
 	}
 
-	public ParcelBoard updateFormBoard(int no) {
+	public Board updateFormBoard(int no) {
 		return dao.selectOneBoard(no);
 	}
 
@@ -39,11 +43,11 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 		dao.deleteBoard(no);
 	}
 
-	public void insertBoard(ParcelBoard board) {
+	public void insertBoard(Board board) {
 		dao.insertBoard(board);
 	}
 
-	public void updateBoard(ParcelBoard board) {
+	public void updateBoard(Board board) {
 		dao.updateBoard(board);
 	}
 
@@ -53,8 +57,8 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 		return dao.selectSumFiles();
 	}
 	
-	public List<Filevo> selectBaordFile(int no) {
-		return dao.selectBaordFile(no);
+	public List<Filevo> selectBoardFile(int no) {
+		return dao.selectBoardFile(no);
 	}
 
 	public void insertFile(Filevo filevo) {
@@ -65,22 +69,22 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 //	댓글
 	
 	public List<Comment> commentDelete(Comment comment) {
-		dao.deleteComment(comment.getCommentNo());
-		return dao.selectComment(comment.getNo());
+		dao1.deleteComment(comment.getCommentNo());
+		return dao1.selectComment(comment.getNo());
 	}
 	
 	public List<Comment> commentRegist(Comment comment) {
-		dao.insertComment(comment);
-		return dao.selectComment(comment.getNo());
+		dao1.insertComment(comment);
+		return dao1.selectComment(comment.getNo());
 	}
 	
 	public List<Comment> commentUpdate(Comment comment) {
-		dao.updateComment(comment);
-		return dao.selectComment(comment.getNo());
+		dao1.updateComment(comment);
+		return dao1.selectComment(comment.getNo());
 	}
 	
 	public List<Comment> commentList(int no) {
-		return dao.selectComment(no);
+		return dao1.selectComment(no);
 	}
 
 }

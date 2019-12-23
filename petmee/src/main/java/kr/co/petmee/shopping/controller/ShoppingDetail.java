@@ -25,9 +25,12 @@ public class ShoppingDetail {
 	@RequestMapping("/shoppingDetail.do")
 	public void shoppingDetail(@RequestParam(value="pageNo", defaultValue="1") int pageNo, String productId, Model model) {	
 		
+		// 상품 이미지 
 		List<Image> list = service.SelectProductImage(productId);
 		model.addAttribute("flist", list);
+		// 해당상품 디테일 
 		model.addAttribute("product", service.ShoppingDetail(productId));
+		// 해당상품 게시판 
 		model.addAttribute("list", service.listBoard(new Page(pageNo)));
 		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));
 	}

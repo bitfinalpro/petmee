@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.board.service.QnaBoardService;
-import kr.co.petmee.repository.dao.QnaBoardDAO;
+import kr.co.petmee.repository.dao.BoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
+import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Search;
-import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.controller.QnaBoardController")
@@ -26,7 +27,7 @@ public class QnaBoardController {
 	private QnaBoardService service;
 	
 	@Autowired
-	private QnaBoardDAO dao;
+	private BoardDAO dao;
 	
 	@RequestMapping("/qna-list.do")
 	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page,
@@ -34,8 +35,8 @@ public class QnaBoardController {
 		int count = 0;
 		if(key == 0 || val == null) {
 			
-			model.addAttribute("list", service.listQnaBoard(page));
-			count = dao.selectQnaCount();
+			model.addAttribute("list", service.listBoard(page));
+			count = dao.selectBoardCount();
 		}
 		else {
 			Search search = new Search();
@@ -43,7 +44,7 @@ public class QnaBoardController {
 			search.setPageNo(page.getPageNo());
 			search.setKeyword(key);
 			search.setSearchText(val);
-			List<QnaBoard> list = service.searchlistBoard(page, search);
+			List<Board> list = service.searchlistBoard(page, search);
 			model.addAttribute("list", list);
 			count = list.size();
 		}
@@ -59,19 +60,28 @@ public class QnaBoardController {
 	public void writeform() {}
 	
 	@RequestMapping("/qna-write.do")
-	public String write(QnaBoard  board) {
-		service.insertQnaBoard(board);
+	public String write(Board  board) {
+		service.insertBoard(board);
 		return "redirect:qna-list.do";
 	}
 	
 	@RequestMapping("/qna-detail.do")
 	public void detail(int no, Model model) {
-		model.addAttribute("board", service.detailQnaBoard(no));
+		model.addAttribute("board", service.detailBoard(no));
 	}
 	
+	@RequestMapping("/selectReportedMember.do")
+	@ResponseBody
+	public Comment selectReportedMember(int commentNo) {
+		Comment c = service.selectReportedMember(commentNo);
+		System.out.println(c.getEmail());
+		System.out.println(c.getContent());
+		System.out.println(c.getCommentNo());
+		 return c;
+	} 
 	@RequestMapping("/qna-delete.do")
 	public String delete(int no) {
-		service.deleteQnaBoard(no); 
+		service.deleteBoard(no); 
 		return "redirect:qna-list.do";
 	}
 	
@@ -81,8 +91,8 @@ public class QnaBoardController {
 	}
 	
 	@RequestMapping(value="/qna-update.do" , method = {RequestMethod.GET ,  RequestMethod.POST})
-	public String update(QnaBoard board) {
-		service.updateQnaBoard(board);
+	public String update(Board board) {
+		service.updateBoard(board);
 		return "redirect:qna-list.do";
 	}
 	

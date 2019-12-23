@@ -13,6 +13,11 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/free.css" />">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  .btnpagebtn{
+  /* padding: 6px 12px !important; */
+  }
+  </style>
   <title>Pet Me</title>
 </head>
 
@@ -62,7 +67,7 @@
             </tr>
          </c:if>
          <c:forEach var="b" items="${list}">
-         <c:if test="${b.type eq free}">
+         <c:if test="${b.type eq 'free'}">
          <tr>
                 <td>${b.no}</td>
                 <td><a href="detail.do?no=${b.no}">${b.title}</a></td>
@@ -88,11 +93,11 @@
     </li>
     </c:if>
     <c:forEach var="i" begin="${pr.beginPage }" end="${pr.endPage}">
-    <li <c:if test="${pr.pageNo == i }">class="active"</c:if>><a href="list.do?pageNo=${i}">${i}</a></li>
+    <li <c:if test="${pr.pageNo == i }">class="active"</c:if>><a class="btnpagebtn" href="list.do?pageNo=${i}">${i}</a></li>
     </c:forEach>
-    <c:if test="${pr.next }" >
+    <c:if test="${pr.next}" >
     <li>
-      <a href="list.do?pageNo=${pr.endPage + 1} " aria-label="Next">
+      <a <%-- class="btnpagebtn" --%> href="list.do?pageNo=${pr.endPage + 1} " aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>

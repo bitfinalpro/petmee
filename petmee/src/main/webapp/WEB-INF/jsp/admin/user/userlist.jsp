@@ -36,7 +36,7 @@
       }
     #usermodal {
       border: solid 1px #e9e9e9;
-      width: 530px;
+      width: 660px;
       height: 400px;
     }
     #usermodal > tbody > tr > td {
@@ -77,7 +77,7 @@
     .layer .box{
       padding:20px 20px 60px;
       margin:20px;
-      width:570px;
+      width:700px;
       height: 530px;
       background: white;
       position:relative;
@@ -122,18 +122,6 @@
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
@@ -199,22 +187,22 @@
                 <span>신고관리</span>
               </a>
             </li>
-        <!-- 게시판 관리 -->
+        <!-- 주문 관리 -->
         <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
+            <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
               <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
+              <span>주문관리</span></a>
           </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="boardadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li>
   
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>통계</span></a>
         </li>
@@ -265,8 +253,8 @@
                    <td colspan="5">게시물이 없습니다.</td>
                  </tr>
                  </c:if>
-                <c:forEach var="user" items="${userList}">
                 <tbody>
+                <c:forEach var="user" items="${userList}">
                   <!-- <tr onclick="document.location.href='#popup'"> -->
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
@@ -278,8 +266,8 @@
                         <td>${user.resident}</td>
                         <td><a href="userdelete.do?userNo=${user.userNo}"><button type="button">탈퇴</button></a></td>
                       </tr>
-                </tbody>
              </c:forEach>
+                </tbody>
               </table>
                <!-- 모달창 시작 -->
                 <div id="popup" class="layer">
@@ -287,11 +275,11 @@
                     <div class="u"><strong>회원정보</strong></div>
                     <table class ="usermodal" id="usermodal">
                         <colgroup>
-                          <col width="17%">
+                          <col width="12%">
                           <col width="25%">
+                          <col width="12%">
                           <col width="17%">
-                          <col width="5%">
-                          <col width="7%">
+                          <col width="6%">
                           <col width="3%">
                       </colgroup>                  
                       <tr>
@@ -373,14 +361,15 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+ <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
   <!-- Core plugin JavaScript-->
- <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
 
   <!-- Page level plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/chart.js/Chart.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.js" />"></script>
   <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.js" />"></script>
 
@@ -388,9 +377,9 @@
   <script src="<c:url value="/resources/js/admin/sb-admin.min.js" />"></script>
 
   <!-- Demo scripts for this page-->
- <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
- 
- <script src="<c:url value="/resources/js/admin/userinfo.js" /> "></script>
+  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
+  <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
+  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
 
 </body>
 
