@@ -33,15 +33,15 @@
                     <ul>
                         <li class="drop01"><a href="<c:url value="/shop/productList.do" />"><span>FOOD</span></a>
                             <ul>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=1" />">사료</a></li>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=2" />">간식</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=1" />">사료</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=2" />">간식</a></li>
                             </ul>
                         </li>
                         <li class="drop01"><a href="#">패션</a>
                             <ul>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=3" />">티셔츠/아우터</a></li>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=4" />">신발</a></li>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=5" />">악세사리/외출용품</a>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=3" />">티셔츠/아우터</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=4" />">신발</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=5" />">악세사리/외출용품</a>
                                     <!-- <ul>
                                         <li><a href="#">HTML</a></li>
                                         <li><a href="#">CSS</a></li>
@@ -51,24 +51,26 @@
                         </li>
                         <li class="drop01"><a href="#">미용/목욕</a>
                             <ul>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=6" />">목욕용품</a></li>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=7" />">미용용품</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=6" />">목욕용품</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=7" />">미용용품</a></li>
                             </ul>
                         </li>
                         <li class="drop01"><a href="#">위생/배변</a>
                             <ul>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=8" />">위생/배변</a></li>
-                                <li><a href="<c:url value="/shop/productList.do?categoryNo=9" />">청소용품</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=8" />">위생/배변</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=9" />">청소용품</a></li>
                             </ul>
                         </li>
                         <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=10" />">장난감</a></li>
-                        <li class="drop01"><a href="#" />커뮤니티</a>
+                        <li class="drop01"><a href="#" />">커뮤니티</a>
                             <ul>
-                                <li><a href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
-                                <li><a href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
-                                <li><a href="<c:url value="/board/parcelboard/parcelList.do" />">분양게시판</a></li>
-                                <li><a href='<c:url value="/board/reviewboard/review_list.do" />'>리뷰게시판</a></li>
-                                <li><a href='<c:url value="/board/qnaboard/qna-list.do" />'>Q&A게시판</a></li>
+                                <li><a class="gnb_a" href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
+                                <li><a class="gnb_a" href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
+                                <li><a class="gnb_a" href="#">봉사활동</a></li>
+                                <li><a class="gnb_a" href="<c:url value="/board/parcelboard/parcelList.do" />">분양게시판</a></li>
+                                <li><a class="gnb_a" href='<c:url value="/board/volunteerreviewboard/list.do"/>'>후기게시판</a></li>
+                                <li><a class="gnb_a" href='<c:url value="/board/reviewboard/review_list.do" />'>리뷰게시판</a></li>
+                                <li><a class="gnb_a" href='<c:url value="/board/qnaboard/qna-list.do" />'>Q&A게시판</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -122,3 +124,4 @@
             <div class="black"></div>
         </div> <!-- modal -->
 	<%-- <script src="<c:url value="/js/jquery.magnific-popup.js" />"></script> --%>
+	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>

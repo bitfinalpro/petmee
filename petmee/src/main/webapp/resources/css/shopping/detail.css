@@ -106,7 +106,7 @@ tt, code, kbd, samp, pre {font-family:"Lato", "Noto Sans KR", sans-serif, Malgun
 .goods.detail .product .proinfo .pro-total {color:#000;margin-left:20px;line-height:93px;}
 .goods.detail .product .proinfo .pro-total:after {content:'';display:block;clear:both;}
 .goods.detail .product .proinfo .pro-total strong {display:inline-block;font-size:16px;font-weight:400;line-height:93px;}
-.goods.detail .product .proinfo .pro-total input {display: inline-block; margin: 0px 5px 0px 20px; width: 106px; font-size: 32px; font-weight: 700; line-height: 93px; border: none;}
+.goods.detail .product .proinfo .pro-total input {display: inline-block; margin: 0px 5px 0px 20px; width: 150px; font-size: 32px; font-weight: 700; line-height: 93px; border: none;}
 
 
 .goods.detail .product .proinfo .btn-area {display:none;margin-top:16px;}
@@ -165,7 +165,11 @@ tt, code, kbd, samp, pre {font-family:"Lato", "Noto Sans KR", sans-serif, Malgun
 .board_title {width: 100%;text-align: center; margin: 30px auto;}
 .board_title strong {font-size: 2rem;line-height: 2r-.5rem;}
 /*--------------------shopping price check-------------------------------*/
-#subA {width: 20px;font-size: 18px;margin: 0;}
+.subinput {width: 30px;font-size: 18px;margin: 0;}
+.amount_btn {width: 30px; height: 20px;}
+#asd{    width: 25px;
+    font-size: 20px;
+    margin: 0;}
 #proinput {width: 140px;}
 /*--------------------shopping price check end-------------------------------*/
 /*------------shopping board--------------------*/
