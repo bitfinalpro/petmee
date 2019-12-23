@@ -36,7 +36,7 @@
       }
     #usermodal {
       border: solid 1px #e9e9e9;
-      width: 530px;
+      width: 660px;
       height: 400px;
     }
     #usermodal > tbody > tr > td {
@@ -77,7 +77,7 @@
     .layer .box{
       padding:20px 20px 60px;
       margin:20px;
-      width:570px;
+      width:700px;
       height: 530px;
       background: white;
       position:relative;
@@ -187,12 +187,6 @@
                 <span>신고관리</span>
               </a>
             </li>
-        <!-- 게시판 관리 -->
-        <li class="nav-item">
-            <a class="nav-link" href="boardadmin.html">
-              <i class="fas fa-fw fa-table"></i>
-              <span>게시판관리</span></a>
-          </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
           <a class="nav-link" href="boardadmin.html">
@@ -275,11 +269,11 @@
                     <div class="u"><strong>회원정보</strong></div>
                     <table class ="usermodal" id="usermodal">
                         <colgroup>
-                          <col width="17%">
+                          <col width="12%">
                           <col width="25%">
+                          <col width="12%">
                           <col width="17%">
-                          <col width="5%">
-                          <col width="7%">
+                          <col width="6%">
                           <col width="3%">
                       </colgroup>                  
                       <tr>

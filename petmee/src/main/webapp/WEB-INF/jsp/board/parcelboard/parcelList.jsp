@@ -41,8 +41,7 @@ cursor: pointer;
 					분양게시판
 				</div>
 				<div id="y-list">
-				
-					<c:forEach var="blist" items="${blist}" varStatus="status">
+				<c:forEach var="blist" items="${blist}" varStatus="status">
 					<c:if test="${blist.type eq 'parcel'}">
 					<a href="/petmee/board/parcelboard/parcelDtail.do?no=${blist.no}">
 						<li>
