@@ -95,11 +95,12 @@ public class ParcelBoardController {
 		getBoard.setTitle(sermernoteVo.getTitle());
 		getBoard.setEmail(sermernoteVo.getWriter());
 		getBoard.setContent(sermernoteVo.getContent());
+		getBoard.setType(sermernoteVo.getType());
 //		썸네일
 		sermernoteVo.getSumfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = sermernoteVo.getBoardfile();
-
+		
 		service.insertBoard(getBoard);
 		
 		int bno = getBoard.getNo();

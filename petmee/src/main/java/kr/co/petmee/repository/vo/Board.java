@@ -1,4 +1,4 @@
-package kr.co.petmee.repository.vo;
+﻿package kr.co.petmee.repository.vo;
 
 import java.util.Date;
 
@@ -20,6 +20,6 @@ public class Board {
 	private String proCatgo;            // 카테고리
 	private int price;                      // 가격
 	private String stringDate; //스트링형태 날짜
-	
+
 
 }
