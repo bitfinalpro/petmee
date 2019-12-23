@@ -86,7 +86,7 @@
       <ul class="sidebar navbar-nav">
         <!-- 메인 -->
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="<c:url value="/admin/user/menu.do" />">
             <i class="fas fa-home"></i>
             <span>Main</span>
           </a>

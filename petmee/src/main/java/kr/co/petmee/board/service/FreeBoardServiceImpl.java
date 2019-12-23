@@ -80,10 +80,10 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Override
 	public List<Board> searchlistBoard(Page page, Search search){
 		switch(search.getKeyword()) {
-		case 0: System.out.println(0);return dao.selectBoard(page);
-		case 1: System.out.println(1);return dao.selectSearchWriter(search);
-		case 2: System.out.println(2);return dao.selectSearchTitle(search);
-		case 3: System.out.println(3);return dao.selectSearchBoth(search);
+		case 0: return dao.selectBoard(page);
+		case 1: List<Board> list = dao.selectSearchWriter(search); System.out.println(list.size()); return list;
+		case 2: return dao.selectSearchTitle(search);
+		case 3: return dao.selectSearchBoth(search);
 		default: return null;
 		}
 	}
