@@ -11,12 +11,12 @@
 	</select>
 
 	<!-- 글 상세 조회 -->
-	<select id="selectOneBoard" parameterType="int"
-		resultType="Board">
+	<select id="selectOneBoard" parameterType="int" resultType="Board">
 		select *
 		from tb_board
 		where no = #{no}
 	</select>
+	
 	<!-- 페이징 -->
 	<select id="selectBoardCount" resultType="int">
 		select count(*)
@@ -31,6 +31,7 @@
 		#{title}, '이지은', #{content}, #{topChk}, #{type}
 		)
 	</insert>
+	
 	<insert id="insertBoard2" parameterType="Board">
 		insert into tb_board (
 		title, email, content, topChk, type
@@ -101,7 +102,7 @@
 		 order by no desc;
 	</select>
 
-	<select id="selectBaordFile" parameterType="int" resultType="Filevo">
+	<select id="selectBoardFile" parameterType="int" resultType="Filevo">
 		select *
 		  from parcelboardfile
 		 where no = #{no}

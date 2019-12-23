@@ -22,7 +22,7 @@ import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.SermernoteVo;
 import kr.co.petmee.util.PageResult;
 
-@Controller
+@Controller("kr.co.petmee.board.controller.ParcelBoardController")
 @RequestMapping("/board/parcelboard")
 public class ParcelBoardController {
 
@@ -40,6 +40,8 @@ public class ParcelBoardController {
 			
 			System.out.println(b.getNo());
 			System.out.println(b.getTitle());
+			System.out.println(b.getType());
+			
 		}
 		
 		model.addAttribute("blist", bylist);
@@ -76,7 +78,7 @@ public class ParcelBoardController {
 		service.updateBoard(getBoard);
 		
 		int bno = getBoard.getNo();
-		System.out.println(bno);
+		//System.out.println(bno);
 
 //		저장하고 리스트로 이동
 		return "redirect:parcelList.do";
