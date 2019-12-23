@@ -66,9 +66,7 @@
                             <ul>
                                 <li><a class="gnb_a" href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
-                                <li><a class="gnb_a" href="#">봉사활동</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/board/parcelboard/parcelList.do" />">분양게시판</a></li>
-                                <li><a class="gnb_a" href='<c:url value="/board/volunteerreviewboard/list.do"/>'>후기게시판</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/reviewboard/review_list.do" />'>리뷰게시판</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/qnaboard/qna-list.do" />'>Q&A게시판</a></li>
                             </ul>
