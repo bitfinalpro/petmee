@@ -4,13 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ChartDAO">
 	<!-- 월별 매출 -->
-	<select id="selectMarginList" resultType="Profit">
-		select
-		date_format(order_date, '%Y-%m') date, sum(price) as profit
-		from
-		tb_order
-		group by date
-		order by date limit 13
+	<select id="selectMarginList" parameterType="string"
+		resultType="int">
+		select sum(sumPrice)
+		from (select *, sum(price) as sumPrice
+		from tb_order group by order_id) e
+		where (date_format(order_date,
+		'%Y-%m') = #{sDate})
+		group by date_format(order_date, '%Y-%m')
+		union all
+		select 0
+		from dual
+		where not exists(select sum(sumPrice)
+		from (select *,
+		sum(price) as sumPrice from tb_order group by order_id) e
+		where
+		(date_format(order_date, '%Y-%m') = #{sDate})
+		group by
+		date_format(order_date, '%Y-%m'))
 	</select>
 	<!--이번달 주문수 top 5 -->
 	<select id="selectMonthTop" resultType="Profit">
@@ -34,20 +45,83 @@
 		(p.category_no = c.category_no) and (o.order_date between
 		date_add(now(),interval -1 month) and now())
 		group by c.category_no
-		order by productCnt;
+		order by productCnt
 	</select>
-	<!-- 회원 아이디 검색 통계 -->
-	<select id="searchById">
+	<!-- 아이디 검색, 구매 횟수 통계 -->
+	<select id="selectTotalCount" parameterType="map"
+		resultType="int">
 		select count(*)
-		from (select * from tb_order group by order_id) e
-		where date_format(order_date, '%Y-%m') in ("2019-12")
+		from (select * from tb_order group by
+		order_id) e
+		where (date_format(order_date, '%Y-%m') = #{sDate})
+		and user_id = #{userId}
 		group by date_format(order_date, '%Y-%m')
 		union all
 		select 0
 		from dual
 		where not exists(select count(*)
-		from (select * from tb_order group by order_id) e
-		where date_format(order_date, '%Y-%m') in ("2019-12")
-		group by date_format(order_date, '%Y-%m'));
+		from (select * from
+		tb_order group by order_id) e
+		where (date_format(order_date, '%Y-%m') =
+		#{sDate})
+		and user_id = #{userId}
+		group by date_format(order_date, '%Y-%m'))
+	</select>
+	<!-- 아이디검색, 구매액 추출 -->
+	<select id="selectTotalPrice" parameterType="map"
+		resultType="int">
+		select sum(sumPrice)
+		from (select *, sum(price) as sumPrice
+		from tb_order group by order_id) e
+		where (date_format(order_date,
+		'%Y-%m') = #{sDate})
+		and user_id = #{userId}
+		group by date_format(order_date, '%Y-%m')
+		union all
+		select 0
+		from dual
+		where not exists(select sum(sumPrice)
+		from (select *,
+		sum(price) as sumPrice from tb_order group by order_id) e
+		where
+		(date_format(order_date, '%Y-%m') = #{sDate})
+		and user_id = #{userId}
+		group by date_format(order_date, '%Y-%m'))
+	</select>
+	<!-- 회원 정보 추출 -->
+	<select id="selectUser" parameterType="string" resultType="User">
+		select *
+		from tb_user
+		where email = #{userId}
+	</select>
+	<!-- 회원 주문 내역 -->
+	<select id="selectOrderList" parameterType="string"
+		resultType="Order">
+		select *, date_format(order_date, '%Y-%m-%d %H:%i:%s') as
+		date
+		from tb_order
+		where user_id = #{userId}
+	</select>
+	<!-- 제품번호 검색 월 매출액 -->
+	<select id="selectSumPrice" parameterType="map" resultType="int">
+		select ifnull(sum(price), 0)
+		from tb_order
+		where (date_format(order_date, '%Y-%m') = #{sDate})
+		and product_id = #{productId}
+	</select>
+	<!-- 제품번호 검색 월 판매수량 -->
+	<select id="selectSumCnt" parameterType="map" resultType="int">
+		select
+		ifnull(sum(product_cnt), 0)
+		from tb_order
+		where (date_format(order_date, '%Y-%m') = #{sDate})
+		and product_id = #{productId};
+	</select>
+	<!-- 제품정보 추출 -->
+	<select id="selectProduct" parameterType="string"
+		resultType="Product">
+		select *
+		from tb_product
+		where product_id = #{productId}
 	</select>
 </mapper>
