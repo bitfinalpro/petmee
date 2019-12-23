@@ -1,6 +1,7 @@
 package kr.co.petmee.shop.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,24 +47,26 @@ public class ShoppingDetailController {
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
+		String orderNO = UUID.randomUUID()+"-"+user.getEmail();
 		
-		for(ShoppingList s : list) {		
+		for(ShoppingList s : list) {	
 			System.out.println(s.getProduct());
 			System.out.println(s.getEmail());
 			System.out.println(s.getImage());
 			Purchase p = new Purchase();
-			p.setOrder_id(deliInfo.getOrder_id());
+			p.setOrder_id(deliInfo.getEmail());
 			p.setProduct_id(s.getProduct());
 			p.setProduct_cnt(s.getAmount());
-			p.setContent(s.getExplain());
+			p.setContent(s.getSubTitle());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
 			p.setPayment(pay);
 			p.setDiscount(s.getDcprice());
 			p.setImage(s.getImage());
+			p.setOrder_no(orderNO);
 			service.purchase(p);
 		}
-		
+		deliInfo.setOrder_no(orderNO);
 		service.deliInfo(deliInfo);
 		
 	}

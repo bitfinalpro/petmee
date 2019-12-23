@@ -4,6 +4,10 @@
 <mapper namespace="kr.co.petmee.repository.dao.DeliInfoDAO">
 	
 	<!-- 배송정보 insert -->
+	<select id="selectDeliInfo" parameterType="String" resultType="DeliInfo">
+	SELECT * FROM tb_deliinfo where = order_no = #{order_no};
+	</select>
+	<!-- 배송정보 insert -->
 	<insert id="insertDeliInfo" parameterType="DeliInfo">
 		INSERT INTO tb_deliinfo (name, phone, email, zipcode, address1, address2, content, order_id, coupondc)
 		 VALUES (#{name},#{phone},#{email},#{zipcode},#{address1},#{address2},#{content},#{order_id},#{coupon_dc});

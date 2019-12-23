@@ -7,3 +7,10 @@
 	width: 1200px;
 	color: #d8d8d8;
 }
+.goods-img{
+	width: 100px;
+	height: 100px;
+}
+.content-box{
+	display: inline-block;
+}

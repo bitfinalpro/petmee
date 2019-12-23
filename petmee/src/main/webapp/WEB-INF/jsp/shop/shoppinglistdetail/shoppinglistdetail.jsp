@@ -46,7 +46,7 @@
 									<div>
 										<img class="y-img float-l" src="" />
 									</div>
-									<div class="y-list-content float-l">${ylist.explain}</div>
+									<div class="y-list-content float-l">${ylist.subTitle}</div>
 									<div class="y-check-del-box float-r"></div>
 									<div class="y-s-amount float-r">
 										<span class="y-amount">${ylist.amount} 개</span>

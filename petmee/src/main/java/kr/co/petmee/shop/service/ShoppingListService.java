@@ -33,4 +33,8 @@ public interface ShoppingListService {
 	void deliInfo(DeliInfo deliInfo);
 //	구매 내역 등록
 	void purchase(Purchase purchase);
+//	구매내역 가져오기
+	List<Purchase> purchaseList(User user);
+//	배송정보 가져오기
+	List<DeliInfo> DeliInfoList(String order_no);
 }

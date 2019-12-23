@@ -75,12 +75,15 @@
 			<div class="sub-con sub-pad">
 				<div class="sub-title">
 					<p class="desc">구매내역</p>
-					<p class="title_bold">Purchase details</p>
 				</div>
 				<!-- 여기가 컨텐츠 내용 -->
 				<hr class="outline-hr" />
 				<div id="content">
-	<c:forEach var="plist" items="${plist}" >
+				<c:set var="price1" value="0" scope="page" />
+				<c:set var="dc_price1" value="0" scope="page" />
+					<c:forEach var="plist" items="${plist}" >
+				<c:set var="price1" value="${price1 + plist.price}" scope="page" />
+				<c:set var="dc_price1" value="${dc_price1 + plist.discount}" scope="page" />
 	 				<table class="listbox">
 
 						<thead>
@@ -94,7 +97,7 @@
 						<tbody>
 							<tr>
 								<td class="purchase-date">
-								<fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/>
+								<fmt:formatDate value="${plist.order_no }" pattern="yyyy-MM-dd"/>
 								<a href="<c:url value='/shop/purchaseList/purchaseDetail.do?order_no=${plist.order_no}' />">주문상세보기</a>
 								<td>
 								<td class="purchase-goods">
@@ -107,7 +110,7 @@
 								</td>
 								<td class="purchase-state">
 									<div>${plist.status }</div> 
-									<c:if test="${plist.status eq '배송중'}">
+									<c:if test="${plist.status eq 배송중}">
 										<a href="#">배송추적</a>
 									</c:if>
 								</td>
@@ -115,9 +118,59 @@
 						</tbody>
 
 					</table>
-	 </c:forEach>
+					 </c:forEach>
+				<hr class="outline-hr" />
+
+				
+				<div class="sub-title">
+					<p class="desc">구매내역</p>
 				</div>
 				<hr class="outline-hr" />
+				
+				<div class="결제-box">
+				<div class="물건금액 -box">
+					<div>물건금액</div>
+					<div><span>금액</span><span>${price1}</span></div>
+					<div><span>배송비</span><span>2500<!-- 고정 --></span></div>
+				</div>
+				<div class="할인금액-box">
+					<div>할인금액</div>
+					<div><span>기본할인</span><span>${dc_price1}</span></div>
+					<div><span>쿠폰</span><span>${dlist.coupon_dc }</span></div>
+				</div>
+				<!-- <div class="카드정보-box"></div> 추후 추가 -->
+				</div>
+				
+				<!-- 종합 박스 -->
+				<div class="총합-box">
+					<div><span>총 금액</span><span>${price1 + 2500}</span></div>
+					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.coupon_dc}</span></div>
+					<div><span>최종금액</span><span>${price1 + 2500 - dc_price1 - dlist.coupon_dc}</span></div>
+				</div>
+				
+								<hr class="outline-hr" />
+				<!-- 배송지 박스 -->
+				<table>
+					<tr>
+						<td>이름</td>
+						<td>${dlist.name }</td>
+					</tr>
+					<tr>
+						<td>연락처</td>
+						<td>${dlist.phone }</td>
+					</tr>
+					<tr>
+						<td>주소</td>
+						<td>(${dlist.zipcode })${dlist.address1 } ${dlist.address2 }</td>
+					</tr>
+					<tr>
+						<td>배송메모</td>
+						<td>${dlist }</td>
+					</tr>
+				</table>
+						
+								
+				</div>
 			</div>
 		</div>
 	</div>

@@ -42,7 +42,7 @@
 							<div>
 								<img class="y-img float-l" src="" />
 							</div>
-							<div class="y-list-content float-l">${list.explain}</div>
+							<div class="y-list-content float-l">${list.subTitle}</div>
 							<div class="y-check-del-box float-r">
 								<div class="y-delbox">
 									<i class="fas fa-times fa-2x mousepoint y-delete" data-no="${list.no}"></i>

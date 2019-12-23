@@ -66,4 +66,14 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 		dao3.insertPurchase(purchase);
 	}
 
+//  구매내역 가져오기
+	public List<Purchase> purchaseList(User user) {
+		return dao3.selectPurchase(user);
+	}
+
+//	배송정보 가져오기
+	public List<DeliInfo> DeliInfoList(String order_no) {
+		return dao2.selectDeliInfo(order_no);
+	}
+
 }
