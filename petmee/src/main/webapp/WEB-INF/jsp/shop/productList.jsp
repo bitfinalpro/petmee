@@ -55,52 +55,19 @@
           </a>
           </li>
         </c:forEach>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/12.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/11.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-           <img src="${pageContext.request.contextPath}/resources/images/shopping/list/12.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/11.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/12.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/11.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
-          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/shopping/list/12.jpg" />
-            <span>sub_title</span>
-            <strong>product_title</strong>
-            <span>price</span>
-          </li>
         </ul>
       </div>
     </div>
      </div>
+      <div id="page" >
+        <nav>
+  <ul class="pagination">
+    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
+    <%-- --%><li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="productList.do?categoryNo=1&pageNo=${i}">${i}</a></li>
+    </c:forEach>
+  </ul>
+</nav>
+	</div>
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 </body>
 </html>

@@ -117,7 +117,7 @@
         <div id="tab-1" class="tab-content current">
           <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
-          	<c:if test="${food.categoryNo eq 2}">
+          	<c:if test="${food.categoryNo eq 1 || food.categoryNo eq 2}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
@@ -143,7 +143,7 @@
         <div id="tab-2" class="tab-content">
      	 <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7"  varStatus="status">
-     	 		<c:if test="${food.categoryNo eq 1}">
+     	 		<c:if test="${food.categoryNo eq 3 || food.categoryNo eq 4 || food.categoryNo eq 5}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
@@ -167,7 +167,7 @@
         <div id="tab-3" class="tab-content"> 
       		 <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${food.categoryNo eq 4}">
+     	 		<c:if test="${food.categoryNo eq 6 || food.categoryNo eq 7}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
@@ -192,7 +192,7 @@
         <div id="tab-4" class="tab-content">
          <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${food.categoryNo eq 5}">
+     	 		<c:if test="${food.categoryNo eq 8 || food.categoryNo eq 9}">
               <li>
                   <div class="product_slide ">
                     <a href="#">
@@ -217,7 +217,7 @@
         <div id="tab-5" class="tab-content">
          <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${food.categoryNo eq 3}">
+     	 		<c:if test="${food.categoryNo eq 10}">
               <li>
                   <div class="product_slide ">
                     <a href="#">

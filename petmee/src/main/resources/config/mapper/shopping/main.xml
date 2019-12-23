@@ -13,6 +13,7 @@
 			from tb_product
 			where product_id = #{productId}
 	</select>
+	
 	<!-- 상품 상세 이미지 파일 --> 
 	<select id="selectProductImage" parameterType="String" resultType="Image">
 		select img.path, img.ori_name, img.type
@@ -23,9 +24,24 @@
 	</select>
 	
 	<!-- 상품 리스트 -->
-	<select id="productList" parameterType="int" resultType="Product">
-		select * from tb_product 
-			where category_no = #{categoryNo}
+	<!--  
+	<select id="productList" parameterType="hashmap" resultType="Product">
+		select * from tb_product
+		where category_no = #{categoryNo} 
+		limit 1, 16
+	</select>
+	-->
+	<select id="productList" parameterType="ProductListPage" resultType="Product">
+		select * from tb_product
+		where category_no = #{categoryNo}
+		order by no desc
+		limit #{begin}, #{listSize} 
+	</select>
+	
+	<!-- 상품 카운트 리스트 -->
+	<select id="productListCount" resultType="int" >
+		select count(*)
+		from tb_product 
 	</select>
 	
 	<!-- 상품 리스트 이미지파일 -->
@@ -34,7 +50,9 @@
 			from tb_image img
 			inner join tb_product pro
 			on img.product_id = pro.product_id
-            where pro.category_no = #{categoryNo}
+            where pro.category_no = #{categoryNo} and img.type = 'sum'
+			group by img.product_id
+
 	</select>
 	
 	<!-- 메인 이미지 파일 --> 
