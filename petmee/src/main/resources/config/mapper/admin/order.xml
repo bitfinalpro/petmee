@@ -6,14 +6,17 @@
 	<select id="selectOrderList" resultType="Order">
 		select product_id, order_id, order_date, user_id, delievery_status, sum(price) as sumPrice, count(*) as countOfProducts
 		from tb_order
-		group by order_id;
+		group by order_id
 	</select>
 	<!--선택한 주문내역 뽑기 -->
 	<select id="detailOrder" parameterType="string"
 		resultType="Order">
-		select *
-		from tb_order
-		where order_id = #{orderId}
+		select o.*, e.sumPrice, e.countOfProducts
+		from (select sum(price) as sumPrice, count(*) as countOfProducts
+				from tb_order
+                where order_id = #{orderId}
+                group by order_id) e, tb_order o
+		where order_id = #{orderId};
 	</select>
 	<!--주문내역 삭제 -->
 	<delete id="deleteOrder" parameterType="string">
