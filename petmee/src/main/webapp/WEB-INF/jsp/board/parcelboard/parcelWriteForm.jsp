@@ -57,16 +57,14 @@ display: inline-block;
 						<input type="file" name="sumfile" />
 					</div>
 					<hr />
+					<input type="hidden" name="type" value="parcel" />
 					<div id="y-p-title">
 						<input type="text" placeholder="제목을 입력하세요" name="title"  />
-						<input type="hidden" name="type" value="parcel" />
-						<input type="hidden" name="email" value="이지은" /> 
+						<input type="hidden" name="email" value="이지은" class="write_input" placeholder="작성자" />
 					</div>
 					<hr />
 					<br>
-
 					<textarea id="summernote" name="content"> </textarea>
-
 					<input type="file" name="boardfile" multiple="multiple" />
 					<div class="midle-btn">
 						<button id="y-regist">등록</button>

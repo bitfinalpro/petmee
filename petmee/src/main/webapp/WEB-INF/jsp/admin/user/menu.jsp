@@ -29,7 +29,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">PETME ADMIN</a>
+    <a class="navbar-brand mr-1" href="<c:url value="/admin/user/menu.do" />">PETME ADMIN</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>

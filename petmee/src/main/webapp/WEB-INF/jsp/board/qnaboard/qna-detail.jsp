@@ -106,8 +106,6 @@
                 </div>                   
               </div>
             <!-- 모달창 끝 -->
-            
-            
                    <div class="comlist" id="commentList">
                    </div>
                </div>
