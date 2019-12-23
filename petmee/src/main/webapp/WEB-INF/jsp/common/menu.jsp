@@ -62,13 +62,11 @@
                             </ul>
                         </li>
                         <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=10" />">장난감</a></li>
-                        <li class="drop01"><a href="#" />">커뮤니티</a>
+                        <li class="drop01"><a href="#" />커뮤니티</a>
                             <ul>
                                 <li><a class="gnb_a" href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
-                                <li><a class="gnb_a" href="#">봉사활동</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/board/parcelboard/parcelList.do" />">분양게시판</a></li>
-                                <li><a class="gnb_a" href='<c:url value="/board/volunteerreviewboard/list.do"/>'>후기게시판</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/reviewboard/review_list.do" />'>리뷰게시판</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/qnaboard/qna-list.do" />'>Q&A게시판</a></li>
                             </ul>
@@ -78,8 +76,9 @@
           </div>
       </div>
 </header>
-<script src="/petmee/resources/js/common/jquery-3.4.1.js"></script>
+
 <script type="text/javascript" >
+window.onload = function(){
 $(document).ready(function(){
 	$("#logi").click(function(e) {
 		let check1 = document.querySelector("#inputs_user_email");
@@ -113,7 +112,8 @@ $(document).ready(function(){
 			}
 		});
 	});	
-});	
+});
+}
 </script>
 <!-- 로그인 모달창 -->
 <div class="modal pop-con-modal" id="login-pop" style="display: none; z-index: 9999999; color:#fff;" aria-hidden="false" >
