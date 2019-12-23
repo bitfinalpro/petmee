@@ -24,8 +24,7 @@
 	<insert id="insertBoard" useGeneratedKeys="true"
 		keyProperty="no" parameterType="ParcelBoard">
 		insert into parcelboard (
-		title, email,
-		content
+		title, email, content
 		) values (
 		#{title}, 'admin', #{content}
 		)

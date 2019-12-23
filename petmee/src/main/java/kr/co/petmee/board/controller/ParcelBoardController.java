@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.petmee.board.service.ParcelBoardService;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.SermernoteVo;
 import kr.co.petmee.util.PageResult;
 
@@ -34,9 +34,9 @@ public class ParcelBoardController {
 
 	@RequestMapping("parcelList.do")
 	public void parcelList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
-		List<ParcelBoard> bylist = service.listBoard(new Page(pageNo));
+		List<Board> bylist = service.listBoard(new Page(pageNo));
 		
-		for (ParcelBoard b : bylist) { 
+		for (Board b : bylist) { 
 			
 			System.out.println(b.getNo());
 			System.out.println(b.getTitle());
@@ -51,7 +51,7 @@ public class ParcelBoardController {
 	@RequestMapping("parcelDtail.do")
 	public void parcelDtail(int no, Model model) {
 		model.addAttribute("board", service.detailBoard(no));
-		 model.addAttribute("flist", service.selectBaordFile(no)); 
+		 model.addAttribute("flist", service.selectBoardFile(no)); 
 	}
 
 	@RequestMapping("delete.do")
@@ -68,14 +68,14 @@ public class ParcelBoardController {
 	@RequestMapping("parcelupdate.do")
 	public String parcelupdate(SermernoteVo sermernoteVo,int no) throws Exception {
 //		게시판 정보
-		ParcelBoard getParcelBoard = new ParcelBoard();
-		getParcelBoard.setNo(no);
-		getParcelBoard.setTitle(sermernoteVo.getTitle());
-		getParcelBoard.setContent(sermernoteVo.getContent());
+		Board getBoard = new Board();
+		getBoard.setNo(no);
+		getBoard.setTitle(sermernoteVo.getTitle());
+		getBoard.setContent(sermernoteVo.getContent());
 
-		service.updateBoard(getParcelBoard);
+		service.updateBoard(getBoard);
 		
-		int bno = getParcelBoard.getNo();
+		int bno = getBoard.getNo();
 		System.out.println(bno);
 
 //		저장하고 리스트로 이동
@@ -89,18 +89,18 @@ public class ParcelBoardController {
 	@RequestMapping("parcelwrite.do")
 	public String parcelwrite(SermernoteVo sermernoteVo) throws Exception {
 //		게시판 정보
-		ParcelBoard getParcelBoard = new ParcelBoard();
-		getParcelBoard.setTitle(sermernoteVo.getTitle());
-		getParcelBoard.setEmail(sermernoteVo.getWriter());
-		getParcelBoard.setContent(sermernoteVo.getContent());
+		Board getBoard = new Board();
+		getBoard.setTitle(sermernoteVo.getTitle());
+		getBoard.setEmail(sermernoteVo.getWriter());
+		getBoard.setContent(sermernoteVo.getContent());
 //		썸네일
 		sermernoteVo.getSumfile();
 //		게시판 내부 파일(이미지)
 		List<MultipartFile> getBoardfile = sermernoteVo.getBoardfile();
 
-		service.insertBoard(getParcelBoard);
+		service.insertBoard(getBoard);
 		
-		int bno = getParcelBoard.getNo();
+		int bno = getBoard.getNo();
 		System.out.println(bno);
 //		썸네일 이미지 저장
 

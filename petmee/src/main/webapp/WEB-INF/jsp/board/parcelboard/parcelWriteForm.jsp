@@ -32,7 +32,7 @@ cursor: pointer;
 display: inline-block;
 }
 </style>
-<title>시바 먼치킨</title>
+<title>Pet & Me</title>
 
 </head>
 
@@ -54,12 +54,13 @@ display: inline-block;
 					name="SermernoteVo" enctype="multipart/form-data">
 					<div id="yy-img">
 						<div class="yy-img">썸네일을 넣어주세요</div>
-						<input type="text" name="writer" value="admin" /> <input
-							type="file" name="sumfile" />
+						<input type="file" name="sumfile" />
 					</div>
 					<hr />
 					<div id="y-p-title">
-						<input type="text" placeholder="제목을 입력하세요" name="title" />
+						<input type="text" placeholder="제목을 입력하세요" name="title"  />
+						<input type="hidden" name="type" value="parcel" />
+						<input type="hidden" name="email" value="이지은" /> 
 					</div>
 					<hr />
 					<br>
