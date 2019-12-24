@@ -55,7 +55,7 @@
                    <div class="button">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
-                       <a href="<c:url value="/board/freeboard/list.do" />"><button class="b1">목록</button></a>
+                       <a href="<c:url value="/board/freeboard/list.do?keyword=${keyword}&searchText=${searchText}" />"><button class="b1">목록</button></a>
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  

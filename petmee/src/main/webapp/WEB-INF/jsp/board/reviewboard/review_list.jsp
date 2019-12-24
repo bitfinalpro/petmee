@@ -114,7 +114,7 @@
                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
                 <td>${b.views}</td>
                 
-                <td class="displaynone b_list">★★★★★★</td>
+                <td class="displaynone b_list">★★★★★</td>
             	<td >
             		<div style="margin-top: 10px;">
 	            		<a href="#" style="background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px; ">제품보기</a>

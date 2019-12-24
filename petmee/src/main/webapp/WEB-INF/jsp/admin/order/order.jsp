@@ -102,7 +102,7 @@
 		<ul class="sidebar navbar-nav">
 			<!-- 메인 -->
 			<li class="nav-item active"><a class="nav-link"
-				href="index.html"> <i class="fas fa-home"></i> <span>Main</span>
+				href="<c:url value="/admin/user/menu.do" />"> <i class="fas fa-home"></i> <span>Main</span>
 			</a></li>
 			<!-- 회원 관리 -->
 			<li class="nav-item"><a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">

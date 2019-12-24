@@ -6,17 +6,18 @@
 	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
 		from tb_board
+		where type = "free"
 		order by topChk desc, no desc
 		limit #{begin}, 10
 	</select>
 
 	<!-- 글 상세 조회 -->
-	<select id="selectOneBoard" parameterType="int"
-		resultType="Board">
+	<select id="selectOneBoard" parameterType="int" resultType="Board">
 		select *
 		from tb_board
 		where no = #{no}
 	</select>
+	
 	<!-- 페이징 -->
 	<select id="selectBoardCount" resultType="int">
 		select count(*)
@@ -31,6 +32,7 @@
 		#{title}, '이지은', #{content}, #{topChk}, #{type}
 		)
 	</insert>
+	
 	<insert id="insertBoard2" parameterType="Board">
 		insert into tb_board (
 		title, email, content, topChk, type
@@ -63,7 +65,8 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where writer like concat('%',#{searchText},'%')
+		where (email like concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>
@@ -71,7 +74,8 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where title like concat('%',#{searchText},'%')
+		where (title like concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>
@@ -79,8 +83,9 @@
 		parameterType="Search">
 		select *
 		from tb_board
-		where (title like concat('%',#{searchText},'%')) OR (writer like
+		where (title like concat('%',#{searchText},'%')) OR (email like
 		concat('%',#{searchText},'%'))
+		  and type = "free"
 		order by no desc
 		limit #{begin}, 10
 	</select>
@@ -101,7 +106,7 @@
 		 order by no desc;
 	</select>
 
-	<select id="selectBaordFile" parameterType="int" resultType="Filevo">
+	<select id="selectBoardFile" parameterType="int" resultType="Filevo">
 		select *
 		  from parcelboardfile
 		 where no = #{no}

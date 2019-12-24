@@ -232,7 +232,7 @@ $("#inputlistupbtn").click((e) => {
 			url: "input_list.do",
 		    data: {productId: $("input[name=productId]").val()},
 		    success: result => {
-		    	result.productCount = $("input[name=productcount]").val();
+		    	result.productCnt = $("input[name=productcount]").val();
 		    	if(result.productName === undefined) {
 		    		alert("존재하지 않는 제품입니다.");
 		    		$("input[name=productId]").focus();
@@ -263,7 +263,7 @@ $("#outputlistupbtn").click((e) => {
 			url: "input_list.do",
 			data: {productId: $("input[name=outproductId]").val()},
 			success: result => {
-				result.productCount = $("input[name=outproductcount]").val();
+				result.productCnt = $("input[name=outproductcount]").val();
 				if(result.productName === undefined) {
 					alert("존재하지 않는 제품입니다.");
 					$("input[name=outproductId]").focus();
@@ -339,7 +339,7 @@ function makeList(msg){
 			<tr>
 	            <td>${inputList[i].productName}</td>
 	            <td>${inputList[i].productId}</td>
-	            <td>${inputList[i].productCount}</td>
+	            <td>${inputList[i].productCnt}</td>
 			    <td>${inputList[i].company}</td>
 	        </tr>`;			
 		}
