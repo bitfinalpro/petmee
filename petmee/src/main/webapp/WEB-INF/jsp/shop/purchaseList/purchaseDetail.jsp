@@ -38,7 +38,6 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script charset="UTF-8" type="text/javascript"
 		src="http://t1.daumcdn.net/postcode/api/core/191007/1570443254160/191007.js"></script>
-	<script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="/static/js/space_check.js"></script>
 
 	<div id="header">
@@ -97,20 +96,19 @@
 						<tbody>
 							<tr>
 								<td class="purchase-date">
-								<fmt:formatDate value="${plist.order_no }" pattern="yyyy-MM-dd"/>
-								<a href="<c:url value='/shop/purchaseList/purchaseDetail.do?order_no=${plist.order_no}' />">주문상세보기</a>
+								${plist.orderNo }
 								<td>
 								<td class="purchase-goods">
 									<img class="goods-img" src="${plist.image }" />
 									<div class="content-box">${plist.content }</div>
 								</td>
 								<td class="purchase-price">
-									<div>총 결제금액</div>
+									<div>물건금액</div>
 									<div>\ ${plist.price }</div>
 								</td>
 								<td class="purchase-state">
 									<div>${plist.status }</div> 
-									<c:if test="${plist.status eq 배송중}">
+									<c:if test="${plist.status eq '배송중'}">
 										<a href="#">배송추적</a>
 									</c:if>
 								</td>
@@ -136,7 +134,7 @@
 				<div class="할인금액-box">
 					<div>할인금액</div>
 					<div><span>기본할인</span><span>${dc_price1}</span></div>
-					<div><span>쿠폰</span><span>${dlist.coupon_dc }</span></div>
+					<div><span>쿠폰</span><span>${dlist.coupondc }</span></div>
 				</div>
 				<!-- <div class="카드정보-box"></div> 추후 추가 -->
 				</div>
@@ -144,8 +142,8 @@
 				<!-- 종합 박스 -->
 				<div class="총합-box">
 					<div><span>총 금액</span><span>${price1 + 2500}</span></div>
-					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.coupon_dc}</span></div>
-					<div><span>최종금액</span><span>${price1 + 2500 - dc_price1 - dlist.coupon_dc}</span></div>
+					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.coupondc}</span></div>
+					<div><span>총 결제금액</span><span>${price1 + 2500 - dc_price1 - dlist.coupondc}</span></div>
 				</div>
 				
 								<hr class="outline-hr" />
@@ -165,7 +163,7 @@
 					</tr>
 					<tr>
 						<td>배송메모</td>
-						<td>${dlist }</td>
+						<td>${dlist.content }</td>
 					</tr>
 				</table>
 						

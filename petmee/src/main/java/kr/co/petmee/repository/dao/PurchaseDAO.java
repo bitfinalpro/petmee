@@ -7,7 +7,8 @@ import kr.co.petmee.repository.vo.User;
 
 public interface PurchaseDAO {
 	
-	List<Purchase> selectPurchase (User user);
+	List<Purchase> selectPurchase (Purchase purchase);
+	
 	
 	void insertPurchase(Purchase purchase);
 }

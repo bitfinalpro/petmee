@@ -1,6 +1,5 @@
 package kr.co.petmee.shop.controller;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,25 +24,31 @@ public class PurchaseListController {
 	public void PurchaseList(HttpSession session, Model model) {
 		User user = new User();
 		user = (User) session.getAttribute("user");
-		user.setEmail(user.getEmail());
-		
-		 List<Purchase> plist = service.purchaseList(user);
+
+		Purchase purchase = new Purchase();
+		purchase.setEmail(user.getEmail());
+
+		List<Purchase> plist = service.purchaseList(purchase);
 
 		model.addAttribute("plist", plist);
-		
+
 	}
-	
+
 	@RequestMapping("/shop/purchaseList/purchaseDetail.do")
-	public void purchaseDetail(HttpSession session, Model model ,String order_no) {
+	public void purchaseDetail(HttpSession session, Model model, String orderNo) {
 		User user = new User();
 		user = (User) session.getAttribute("user");
-		user.setEmail(user.getEmail());
+
+		Purchase purchase = new Purchase();
+		purchase.setOrderNo(orderNo);
 		
-		List<Purchase> plist = service.purchaseList(user);
-		List<DeliInfo> dlist = service.DeliInfoList(order_no);
+		List<Purchase> plist = service.purchaseList(purchase);
+		DeliInfo dlist = service.DeliInfoList(orderNo);
+		
+		
 		model.addAttribute("plist", plist);
 		model.addAttribute("dlist", dlist);
-		
+
 	}
 
 }

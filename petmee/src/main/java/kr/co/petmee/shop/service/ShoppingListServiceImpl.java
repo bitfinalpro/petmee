@@ -50,9 +50,13 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 	}
 
 //	쿠폰 아이디 업데이트
-	public List<Coupon> couponUpdate(Map<String, String> map, User user) {
-		dao1.updateCoupon(map);
-		return dao1.selectCoupon(user);
+	public int couponUpdate(Map<String, String> map) {
+		return dao1.updateCoupon(map);
+	}
+	
+//	쿠폰 삭제
+	public void couponDelete(String no) {
+		dao1.deleteCoupon(no);
 	}
 
 //	결제 
@@ -67,13 +71,15 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 	}
 
 //  구매내역 가져오기
-	public List<Purchase> purchaseList(User user) {
-		return dao3.selectPurchase(user);
+	public List<Purchase> purchaseList(Purchase purchase) {
+		return dao3.selectPurchase(purchase);
 	}
 
 //	배송정보 가져오기
-	public List<DeliInfo> DeliInfoList(String order_no) {
-		return dao2.selectDeliInfo(order_no);
+	public DeliInfo DeliInfoList(String orderNo) {
+		return dao2.selectDeliInfo(orderNo);
 	}
+
+	
 
 }

@@ -72,6 +72,7 @@
 									<div>(-)${coupon.discount }</div>
 									<input type="checkbox" name="coupon" class="coupon-ch"
 										value="${coupon.discount }">
+									<input type="hidden" class="couponNo" value="${coupon.no}">
 								</div>
 							</c:forEach>
 						</div>

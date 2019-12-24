@@ -19,6 +19,6 @@ public class Purchase {
 	private Date regDate;
 	private String image;
 	private String payment;
-	private String order_no;
+	private String orderNo;
 	
 }

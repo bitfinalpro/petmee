@@ -95,7 +95,7 @@
 							<tr>
 								<td class="purchase-date">
 								<fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/>
-								<a href="<c:url value='/shop/purchaseList/purchaseDetail.do?order_no=${plist.order_no}' />">주문상세보기</a>
+								<a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a>
 								<td>
 								<td class="purchase-goods">
 									<img class="goods-img" src="${plist.image }" />
