@@ -80,44 +80,42 @@
 				<!-- 여기가 컨텐츠 내용 -->
 				<hr class="outline-hr" />
 				<div id="content">
-	<c:forEach var="plist" items="${plist}" >
-	 				<table class="listbox">
 
-						<thead>
-							<tr>
-								<th>주문날자</th>
-								<th>주문상품</th>
-								<th>주문갯수</th>
-								<th>결제금액</th>
-								<th>배송상태</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="purchase-date">
-								<fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/>
-								<a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a>
-								<td>
-								<td class="purchase-goods">
-									<img class="goods-img" src="${plist.image }" />
-									<div class="content-box">${plist.content } /${plist.orderId }/${plist.productId }</div>
-								</td>
-								<td>${plist.productCnt } 개</td>
-								<td class="purchase-price">
-									<div>총 결제금액</div>
-									<div>\ ${plist.price }</div>
-								</td>
-								<td class="purchase-state">
-									<div>${plist.status }</div> 
+					<c:forEach var="plist" items="${plist}">
+							
+							<div class="goods-box">
+								
+								<div class="goods-haed">
+								
+								<span><fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/></span>
+								<span>상품 가격 : ${plist.price } 원</span>
+								<span class="float-r"><a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a></span>
+								
+								</div>
+								
+								<div class="goods-body">
+								
+									<div class="goods-detail-box">
+										<div class="goods-img"><img src="${plist.image }" /></div>
+										<div class="goods-content">${plist.content }</div>
+									</div>
+									
+									<div class="goods-cnt">${plist.productCnt } 개</div>
+									
+									<div class="goods-deli">
+										<div>${plist.status }</div> 
 									<c:if test="${plist.status eq '배송중'}">
 										<a href="#">배송추적</a>
 									</c:if>
-								</td>
-							</tr>
-						</tbody>
+									</div>
+									
+								</div>
+							
+							</div>
 
-					</table>
-	 </c:forEach>
+					</c:forEach>
+
+
 				</div>
 				<hr class="outline-hr" />
 			</div>
