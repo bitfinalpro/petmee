@@ -23,6 +23,7 @@
 /* 장바구니 정보 */
 #shoppinglist {
 	width: 49%;
+	min-height: 930px;
 }
 
 .y-content-box {

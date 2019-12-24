@@ -22,6 +22,9 @@ public interface ShoppingListService {
 
 	List<ShoppingList> updateamount(Map<String, Integer> map, User user);
 
+//  결제후 장바구니 삭제하기
+	void ShoppingListDelete(User user);
+	
 //	쿠폰
 	List<Coupon> couponList(User user);
 

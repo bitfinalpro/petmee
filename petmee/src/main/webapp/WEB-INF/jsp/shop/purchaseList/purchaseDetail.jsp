@@ -134,7 +134,7 @@
 				<div class="할인금액-box">
 					<div>할인금액</div>
 					<div><span>기본할인</span><span>${dc_price1}</span></div>
-					<div><span>쿠폰</span><span>${dlist.coupondc }</span></div>
+					<div><span>쿠폰</span><span>${dlist.couponDc }</span></div>
 				</div>
 				<!-- <div class="카드정보-box"></div> 추후 추가 -->
 				</div>
@@ -142,8 +142,8 @@
 				<!-- 종합 박스 -->
 				<div class="총합-box">
 					<div><span>총 금액</span><span>${price1 + 2500}</span></div>
-					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.coupondc}</span></div>
-					<div><span>총 결제금액</span><span>${price1 + 2500 - dc_price1 - dlist.coupondc}</span></div>
+					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.couponDc}</span></div>
+					<div><span>총 결제금액</span><span>${price1 + 2500 - dc_price1 - dlist.couponDc}</span></div>
 				</div>
 				
 								<hr class="outline-hr" />

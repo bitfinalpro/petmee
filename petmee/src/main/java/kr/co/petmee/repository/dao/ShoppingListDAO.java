@@ -17,6 +17,8 @@ public interface ShoppingListDAO {
 
 	void updateamount(Map<String, Integer> map);
 
+	void deleteShoppingList(String email);
+
 //	쿠폰정보 리스트
 	List<Coupon> selectCoupon(User user);
 //  쿠폰아이디 업데이트

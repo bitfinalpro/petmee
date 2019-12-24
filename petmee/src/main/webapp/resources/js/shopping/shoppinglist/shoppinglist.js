@@ -62,7 +62,7 @@ function makeList(list) {
 						<div>
 							<img class="y-img float-l" src="" />
 						</div>
-						<div class="y-list-content float-l">${list.explain}</div>
+						<div class="y-list-content float-l">${list.subTitle}</div>
 						<div class="y-check-del-box float-r">
 							<div class="y-delbox">
 								<i class="fas fa-times fa-2x mousepoint y-delete" data-no="${list.no}" ></i>
@@ -93,9 +93,13 @@ function makeList(list) {
 	
 }
 
-
-
-
+$("#y-con-button").on("click", "#paymentbtn",(e) => {
+	if($(".price").val() == undefined) {
+		alert("구매할 상품이 없습니다.")
+	}else{
+		location.href = "/petmee/shop/shoppinglistdetail/shoppinglistdetail.do";
+	}
+});
 
 
 

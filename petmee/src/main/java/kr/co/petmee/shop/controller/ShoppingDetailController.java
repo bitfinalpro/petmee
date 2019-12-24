@@ -54,9 +54,9 @@ public class ShoppingDetailController {
 			System.out.println(s.getEmail());
 			System.out.println(s.getImage());
 			Purchase p = new Purchase();
-			p.setOrder_id(deliInfo.getEmail());
-			p.setProduct_id(s.getProduct());
-			p.setProduct_cnt(s.getAmount());
+			p.setOrderId(deliInfo.getEmail());
+			p.setProductId(s.getProduct());
+			p.setProductCnt(s.getAmount());
 			p.setContent(s.getSubTitle());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
@@ -69,6 +69,7 @@ public class ShoppingDetailController {
 		deliInfo.setOrderNo(orderNO);
 		service.deliInfo(deliInfo);
 		service.couponDelete(couponNo);
+		service.ShoppingListDelete(user);
 	}
 
 }

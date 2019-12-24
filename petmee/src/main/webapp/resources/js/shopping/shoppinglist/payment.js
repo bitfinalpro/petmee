@@ -87,7 +87,7 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 	let address2 = $("#address2").val();
 	let content = $("#content").val();
 	sendData = {
-				order_id:oid,
+				orderId:oid,
 				name:name,
 				phone:phone,
 				email:email,
@@ -95,7 +95,7 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 				address1:address1,
 				address2:address2,
 				content:content,
-				coupon_dc:dc,
+				couponDc:dc,
 				pay:pay,
 				couponNo:cno
 			}

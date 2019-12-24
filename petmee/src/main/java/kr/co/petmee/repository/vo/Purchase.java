@@ -8,9 +8,9 @@ import lombok.Data;
 public class Purchase {
 
 	private int no ;
-	private String order_id;
-	private String product_id;
-	private int product_cnt;
+	private String orderId;
+	private String productId;
+	private int productCnt;
 	private String content;
 	private int price;
 	private String status;

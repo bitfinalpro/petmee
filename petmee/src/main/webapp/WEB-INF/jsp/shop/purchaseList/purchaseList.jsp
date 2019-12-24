@@ -87,6 +87,7 @@
 							<tr>
 								<th>주문날자</th>
 								<th>주문상품</th>
+								<th>주문갯수</th>
 								<th>결제금액</th>
 								<th>배송상태</th>
 							</tr>
@@ -99,8 +100,9 @@
 								<td>
 								<td class="purchase-goods">
 									<img class="goods-img" src="${plist.image }" />
-									<div class="content-box">${plist.content }</div>
+									<div class="content-box">${plist.content } /${plist.orderId }/${plist.productId }</div>
 								</td>
+								<td>${plist.productCnt } 개</td>
 								<td class="purchase-price">
 									<div>총 결제금액</div>
 									<div>\ ${plist.price }</div>

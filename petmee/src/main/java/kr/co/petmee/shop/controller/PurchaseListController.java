@@ -30,6 +30,9 @@ public class PurchaseListController {
 
 		List<Purchase> plist = service.purchaseList(purchase);
 
+		for(Purchase p : plist ) {
+			System.out.println(p.getProductCnt());
+		}
 		model.addAttribute("plist", plist);
 
 	}

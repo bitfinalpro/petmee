@@ -80,6 +80,11 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 		return dao2.selectDeliInfo(orderNo);
 	}
 
+//	구매후 장바구니 삭제하기
+	public void ShoppingListDelete(User user) {
+		dao1.alldeleteShoppingList(user);
+	}
+
 	
 
 }
