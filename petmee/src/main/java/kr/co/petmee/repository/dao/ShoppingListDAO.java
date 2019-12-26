@@ -21,4 +21,8 @@ public interface ShoppingListDAO {
 	List<Coupon> selectCoupon(User user);
 //  쿠폰아이디 업데이트
 	void updateCoupon (Map<String, String> map);
+	
+
+
+	List<ShoppingList> selectShoppingProduct(ShoppingList productInsert);
 }

@@ -209,7 +209,7 @@
                          <ul>
                         	<li><span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productInfo"/></li>
                         	<li><span>제조사 :</span> <input class="ad_infoinput" type="text" name="company"/></li>
-                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="productprice"/></li>
+                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="dcPrice"/></li>
                         </ul>   
                          <ul>
                         	<li>

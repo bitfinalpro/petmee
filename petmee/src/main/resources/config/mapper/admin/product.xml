@@ -4,8 +4,8 @@
 <mapper namespace="kr.co.petmee.repository.dao.ProductDAO">
 <!-- 제품 글 등록 -->
 	<insert id="insertProduct" parameterType="Product">
-		insert into tb_product(product_id, product_name, product_info, price, stock, company, category_no, animal_no, sell_condition)
-		values(#{productId}, #{productName}, #{productInfo}, #{price}, #{stock}, #{company}, #{categoryNo}, #{animalNo}, #{sellCondition})
+		insert into tb_product(product_id, product_name, product_info, price, stock, company, category_no, animal_no, sell_condition, dc_price)
+		values(#{productId}, #{productName}, #{productInfo}, #{price}, #{stock}, #{company}, #{categoryNo}, #{animalNo}, #{sellCondition}, #{dcPrice})
 	</insert>
 <!-- 제품이미지 등록 -->
 	<insert id="productImg" parameterType="Image">

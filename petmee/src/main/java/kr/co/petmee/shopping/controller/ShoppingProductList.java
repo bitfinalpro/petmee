@@ -2,9 +2,7 @@ package kr.co.petmee.shopping.controller;
 
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.petmee.repository.vo.Image;
-import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
-import kr.co.petmee.shopping.service.ProductListService;
+import kr.co.petmee.shopping.service.ShoppingProductService;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.shopping.controller.ShoppingProductList")
@@ -24,7 +20,7 @@ import kr.co.petmee.util.PageResult;
 public class ShoppingProductList {
 	
 	@Autowired
-	private ProductListService service;
+	private ShoppingProductService service;
 	
 	@RequestMapping("/productList.do")
 	public void productList(ProductListPage plg, @RequestParam(defaultValue="1")int pageNo, Model model, Integer categoryNo) {

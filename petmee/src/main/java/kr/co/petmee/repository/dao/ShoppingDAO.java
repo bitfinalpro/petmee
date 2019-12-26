@@ -8,6 +8,8 @@ import kr.co.petmee.repository.vo.NoticeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
+import kr.co.petmee.repository.vo.ShoppingList;
+import kr.co.petmee.repository.vo.User;
 
 public interface ShoppingDAO {
 	List<Product> selectFood();
@@ -31,8 +33,8 @@ public interface ShoppingDAO {
 	// 상품리스트이미지파일
 	List<Image> productListImg(int categoryNo);
 
+	// 상품 구매 버튼 이동
+	void insertProduct(ShoppingList productInsert);
 
-
-//	void productList(Map<String, Integer> map);
 
 }

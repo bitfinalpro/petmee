@@ -1,6 +1,5 @@
 package kr.co.petmee.shopping.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,11 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.co.petmee.board.service.NoticeBoardService;
 import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.User;
-import kr.co.petmee.shopping.service.DetailService;
+import kr.co.petmee.shopping.service.ShoppingProductService;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.shopping.controller.ShoppingDetail")
@@ -23,20 +20,21 @@ import kr.co.petmee.util.PageResult;
 public class ShoppingDetail {
 	
 	@Autowired
-	private DetailService service;
-	private User user;
+	private ShoppingProductService service;
 	
 	@RequestMapping("/shoppingDetail.do")
 	public void shoppingDetail(@RequestParam(value="pageNo", defaultValue="1") int pageNo, String productId, Model model, HttpSession session) {	
-		// 유저 정보 
-		user = (User) session.getAttribute("user");
-		user.setEmail(user.getEmail());
-		System.out.println(user);
 		// 상품 이미지 
 		List<Image> list = service.SelectProductImage(productId);
 		model.addAttribute("flist", list);
+		
+		// 장바구니 상품이미지
+		String imgfirst = list.get(1).getPath()+list.get(1).getOriName();
+		model.addAttribute("imgfirst", imgfirst);
+		
 		// 해당상품 디테일 
 		model.addAttribute("product", service.ShoppingDetail(productId));
+		
 		// 해당상품 게시판 
 		model.addAttribute("list", service.listBoard(new Page(pageNo)));
 		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));

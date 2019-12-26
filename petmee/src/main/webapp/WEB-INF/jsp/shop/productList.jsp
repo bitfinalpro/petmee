@@ -11,10 +11,12 @@
   <title>Insert title here</title>
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick-theme.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/productList.css" />">
-    	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
+<link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
 	<script src="<c:url value="/resources/js/common/slick.js" />"></script>
 	<script src="<c:url value="/resources/js/common/slick.min.js" />"></script>
     <script src="<c:url value="/resources/js/shopping/main/shoppingProductList.js" />"></script>
@@ -68,6 +70,11 @@
   </ul>
 </nav>
 	</div>
-    <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+    <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+	<script src="../js/lib/jquery.magnific-popup.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
 </body>
 </html>

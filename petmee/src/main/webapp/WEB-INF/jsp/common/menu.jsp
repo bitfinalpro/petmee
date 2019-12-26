@@ -107,7 +107,7 @@ $(document).ready(function(){
 				 }
 				else {
 					alert("로그인되었습니다.");
-					location.href="main.do"
+					location.href="/petmee/main.do"
 				}
 			}
 		});

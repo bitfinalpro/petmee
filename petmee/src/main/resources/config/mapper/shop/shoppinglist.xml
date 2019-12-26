@@ -9,6 +9,10 @@
 		SELECT * FROM tb_shopping where email = #{email}
 	</select>
 	
+	<select id="selectShoppingProduct" parameterType="String" resultType="ShoppingList">
+		SELECT * FROM tb_shopping where email = #{email}
+	</select>
+	
 	<!-- 장바구니 정보 전체 삭제 -->
 	<delete id="alldeleteShoppingList" parameterType="User">
 		DELETE FROM tb_shopping WHERE email = #{email}

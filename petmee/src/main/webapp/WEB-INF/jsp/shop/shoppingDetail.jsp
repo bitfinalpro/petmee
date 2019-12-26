@@ -11,24 +11,29 @@
   <title>Insert title here</title>
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/detail.css" />">
+<link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
 <script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
 <body onload="init();">
-
     <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
     <div id="wrap" class="sub">
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
+	 <form method="post" action="<c:url value="/shop/shoppingProductPurchase.do" />" id="">
+		<input name="email" value="${user}" type="hidden" />
 		<div class="inner product">
 			<!-- propic// -->
 			<div class="product_img">
 							<div id="imgGallery">
 								<div id="smallImgs">
-								<c:forEach var="f" items="${flist}">
+								<c:forEach var="f" items="${flist}" >
 								<c:if test="${f.type eq 'sum'}">
+								<input name ="image" value="${imgfirst}" type ="hidden"/>
 									<img src="<c:url value='${f.path}${f.oriName}'/>" />
 								</c:if>
 								</c:forEach>
@@ -46,7 +51,10 @@
 			<!-- proinfo// -->
 			<div class="proinfo">
 				<h2>
-					<strong>${product.productName}</strong>
+				<input name="product" value=" ${product.productId}" type="hidden" />
+				<input name ="dcprice" value="${product.dcPrice}" type="hidden" />
+				<input name ="oriprice" value="${product.price}" type="hidden" />
+					<strong><input value=" ${product.productName}"/></strong>
 				</h2>
 			
 				<div class="pinfo-txt">
@@ -60,15 +68,15 @@
 	<tr>
 			
 		<th>상품간략설명</th>
-		<td>${product.productInfo}</td>
+		<td><input name="subTitle" value="${product.productInfo} " /></td>
 	</tr>
 </tbody>
 <tbody class="pinfo-price">
 		<tr>
 			<th>판매가</th>
 			<td>
-				<del><em>91,000</em>원</del>
-				<span class="txt-price"><em><fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}"/></em>원</span>
+				<del><em><input value="${product.price}"/></em>원</del> 
+				<span class="txt-price"><em><input name ="price" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
 			</td>
 		</tr>
 	</tbody>
@@ -88,11 +96,11 @@
 			<td>2,500원 (2만원 이상 주문 시 무료 배송)</td>
 		</tr>
 	</tbody>
-	<form name="form" method="get">
 	<tbody class="pinfo-info">
 		<tr>
 			<th>수량 :</th>
 			<td>		
+			<input name ="amount" class="excessCnt" type ="hidden"/>
 				<input class="excessCnt subinput" name="excessCnt" value=1 /><span>개</span>
 				<button class="amount_btn" onclick="addtnNofpr.add('amount')" type="button">+</button>
 				<button class="amount_btn" onclick="addtnNofpr.remove('amount')" type="button">-</button>
@@ -109,14 +117,14 @@
 			<div class="pro-total">
 				<strong>총 상품금액(수량)</strong>
 				<em id="totalPrice_A">
-				<input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />" />
+				<input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price - product.dcPrice}" />" />
 				</em>원
 				(<input id="asd" value="1" name="excessCnt" class="excessCnt" onchange="change();"/>개)
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">
-				<button type="button" class="btn-black btn-buy" onclick="_orderGoods();">바로 구매하기</button>
-				<button type="button" class="btn-gray btn-cart" onclick="_addCart();">장바구니 담기</button>
+				<button type="submit" class="btn-black btn-buy" >바로 구매하기</button>
+				<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
 			</div>
 			<!-- //default -->
 		</fieldset>
@@ -124,6 +132,7 @@
 	</div>
 			<!-- //proinfo -->
 		</div>
+			</form>	
 		<!-- //product -->
 
 
@@ -150,7 +159,7 @@
 		</c:forEach>
 	</div>
 				 				
-				
+	    		
 					<!-- 반품교환 안내// -->
 <div class="returninfo" id="returnInfo">
 <h3 class="hide">&nbsp;</h3>
@@ -383,10 +392,31 @@
 	</main>
 	<!-- //contents -->
 </div>
-    	</form>
+
   
     <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+
 	<script>
+
+	var big;
+	var smallImgs;
+	var bigImg;
+	var smallImgThumb;
+	
+	function init () {
+		
+		big = document.getElementById('bigImg');
+		smallImgs= document.getElementById('smallImgs');
+		bigImg = big.getElementsByTagName('img')[0];
+		smallImgThumb = smallImgs.getElementsByTagName('img');
+		for(var i = 0; i<smallImgThumb.length; i++){
+			smallImgThumb[i].onmouseover = function(){
+				bigImg.src=this.src;
+			}
+		}	
+	}
+	
+	
 		function AddtnNofpr(){
 
 			//상품에서 아래 내용 세팅
@@ -397,7 +427,7 @@
 			this.amount = 1;//수량
 			
 			this.chargeYn = "Y";
-			this.perPersonAmt = (this.chargeYn=="Y") ? ${product.price} : 1;
+			this.perPersonAmt = (this.chargeYn=="Y") ? ${product.price - product.dcPrice} : 1;
 			
 			var p = this;
 			
@@ -435,5 +465,9 @@
 					
 		var addtnNofpr = new AddtnNofpr();
 		</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
+	<script src="../js/lib/jquery.magnific-popup.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
 </body>
 </html>

@@ -2,12 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ShoppingDAO">
-
+	
+	<!-- 메인 상품 리스트 --> 
 	<select id="selectFood" parameterType="int" resultType="Product">
 		select * 
 			from tb_product
 	</select>
+	
+	<!-- 메인 이미지 파일 --> 
+	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
+			select * from tb_image
+				where type = 'sum'
+			group by product_id
+	</select>
 
+	<!-- 상품 상세 파일 --> 
 	<select id = "shoppingDetail" parameterType="String" resultType="Product">
 		select *
 			from tb_product
@@ -24,13 +33,6 @@
 	</select>
 	
 	<!-- 상품 리스트 -->
-	<!--  
-	<select id="productList" parameterType="hashmap" resultType="Product">
-		select * from tb_product
-		where category_no = #{categoryNo} 
-		limit 1, 16
-	</select>
-	-->
 	<select id="productList" parameterType="ProductListPage" resultType="Product">
 		select * from tb_product
 		where category_no = #{categoryNo}
@@ -52,14 +54,17 @@
 			on img.product_id = pro.product_id
             where pro.category_no = #{categoryNo} and img.type = 'sum'
 			group by img.product_id
-
 	</select>
 	
-	<!-- 메인 이미지 파일 --> 
-	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
-			select * from tb_image
-				where type = 'sum'
-			group by product_id
-	</select>
+	<!-- 상품 구매 -->
+	<insert id="insertProduct" parameterType="ShoppingList" >
+		insert into tb_shopping(
+			email, product, sub_title,  amount, oriprice, dcprice, image, price 
+			)values( 
+			#{email}, #{product}, #{subTitle}, #{amount}, #{oriprice}, #{dcprice}, #{image}, #{price}
+			)
+	</insert>
+
+
 
 </mapper>

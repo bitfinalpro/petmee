@@ -55,7 +55,7 @@ public class ShoppingDetailController {
 			p.setOrder_id(deliInfo.getOrder_id());
 			p.setProduct_id(s.getProduct());
 			p.setProduct_cnt(s.getAmount());
-			p.setContent(s.getExplain());
+			p.setContent(s.getSubTitle());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
 			p.setPayment(pay);

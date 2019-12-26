@@ -51,8 +51,8 @@
                       	</div>
                       <div class="product_text">
                         <strong>${food.productName}${food.productId}</strong>
-                        <span>21,000</span>
                         <span>${food.price}</span>
+                        <span>${food.price - food.dcPrice}</span>
                        <!-- <span><fmt:formatDate pattern="yyyy-MM-dd-HH-mm-ss" value="${food.date}" /></span>  -->
                       </div>
                       <div class="sb_img">

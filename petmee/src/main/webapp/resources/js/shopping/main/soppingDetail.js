@@ -5,23 +5,7 @@
 * --------------------------------
 */
 /*-----------------------  product detail mouseOver img----------------- */
-			var big;
-			var smallImgs;
-			var bigImg;
-			var smallImgThumb;
 			
-			function init () {
-				
-				big = document.getElementById('bigImg');
-				smallImgs= document.getElementById('smallImgs');
-				bigImg = big.getElementsByTagName('img')[0];
-				smallImgThumb = smallImgs.getElementsByTagName('img');
-				for(var i = 0; i<smallImgThumb.length; i++){
-					smallImgThumb[i].onmouseover = function(){
-						bigImg.src=this.src;
-					}
-				}	
-			}
 			
 			
 /*-----------------------  product detail mouseOver img end----------------- */
