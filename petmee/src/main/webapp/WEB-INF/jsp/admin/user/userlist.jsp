@@ -299,9 +299,9 @@
                       </tr>
                       <tr>
                         <td>총구매횟수  </td>
-                        <td>3,152</td>
+                        <td>3</td>
                         <td>총구매금액</td>
-                        <td colspan="3">32,600,000</td>
+                        <td colspan="3">32,600</td>
                       </tr>
                     </table>
                     <a href="#" class="close">닫기</a>
@@ -370,7 +370,6 @@
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
-  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
 
 </body>
 
