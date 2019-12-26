@@ -24,6 +24,7 @@
     <div id="wrap" class="sub">
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
+	
 	 <form method="post" action="<c:url value="/shop/shoppingProductPurchase.do" />" id="">
 		<input name="email" value="${user.email}" type="hidden" />
 		<div class="inner product">
@@ -53,6 +54,7 @@
 				<input name="product" value=" ${product.productId}" type="hidden" />
 				<input name ="dcprice" value="${product.dcPrice}" type="hidden" />
 				<input name ="oriprice" value="${product.price}" type="hidden" />
+				<input class="allprice" name ="price" value="${product.price - product.dcPrice}" type="hidden" />
 					<strong><input value=" ${product.productName}"/></strong>
 				</h2>
 			
@@ -75,7 +77,7 @@
 			<th>판매가</th>
 			<td>
 				<del><em><input value="${product.price}"/></em>원</del> 
-				<span class="txt-price"><em><input name ="price" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
+				<span class="txt-price"><em><input name ="price1" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
 			</td>
 		</tr>
 	</tbody>
@@ -99,7 +101,7 @@
 		<tr>
 			<th>수량 :</th>
 			<td>		
-			<input name ="amount" class="excessCnt" type ="hidden"/>
+			<input id="amount" name ="amount" class="excessCnt" type ="hidden" value=1 />
 				<input class="excessCnt subinput" name="excessCnt" value=1 /><span>개</span>
 				<button class="amount_btn" onclick="addtnNofpr.add('amount')" type="button">+</button>
 				<button class="amount_btn" onclick="addtnNofpr.remove('amount')" type="button">-</button>
@@ -329,7 +331,7 @@
 		<div class="bottombuybtn">
 			<div class="inner">
 				<div class="bbuybtn" id="">
-					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />">
+					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input class="price" name="price1" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />">
 				(<input value="1" name="excessCnt" class="excessCnt" onchange="change();"/>개)</strong></span>
 						<!-- default// -->
 						<div class="btn-area btnarea-default active">
@@ -411,6 +413,7 @@
 				$('.excessCnt').val(excessCnt);
 				//초과 가격 계산
 				$('.price').val((excessCnt*p.perPersonAmt).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				$('.allprice').val(excessCnt * (${product.price - product.dcPrice}));
 			}
 
 		}

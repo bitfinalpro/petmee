@@ -53,10 +53,10 @@
 						<div class="y-amountbox ">
 							<div class="y-s-amount">
 								<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }"
-									data-no="${list.no}" data-oriprice="${list.oriprice}"></i>
+									data-no="${list.no}" data-oriprice="${list.oriprice - list.dcprice}"></i>
 								<span class="y-amount">${list.amount}</span>
 								<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }"
-									data-no="${list.no}" data-oriprice="${list.oriprice}"></i>
+									data-no="${list.no}" data-oriprice="${list.oriprice - list.dcprice}"></i>
 							</div>
 							<span class="y-price float-r">
 								<i class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>
