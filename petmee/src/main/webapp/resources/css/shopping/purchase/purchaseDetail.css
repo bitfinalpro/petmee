@@ -1,0 +1,142 @@
+/* goods-box */
+.goods-box , .price-box , .d-box{
+	width: 65%;
+	margin: 0 auto;
+	border: 2px solid rgba(204, 204, 204, 0.3);
+}
+
+.goods-box * {
+	padding: 0 20px;
+}
+
+.goods-box:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+/* goods-haed */
+.goods-haed {
+	background-color: rgba(204, 204, 204, 0.3);
+}
+
+/* goods-body */
+.goods-body {
+	padding: 20px;
+	height: 200px;
+}
+
+.goods-body>div {
+	float: left;
+}
+
+/* goods-detail-box */
+.goods-detail-box {
+	width: 70%;
+}
+
+.goods-detail-box>div {
+	height: 160px;
+}
+
+.goods-detail-box>* {
+	float: left;
+}
+
+.goods-img {
+	width: 130px;
+	padding: 0;
+}
+
+.goods-content {
+	display: inline-block;
+	width: 68%;
+}
+
+/* goods-cnt */
+.goods-cnt {
+	width: 10%;
+	height: 160px;
+	line-height: 120px;
+}
+
+/* goods-deli */
+.goods-deli {
+	width: 20%;
+	height: 160px;
+	line-height: 120px;
+	text-align: center;
+	border-left: 2px solid rgba(204, 204, 204, 0.3);
+}
+/* 금액 box */
+.payment-box {
+	width: 65%;
+}
+
+.payment-box > div{
+	padding: 15px;
+	float: left;
+	width: 50%;
+}
+.price-box > div {
+	float: left;
+}
+.all-price-box {
+	padding: 15px;
+	width: 30%;
+	margin-left: 5%;
+	background-color: rgba(204, 204, 204, 0.3);
+}
+
+.price-box:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+/* 배송-box */
+
+.d-box td{
+	padding: 10px 10px 10px 30px;
+}
+.d-box tr > td:nth-child(2){
+	border-left: 1px solid rgba(204, 204, 204, 1);
+}
+.d-box tr > td:nth-child(1){
+	width: 10%;
+}
+
+/* 굥용 css */
+.margin-top-5 {
+	margin-top: 5px;
+}
+.margin-top-15 {
+	margin-top: 15px;
+}
+
+.float-r {
+	float: right;
+}
+
+#content {
+	min-width: 1200px;
+}
+
+.content-box * {
+	font-size: 17px;
+	font-weight: bold;
+}
+.content-box {
+	margin: 30px auto;
+}
+
+.outline-hr {
+	margin: 0 auto;
+	width: 72%;
+	color: #d8d8d8;
+}
+
+.font-20 {
+	font-size: 20px;
+}
+

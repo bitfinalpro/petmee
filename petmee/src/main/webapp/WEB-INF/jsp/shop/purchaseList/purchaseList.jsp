@@ -18,7 +18,14 @@
 <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/shopping/purchase/purchaselist.css'/>">
-
+<style>
+.tab-select{
+background-color: white;
+}
+.tab-back{
+background-color: #202020;
+}
+</style>
 <title>(주)펫미</title>
 </head>
 
@@ -67,9 +74,9 @@
 			</div>
 			<div class="sub-menu-list sub_dep02" style="display: block;">
 				<ul class="clearfix tab tab2">
-					<li><a href="#" class="on">회원정보 변경</a></li>
+					<li><a class="tab-back" href="#" class="on">회원정보 변경</a></li>
 					<li><a href="#">작성 후기 보기</a></li>
-					<li><a href="#">구매내역</a></li>
+					<li class="tab-select"><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >구매내역</a></li>
 				</ul>
 			</div>
 			<div class="sub-con sub-pad">
@@ -78,7 +85,7 @@
 					<p class="title_bold">Purchase details</p>
 				</div>
 				<!-- 여기가 컨텐츠 내용 -->
-				<hr class="outline-hr" />
+				<!-- <hr class="outline-hr" /> -->
 				<div id="content">
 
 					<c:forEach var="plist" items="${plist}">
@@ -88,7 +95,7 @@
 								<div class="goods-haed">
 								
 								<span><fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/></span>
-								<span>상품 가격 : ${plist.price } 원</span>
+								<span>상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span>
 								<span class="float-r"><a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a></span>
 								
 								</div>
@@ -117,7 +124,9 @@
 
 
 				</div>
-				<hr class="outline-hr" />
+				<!-- <hr class="outline-hr" /> -->
+				<div class="sss"></div>
+				
 			</div>
 		</div>
 	</div>
@@ -140,6 +149,8 @@
 	<script type="text/javascript"
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="../js/common.js?ver=2019-04-25"></script>
+	<script src="<c:url value='/resources/js/shopping/shoppinglist/c.js' />">
+	</script>
 
 </body>
 </html>

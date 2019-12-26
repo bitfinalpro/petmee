@@ -48,7 +48,11 @@ public class PurchaseListController {
 		List<Purchase> plist = service.purchaseList(purchase);
 		DeliInfo dlist = service.DeliInfoList(orderNo);
 		
-		
+		String a = dlist.getPhone().substring(0,3);
+		String b = dlist.getPhone().substring(3,7);
+		String c = dlist.getPhone().substring(7,11);
+		String p = a+"-"+b+"-"+c;
+		dlist.setPhone(p);
 		model.addAttribute("plist", plist);
 		model.addAttribute("dlist", dlist);
 

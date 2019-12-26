@@ -5,7 +5,7 @@
 	
 	<!-- 구매내역 가져오기(id) -->
 	<select id="selectPurchase" parameterType="Purchase" resultType="Purchase"> 
-		SELECT * FROM tb_purchase where email = #{email} or order_no = #{orderNo}
+		SELECT * FROM tb_purchase where email = #{email} or order_no = #{orderNo} order by reg_date desc
 		<!-- SELECT * FROM tb_purchase where email = #{email}; -->
 	</select>
 	
