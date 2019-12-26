@@ -210,8 +210,6 @@
           <div class="card-header">
             <i class="fas fa-table"></i>
            신고관리
-           <button type="button" id="Bulletin">게시글</button>
-           <button type="button" id="Comment">댓글</button>
            </div>
            
            
@@ -224,10 +222,11 @@
                 <thead>
                   <tr>
                     <th>번호</th>
+                    <th>글번호</th>
                     <th>분류</th>
+                    <th>타입</th>
                     <th>신고자</th>
                     <th>신고사유</th>
-                    <th>제목</th>
                     <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
@@ -235,10 +234,11 @@
                 <tfoot>
                   <tr>
                     <th>번호</th>
+                    <th>글번호</th>
                     <th>분류</th>
+                    <th>타입</th>
                     <th>신고자</th>
                     <th>신고사유</th>
-                    <th>제목</th>
                     <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
@@ -254,10 +254,11 @@
                                        '${report.reportEmail}', '${report.other}', '${report.reportReason}',
                                        '${report.boardType}', '${report.stringReportDate}')">
                         <td>${report.reportNo}</td>
+                        <td>${report.no}</td>
+                        <td>${report.type}</td>
                         <td>${report.boardType}</td>
                         <td>${report.email}</td>
                         <td>${report.reportReason}</td>
-                        <td>${report.title}</td>
                         <td>${report.reportEmail}</td>
                         <td><a href="#"><button type="button">탈퇴</button></a></td>
                       </tr>

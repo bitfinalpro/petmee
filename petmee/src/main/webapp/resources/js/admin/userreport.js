@@ -59,6 +59,7 @@ function report_chk() {
  				reportReason: $("input[name=report]:checked").val(),
 				content: contentVal,
 				title: titleVal,
+				type: $(".reporttype").data("type"),
 				other: $(".reportcontent").val(),
 				boardType: $(".reporttitle").data("type")
 			},

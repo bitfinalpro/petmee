@@ -69,11 +69,13 @@
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
                      <div class="reporttitle" data-type="free">
+                       <div class="reporttype" data-type="게시글">
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${board.email} </div></li>
                         <li><strong>제 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
                       </ul>
                       <input type="hidden" id="reportEmail" value="${board.email}"/>
+                      </div>
                      </div>
                      <hr>
                      <div>
@@ -95,6 +97,7 @@
                         </div>
                      </div>
                   <input type="button" value="신고" onclick="report_chk();" />
+                      
                   <a href="#" class="close">닫기</a>
                   </form>
                 </div>                   
@@ -112,6 +115,7 @@
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
                      <div class="reporttitle1" data-type="free">
+                     <div class="reporttype" data-type="댓글">
                      <!--  
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${c.email} </div></li>
@@ -119,12 +123,13 @@
                       </ul>
                       <input type="hidden" id="reportEmail1" value="${c.email}"/>
                      -->
+                       </div>
                      </div>
                      <hr>
                      <div>
                        <span><strong>사유선택</strong> : 대표적인 1가지만 선택해주세요. </span>
                      </div>
-                       <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
+                         <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
                      <div>
                         <ul class="reportli">
                           <li><input type="radio" name="report1" value="음란성 댓글"> 음란성 댓글

@@ -2,18 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ReportDAO">
-     <!-- 모든 신고된 회원 정보 -->
+     <!-- 게시글 신고된 회원 정보 -->
    <select id="reportUser" resultType="Report">
-       select *
+       select report_No, no, board_Type, email, title, report_Reason,
+        report_Email, report_Date, content, other
          from tb_report
    </select>
    <!-- 신고당한 회원 추가  -->
    <insert id="insertReport" parameterType="Report">
    insert into tb_report (
-    no, email, report_Email,  report_Reason, content, title, other,  board_Type ) 
+    no, email, report_Email,  report_Reason, content, title, other,  board_Type, type ) 
     values (
     #{no}, #{email}, #{reportEmail}, 
-    #{reportReason}, #{content}, #{title}, #{other}, #{boardType}
+    #{reportReason}, #{content}, #{title}, #{other}, #{boardType}, #{type}
     )
    </insert>
    <!-- 강퇴  -->
@@ -26,9 +27,9 @@
    <!-- 댓글 신고  -->
    <insert id="insertComReport" parameterType="Report">
    insert into tb_report (
-   no, comment_No, email, report_Email, report_Reason, content, other, board_Type)
+   no, comment_No, email, report_Email, report_Reason, content, other, board_Type, type)
    values (
-   #{no}, #{commentNo}, #{email}, #{reportEmail}, #{reportReason}, #{content}, #{other}, #{boardType}
+   #{no}, #{commentNo}, #{email}, #{reportEmail}, #{reportReason}, #{content}, #{other}, #{boardType}, #{type}
    )
    </insert>
  

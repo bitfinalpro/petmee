@@ -12,8 +12,19 @@
 	<link href="<c:url value='/resources/css/review/review_writer.css' />" rel="stylesheet">
 	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
-	<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
+	<script src="<c:url value='/resources/js/common/jquery-3.4.1.js' />"></script>
 </head>
+<style>
+.top1 { margin 0 auto;}
+   #star_grade a {
+         text-decoration: none;
+         color: gray;
+     }
+     #star_grade a.on{
+         color: red;
+     }
+  
+</style>
    
 <body>
     <div id="header">
@@ -24,9 +35,8 @@
             <img src="<c:url value='/resources/images/board/review/top.jpg' />"/>
         </div>
         <div class="title">
-            <div class="top">
-                <h1>글쓰기</h1>
-                <h4>-Writer-</h4>
+            <div class="top1">
+                <h1>리뷰등록</h1>
             </div>
         </div>
         <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
@@ -51,14 +61,14 @@
       </div>
     <div class="review_form__score">
       <div class="select2-container review_form__select_rating select_rating" id="s2id_review_score">
+	         <p id="star_grade">
+              <a href="#">★</a>
+              <a href="#">★</a>
+              <a href="#">★</a>
+              <a href="#">★</a>
+              <a href="#">★</a>
+           </p>
       <a href="javascript:void(0)" onclick="return false;" class="select2-choice" tabindex="-1">   
-	        <select name="searchYear" class="select2-chosen" style="display:block; width: 100%; height: 100%">
-				<option value="5">★★★★★ 아주 좋아요</option>
-				<option value="4">★★★★ 괜찮네요</option>
-				<option value="3">★★★ 그저 그렇네요</option>
-				<option value="2">★★ 생각 좀 해볼게요</option>
-				<option value="1">★ 별루에요</option>
-			</select>
 	      <abbr class="select2-search-choice-close"></abbr>
 	      <span class="select2-arrow"><b></b></span>
 	      <span class="sprites-icon-drop-down select2__dropdown_icon"></span>
@@ -176,7 +186,13 @@
      <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> 
      <script src = "simple-image.js" ></script> 
      <link  href = "simple-image.css"  rel = "stylesheet" /> 
-    
+      <script>
+            $('#star_grade a').click(function() {
+                $(this).parent().children("a").removeClass("on");
+                $(this).addClass("on").prevAll("a").addClass("on");
+                return false;
+            });
+         </script>
     
     <div id="footer" class="footer_wrap clearfix">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
