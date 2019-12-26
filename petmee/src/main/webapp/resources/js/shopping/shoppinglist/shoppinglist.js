@@ -22,7 +22,7 @@ $("#y-con-content").on("click",".plus",(e)=>{
 	console.log($(e.target).data("oriprice"))
 	$.ajax({
 		url: "updateamount.do",
-		data: {amount: $(e.target).data("amount")+1,no: $(e.target).data("no"),oriprice: $(e.target).data("oriprice")},
+		data: {amount: $(e.target).data("amount")+1,no: $(e.target).data("no"),price: $(e.target).data("price")},
 		success: (list) => {
 			console.log("업데이트 성공");
 			makeList(list);
@@ -39,7 +39,7 @@ $("#y-con-content").on("click",".minus",(e)=>{
 	if($(e.target).data("amount")-1 >0)	{
 		$.ajax({
 		url: "updateamount.do",
-		data: {amount: $(e.target).data("amount")-1,no: $(e.target).data("no"),oriprice: $(e.target).data("oriprice")},
+		data: {amount: $(e.target).data("amount")-1,no: $(e.target).data("no") , price: $(e.target).data("price")},
 		success: (list) => {console.log("업데이트 성공");makeList(list);}
 		});
 	}
@@ -55,12 +55,11 @@ function makeList(list) {
 			sum += parseInt(price);
 			
 		$tbl.append(`
-		<c:set scope="page" var="price" value="${list.oriprice*list.amount}" />
 				<div class="y-content-box">
 					<div class="floatbox">
 
 						<div>
-							<img class="y-img float-l" src="" />
+							<img class="y-img float-l" src="${list.image}" />
 						</div>
 						<div class="y-list-content float-l">${list.subTitle}</div>
 						<div class="y-check-del-box float-r">
@@ -72,9 +71,10 @@ function makeList(list) {
 
 					<div class="y-amountbox ">
 						<div class="y-s-amount">
-							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i> 
+							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}" data-price="${list.oriprice-list.dcprice}" ></i> 
 							<span class="y-amount">${list.amount}</span> 
-							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}" data-oriprice="${list.oriprice}" ></i>
+							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}" data-price="${list.oriprice-list.dcprice}" ></i>
+
 						</div>
 						<span class="y-price float-r"> 
 						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>

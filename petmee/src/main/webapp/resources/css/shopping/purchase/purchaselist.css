@@ -35,7 +35,9 @@
 .goods-haed{
 	background-color: rgba(204,204,204,0.3);
 }
-
+.goods-haed > span:nth-child(2) {
+	letter-spacing: 1px;
+}
 /* goods-body */
 
 .goods-body{

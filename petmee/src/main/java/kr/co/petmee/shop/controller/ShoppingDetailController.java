@@ -50,12 +50,11 @@ public class ShoppingDetailController {
 		String orderNO = UUID.randomUUID() + "-" + user.getEmail();
 
 		for (ShoppingList s : list) {
-			System.out.println(s.getProduct());
-			System.out.println(s.getEmail());
-			System.out.println(s.getImage());
 			Purchase p = new Purchase();
 
+			p.setProductId(s.getProduct());
 			p.setContent(s.getSubTitle());
+			p.setProductCnt(s.getAmount());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
 			p.setPayment(pay);

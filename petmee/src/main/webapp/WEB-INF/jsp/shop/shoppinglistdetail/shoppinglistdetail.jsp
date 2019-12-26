@@ -106,9 +106,9 @@
 						</div>
 						<hr />
 						<div id="p-box2">
-							<div class="p-blank">최종 결제금액</div>
+							<div class="p-blank" id="sd">최종 결제금액</div>
 							<div class="price-box pading-t20">
-								<div class="font-30 text-align-c" id="p-price">\ ${sum + 2500}</div>
+								<div class="font-30 text-align-c" id="p-price" data-sum="${sum + 2500}">\ ${sum + 2500}</div>
 								<div class="text-align-c p-btn">
 									<button id="paymentBtn" class="mousepoint">결제하기</button>
 								</div>
@@ -215,6 +215,7 @@
 	let p = ${sum};
 	console.log(p)
 	let oid = '${order.email}';
+	console.log(oid)
 	</script>
 	
 	<script
