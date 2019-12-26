@@ -6,7 +6,7 @@
 	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
 		from tb_board
-		where type = "free"
+		<!--  where type = "free" -->
 		order by topChk desc, no desc
 		limit #{begin}, 10
 	</select>

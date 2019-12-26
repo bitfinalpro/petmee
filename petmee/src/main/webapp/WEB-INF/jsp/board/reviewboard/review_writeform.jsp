@@ -16,12 +16,15 @@
 </head>
 <style>
 .top1 { margin 0 auto;}
-   #star_grade a {
+   #holoscope a {
          text-decoration: none;
          color: gray;
      }
-     #star_grade a.on{
+     #holoscope a.on{
          color: red;
+     }
+     #holoscope {
+     text-align: center;
      }
   
 </style>
@@ -36,7 +39,7 @@
         </div>
         <div class="title">
             <div class="top1">
-                <h1>리뷰등록</h1>
+                <h1 style="margin: 0 auto;">리뷰등록</h1>
             </div>
         </div>
         <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
@@ -60,8 +63,8 @@
         </div>
       </div>
     <div class="review_form__score">
-      <div class="select2-container review_form__select_rating select_rating" id="s2id_review_score">
-	         <p id="star_grade">
+    <input type="hidden" name="holoscope" value="1">
+	         <p id="holoscope">평점
               <a href="#">★</a>
               <a href="#">★</a>
               <a href="#">★</a>
@@ -73,14 +76,7 @@
 	      <span class="select2-arrow"><b></b></span>
 	      <span class="sprites-icon-drop-down select2__dropdown_icon"></span>
       </a>
-      <input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen5"></div>
-      <select class="review_form__select_rating select_rating select2-offscreen" data-dropdown-css-class="review_form__select_rating_drop" name="review[score]" id="review_score" tabindex="-1">
-		<option selected="selected" value="5">아주 좋아요</option>
-		<option value="4">맘에 들어요</option>
-		<option value="3">보통이에요</option>
-		<option value="2">그냥 그래요</option>
-		<option value="1">별로에요</option>
-	</select>
+      <input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen5">
     </div>
     <input type="hidden" value="39533" name="review[product_id]" id="review_product_id">
     <input type="hidden" value="24" name="review[review_source]" id="review_review_source">
@@ -122,14 +118,6 @@
 		 			</c:otherwise>
 			     </c:choose>
 		     	</div>
-	       		<!-- <h3>글쓴이</h3>
-				<input type="text" class="recs" name="writer" />
-				<script>
-					function resize(obj) {
-					  obj.style.height = "400px";
-					  obj.style.height = (12+obj.scrollHeight)+"px";
-					}
-				</script> -->
 		       	<div class="revcon_tit">
 		       		<h3>제목</h3>
 					<input type="text" id="title" name="title" class="recs" placeholder="제목을 입력해주세요" >
@@ -156,7 +144,7 @@
 		
     <div style="position:relative; text-align:center; margin: 0 auto; display:block; top:120px; width:100%; height: 180px; padding: 10px;">
     	<div class="btnArea" style=" width:150px; top:20px; margin:0 auto; border: 1px solid #dadada;">
-			<a href="/petmee/reviewboard/review_list.do">목록</a>
+			<a href="/petmee/board/reviewboard/review_list.do">목록</a>
         </div>
         <div style="position:relative; margin: 0 auto; width:50px; height: 80px;"></div>
     </div>
@@ -186,11 +174,12 @@
      <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> 
      <script src = "simple-image.js" ></script> 
      <link  href = "simple-image.css"  rel = "stylesheet" /> 
+     
       <script>
-            $('#star_grade a').click(function() {
-                $(this).parent().children("a").removeClass("on");
-                $(this).addClass("on").prevAll("a").addClass("on");
-                return false;
+           $('#holoscope a').click(function() {
+           $(this).parent().children("a").removeClass("on");
+           $(this).addClass("on").prevAll("a").addClass("on");
+              return false;
             });
          </script>
     

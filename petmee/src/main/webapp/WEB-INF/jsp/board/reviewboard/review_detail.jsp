@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-	<title>Pet Mee</title>
+	<title>Pet Me</title>
 	<link href="<c:url value='/resources/css/common/gnb.css' />" rel="stylesheet">
 	<link href="<c:url value='/resources/css/review/review_detail.css' />" rel="stylesheet">
 	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -25,8 +25,7 @@
         </div>
         <div class="title">
             <div class="top">
-                <h1>리뷰게시판</h1>
-                <h4>-Detail-</h4>
+                <h1 style="margin: 0 auto;">리뷰게시판</h1>
             </div>
         </div>
         
@@ -59,10 +58,6 @@
                 <caption>상품 게시판 상세</caption>
                 <tbody> 
                     <tr class="etcArea" style="border-bottom: #e0e0e0;">
-                        <!-- <td style="border-bottom: #e0e0e0;">
-                            <th scope="row">작성자</th>
-                            <td style="padding: 10px;"> 김준영 <span class="displaynone">(ip:)</span></td>
-                        </td> -->
                         <td style="border-bottom: 1px solid #e0e0e0; ">
                             <ul class="sub_title" style="position:relative; float:left;">
                                 <li class="writer">
@@ -108,7 +103,7 @@
                         <td colspan="2">
                             <div class="detail" style="position: relative; margin: 0 auto;">
                                 <c:forEach var="flist" items="${flist}" varStatus="status">
-									<div style="display:block; float: left; margin:0 auto;"><img class="img-src" src="<c:url value='${flist.path}${flist.oriName}'/>"/></div>
+									<div style="display:block; text-align: center; margin:0 auto;"><img class="img-src" src="<c:url value='${flist.path}${flist.oriName}'/>"/></div>
 								</c:forEach>
                             </div>
                         </td>
