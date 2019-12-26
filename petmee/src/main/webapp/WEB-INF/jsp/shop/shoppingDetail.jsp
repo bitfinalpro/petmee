@@ -25,15 +25,16 @@
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
 	 <form method="post" action="<c:url value="/shop/shoppingProductPurchase.do" />" id="">
-		<input name="email" value="${user}" type="hidden" />
+		<input name="email" value="${user.email}" type="hidden" />
 		<div class="inner product">
 			<!-- propic// -->
+			<h2>장바구니 개수 : ${user.shoppingCnt}</h2>
 			<div class="product_img">
 							<div id="imgGallery">
 								<div id="smallImgs">
+								<input name ="image" value="<c:url value='${imgfirst}'/>" type ="hidden"/>
 								<c:forEach var="f" items="${flist}" >
 								<c:if test="${f.type eq 'sum'}">
-								<input name ="image" value="${imgfirst}" type ="hidden"/>
 									<img src="<c:url value='${f.path}${f.oriName}'/>" />
 								</c:if>
 								</c:forEach>

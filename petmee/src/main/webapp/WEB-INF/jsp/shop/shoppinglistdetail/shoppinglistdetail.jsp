@@ -44,7 +44,7 @@
 								<div class="floatbox">
 
 									<div>
-										<img class="y-img float-l" src="" />
+										<img class="y-img float-l" src="${ylist.image }" />
 									</div>
 									<div class="y-list-content float-l">${ylist.subTitle}</div>
 									<div class="y-check-del-box float-r"></div>

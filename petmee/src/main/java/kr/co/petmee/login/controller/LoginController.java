@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.login.service.LoginService;
 import kr.co.petmee.repository.vo.User;
+import kr.co.petmee.shop.service.ShoppingListService;
 
 @Controller("kr.co.petmee.login.controller.LoginController")
 @RequestMapping("/shopping/login")
@@ -27,6 +28,8 @@ public class LoginController {
 	private ServletContext context;
 	@Autowired
 	private LoginService service;
+	@Autowired
+	private ShoppingListService service1;
 
 	// --------------------------------------------------
 	// 로그인
@@ -34,11 +37,14 @@ public class LoginController {
 	@ResponseBody 
 	public String login(User u, HttpSession session) {
 		User user = service.login(u);
+		int scnt = service1.ShoppingList(user).size();
 		// 로그인 실패
 		if (user == null) {
 			return "f";
 		}
 		// 로그인 성공 시 메인페이지 이동
+		
+		user.setShoppingCnt(scnt);
 		session.setAttribute("user", user);
 		return "s";
 	}

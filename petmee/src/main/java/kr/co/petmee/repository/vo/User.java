@@ -20,4 +20,5 @@ public class User {
 	private int age; // 나이
 	private Date regDate; // 가입 날짜
 	private String stringUserDate; // 가입날짜 문자열
+	private int shoppingCnt; // 가입날짜 문자열
 }

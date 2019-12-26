@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.User;
+import kr.co.petmee.shop.service.ShoppingListService;
 import kr.co.petmee.shopping.service.ShoppingProductService;
 import kr.co.petmee.util.PageResult;
 
@@ -21,6 +23,8 @@ public class ShoppingDetail {
 	
 	@Autowired
 	private ShoppingProductService service;
+	@Autowired	
+	private ShoppingListService service1;
 	
 	@RequestMapping("/shoppingDetail.do")
 	public void shoppingDetail(@RequestParam(value="pageNo", defaultValue="1") int pageNo, String productId, Model model, HttpSession session) {	
@@ -29,7 +33,8 @@ public class ShoppingDetail {
 		model.addAttribute("flist", list);
 		
 		// 장바구니 상품이미지
-		String imgfirst = list.get(1).getPath()+list.get(1).getOriName();
+		String imgfirst = list.get(0).getPath()+list.get(0).getOriName();
+		System.out.println(imgfirst);
 		model.addAttribute("imgfirst", imgfirst);
 		
 		// 해당상품 디테일 

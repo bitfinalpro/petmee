@@ -40,7 +40,7 @@
 						<div class="floatbox">
 
 							<div>
-								<img class="y-img float-l" src="" />
+								<img class="y-img float-l" src="${list.image}" />
 							</div>
 							<div class="y-list-content float-l">${list.subTitle}</div>
 							<div class="y-check-del-box float-r">
