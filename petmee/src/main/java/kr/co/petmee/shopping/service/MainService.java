@@ -10,8 +10,12 @@ import kr.co.petmee.repository.vo.Product;
 @Service
 public interface MainService {
 	
-	//상품 리스트
+	//상품 최신 리스트
 	List<Product> foodList();
+	
+	// 상품 베스트 리스트
+	List<Product> bestList();
+	
 	//상품 이미지
 	List<Image> selectProductFile();
 }

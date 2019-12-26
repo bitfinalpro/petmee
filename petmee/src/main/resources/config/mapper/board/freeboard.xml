@@ -19,9 +19,10 @@
 	</select>
 	
 	<!-- 페이징 -->
-	<select id="selectBoardCount" resultType="int">
+	<select id="selectBoardCount" resultType="int" parameterType="String">
 		select count(*)
 		from tb_board
+		where type = #{type}
 	</select>
 	
 	<!-- 게시글 등록 -->

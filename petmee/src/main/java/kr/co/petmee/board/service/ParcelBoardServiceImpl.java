@@ -26,8 +26,8 @@ public class ParcelBoardServiceImpl implements ParcelBoardService {
 	}
 	
 	@Override
-	public int selectBoardCount() {	
-		return dao.selectBoardCount();
+	public int selectBoardCount(String type) {	
+		return dao.selectBoardCount(type);
 	}
 
 	public Board detailBoard(int no) {

@@ -35,7 +35,7 @@ public class FreeBoardController {
 		int count = 0;
 		if(keyword == 0 || searchText == "") {
 			model.addAttribute("list", service.listBoard(page));
-			count = dao.selectBoardCount();
+			count = dao.selectBoardCount("free");
 		}
 		else {
 			Search search = new Search();

@@ -18,7 +18,7 @@ public interface QnaBoardService {
 	 
     Comment selectReportedMember(int commentNo);
 	
-	int selectBoardCount();
+	int selectBoardCount(String type);
     	
 	Board detailBoard(int no);
 	 

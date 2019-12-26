@@ -46,7 +46,7 @@ public class ParcelBoardController {
 		
 		model.addAttribute("blist", bylist);
 		
-		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));
+		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount("pasel")));
 		model.addAttribute("flist", service.selectSumFiles());
 	}
 

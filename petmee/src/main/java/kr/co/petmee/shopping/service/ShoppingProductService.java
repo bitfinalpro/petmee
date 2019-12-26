@@ -19,7 +19,7 @@ public interface ShoppingProductService {
 	// 상품 리스트
 	List<Product> ProductList(ProductListPage plg);
 	// 페이징처리
-	int productListCount();
+	int productListCount(int categoryNo);
 	
 	//상품 이미지
 	List<Image> ProductListImg(int categoryNo);
@@ -31,7 +31,7 @@ public interface ShoppingProductService {
 	
 	/*디테일 게시판*/
 	List<Board> listBoard(Page page);
-	int selectBoardCount();
+	int selectBoardCount(String type);
 	
 	/*구매버튼*/	
 	void insertProduct(ShoppingList productInsert);

@@ -65,7 +65,7 @@
         <nav>
   <ul class="pagination">
     <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
-    <%-- --%><li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="productList.do?categoryNo=1&pageNo=${i}">${i}</a></li>
+    	<li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="productList.do?categoryNo=${catepro}&pageNo=${i}">${i}</a></li>
     </c:forEach>
   </ul>
 </nav>

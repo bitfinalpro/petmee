@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
 import kr.co.petmee.shopping.service.ShoppingProductService;
 import kr.co.petmee.util.PageResult;
@@ -26,10 +27,25 @@ public class ShoppingProductList {
 	public void productList(ProductListPage plg, @RequestParam(defaultValue="1")int pageNo, Model model, Integer categoryNo) {
 //		List<Product> product = service.ProductList(new PrsoductListPage(pageNo), categoryNo);
 		List<Image> img = service.ProductListImg(categoryNo);
+		List<Product> pro = service.ProductList(plg);
+		int catepro = pro.get(0).getCategoryNo();
+
+		switch(catepro) {
+	    case 1: 
+	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(1),16,10));
+	    	break;
+	    case 2: 
+	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(2),16,10));
+	         break;
+	    default: 
+	         break;
+	}
+		
 //		Collections.reverse(product);
 		Collections.reverse(img);
-		model.addAttribute("pr", new PageResult(pageNo, service.productListCount(),16,10));
+		
 		model.addAttribute("img", img);
-		model.addAttribute("product", service.ProductList(plg));
+		model.addAttribute("catepro", catepro);
+		model.addAttribute("product", pro);
 	}
 }

@@ -28,24 +28,22 @@
 		<input name="email" value="${user.email}" type="hidden" />
 		<div class="inner product">
 			<!-- propic// -->
-			<h2>장바구니 개수 : ${user.shoppingCnt}</h2>
 			<div class="product_img">
-							<div id="imgGallery">
-								<div id="smallImgs">
-								<input name ="image" value="<c:url value='${imgfirst}'/>" type ="hidden"/>
-								<c:forEach var="f" items="${flist}" >
-								<c:if test="${f.type eq 'sum'}">
-									<img src="<c:url value='${f.path}${f.oriName}'/>" />
-								</c:if>
-								</c:forEach>
-								</div>
-								<div id="bigImg">
-								<c:forEach var="f" begin="0" end="0" items="${flist}" varStatus="status">
-										<img src="<c:url value='${f.path}${f.oriName}'/>" id="a"/>
-								</c:forEach>							
-								</div>
-							</div>
-
+				<div id="imgGallery">
+					<div id="smallImgs">
+					<input name ="image" value="<c:url value='${imgfirst}'/>" type ="hidden"/>
+					<c:forEach var="f" items="${flist}" >
+					<c:if test="${f.type eq 'sum'}">
+						<img src="<c:url value='${f.path}${f.oriName}'/>" />
+					</c:if>
+					</c:forEach>
+					</div>
+					<div id="bigImg">
+					<c:forEach var="f" begin="0" end="0" items="${flist}" varStatus="status">
+							<img src="<c:url value='${f.path}${f.oriName}'/>" id="a"/>
+					</c:forEach>							
+					</div>
+				</div>
 			</div>
 			<!-- //propic -->
 
@@ -240,12 +238,14 @@
 						<th>VIEW</th>
 						<th></th>
 					</tr>
+				
 					 <c:if test="${empty list}">
 					<tr>
 						<td colspan="5">게시물이 없습니다.</td>
 					</tr>				
 				</c:if>
 			<c:forEach var="b" items="${list}">
+				<c:if test="${b.type eq 'reviwe'}">
 				<tr onclick="document.location.href='detail.do?no=${b.no}'">
 					<td>${b.no}</td>
 					<%-- <td>${b.product}</td> --%>
@@ -259,13 +259,14 @@
                      <a href="<c:url value="/board/reviewboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
                    </td>
 				</tr>
+				</c:if>
 			</c:forEach>
 				</table>
 		<div id="page" >
         	<nav>
 			  <ul class="pagination">
 			    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
-			    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="notice.do?pageNo=${i}">${i}</a></li>
+			    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="review.do?pageNo=${i}">${i}</a></li>
 			    </c:forEach>
 			  </ul>
 			</nav>
@@ -291,88 +292,38 @@
 					<th>VIEW</th>
 					<th></th>
 				</tr>
-				
-				<tr onclick="document.location.href='wirte.html'">
-					<td>3</td>
-						<td>비트 이벤트 </td>
-						<td>관리자</td>
-						<td><i class="far fa-clock"></i>&nbsp;2019.11.11</td>
-						<td>123</td>
-						<td>
-							<button>수정</button>
-							<button>삭제</button>
-						</td>
-					</tr>
-				<tr>
-					<td>2</td>
-					<td>빼빼로 이벤트 </td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
+				 <c:if test="${empty list}">
+					<tr>
+						<td colspan="5">게시물이 없습니다.</td>
+					</tr>				
+				</c:if>
+			<c:forEach var="b" items="${list}">
+			<c:if test="${b.type eq 'QnA'}">
+				<tr onclick="document.location.href='detail.do?no=${b.no}'">
+					<td>${b.no}</td>
+					<%-- <td>${b.product}</td> --%>
+					<td>${b.title}</td>
+					<%-- <td>${b.writer}</td> --%>
+					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
+					<%--<td>${b.rating}</td>--%>
+					<td>${b.viewCnt}</td>
 					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
+                     <a href="<c:url value="/board/reviewboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
+                     <a href="<c:url value="/board/reviewboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
+                   </td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>빼빼로 이벤트 </td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
-					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>빼빼로 이벤트 </td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
-					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>빼빼로 이벤트 </td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
-					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>빼빼로 이벤트 </td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
-					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>사이트 서비스 안내</td>
-					<td>관리자</td>
-					<td>2019.11.11</td>
-					<td>123</td>
-					<td>
-						<button>수정</button>
-						<button>삭제</button>
-					</td>
-				</tr>
+				</c:if>
+			</c:forEach>
 			</table>
-			<div id="page">
-					<span> << &nbsp;1 &nbsp; / &nbsp; 2 &nbsp; / &nbsp; 3 &nbsp; / &nbsp; 4 &nbsp; / &nbsp; 5 &nbsp; >></span>
-			</div>
+			<div id="page" >
+        	<nav>
+			  <ul class="pagination">
+			    <c:forEach var="i" begin="${pr.beginPage}" end="${pr.endPage}">
+			    <li <c:if test="${pr.pageNo == i}">class="active"</c:if>><a href="notice.do?pageNo=${i}">${i}</a></li>
+			    </c:forEach>
+			  </ul>
+			</nav>
+		</div>
  </div>
 		<!-- bottombuybtn// -->
 		<div class="bottombuybtn">

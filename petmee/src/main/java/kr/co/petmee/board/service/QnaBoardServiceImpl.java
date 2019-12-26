@@ -27,8 +27,8 @@ public class QnaBoardServiceImpl implements QnaBoardService {
 	}
 	
 	@Override
-	   public int selectBoardCount() {   
-	      return dao.selectBoardCount();
+	   public int selectBoardCount(String type) {   
+	      return dao.selectBoardCount(type);
 	   }
 	
 	@Override

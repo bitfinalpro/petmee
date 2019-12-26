@@ -36,7 +36,7 @@ public class QnaBoardController {
 		if(key == 0 || val == null) {
 			
 			model.addAttribute("list", service.listBoard(page));
-			count = dao.selectBoardCount();
+			count = dao.selectBoardCount("QnA");
 		}
 		else {
 			Search search = new Search();
