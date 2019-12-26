@@ -12,7 +12,11 @@ import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
 public interface ShoppingDAO {
+	// 메인 최신 리스트
 	List<Product> selectFood();
+
+	// 메인 베스트 리스트
+	List<Product> selectBest();
 	
 	// 메인이미지파일
 	List<Image> mainSelectProductFile();
@@ -28,7 +32,7 @@ public interface ShoppingDAO {
 	List<Product> productList(ProductListPage plg);
 	
 	// 상품 리스트 페이징 처리
-	int productListCount();
+	int productListCount(int categoryNo);
 	
 	// 상품리스트이미지파일
 	List<Image> productListImg(int categoryNo);

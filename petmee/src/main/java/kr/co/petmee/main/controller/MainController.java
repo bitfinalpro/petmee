@@ -21,13 +21,13 @@ public class MainController {
 	@RequestMapping("/main.do")
 	public void main(Model model) {
 
-//		for (Image a:service.selectProductFile()) {			
-//			System.out.println(a.getPath()+a.getOriName());
-//		}
 		List<Product> foodlist = service.foodList();
 		List<Image> flist =  service.selectProductFile();
+		List<Product> bestlist = service.bestList();
+		
 		Collections.reverse(foodlist);
 		Collections.reverse(flist);
+		model.addAttribute("best", bestlist);
 		model.addAttribute("food", foodlist);
 		model.addAttribute("flist",flist);
 	}

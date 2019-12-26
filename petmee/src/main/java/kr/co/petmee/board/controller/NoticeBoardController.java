@@ -22,7 +22,7 @@ public class NoticeBoardController {
 	@RequestMapping("/notice.do")
 	public void List(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
 		model.addAttribute("list", service.listBoard(new Page(pageNo)));
-		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount()));
+		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount("notice")));
 	}
 
 	@RequestMapping("/detail.do")

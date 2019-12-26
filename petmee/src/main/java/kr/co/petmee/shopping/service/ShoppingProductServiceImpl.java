@@ -36,8 +36,8 @@ public class ShoppingProductServiceImpl implements ShoppingProductService{
 	}
 
 	@Override
-	public int productListCount() {
-		return dao.productListCount();
+	public int productListCount(int categoryNo) {
+		return dao.productListCount(categoryNo);
 	}
 	
 	@Override
@@ -63,8 +63,8 @@ public class ShoppingProductServiceImpl implements ShoppingProductService{
 		return boardDao.selectBoard(page);
 	}
 	@Override
-	public int selectBoardCount() {	
-		return boardDao.selectBoardCount();
+	public int selectBoardCount(String type) {	
+		return boardDao.selectBoardCount(type);
 	}
 	
 	/* -----------------상품 구매 -------------------*/

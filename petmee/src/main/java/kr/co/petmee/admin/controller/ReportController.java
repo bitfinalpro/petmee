@@ -36,8 +36,6 @@ public class ReportController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:MM:ss");
 		for(Report r : rList ) {
 			r.setStringReportDate(sdf.format(r.getReportDate()));
-			System.out.println(r.getNo());
-			System.out.println(r.getType());
 		}
 		model.addAttribute("reportList", rList );
 	}
@@ -53,7 +51,7 @@ public class ReportController {
 	}
 	
 	// 추방
-	@RequestMapping("/insertDelete.do")
+	@RequestMapping("/reportdelete.do")
 	public String delete(int no) {
 		service.deleteReport(no); 
 		return "redirect:reportlist.do";
@@ -64,6 +62,9 @@ public class ReportController {
 	public List<Comment> insertComReport(Report report, HttpSession session) {
 		User user = (User)session.getAttribute("user");
 		report.setEmail(user.getEmail());
+		report.setUserNo(user.getUserNo());
+		
+		
 		return service.insertComReport(report);
 		
 	}

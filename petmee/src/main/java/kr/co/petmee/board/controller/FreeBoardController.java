@@ -35,7 +35,7 @@ public class FreeBoardController {
 		int count = 0;
 		if(keyword == 0 || searchText == "") {
 			model.addAttribute("list", service.listBoard(page));
-			count = dao.selectBoardCount();
+			count = dao.selectBoardCount("free");
 		}
 		else {
 			Search search = new Search();
@@ -101,9 +101,6 @@ public class FreeBoardController {
 	@ResponseBody
 	public Comment selectReportedMember(int commentNo) {
 		Comment c = service.selectReportedMember(commentNo);
-		System.out.println(c.getEmail());
-		System.out.println(c.getContent());
-		System.out.println(c.getCommentNo());
 		 return c;
 	} 
 	

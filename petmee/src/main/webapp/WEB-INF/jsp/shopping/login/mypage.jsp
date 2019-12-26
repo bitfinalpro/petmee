@@ -376,7 +376,7 @@
           <input type="password" name="userpasswd" maxlength="100" placeholder="보안을 위해 현재 사용 비밀번호를 입력해주세요.">
             <label for="">비밀번호<em>(필수)</em></label>
             <p class="valid">
-              <i class="xi-check" title="비밀번호 일치">${m.pass}</i>            
+              <i class="xi-check" title="비밀번호 일치"></i>            
             </p>
           </div>
         </li>
@@ -410,7 +410,7 @@
         <li class="col-lg-6">
           <div class="inputbox">
             <ul class="num">
-              <li><input type="text" name="mobile_1" id="mobile_1" maxlength="4" value="${m.phone}"></li>
+              <li><input type="text" name="mobile_1" id="mobile_1" maxlength="12" value="${m.phone}"></li>
 <!--               <li><input type="text" name="mobile_2" id="mobile_2" maxlength="4" value=""></li>
               <li><input type="text" name="mobile_3" id="mobile_3" maxlength="4" value=""></li> -->
             </ul>
@@ -421,20 +421,21 @@
          
         <li class="col-lg-6">
           <div class="inputbox">            
-            <ul class="num">
+            <!-- <ul class="num">
               <li><input type="text" name="tel_1" id="tel_1" maxlength="4" value=""></li>
               <li><input type="text" name="tel_2" id="tel_2" maxlength="4" value=""></li>
               <li><input type="text" name="tel_3" id="tel_3" maxlength="4" value=""></li>
-            </ul>
+            </ul> -->
            <!--  <input type="text" placeholder="전화번호"> -->
-            <label for="">전화번호</label>
+           <input type="text" name="home_phone" id="input_mobile_1" maxlength="12" value="${m.home_phone}">
+            <label>전화번호</label>
           </div>
         </li>
         
         <li class="col-lg-6">
           <div class="inputbox">
             <div class="row_5">
-              <div class="col-lg-3"><input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="" onclick="DaumPostcode();" value="#"></div>
+              <div class="col-lg-3"><input type="text" name="zipcode" id="zipcode" maxlength="5" readonly="" onclick="DaumPostcode();" value=""></div>
               <div class="col-lg-3"><a href="javascript:;" class="btn">우편번호</a></div>
               <div class="col-lg-6"><input type="text" maxlength="100" name="address1" id="address1" readonly="" value="${m.address}"></div>
             </div>
@@ -443,7 +444,7 @@
         </li>
         <li class="col-lg-6">
           <div class="inputbox">
-            <input type="text" maxlength="100" name="address2" id="address2" value="#">
+            <input type="text" maxlength="100" name="address2" id="address2" value="${m.address_detail}">
             <label for="">상세주소</label>
           </div>
         </li>

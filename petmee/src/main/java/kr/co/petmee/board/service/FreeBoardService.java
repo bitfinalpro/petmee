@@ -20,7 +20,7 @@ public interface FreeBoardService {
     
     void insertBoard(Board board);
 	
-     int selectBoardCount();
+     int selectBoardCount(String type);
     
 	 Board detailBoard(int no);
 

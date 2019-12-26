@@ -15,7 +15,7 @@ List<Board> selectBoard(Page page);
     // 신고 
 	Comment selectReportedMember(int CommentNo);
 	// 마미손울어
-	int selectBoardCount();
+	int selectBoardCount(String type);
 	// 상세정보
 	Board selectOneBoard(int no);
 	// 글등록

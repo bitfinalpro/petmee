@@ -87,8 +87,6 @@ function report_comChk() {
 		return;
 		
 	} else {
-		console.log("ajax호출");
-		console.log($(".reporttype1").data("t"));
 		$.ajax({
 			url: "/petmee/admin/user/insertComReport.do",
 			type: "POST",

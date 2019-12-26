@@ -28,8 +28,8 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	}
 	
 	 @Override
-	   public int selectBoardCount() {   
-	      return dao.selectBoardCount();
+	   public int selectBoardCount(String type) {   
+	      return dao.selectBoardCount(type);
 	   }
 
 	

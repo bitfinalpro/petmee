@@ -58,6 +58,7 @@ public class LoginServiceImpl implements LoginService {
 	public String selectpass(User user) {
 		return dao.selectpass(user);
 	}
+
 }
 
 

@@ -21,8 +21,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 	}
 	
 	@Override
-	public int selectBoardCount() {	
-		return dao.selectBoardCount();
+	public int selectBoardCount(String type) {	
+		return dao.selectBoardCount(type);
 	}
 	
 	public Board detailBoard(int no) {

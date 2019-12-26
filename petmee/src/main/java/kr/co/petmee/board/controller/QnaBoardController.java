@@ -15,7 +15,6 @@ import kr.co.petmee.repository.dao.BoardDAO;
 import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
-import kr.co.petmee.repository.vo.QnaBoard;
 import kr.co.petmee.repository.vo.Search;
 import kr.co.petmee.util.PageResult;
 
@@ -36,7 +35,7 @@ public class QnaBoardController {
 		if(key == 0 || val == null) {
 			
 			model.addAttribute("list", service.listBoard(page));
-			count = dao.selectBoardCount();
+			count = dao.selectBoardCount("QnA");
 		}
 		else {
 			Search search = new Search();

@@ -12,7 +12,7 @@ public interface NoticeBoardService {
 	// 공지사항 리스트 뽑기
 	List<Board> listBoard(Page page);
 	
-	int selectBoardCount();
+	int selectBoardCount(String type);
 	
 	Board detailBoard(int no);
 	

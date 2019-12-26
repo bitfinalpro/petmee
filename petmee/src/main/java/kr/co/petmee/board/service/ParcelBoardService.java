@@ -11,7 +11,7 @@ public interface ParcelBoardService {
 
 	List<Board> listBoard(Page page);
 	
-	int selectBoardCount();
+	int selectBoardCount(String type);
 
 	Board detailBoard(int no);
 

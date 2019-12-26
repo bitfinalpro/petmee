@@ -15,15 +15,15 @@
 	<!-- 회원가입 등록-->
 	<insert id="insertJoin" parameterType="User">
 		insert into tb_user (
-			email, pass, name, phone, gender, resident, address
+			email, pass, name, phone, home_phone, gender, resident, address, address_detail
 		) values (
-			#{email}, #{pass}, #{name}, #{phone}, #{gender}, #{resident}, #{address}
+			#{email}, #{pass}, #{name}, #{phone}, #{home_phone}, #{gender}, #{resident}, #{address}, #{address_detail}
 		);
 	</insert>
 	
 	<!-- 이메일 중복 검사 -->
 	<select id="emailcheck" parameterType="String" resultType="User">
-	      select email 
+	      select email
 	      from tb_user
 	      where email = #{email}
 	</select>
@@ -39,7 +39,7 @@
 	<!-- 마이페이지 수정 -->
 	<update id="updateMypage" parameterType="User">
 		update tb_user 
-		   set title = #{title},
+		   set title = #{title}
 		       content = #{content}
 	</update>
 	
@@ -51,15 +51,15 @@
 	</delete>
 	
 	<!-- : 이메일 찾기 ================================================= -->
-	<select id="selectfind" parameterType="User" resultType="string">
-	      select email 
+	<select id="selectfind" parameterType="User" resultType="String">
+	      select email
 	      from tb_user
 	      where name = #{name}
 	        and phone = #{phone}
 	</select>
-	
+		
 	<!-- : 비밀번호 찾기 ================================================= -->
-	<select id="selectpass" parameterType="User" resultType="string">
+	<select id="selectpass" parameterType="User" resultType="String">
 	      select pass 
 	      from tb_user
 	      where email = #{email}
