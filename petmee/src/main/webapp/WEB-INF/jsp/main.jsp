@@ -125,7 +125,7 @@
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
                         <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
-                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+               			<span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
                       </div>
                       <div class="sb_img">
                         <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
@@ -178,7 +178,11 @@
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
                       </div>
                       <div class="sb_img">
-                        <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
+                      
+                      <c:choose>
+						<c:when test="${food.dcPrice > 1}"> <img src="<c:url value="/resources/images/main/sale.png" />" style='display:block'> </c:when>
+						<c:when test="${food.dcPrice < 1}"><img src="<c:url value="/resources/images/main/sale.png" />" style='display:block'> </c:when>
+					</c:choose>
          		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
                       </div>
                     </a>
