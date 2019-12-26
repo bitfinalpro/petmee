@@ -331,7 +331,7 @@
     <ul class="clearfix tab tab2">
       <li><a href="#" class="on">회원정보 변경</a></li>
       <li><a href="#">작성 후기 보기</a></li>
-      <li><a href="#">배송정보</a></li>
+      <li><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >배송정보</a></li>
     </ul>
   </div>      
   <div class="sub-con sub-pad">

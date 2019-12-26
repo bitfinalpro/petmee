@@ -1,9 +1,83 @@
 #content {
-	height: 300px;
+	min-width: 1200px;
+}
+#content * {
+	font-size: 17px;
+	font-weight: bold;
 }
 
 .outline-hr {
 	margin: 0 auto;
-	width: 1200px;
+	width:72%;
 	color: #d8d8d8;
 }
+
+/* goods-box */
+
+.goods-box{
+	width: 65%;
+	margin: 30px auto;
+	border: 2px solid rgba(204,204,204,0.3);
+}
+
+
+.goods-box *{
+	padding: 0 20px;
+}
+.goods-box:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* goods-haed */
+
+.goods-haed{
+	background-color: rgba(204,204,204,0.3);
+}
+
+/* goods-body */
+
+.goods-body{
+	margin-top:20px;
+	height: 200px;
+}
+.goods-body > div{
+	float: left;
+}
+
+/* goods-detail-box */
+.goods-detail-box {
+	width: 70%;
+}
+
+.goods-detail-box > *{
+	float: left;
+}
+.goods-img{
+	width: 150px;
+	height: 200px;
+	padding: 0;
+}
+.goods-content{
+	display:inline-block;
+	width: 68%;
+}
+
+/* goods-cnt */
+
+.goods-cnt {
+	width: 10%;
+}
+
+/* goods-deli */
+
+.goods-deli {
+	width: 20%;
+}
+/* 굥용 css */
+.float-r{
+	float: right;
+}
+
+

@@ -34,8 +34,13 @@
 	
 	<!-- 쿠폰정보 update -->
 	<update id="updateCoupon" parameterType="hashmap">
-		update tb_coupon set email = #{email}, used = 1 where no = #{no}
+		update tb_coupon set email = #{email}, used = 1 where no = #{no} and used = 0
 	</update>
+	
+	<!-- 쿠폰 삭제 -->
+	<delete id="deleteCoupon" parameterType="String">
+	DELETE FROM tb_coupon WHERE  no = #{no};
+	</delete>
 	
 	<!-- 배송정보 insert -->
 	<insert id="insertDeliInfo" parameterType="DeliInfo">

@@ -1,6 +1,7 @@
 package kr.co.petmee.shop.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +23,7 @@ public class ShoppingDetailController {
 
 	@Autowired
 	private ShoppingListService service;
-	 
+
 	@RequestMapping("/shop/shoppinglistdetail/shoppinglistdetail.do")
 	public void selectShoppingListDetail(Model model, HttpSession session) {
 		User user = new User();
@@ -30,7 +31,7 @@ public class ShoppingDetailController {
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
 		List<Coupon> coupon = service.couponList(user);
-		
+
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
@@ -40,32 +41,33 @@ public class ShoppingDetailController {
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
 	@ResponseBody
 //	@Autowired
-	public void payment(HttpSession session,DeliInfo deliInfo,String pay) {
+	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo ) {
 
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
-		
-		for(ShoppingList s : list) {		
+		String orderNO = UUID.randomUUID() + "-" + user.getEmail();
+
+		for (ShoppingList s : list) {
 			System.out.println(s.getProduct());
 			System.out.println(s.getEmail());
 			System.out.println(s.getImage());
 			Purchase p = new Purchase();
-			p.setOrder_id(deliInfo.getOrder_id());
-			p.setProduct_id(s.getProduct());
-			p.setProduct_cnt(s.getAmount());
+
 			p.setContent(s.getSubTitle());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
 			p.setPayment(pay);
 			p.setDiscount(s.getDcprice());
 			p.setImage(s.getImage());
+			p.setOrderNo(orderNO);
 			service.purchase(p);
 		}
-		
+		deliInfo.setOrderNo(orderNO);
 		service.deliInfo(deliInfo);
-		
+		service.couponDelete(couponNo);
+		service.ShoppingListDelete(user);
 	}
 
 }

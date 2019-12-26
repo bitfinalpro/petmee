@@ -38,6 +38,8 @@ public class ReportController {
 		}
 		model.addAttribute("reportList", rList );
 	}
+	
+	
 	// 신고 등록
 	@RequestMapping("/insertReport.do")
 	public String insertReport(Report report, HttpSession session) {

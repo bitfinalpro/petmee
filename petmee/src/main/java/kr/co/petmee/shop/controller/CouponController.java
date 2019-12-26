@@ -23,16 +23,20 @@ public class CouponController {
 
 	@RequestMapping("/shop/shoppinglistdetail/ajaxUpdateCoupon.do")
 	@ResponseBody
-	public List<Coupon> ajaxUpdateCoupon(String no, HttpSession session) {
+	public Map<String, Object> ajaxUpdateCoupon(String no, HttpSession session) {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		Map<String, String> map = new  HashMap<>();
 		map.put("email", user.getEmail());
 		map.put("no", no);
 		
-		service.couponUpdate(map, user);
+		int s = service.couponUpdate(map);
+		Map<String ,Object> m = new HashMap<>();
+		m.put("clist", service.couponList(user));
+		m.put("state", s);
+		System.out.println(s);
 		
-		return service.couponList(user);
+		return m;
 	}
 
 }

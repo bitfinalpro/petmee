@@ -38,7 +38,7 @@
 				<li class="queen-review"><a href="/board/review/queen-review/index.html">이달의 포토리뷰퀸</a></li>
 		    </ul>
 		</div>
-        <table border="" summary="">
+        <table border="" summary="" style="margin-left: 10px;">
         <caption>상품 게시판 목록</caption>
         <colgroup class="">
             <col style="width:10%;">
@@ -52,7 +52,7 @@
             <col style="width:10%;" class="">
         </colgroup>
         <thead class="listheader">
-            <tr  id="top_list" style="margin-top: 20px; height:50px;">
+            <tr id="top_list" style="margin-top: 20px; height:50px;">
                 <th scope="col">번호</th>
                 <th scope="col" class="thumb">제품</th>
                 <th scope="col">제목</th>
@@ -61,7 +61,7 @@
                 <th scope="col">날짜</th>
                 <th scope="col" class="displaynone">조회수</th>
                 <th scope="col" class="displaynone">평점</th>
-                <th scope="col" class="displaynone">버튼</th>
+                <th scope="col" class="displaynone">상세</th>
             </tr>
         </thead>
         <!-- <tbody class="notice">
@@ -114,7 +114,7 @@
                 <td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
                 <td>${b.views}</td>
                 
-                <td class="displaynone b_list">★★★★★★</td>
+                <td class="displaynone b_list"></td>
             	<td >
             		<div style="margin-top: 10px;">
 	            		<a href="#" style="background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px; ">제품보기</a>

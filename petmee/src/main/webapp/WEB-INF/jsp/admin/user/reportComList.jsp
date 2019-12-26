@@ -22,9 +22,7 @@
   <link href="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.css"/>" rel="stylesheet">
 
   <!-- 이 템플릿의 사용자 지정 스타일 -->
-   
    <link href ="<c:url value="/resources/css/admin/sb-admin.css"/>" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
  .u {
     width: 30%;
@@ -116,16 +114,37 @@
       <i class="fas fa-bars"></i>
     </button>
 
-  
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-   
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
           <span class="badge badge-danger">7</span>
         </a>
-        
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -133,7 +152,6 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
@@ -154,7 +172,7 @@
       <ul class="sidebar navbar-nav">
         <!-- 메인 -->
         <li class="nav-item active">
-          <a class="nav-link" href="<c:url value="/admin/user/menu.do" />">
+          <a class="nav-link" href="index.html">
             <i class="fas fa-home"></i>
             <span>Main</span>
           </a>
@@ -172,21 +190,21 @@
                 <span>신고관리</span>
               </a>
             </li>
-         <!-- 주문 관리 -->
+        <!-- 게시판 관리 -->
         <li class="nav-item">
-           <a class="nav-link" href="<c:url value="/admin/order/order.do"/>">
-             <i class="fas fa-fw fa-table"></i>
-              <span>주문관리</span></a>
+            <a class="nav-link" href="boardadmin.html">
+              <i class="fas fa-fw fa-table"></i>
+              <span>게시판관리</span></a>
           </li>
         <!-- 상품 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
+          <a class="nav-link" href="boardadmin.html">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li> 
         <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
         <li class="nav-item">
-          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
+          <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>통계</span></a>
         </li>
@@ -210,23 +228,19 @@
           <div class="card-header">
             <i class="fas fa-table"></i>
            신고관리
+           <button type="button" id="Bulletin">게시글</button>
+           <button type="button" id="Comment">댓글</button>
            </div>
-           
-           
-           
-           
-           <!-- 부트스트랩 검색 찾기 -->
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>번호</th>
-                    <th>글번호</th>
                     <th>분류</th>
-                    <th>타입</th>
                     <th>신고자</th>
                     <th>신고사유</th>
+                    <th>내용</th>
                     <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
@@ -234,11 +248,10 @@
                 <tfoot>
                   <tr>
                     <th>번호</th>
-                    <th>글번호</th>
                     <th>분류</th>
-                    <th>타입</th>
                     <th>신고자</th>
                     <th>신고사유</th>
+                    <th>내용</th>
                     <th>작성자</th>
                     <th>탈퇴</th>
                   </tr>
@@ -248,26 +261,25 @@
                 <td colspan="5">신고당한 회원이 없습니다.</td>
                 </tr>
                 </c:if>
-                <tbody>
                 <c:forEach var="report" items="${reportList}">
-                    <tr onclick="popup('${report.email}', '${report.title}', '${report.content}',
+                <tbody>
+                    <tr onclick="popup1('${report.email}', '${report.title}', '${report.content}',
                                        '${report.reportEmail}', '${report.other}', '${report.reportReason}',
                                        '${report.boardType}', '${report.stringReportDate}')">
                         <td>${report.reportNo}</td>
-                        <td>${report.no}</td>
-                        <td>${report.type}</td>
                         <td>${report.boardType}</td>
                         <td>${report.email}</td>
                         <td>${report.reportReason}</td>
+                        <td>${report.title}</td>
                         <td>${report.reportEmail}</td>
                         <td><a href="#"><button type="button">탈퇴</button></a></td>
                       </tr>
-                </c:forEach>
                 </tbody>
+                </c:forEach>
               </table>
               
                 <!-- 모달창 시작 -->
-                <div id="popup" class="layer">
+                <div id="popup1" class="layer">
                   <div class="box">
                     <div class="u"><strong>신고정보</strong></div>
                     <table class ="usermodal" id="usermodal">
@@ -284,8 +296,8 @@
                         <td id="email"colspan="5"></td>
                       </tr>
                       <tr>
-                        <td>제목</td>
-                        <td id="title" colspan="5"></td>
+                        <td>내용</td>
+                        <td id="content" colspan="5"></td>
                       </tr>
                       <tr>
                         <td>신고사유 </td>

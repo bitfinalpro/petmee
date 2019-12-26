@@ -13,7 +13,8 @@ public class DeliInfo {
 	private String address1;
 	private String address2;
 	private String content;
-	private String order_id;
-	private int coupon_dc;
+	private String orderId;
+	private int couponDc;
+	private String orderNo;
 	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -60,12 +61,12 @@
 				  <div class="button">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
-                       <a href="<c:url value="/board/freeboard/list.do" />"><button class="b1">목록</button></a>
+                       <a href="<c:url value="/board/parcelboard/parcelList.do" />"><button class="b1">목록</button></a>
                    </div>
 
 			 <form id="crForm" method="post" action="comment_regist.do" >
                  <input type="hidden" id="no" value="${board.no}" />  
-                   <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
+                   <textarea placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
                      <input type="hidden" id="email" value="권성진" /> 
                       <button type="submit" class="comment1" >등록</button>
               </form>

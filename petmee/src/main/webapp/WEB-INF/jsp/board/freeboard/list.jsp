@@ -70,7 +70,7 @@
          <c:if test="${b.type eq 'free'}">
          <tr>
                 <td>${b.no}</td>
-                <td><a href="detail.do?no=${b.no}">${b.title}</a></td>
+                <td><a href="detail.do?no=${b.no}&keyword=${keyword}&searchText=${searchText}">${b.title}</a></td>
                 <td>${b.email}</td>
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>

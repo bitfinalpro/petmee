@@ -133,6 +133,43 @@ function makeCommentList(list) {
 $("#searchbutton").click((e)=>{
 	let key = $("#top_sel").val();
 	let val = $("#searchtext").val();
-	console.log(key, val);
-	location.href="list.do?key=" + key + "&val=" + val;
+	$.ajax({
+		url: "search.do",
+		data: {keyword: key, searchText: val},
+		success: result => {
+			let query = `
+			<colgroup>
+                <col width=7%;>
+                <col width=50%;>
+                <col width=7%;>
+                <col width=10%;>
+                <col width=7%;>
+                <col width=10%;>
+            </colgroup>
+            <tr>
+                <th>NO</th>
+                <th>TITLE</th>
+                <th>WRITER</th>
+                <th>DATE</th>
+                <th>VIEW</th>
+            </tr>
+			`;
+			if (result.length == 0) {
+				query += ` <tr><td colspan="5">게시물이 없습니다.</td></tr>`;}
+			else{
+				for (let i = 0; i < result.length; i++){
+				query += `
+					<tr>
+						<td>${result[i].no}</td>
+						<td><a href="detail.do?no=${result[i].no}&keyword=${key}&searchText=${val}">${result[i].title}</a></td>
+						<td>${result[i].email}</td>
+						<td><i class="far fa-clock"></i> ${result[i].stringDate}</td>
+						<td><i class="far fa-eye"></i> ${result[i].viewCnt}</td>
+					</tr>
+				`;	
+				}
+			}
+			$(".notice_tb").html(query);
+		}
+	})	
 });

@@ -2,13 +2,16 @@
 
 	let cnt = 0
 	let dc = 0
+	let cno;
 	
 	$(".con-box").on("click",".coupon-ch",(e)=> {
 		let ch = $(".coupon-ch").is(":checked")
 		let discount = $(".coupon-ch:checked").val()
 		let allprice = `\\ ${p-discount+2500}`
+			
 			if(ch) {
 				cnt += 1  
+				cno = $(".coupon-ch:checked").siblings(".couponNo").val()
 				let v = `(-) ${discount}`
 					dc = discount;
 					$('#discount > span:nth-child(2)').html(v);
@@ -27,7 +30,6 @@
 			$("#p-price").html(p);
 		}
 	})
-//}
 
 // 주소 입력 api (다음)
 function DaumPostcode() {
@@ -85,7 +87,7 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 	let address2 = $("#address2").val();
 	let content = $("#content").val();
 	sendData = {
-				order_id:oid,
+				orderId:oid,
 				name:name,
 				phone:phone,
 				email:email,
@@ -93,8 +95,9 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 				address1:address1,
 				address2:address2,
 				content:content,
-				coupon_dc:dc,
-				pay:pay
+				couponDc:dc,
+				pay:pay,
+				couponNo:cno
 			}
 	$.ajax({
 		

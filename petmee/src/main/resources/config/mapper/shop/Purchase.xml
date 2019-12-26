@@ -3,10 +3,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.PurchaseDAO">
 	
+	<!-- 구매내역 가져오기(id) -->
+	<select id="selectPurchase" parameterType="Purchase" resultType="Purchase"> 
+		SELECT * FROM tb_purchase where email = #{email} or order_no = #{orderNo}
+		<!-- SELECT * FROM tb_purchase where email = #{email}; -->
+	</select>
+	
 	<!-- 구매내역 insert -->
 	<insert id="insertPurchase" parameterType="Purchase">
-		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount,image)
-		 VALUES (#{order_id},#{product_id},#{product_cnt},#{content},#{price},#{email},#{payment},#{discount},#{image});
+		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount, image, order_no)
+		 VALUES (#{orderId},#{productId},#{productCnt},#{content},#{price},#{email},#{payment},#{discount},#{image},#{orderNo})
 	</insert>
+	
+	
 	
 </mapper>

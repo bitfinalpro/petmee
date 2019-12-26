@@ -37,13 +37,13 @@
 <!-- 제품 입고 -->
 	<update id="plusCount" parameterType="Product">
 		update tb_product
-		   set stock = stock + #{productCount}
+		   set stock = stock + #{productCnt}
 		 where product_id = #{productId}
 	</update> 
 <!-- 제품 출고 -->
 	<update id="minusCount" parameterType="Product">
 		update tb_product
-		   set stock = stock - #{productCount}
+		   set stock = stock - #{productCnt}
 		 where product_id = #{productId}
 	</update> 
 <!-- 제품 정보 변경 -->

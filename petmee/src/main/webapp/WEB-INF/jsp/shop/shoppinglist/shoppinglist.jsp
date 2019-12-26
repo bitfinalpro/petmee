@@ -84,8 +84,7 @@
 						+2500}</span></span>
 			</div>
 			<div id="y-con-button">
-				<button type="button" class="mousepoint"
-					onclick="location.href='<c:url value="/shop/shoppinglistdetail/shoppinglistdetail.do" />'">결제하기</button>
+				<button type="button" class="mousepoint" id="paymentbtn">결제하기</button>
 				<button type="button" class="mousepoint"
 					onclick="location.href='<c:url value="/main.do" />'">메인페이지</button>
 			</div>

@@ -41,6 +41,7 @@ cursor: pointer;
 					분양게시판
 				</div>
 				<div id="y-list">
+				
 				<c:forEach var="blist" items="${blist}" varStatus="status">
 					<c:if test="${blist.type eq 'parcel'}">
 					<a href="/petmee/board/parcelboard/parcelDtail.do?no=${blist.no}">
@@ -53,6 +54,7 @@ cursor: pointer;
 					</a>
 					</c:if>
 					</c:forEach>
+					
 				</div>
 				<br>
 				<button id="y-writeform" >글쓰기</button>
