@@ -1,10 +1,5 @@
 @charset "UTF-8";
-/*
-MINIPET
-2018 09
-// author: banghg
-// http://freewebclub.com
-*/
+
 @import url(ui/animate.css);
 @import url(ui/slick.css);
 @import url(ui/mCustomScrollbar.css);
@@ -14,13 +9,9 @@ MINIPET
 @import url(common.css);
 @import url(board.css);
 @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 300; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf") format("opentype"); }
-
 @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf") format("opentype"); }
-
 @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf") format("opentype"); }
-
 @font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 700; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf") format("opentype"); }
-
 @font-face { font-family: 'NanumMyeongjo'; src: url("../../static/font/NanumMyeongjo.eot") format("eot"); src: url("../../static/font/NanumMyeongjo.woff") format("woff"); }
 
 /*2018-12-03 OH*/
@@ -706,8 +697,9 @@ padding-top:120px;
 
 .lightbox-review_slick .sa_r { right: 20%; margin-right: -50px; }
 
-@media all and (max-width: 1600px) { .lightbox-review_slick .sa_l { left: 25%; }
-  .lightbox-review_slick .sa_r { right: 25%; } }
+@media all and (max-width: 1600px) { 
+.lightbox-review_slick .sa_l { left: 25%; }
+ .lightbox-review_slick .sa_r { right: 25%; } }
 
 .lightbox-review_slick .item { padding: 10px; }
 

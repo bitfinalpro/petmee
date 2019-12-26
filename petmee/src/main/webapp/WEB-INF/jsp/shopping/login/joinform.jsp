@@ -108,7 +108,42 @@
 	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/jquery-1.11.1.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/space_check.js' />"></script>
 	<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#button_joinus").click(function(){
+			    if($.trim($("#input_user_email").val())==''){
+			      alert("이메일을 입력해주세요.");
+			      return false;
+			    } 
+			    if($.trim($("#input_user_name").val())==''){
+			      alert("이름을 입력해주세요.");
+			      return false;
+			    } 
+			    if($.trim($("#input_user_pass").val())==''){
+			      alert("비밀번호를 입력해주세요.");
+			      return false;
+			    } 
+			    if($.trim($("#input_user_pass2").val())==''){
+			      alert("비밀번호 확인을 입력해주세요.");
+			      return false;
+			    } 
+			    if($.trim($("#input_resident").val())==''){
+			      alert("주민번호 입력해주세요.");
+			      return false;
+			    } 
+			   /*  if($.trim($("#gender").val())==''){
+			      alert("성별을 선택해주세요.");
+			      return false;
+			    }  */
+			    if($.trim($("#input_mobile_1").val())==''){
+			      alert("핸드폰번호를 입력해주세요.");
+			      return false;
+			    } 
+			    
+			    $("#theForm").submit();
+			  });
+		});		
+	</script>
 	<script type="text/javascript" language="JavaScript">
 		window.history.forward(1);
 		$(document).ready(function(){
@@ -168,7 +203,7 @@
 					$("#check_email").html("｜ 유효한 형식이 아닙니다. : 예)petmee@domain.com");
 					return;
 				}else{
-					$("#check_email").html("");
+					$("#check_email").html("｜ 사용가능한 메일입니다.");
 				}
 			});
 			
@@ -184,7 +219,7 @@
 					$("#check_name").html("｜ 이름을 한글이나 영문으로만 입력해주세요");
 					return;
 				}else{
-					$("#check_name").html("");
+					$("#check_name").html("｜ 사용가능한 이름입니다.");
 				}
 			});
 			
@@ -210,9 +245,9 @@
 					return true;
 				}
 			});
-				$("#input_user_pass2").on("blur", (e) => {
-					let onPass = $("#input_user_pass").val();
-					let onPass2 = $("#input_user_pass2").val();
+			$("#input_user_pass2").on("blur", (e) => {
+				let onPass = $("#input_user_pass").val();
+				let onPass2 = $("#input_user_pass2").val();
 				// 비밀번호 확인
 				if(onPass !== onPass2){
 					$("#check_pass2").html("｜ 비밀번호를 확인하세요.(영문,숫자를 혼합하여 6~20자 이내)");
@@ -225,8 +260,41 @@
 					return true;
 				}
 			});
-		});								
-	
+				
+				
+				<!-- 주민번호 유효성 검사 -->
+				$("#input_resident").on("blur", (e) =>{
+					let hNum = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+					let onName = $("#input_resident").val();
+					if(onName === ""){
+						$("#check_resident").html("｜ 주민등록번호를 공백문자 없이 입력해주세요.");
+						return;
+					}
+					else if(hNum.length < 13){
+						$("#check_resident").html("｜ 숫자 13자리로만 입력해주세요");
+						return ;
+					}else{
+						$("#check_resident").html("｜ 사용가능합니다.");
+					}
+				});	
+				
+				<!-- 폰번호 유효성 검사 -->
+				$("#input_mobile_1").on("blur", (e) => {
+					let regPhone = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+					let onName = $("#mobile_1").val();
+					if(onName === ""){
+						$("#check_phone").html("｜ 공백문자 없이 입력해주세요.");
+						return false;
+					}
+					else if(!regPhone.test(onName) !== 12){
+						$("#check_phone").html("｜ 숫자 12자리로만 입력해주세요. : -빼고 입력해주세요");
+						return false;
+					}else {
+						$("#check_phone").html("｜ 사용가능합니다.");
+					}
+				});	
+		});
+
 	function DaumPostcode() {
 		new daum.Postcode({
 			oncomplete: function(data) {
@@ -311,8 +379,8 @@
 	      
 	      <!-- 이름 -->
 	      <li class="col-lg-6">
-	        <div class="inputbox">
-	        <input type="text" name="name" id="input_user_name" maxlength="20" placeholder="이름">
+	        <div class="inputbox _btn">
+	        <input type="text" name="name" id="input_user_name" class="user_email" maxlength="20" placeholder="이름">
 	          <div class="check_font" id="name_check"></div>
 	          <label>이름<em>(필수)</em>
 	          	<div class="check_font" id="check_name" style="position: absolute; min-width: 400px; float: left; width: 200px; top: 0px; left: 90px;"></div>
@@ -345,9 +413,9 @@
 	      <!-- 주민번호 -->
 	      <li class="col-lg-6">
 	        <div class="inputbox">
-	        <ul class="num">
-	           <li><input type="text" name="resident" id="input_mobile_1" maxlength="6"></li>
-	           <li><input type="password" name="resident2" id="input_mobile_2" maxlength="7"></li>
+	        <ul class="num" id="resident">
+	           <li><input type="text" name="resident" id="input_resident" maxlength="13" placeholder="주민번호"></li>
+	           <!-- <li><input type="password" name="resident2" id="input_mobile_2" maxlength="7"></li> -->
 	          </ul>
 	          <label>주민번호<em>(필수)</em>
 	          	<div class="check_font" id="check_resident" style="position: absolute; min-width: 400px; float: left; width: 200px; top: 0px; left: 130px;"></div>
@@ -390,7 +458,7 @@
 	      <!-- 상세주소 -->
 	      <li class="col-lg-6" style="margin:-1px;">
 	        <div class="inputbox">
-	          <input type="text" name="address2" id="address2" maxlength="100" placeholder="상세주소">
+	          <input type="text" name="address_detail" id="address2" maxlength="100" placeholder="상세주소">
 	          <label>상세주소</label>
 	        </div>
 	      </li>
@@ -398,26 +466,29 @@
 	      <!-- 핸드폰 번호 -->
 	      <li class="col-lg-6" >
 	        <div class="inputbox">
-	       	<ul class="num">
-	           <li><input type="text" name="phone" id="mobile_1" maxlength="4"></li>
+	       	<!-- <ul class="num" id="phone">
+	           <li><input type="text" name="phone" id="mobile_1" maxlength="12"></li>
 	           <li><input type="text" name="phone" id="mobile_2" maxlength="4"></li>
-	            <li><input type="text" name="phone" id="mobile_3" maxlength="4"></li>
-	          </ul>
-	          <!-- <input type="text" placeholder="핸드폰"> -->
-	          <label for="">핸드폰<em>(필수)</em></label>
+	           <li><input type="text" name="phone" id="mobile_3" maxlength="4"></li>
+	        </ul> -->
+	          <input type="text" name="phone" id="input_mobile_1" maxlength="12">
+	          <label>핸드폰<em>(필수)</em>
+	          	<div class="check_font" id="check_phone" style="position: absolute; min-width: 400px; float: left; width: 200px; top: 0px; left: 130px;"></div>
+	          </label>
 	        </div>
 	      </li>
 	      
 	      <!-- 전화번호 -->
 	      <li class="col-lg-6" >
 	        <div class="inputbox">            
-	          <ul class="num">
+	          <!-- <ul class="num">
 	            <li><input type="text" name="tel_1" id="tel_1" maxlength="4"></li>
 	            <li><input type="text" name="tel_2" id="tel_2" maxlength="4"></li>
 	            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
-	          </ul>
+	          </ul> -->
 	         <!-- <input type="text" placeholder="전화번호"> -->
-	          <label for="">전화번호</label>
+	         <input type="text" name="home_phone" id="input_mobile_1" maxlength="12">
+	          <label>전화번호</label>
 	        </div>
 	      </li>
 	    </ul>
@@ -427,7 +498,7 @@
 	    <!-- <input type="button" value="회원가입" class="btn-type-02" onclick="return sendcheck();">
 	    <a href="../member/join_02.html" class="btn-type-02">회원가입</a>  -->
 	    <!-- <input type="button" class="btn-type-02" value="회원가입" /> -->
-	    <input type="submit" onsubmit="return check()"class="btn-type-02" value="회원가입" />
+	    <input type="submit" class="btn-type-02" id="button_joinus" value="회원가입" />
 	  </div>
 	</form>
 	</div>

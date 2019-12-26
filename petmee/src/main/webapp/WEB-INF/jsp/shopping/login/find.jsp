@@ -11,7 +11,6 @@
 	<meta name="format-detection" content="telephone=no, address=no, email=no"> 
 	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>
 	<link href="<c:url value='/resources/js/shopping/login/jquery-1.11.1.min.js' />" rel="stylesheet">
-	<link href="<c:url value='/resources/js/shopping/login/jquery.magnific-popup.js' />" rel="stylesheet">
 	<link href="<c:url value='/resources/js/shopping/login/ch-plugin-web.js' />" rel="stylesheet">
 	<%-- <link href="<c:url value='/resources/js/shopping/login/validate.js' />" rel="stylesheet"> --%>
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
@@ -19,22 +18,12 @@
 	<script src="<c:url value='/resources/js/common/menu.min.js' />"> </script>
 	<script src="https://code.jquery.com/jquery-latest.js"></script> 
 	
-	<!-- Magnific Popup core CSS file -->
-	<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 
 	<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<title>PetMee</title> 
 	<script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" async="" src="https://cdn.channel.io/plugin/ch-plugin-web.js" charset="UTF-8"></script>
-	<style type="text/css">
-		#HTTP_MSN_chat_layer *{padding:0; margin:0; border:0; color:#000; line-height:120%; font-family:Dotum, Gulim, Verdana, sans-serif; font-size:12px; font-weight:normal; font-style:normal;}
-		#HTTP_MSN_chat_layer img{border:0px; margin:0px; display:inline; vertical-align:top;}
-		#HTTP_MSN_chat_layer ul{list-style-type:none;}
-		#HTTP_MSN_chat_layer li{list-style-type:none;}
-		#HTTP_MSN_chat_layer a{text-decoration:none;}
-		#HTTP_MSN_chat_layer table{border-collapse:inherit;}
-	</style>
 	
 	<!-- 2019-02-18 -->
 	<!--  LOG corp Web Analitics & Live Chat  START -->
@@ -102,7 +91,7 @@
 
 	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/jquery-1.11.1.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/shopping/login/space_check.js' />"></script>
-	<script type="text/javascript" language="JavaScript">
+	<script type="text/javascript">
 	$(document).ready(function(){
 		// 이메일 찾기
 		$("#find_id").click(function() {
@@ -131,10 +120,10 @@
 				},
 			});	
 			
-			if(data_check!="") {				
+			if(data_check!="") {	
 				$("#suser_name").val('');
 				$("#suser_phone").val('');
-				$(".memberId").html(data_check);
+		 		$(".memberId").html(data_check);
 				$(".mfp-bg, .mfp-wrap").show();
 			}
 			else {
@@ -144,7 +133,7 @@
 		});	
 
 		// 비밀번호 찾기
-		$("#find_pwd").click(function() {
+		 $("#find_pwd").click(function() {
 			let check5 = document.querySelector("#suser_email");
 			let check6 = document.querySelector("#suser_name2");
 			if (isFieldBlank(check5)) {   			 			
@@ -165,22 +154,23 @@
 			    async: false,		    
 			    data : {email:$("#suser_email").val(), name:$("#suser_name2").val()}, 	    	
 			    contentType: "application/x-www-form-urlencoded; charset=utf-8",
-			    success:function(data) {					
-			    	data_check = data;	
+			    success:function(data) {	
+			    	console.log(data);
+			    	data_check = data;
 				}								
 			});				
-			if (data_check=="OK") {					
+			if (data_check!="") {					
 				$("#suser_email").val('');
 				$("#suser_name2").val('');						
-				$(".memberId").html(data_check);
-				$(".mfp-bg, .mfp-wrap").show();
+				$(".memberpas").html(data_check);
+				$(".mdp-bg, .mdp-wrap").show();
 			}
 			else {
 				alert("해당 회원정보를 찾을 수 없습니다.");
 			}			
 			return(false);
-		});	
-	});			
+		});	 
+	});	
 </script>
 
 
@@ -232,7 +222,7 @@
         	<input type="text" name="suser_name2" id="suser_name2" placeholder="이름"><label>이름</label>
         </div>     
 	      <div class="con-margin-01">
-	      	<a href="javascript:;void(0);" class="btn-type-02" id="find_pwd">비밀번호 찾기</a>
+	      	<a href="javascript:;void(0);" class="btn-type-02" id="find_pwd" onclick="$('#model-pop').modal('show');">비밀번호 찾기</a>
 	      </div>
       </div>      
     </div>
@@ -248,57 +238,10 @@
 	<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> 
 </div>
 
-<!-- Channel Plugin Scripts -->
-<script>
-  ;window.channelPluginSettings = {
-    "pluginKey": "aa9fe4c5-bbb6-429f-a5f3-e31662509e80",
-    "customLauncherSelector": ".custom-ch-btn",
-    "hideDefaultLauncher": true
-  };
-  (function() {
-    var w = window;
-    if (w.ChannelIO) {
-      return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
-    }
-    var d = window.document;
-    var ch = function() {
-      ch.c(arguments);
-    };
-    ch.q = [];
-    ch.c = function(args) {
-      ch.q.push(args);
-    };
-    w.ChannelIO = ch;
-    function l() {
-      if (w.ChannelIOInitialized) {
-        return;
-      }
-      w.ChannelIOInitialized = true;
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-      s.charset = 'UTF-8';
-      var x = document.getElementsByTagName('script')[0];
-      x.parentNode.insertBefore(s, x);
-    }
-    if (document.readyState === 'complete') {
-      l();
-    } else if (window.attachEvent) {
-      window.attachEvent('onload', l);
-    } else {
-      window.addEventListener('DOMContentLoaded', l, false);
-      window.addEventListener('load', l, false);
-    }
-  })();
-</script>
-<!-- End Channel Plugin --> 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <c:import url="/WEB-INF/jsp/shopping/login/find_id.jsp"></c:import>
+<c:import url="/WEB-INF/jsp/shopping/login/find_pwd.jsp"></c:import>
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 </body>
 </html>
