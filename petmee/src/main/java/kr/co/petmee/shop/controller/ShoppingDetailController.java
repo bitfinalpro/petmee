@@ -51,9 +51,10 @@ public class ShoppingDetailController {
 
 		for (ShoppingList s : list) {
 			Purchase p = new Purchase();
-			p.setProductCnt(s.getAmount());
+
 			p.setProductId(s.getProduct());
 			p.setContent(s.getSubTitle());
+			p.setProductCnt(s.getAmount());
 			p.setPrice(s.getPrice());
 			p.setEmail(s.getEmail());
 			p.setPayment(pay);

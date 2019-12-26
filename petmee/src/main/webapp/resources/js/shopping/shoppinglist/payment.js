@@ -15,6 +15,7 @@
 				let v = `(-) ${discount}`
 					dc = discount;
 					$('#discount > span:nth-child(2)').html(v);
+					$("#p-price").data("sum",p-discount+2500)
 				$("#p-price").html(allprice);
 			}
 		if(ch == false) {
@@ -75,8 +76,15 @@ function DaumPostcode() {
 	}).open();
 }		
 
-
-$(".con-box").on("click","#paymentBtn",(e)=>{
+window.onload = {
+		
+};
+/*
+	$("#p-box2").on("click","#sd",(e)=>{
+		console.log($("#p-price").data("sum"));
+	});
+*/
+	$(".con-box").on("click","#paymentBtn",(e)=>{
 	let pay = $(".payment").val();
 //배송/종합 테이블 넣을값
 	let name = $("#name").val();
@@ -86,6 +94,7 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 	let address1 = $("#address1").val();
 	let address2 = $("#address2").val();
 	let content = $("#content").val();
+	let allDprice = $("#p-price").data("sum");
 	sendData = {
 				orderId:oid,
 				name:name,
@@ -97,7 +106,8 @@ $(".con-box").on("click","#paymentBtn",(e)=>{
 				content:content,
 				couponDc:dc,
 				pay:pay,
-				couponNo:cno
+				couponNo:cno,
+				allDprice:allDprice
 			}
 	$.ajax({
 		

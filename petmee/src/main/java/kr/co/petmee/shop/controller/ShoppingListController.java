@@ -54,13 +54,13 @@ public class ShoppingListController {
 
 	@RequestMapping("/shop/shoppinglist/updateamount.do")
 	@ResponseBody
-	public List<ShoppingList> updateamount(int no, int amount ,int oriprice , HttpSession session) {
+	public List<ShoppingList> updateamount(int no, int amount ,int price , HttpSession session) {
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		Map<String, Integer> map = new HashMap<>();
 		map.put("amount", amount);
 		map.put("no", no);
-		map.put("price", amount*oriprice);
+		map.put("price", amount*price);
 		service.updateamount(map, user);
 		return service.ShoppingList(user);
 	}

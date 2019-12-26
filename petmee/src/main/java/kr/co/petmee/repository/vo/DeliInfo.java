@@ -16,5 +16,6 @@ public class DeliInfo {
 	private String orderId;
 	private int couponDc;
 	private String orderNo;
+	private int allDprice;
 	
 }
