@@ -9,6 +9,7 @@ public class Report {
 	
 	private int reportNo;               // 신고번호
 	private int no;                     // 글번호
+	private int userNo;            // 유저번호
 	private String boardType;           // 게시판 타입 (어느 게시판에서 가져왔는지)
 	private int commentNo;              // 댓글번호       // 댓글신고에 사용
 	private String email;               // 신고한사람

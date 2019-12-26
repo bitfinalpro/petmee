@@ -260,7 +260,7 @@
                         <td>${report.email}</td>
                         <td>${report.reportReason}</td>
                         <td>${report.reportEmail}</td>
-                        <td><a href="#"><button type="button">탈퇴</button></a></td>
+                        <td><a href="reportdelete.do?reportNo=${report.reportNo}"><button type="button">탈퇴</button></a></td>
                       </tr>
                 </c:forEach>
                 </tbody>

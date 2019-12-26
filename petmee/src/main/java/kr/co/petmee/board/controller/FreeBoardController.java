@@ -101,9 +101,6 @@ public class FreeBoardController {
 	@ResponseBody
 	public Comment selectReportedMember(int commentNo) {
 		Comment c = service.selectReportedMember(commentNo);
-		System.out.println(c.getEmail());
-		System.out.println(c.getContent());
-		System.out.println(c.getCommentNo());
 		 return c;
 	} 
 	
