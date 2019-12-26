@@ -250,6 +250,7 @@
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
                                      '${user.phone}', '${user.gender}', '${user.age}','${user.stringUserDate}')">
+                                     
                         <td>${user.email}</td>
                         <td>${user.name}</td>
                         <td>${user.address}</td>
@@ -370,6 +371,8 @@
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
+  <script src="<c:url value="/resources/js/admin/userinfo.js"/>"></script>
+
 
 </body>
 

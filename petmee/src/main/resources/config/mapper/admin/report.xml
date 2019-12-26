@@ -10,25 +10,25 @@
    <!-- 신고당한 회원 추가  -->
    <insert id="insertReport" parameterType="Report">
    insert into tb_report (
-    no, email, report_Email,  report_Reason, content, title, other,  board_Type, type ) 
+    no, email, report_Email,  report_Reason, content, title, other,  board_Type, type, user_No ) 
     values (
     #{no}, #{email}, #{reportEmail}, 
-    #{reportReason}, #{content}, #{title}, #{other}, #{boardType}, #{type}
+    #{reportReason}, #{content}, #{title}, #{other}, #{boardType}, #{type}, #{userNo}
     )
    </insert>
    <!-- 강퇴  -->
    <delete id ="deleteReport" parameterType="int">
     delete
     from tb_report 
-    where report_No = #{reportNo}
+    where user_No = #{userNo}
    </delete>
    
    <!-- 댓글 신고  -->
    <insert id="insertComReport" parameterType="Report">
    insert into tb_report (
-   no, comment_No, email, report_Email, report_Reason, content, other, board_Type, type)
+   no, comment_No, email, report_Email, report_Reason, content, other, board_Type, type, user_No)
    values (
-   #{no}, #{commentNo}, #{email}, #{reportEmail}, #{reportReason}, #{content}, #{other}, #{boardType}, #{type}
+   #{no}, #{commentNo}, #{email}, #{reportEmail}, #{reportReason}, #{content}, #{other}, #{boardType}, #{type}, #{userNo}
    )
    </insert>
  
