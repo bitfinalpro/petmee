@@ -65,7 +65,7 @@ public class LoginController {
 	// --------------------------------------------------
 	// 마이페이지 호출
 	@RequestMapping("/mypage.do")
-	public void mypage(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model,HttpSession session) {
+	public void mypage(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, HttpSession session) {
 		User user = (User)session.getAttribute("user");
 	    model.addAttribute("mypagelist", service.selectMypage(user.getUserNo()));
 	    model.addAttribute("user", user);
@@ -127,7 +127,7 @@ public class LoginController {
 	@ResponseBody
 	public String checkEmail(User user) {
 		return service.selectfind(user);
-	}// , HttpSession session }
+	}
 	
 	// 비밀번호 찾기 모달창
 	@RequestMapping("/find_pwd.do")
@@ -136,9 +136,12 @@ public class LoginController {
 	// 비밀번호 모달창 체크
 	@RequestMapping("/checkPass.do")
 	@ResponseBody
-	public String checkPass(User user) {
-		return service.selectpass(user);
-	}// , HttpSession session }
+	public String checkPass(User user2) {
+		return service.selectpass(user2);
+		/*
+		 * if(service.selectpass(user) != null) { return "OK"; } else { return ""; }
+		 */
+	}
 	
 	
 	// 회원가입 완료

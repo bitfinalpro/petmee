@@ -1210,8 +1210,10 @@ sub
 .pop-con { border-radius: 0; }
 
 .pop-con .pass-pop-box { padding: 50px; }
+.pop-con .pass-pop-box2 { padding: 50px; }
 
 .pop-con .mfp-close { top: 50px; right: 50px; }
+.pop-con .mdp-close { top: 50px; right: 50px; }
 
 .pop-con .pop-title { text-align: center; color: #333; line-height: 1; margin-bottom: 30px; }
 
@@ -1629,6 +1631,7 @@ ol.deci_list li:first-child { margin-top: 0; }
 .pop-con-modal .modal-dialog { background-color: #fff; padding: 70px; }
 
 .pop-con-modal .mfp-close { font-size: 30px; right: 20px; font-family: 'Noto Sans KR',sans-serif; }
+.pop-con-modal .mdp-close { font-size: 30px; right: 20px; font-family: 'Noto Sans KR',sans-serif; }
 
 .pop-con-modal .pop-head { padding: 0; text-align: center; font-size: 48px; font-weight: 100; letter-spacing: -1px; line-height: 1; margin-bottom: 40px; }
 
@@ -1665,6 +1668,7 @@ ol.deci_list li:first-child { margin-top: 0; }
 #login-pop .btn:hover { background-color: #fff; color: #367639; }
 
 #login-pop .modal-dialog, #login-pop .mfp-close, #login-pop a { color: #fff; }
+#login-pop .modal-dialog2, #login-pop .mdp-close, #login-pop a { color: #fff; }
 
 #login-pop .chk_area input[type='checkbox'] + label:before { background-image: url("/petmee/resources/images/shopping/login/icon/chk.png"); }
 
