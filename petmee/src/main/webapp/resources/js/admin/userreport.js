@@ -26,7 +26,7 @@ function popup(email, title, content,
 	document.location.href="#popup";
 	
 	// 게시판 타입 (어느게시판에서 신고했는지)
-	$("#type").text(boardType);
+	$("#boardtype").text(boardType);
 	document.location.href="#popup";
 	
     // 신고일자
@@ -59,8 +59,8 @@ function report_chk() {
  				reportReason: $("input[name=report]:checked").val(),
 				content: contentVal,
 				title: titleVal,
-				type: $(".reporttype").data("type"),
 				other: $(".reportcontent").val(),
+				type: $(".reporttype").data("type"),
 				boardType: $(".reporttitle").data("type")
 			},
 			error: () => {console.log("err");},
@@ -88,6 +88,7 @@ function report_comChk() {
 		
 	} else {
 		console.log("ajax호출");
+		console.log($(".reporttype1").data("t"));
 		$.ajax({
 			url: "/petmee/admin/user/insertComReport.do",
 			type: "POST",
@@ -98,6 +99,7 @@ function report_comChk() {
  				reportReason: $("input[name=report1]:checked").val(),
 				content: $("#com_content").html(),
 				other: $(".reportcontent1").val(),
+				type: $(".reporttype1").data("t"),
 				boardType: $(".reporttitle1").data("type")
 			},
 			error: () => {console.log("err");},

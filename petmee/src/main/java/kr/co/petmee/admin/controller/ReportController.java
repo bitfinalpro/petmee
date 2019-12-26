@@ -32,9 +32,12 @@ public class ReportController {
 	@RequestMapping("/reportlist.do")
 	public void List(Model model) {		
 		List<Report> rList = service.reportList();
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:MM:ss");
 		for(Report r : rList ) {
 			r.setStringReportDate(sdf.format(r.getReportDate()));
+			System.out.println(r.getNo());
+			System.out.println(r.getType());
 		}
 		model.addAttribute("reportList", rList );
 	}

@@ -48,7 +48,6 @@ $(() => {
 		let cNo = $(e.target).data("no");
 		$("#commentList tr[id^=row]").show();
 		$("#commentList tr[id^=modRow]").remove();
-		
 		var modId = $(`#row${cNo} > td:eq(0)`).text();
 		var modContent = $(`#row${cNo} > td:eq(1)`).text();
 		
@@ -98,6 +97,7 @@ $(document).on("click", "#reportbtn", (e) => {
                 <input type="hidden" id="reportEmail1" value="${result.email}"/>
                 <input type="hidden" id="commentNo" value="${result.commentNo}"/>
 			`;
+			
 			$(".reporttitle1").html(query);
 		}
 	});

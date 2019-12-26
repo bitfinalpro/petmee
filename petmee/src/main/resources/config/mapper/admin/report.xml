@@ -4,8 +4,7 @@
 <mapper namespace="kr.co.petmee.repository.dao.ReportDAO">
      <!-- 게시글 신고된 회원 정보 -->
    <select id="reportUser" resultType="Report">
-       select report_No, no, board_Type, email, title, report_Reason,
-        report_Email, report_Date, content, other
+       select *
          from tb_report
    </select>
    <!-- 신고당한 회원 추가  -->
