@@ -255,8 +255,8 @@
                                        '${report.boardType}', '${report.stringReportDate}')">
                         <td>${report.reportNo}</td>
                         <td>${report.no}</td>
-                        <td>${report.type}</td>
                         <td>${report.boardType}</td>
+                        <td>${report.type}</td>
                         <td>${report.email}</td>
                         <td>${report.reportReason}</td>
                         <td>${report.reportEmail}</td>
@@ -291,7 +291,7 @@
                         <td>신고사유 </td>
                         <td id="reason"colspan="2"></td>
                         <td>분류 </td>
-                        <td id="type"colspan="2"></td>
+                        <td id="boardtype"colspan="2"></td>
                       </tr>
                       <tr>
                         <td>작성자</td>

@@ -69,7 +69,7 @@
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
                      <div class="reporttitle" data-type="free">
-                       <div class="reporttype" data-type="게시글">
+                        <div class="reporttype" data-type="게시글">
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${board.email} </div></li>
                         <li><strong>제 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
@@ -114,15 +114,10 @@
                 <div class="box">
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
+                       <div class="reporttype1" data-t="댓글">
                      <div class="reporttitle1" data-type="free">
-                     <div class="reporttype" data-type="댓글">
-                     <!--  
-                      <ul>
-                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${c.email} </div></li>
-                        <li><strong>내  용</strong>  : <div class="userbox">&nbsp; ${c.content}</div></li>
-                      </ul>
-                      <input type="hidden" id="reportEmail1" value="${c.email}"/>
-                     -->
+                       
+                       
                        </div>
                      </div>
                      <hr>

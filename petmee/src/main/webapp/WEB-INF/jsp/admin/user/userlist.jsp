@@ -103,15 +103,6 @@
   
   </style>
 </head>
-<script>
- function ck_age() {
-	 var year=parseInt(new Date().getYear());
-	 var resident=document.getElementsByName('age');
-	 var ck=parseInt(resident[0].value.substr(0,4));
-	 form.resident.value=(year-ck)+1;
- }
-
-</script>
 
 <body id="page-top">
 
