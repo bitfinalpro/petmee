@@ -39,7 +39,7 @@
 /* goods-body */
 
 .goods-body{
-	margin-top:20px;
+	padding: 20px;
 	height: 200px;
 }
 .goods-body > div{
@@ -50,13 +50,15 @@
 .goods-detail-box {
 	width: 70%;
 }
+.goods-detail-box > div {
+	height: 160px;
+}
 
 .goods-detail-box > *{
 	float: left;
 }
 .goods-img{
-	width: 150px;
-	height: 200px;
+	width: 130px;
 	padding: 0;
 }
 .goods-content{
@@ -68,12 +70,18 @@
 
 .goods-cnt {
 	width: 10%;
+	height: 160px;
+	line-height: 120px;
 }
 
 /* goods-deli */
 
 .goods-deli {
 	width: 20%;
+	height: 160px;
+	line-height: 120px;
+	text-align: center;
+	border-left: 2px solid rgba(204,204,204,0.3);
 }
 /* 굥용 css */
 .float-r{
