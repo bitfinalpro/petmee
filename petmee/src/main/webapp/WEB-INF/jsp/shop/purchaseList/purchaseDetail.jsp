@@ -16,9 +16,19 @@
 
 <script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
 <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/shopping/purchase/purchaselist.css'/>">
 
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/shopping/purchase/purchaseDetail.css'/>">
+
+<style>
+.tab-select {
+	background-color: white;
+}
+
+.tab-back {
+	background-color: #202020;
+}
+</style>
 <title>(주)펫미</title>
 </head>
 
@@ -66,108 +76,152 @@
 			</div>
 			<div class="sub-menu-list sub_dep02" style="display: block;">
 				<ul class="clearfix tab tab2">
-					<li><a href="#" class="on">회원정보 변경</a></li>
+					<li><a class="tab-back" href="#" class="on">회원정보 변경</a></li>
 					<li><a href="#">작성 후기 보기</a></li>
-					<li><a href="#">구매내역</a></li>
+					<li class="tab-select"><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >구매내역</a></li>
 				</ul>
 			</div>
 			<div class="sub-con sub-pad">
+			
 				<div class="sub-title">
-					<p class="desc">구매내역</p>
+					<p class="title_bold">주문 정보</p>
 				</div>
+			
 				<!-- 여기가 컨텐츠 내용 -->
-				<hr class="outline-hr" />
+
 				<div id="content">
-				<c:set var="price1" value="0" scope="page" />
-				<c:set var="dc_price1" value="0" scope="page" />
-					<c:forEach var="plist" items="${plist}" >
-				<c:set var="price1" value="${price1 + plist.price}" scope="page" />
-				<c:set var="dc_price1" value="${dc_price1 + plist.discount}" scope="page" />
-	 				<table class="listbox">
+				
+					<c:set var="price1" value="0" scope="page" />
+					<c:set var="dc_price1" value="0" scope="page" />
 
-						<thead>
-							<tr>
-								<th>주문날자</th>
-								<th>주문상품</th>
-								<th>결제금액</th>
-								<th>배송상태</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="purchase-date">
-								${plist.orderNo }
-								<td>
-								<td class="purchase-goods">
-									<img class="goods-img" src="${plist.image }" />
-									<div class="content-box">${plist.content }</div>
-								</td>
-								<td class="purchase-price">
-									<div>물건금액</div>
-									<div>\ ${plist.price }</div>
-								</td>
-								<td class="purchase-state">
-									<div>${plist.status }</div> 
-									<c:if test="${plist.status eq '배송중'}">
-										<a href="#">배송추적</a>
-									</c:if>
-								</td>
-							</tr>
-						</tbody>
+					<!-- <hr class="outline-hr" /> -->
+					
+					<div class="content-box">
 
+						<c:forEach var="plist" items="${plist}">
+							<c:set var="price1" value="${price1 + plist.price}" scope="page" />
+							<c:set var="dc_price1" value="${dc_price1 + plist.discount}"
+								scope="page" />
+
+
+
+							<div class="goods-box">
+
+								<div class="goods-haed">
+
+									<span><fmt:formatDate value="${plist.regDate }"
+											pattern="yyyy-MM-dd" /></span>
+	   									 <span>주문번호 : ${plist.orderNo}</span>
+										 <span class="float-r">상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span> 
+								</div>
+
+								<div class="goods-body">
+
+									<div class="goods-detail-box">
+										<div class="goods-img">
+											<img src="${plist.image }" />
+										</div>
+										<div class="goods-content">${plist.content }</div>
+									</div>
+
+									<div class="goods-cnt">${plist.productCnt }개</div>
+
+									<div class="goods-deli">
+										<div>${plist.status }</div>
+										<c:if test="${plist.status eq '배송중'}">
+											<a href="#">배송추적</a>
+										</c:if>
+									</div>
+
+								</div>
+
+							</div>
+						</c:forEach>
+					</div>
+
+
+					<div class="sub-title">
+						<p class="title_bold">결제 정보</p>
+					</div>
+					
+					<!-- <hr class="outline-hr" /> -->
+					
+					<div class="content-box price-box">
+					
+					<div class="payment-box">
+						<div class="goods-price-box">
+							<div class="font-20">물건금액</div>
+							<div>&nbsp</div>
+							<div>
+								<span>금액</span><span class="float-r"><fmt:formatNumber type="number" maxFractionDigits="3" value="${price1}" /></span>
+							</div>
+							<div class="margin-top-15">
+								<span>배송비</span><span class="float-r">2,500<!-- 고정 --></span>
+							</div>
+						</div>
+
+						<div class="dc-box">
+							<div class="font-20">할인금액</div>
+							<div>&nbsp</div>
+							<div>
+								<span>기본할인</span><span class="float-r">(-) <fmt:formatNumber type="number" maxFractionDigits="3" value="${dc_price1}" /></span>
+							</div>
+							<div class="margin-top-15">
+								<span>쿠폰</span><span class="float-r">(-) <fmt:formatNumber type="number" maxFractionDigits="3" value="${dlist.couponDc }" /></span>
+							</div>
+						</div>
+						<!-- <div class="카드정보-box"></div> 추후 추가 -->
+					</div>
+					
+					<!-- 종합 박스 -->
+					<div class="all-price-box">
+						<div>
+							<span class="font-20">총 금액</span>
+							<span class="float-r"><fmt:formatNumber type="number" maxFractionDigits="3" value="${price1 + 2500}" /> 원</span>
+						</div>
+						<div class="margin-top-5">
+							<span class="font-20">할인금액</span><span class="float-r">(-) <fmt:formatNumber type="number" maxFractionDigits="3" value="${dc_price1 + dlist.couponDc}" /></span>
+						</div>
+							<div>&nbsp</div>
+							<div>&nbsp</div>
+						<div>
+							<span class="font-20">총 결제금액</span><span class="float-r"><fmt:formatNumber type="number" maxFractionDigits="3" value="${price1 + 2500 - dc_price1 - dlist.couponDc}" /> 원</span>
+						</div>
+					</div>
+					</div>
+
+					
+					
+					<div class="sub-title">
+					<p class="title_bold">배송 정보</p>
+				</div>
+
+					<!-- <hr class="outline-hr" /> -->
+
+					<!-- 배송지 박스 -->
+					
+					<div class="content-box d-box">
+					
+					<table>
+						<tr>
+							<td>이름</td>
+							<td>${dlist.name }</td>
+						</tr>
+						<tr>
+							<td>연락처</td>
+							<td>${dlist.phone }</td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td>(${dlist.zipcode }) ${dlist.address1 } ${dlist.address2 }</td>
+						</tr>
+						<tr>
+							<td>배송메모</td>
+							<td>${dlist.content }</td>
+						</tr>
 					</table>
-					 </c:forEach>
-				<hr class="outline-hr" />
+					</div>
 
-				
-				<div class="sub-title">
-					<p class="desc">구매내역</p>
-				</div>
-				<hr class="outline-hr" />
-				
-				<div class="결제-box">
-				<div class="물건금액 -box">
-					<div>물건금액</div>
-					<div><span>금액</span><span>${price1}</span></div>
-					<div><span>배송비</span><span>2500<!-- 고정 --></span></div>
-				</div>
-				<div class="할인금액-box">
-					<div>할인금액</div>
-					<div><span>기본할인</span><span>${dc_price1}</span></div>
-					<div><span>쿠폰</span><span>${dlist.couponDc }</span></div>
-				</div>
-				<!-- <div class="카드정보-box"></div> 추후 추가 -->
-				</div>
-				
-				<!-- 종합 박스 -->
-				<div class="총합-box">
-					<div><span>총 금액</span><span>${price1 + 2500}</span></div>
-					<div><span>할인금액</span><span>(-) ${dc_price1 + dlist.couponDc}</span></div>
-					<div><span>총 결제금액</span><span>${price1 + 2500 - dc_price1 - dlist.couponDc}</span></div>
-				</div>
-				
-								<hr class="outline-hr" />
-				<!-- 배송지 박스 -->
-				<table>
-					<tr>
-						<td>이름</td>
-						<td>${dlist.name }</td>
-					</tr>
-					<tr>
-						<td>연락처</td>
-						<td>${dlist.phone }</td>
-					</tr>
-					<tr>
-						<td>주소</td>
-						<td>(${dlist.zipcode })${dlist.address1 } ${dlist.address2 }</td>
-					</tr>
-					<tr>
-						<td>배송메모</td>
-						<td>${dlist.content }</td>
-					</tr>
-				</table>
-						
-								
 				</div>
 			</div>
 		</div>
