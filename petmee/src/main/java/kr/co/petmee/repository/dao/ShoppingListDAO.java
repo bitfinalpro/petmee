@@ -22,15 +22,11 @@ public interface ShoppingListDAO {
 //	쿠폰정보 리스트
 	List<Coupon> selectCoupon(User user);
 //  쿠폰아이디 업데이트
-<<<<<<< HEAD
-	void updateCoupon (Map<String, String> map);
-	
-
 
 	List<ShoppingList> selectShoppingProduct(ShoppingList productInsert);
-=======
+
 	int updateCoupon (Map<String, String> map);
 //	쿠폰삭제
 	void deleteCoupon (String no);
->>>>>>> develop
+
 }
