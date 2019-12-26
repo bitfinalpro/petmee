@@ -11,8 +11,8 @@
 	
 	<!-- 구매내역 insert -->
 	<insert id="insertPurchase" parameterType="Purchase">
-		INSERT INTO tb_purchase (order_id, product_id, product_cnt, content, price, email, payment, discount, image, order_no)
-		 VALUES (#{orderId},#{productId},#{productCnt},#{content},#{price},#{email},#{payment},#{discount},#{image},#{orderNo})
+		INSERT INTO tb_purchase (product_id, product_cnt, content, price, email, payment, discount, image, order_no)
+		 VALUES (#{productId},#{productCnt},#{content},#{price},#{email},#{payment},#{discount},#{image},#{orderNo})
 	</insert>
 	
 	
