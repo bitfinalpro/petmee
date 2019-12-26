@@ -119,7 +119,7 @@
           	<c:if test="${food.categoryNo eq 1 || food.categoryNo eq 2}">
               <li>
                   <div class="product_slide ">
-                    <a href="#">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />"">
                       <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text">
                         <strong style="display:none">${food.productId}</strong>
@@ -128,8 +128,11 @@
                			<span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
                       </div>
                       <div class="sb_img">
-                        <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
-         		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
+         				 <c:if test="${food.dcPrice > 1}">
+         				 <img src="<c:url value="/resources/images/main/sale.png" />" ></c:if> 
+         				<%-- 
+         				<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
+                      	--%>
                       </div>
                     </a>
                   </div>
@@ -177,13 +180,11 @@
                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
                       </div>
-                      <div class="sb_img">
-                      
-                      <c:choose>
-						<c:when test="${food.dcPrice > 1}"> <img src="<c:url value="/resources/images/main/sale.png" />" style='display:block'> </c:when>
-						<c:when test="${food.dcPrice < 1}"><img src="<c:url value="/resources/images/main/sale.png" />" style='display:block'> </c:when>
-					</c:choose>
-         		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
+                      <div class="sb_img">       
+                     	 <div id="main-icon">
+         					<c:if test="${food.dcPrice > 1}">  <img src="<c:url value="/resources/images/main/sale.png" />"></c:if>
+         					<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
+                      	</div>           
                       </div>
                     </a>
                   </div>

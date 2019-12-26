@@ -38,7 +38,7 @@
                             </ul>
                         </li>
                         <li class="drop01"><a href="#">패션</a>
-                            <ul>
+                            <ul id="sub_gnb">
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=3" />">티셔츠/아우터</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=4" />">신발</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=5" />">악세사리/외출용품</a>

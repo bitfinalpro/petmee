@@ -139,7 +139,7 @@
 		<!-- pdetail// -->
 		<div class="inner pdetail">
 			 <!-- 탭타이틀 -->
-		<div class="tabs tabs5">
+		<div class="tabs tabs5" >
 	<ul>
 		<li class="m-detailinfo active"><a href="#detailInfo">상품상세정보</a></li>
 		<li class="m-returninfo"><a href="#returnInfo">상품구매안내</a></li>

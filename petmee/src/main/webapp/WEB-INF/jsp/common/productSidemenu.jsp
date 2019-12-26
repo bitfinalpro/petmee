@@ -31,22 +31,24 @@
                   ><span class="fa fa-angle-right"></span>미용/목욕</label
                 >
                 <ul class="sub-group-list">
-                  <li><a href="#">목욕용품</a></li>
-                  <li><a href="#">미용용품</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=3" />">목욕용품</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=4" />">미용용품</a></li>
                 </ul>
                 <input id="sub-group-list4" type="checkbox" hidden />
                 <label for="sub-group-list4"
                   ><span class="fa fa-angle-right"></span>위생/배변</label
                 >
                 <ul class="sub-group-list">
-                <input type="button" value="페이지 이동" onclick="acyncMovePage('/shop/productList.do?categoryNo=7')" />
-                  <li><a onclick="acyncMovePage('/shop/productList.do?categoryNo=1')">위생/배변용품</a></li>
-                  <li><a onclick="acyncMovePage('/shop/productList.do?categoryNo=2') ">청소용품</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=5" />">위생/배변용품</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=6" />">청소용품</a></li>
                 </ul>
                 <input id="sub-group-list5" type="checkbox" hidden />
                 <label for="sub-group-list5"
                   ><span class="fa fa-angle-right"></span>장난감</label
                 >
+                 <ul class="sub-group-list">
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=7" />">장난감</a></li>
+                </ul>
               </ul>
             </li>
           </ul>
