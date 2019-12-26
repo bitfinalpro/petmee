@@ -112,56 +112,53 @@
           <li class="tab-link" data-tab="tab-4">배변/위생</li>
           <li class="tab-link" data-tab="tab-5">장난감</li>
         </ul>
-      
+
         <div id="tab-1" class="tab-content current">
-          <ul>
+     	 		<ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
-          	<c:if test="${food.categoryNo eq 1 || food.categoryNo eq 2}">
+     	 		<c:if test="${food.categoryNo eq 1 || food.categoryNo eq 2}">
+     	 		<a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
               <li>
-                  <div class="product_slide ">
-                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />"">
+                  <div class="product_slide" style="width:200px;">
                       <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text">
+                      <div class="product_text1">
                         <strong style="display:none">${food.productId}</strong>
-                        <strong>${food.productName}</strong>
-                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
-               			<span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
-                      </div>
-                      <div class="sb_img">
-         				 <c:if test="${food.dcPrice > 1}">
-         				 <img src="<c:url value="/resources/images/main/sale.png" />" ></c:if> 
-         				<%-- 
-         				<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
-                      	--%>
-                      </div>
-                    </a>
-                  </div>
-              </li>
-          </c:if>
-          	</c:forEach>
-          </ul>
-         
-        </div>
-        <div id="tab-2" class="tab-content">
-     	 <ul>
-          	<c:forEach var="food" items="${food}" begin="0" end="7"  varStatus="status">
-     	 		<c:if test="${food.categoryNo eq 3 || food.categoryNo eq 4 || food.categoryNo eq 5}">
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text">
                         <strong>${food.productName}</strong>
                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
                       </div>
-                      <div class="sb_img">
-                        <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
-         		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
                       </div>
-                    </a>
                   </div>
               </li>
+              </a>
+              </c:if>
+          	</c:forEach>
+          </ul>
+        </div>
+        <div id="tab-2" class="tab-content">
+        	 <ul>
+          	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
+     	 		<c:if test="${food.categoryNo eq 3 || food.categoryNo eq 4 || food.categoryNo eq 5}">
+              <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
+             <li>
+                  <div class="product_slide" style="width:200px;">
+                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="product_text1">
+                        <strong style="display:none">${food.productId}</strong>
+                        <strong>${food.productName}</strong>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
+                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
+                      </div>
+                      </div>
+                  </div>
+              </li>
+                  </a>
               </c:if>
           	</c:forEach>
           </ul>
@@ -170,25 +167,23 @@
       		 <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 6 || food.categoryNo eq 7}">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
               <li>
-                  <div class="product_slide ">
-                    <a href="#">
+                  <div class="product_slide" style="width:200px;">
                       <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text">
+                      <div class="product_text1">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
                       </div>
-                      <div class="sb_img">       
-                     	 <div id="main-icon">
-         					<c:if test="${food.dcPrice > 1}">  <img src="<c:url value="/resources/images/main/sale.png" />"></c:if>
-         					<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
-                      	</div>           
                       </div>
-                    </a>
                   </div>
               </li>
+                    </a>
               </c:if>
           	</c:forEach>
           </ul>
@@ -197,23 +192,23 @@
          <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 8 || food.categoryNo eq 9}">
-              <li>
-                  <div class="product_slide ">
-                    <a href="#">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
+             <li>
+                  <div class="product_slide" style="width:200px;">
                       <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text">
+                      <div class="product_text1">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
-                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
                       </div>
-                      <div class="sb_img">
-                        <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
-         		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
                       </div>
-                    </a>
                   </div>
               </li>
+                    </a>
               </c:if>
           	</c:forEach>
           </ul>
@@ -222,23 +217,23 @@
          <ul>
           	<c:forEach var="food" items="${food}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${food.categoryNo eq 10}">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${food.productId}" />">
               <li>
-                  <div class="product_slide ">
-                    <a href="#">
+                  <div class="product_slide" style="width:200px;">
                       <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text">
+                      <div class="product_text1">
                         <strong style="display:none">${food.productId}</strong>
                         <strong>${food.productName}</strong>
-                        <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price}" /></span>
                 <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${food.price - food.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
                       </div>
-                      <div class="sb_img">
-                      <c:if test="${food.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />"></c:if> 
-         		<c:if test="${food.productCnt > 5}"> <img src="<c:url value="/resources/images/main/best.png" />"></c:if>
                       </div>
-                    </a>
                   </div>
               </li>
+                    </a>
               </c:if>
           	</c:forEach>
           </ul>
