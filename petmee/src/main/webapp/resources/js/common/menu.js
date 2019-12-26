@@ -4,7 +4,7 @@ $jq( document ).ready( function() {
           var logo = $jq('.logo');
           $jq( window ).scroll( function() {
             if ( $jq( document ).scrollTop() > jbOffset.top ) {
-              $jq( '.jbMenu' ).addClass( 'jbFixed' ).css('height','75px');
+              $jq( '.jbMenu' ).addClass( 'jbFixed' ).css('height','78px');
               $jq( '.logo' ).css('position','absolute').css('left','0%');
               $jq( '.drop01' ).css('height','58px');
               $jq( '.gnb_a' ).css('padding','10px 40px');
