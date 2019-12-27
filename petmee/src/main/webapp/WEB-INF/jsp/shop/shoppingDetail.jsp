@@ -52,7 +52,7 @@
 			<!-- proinfo// -->
 			<div class="proinfo">
 				<h2>
-				<input name="product" value=" ${product.productId}" type="hidden" />
+				<input name="product" value="${product.productId}" type="hidden" />
 				<input name ="dcprice" value="${product.dcPrice}" type="hidden" />
 				<input name ="oriprice" value="${product.price}" type="hidden" />
 				<input class="allprice" name ="price" value="${product.price - product.dcPrice}" type="hidden" />
