@@ -32,6 +32,9 @@ public class ShoppingDetailController {
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
+		for(ShoppingList l: list ) {
+			System.out.println(l.getProduct());
+		}
 		List<Coupon> coupon = service.couponList(user);
 
 		model.addAttribute("coupon", coupon);
@@ -56,7 +59,7 @@ public class ShoppingDetailController {
 
 		for (ShoppingList s : list) {
 			Purchase p = new Purchase();
-			
+			System.out.println(s.getProduct());
 			p.setProductId(s.getProduct());
 			p.setContent(s.getSubTitle());
 			p.setProductCnt(s.getAmount());
