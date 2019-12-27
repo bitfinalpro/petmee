@@ -45,10 +45,18 @@
                    <div id="Freecontent">
                           <c:out value="${board.content}" />
                    </div>
+                   
                    <div class="button">
+                     <c:choose>
+                       <c:when test="${board.email == user.email}">
                        <a href="<c:url value="/board/noticeboard/updateform.do?no=${board.no}" />"><button class="b1">수정</button></a>
                        <a href="<c:url value="/board/noticeboard/delete.do?no=${board.no}" />"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/noticeboard/notice.do"/>"><button class="b1">목록</button></a>
+                   </c:when>
+                   <c:otherwise>
+                       <a href="<c:url value="/board/noticeboard/notice.do"/>"><button class="b1">목록</button></a>
+                   </c:otherwise>
+                  </c:choose>
                    </div>
                </div>
    </section>

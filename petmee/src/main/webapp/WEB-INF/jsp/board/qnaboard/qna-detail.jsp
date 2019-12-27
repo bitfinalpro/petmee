@@ -58,14 +58,21 @@
                           <c:out value="${board.content}" />
                    </div>
                    <div class="button">
+                     <c:choose>
+                       <c:when test="${board.email == user.email}">
                        <a href="qna-updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="qna-delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
+                     </c:when>
+                     <c:otherwise>
+                       <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
+                     </c:otherwise>
+                     </c:choose>                    
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  
                         <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
-                         <input type="hidden" id="email" value="원진아" /> 
+                         <input type="hidden" id="email" /> 
                          <button type="submit" class="comment1" >등록</button>
                       </form>
                       
@@ -75,11 +82,13 @@
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
                      <div class="reporttitle" data-type="QnA">
+                       <div class="reporttype" data-type="게시글">
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${board.email} </div></li>
                         <li><strong>제 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
                       </ul>
                       <input type="hidden" id="reportEmail" value="${board.email}"/>
+                      </div>
                      </div>
                      <hr>
                      <div>
@@ -115,14 +124,10 @@
                 <div class="box">
                   <div class="s"><strong>신고하기</strong></div>
                   <hr>
+                   <div class="reporttype1" data-t="댓글">
                      <div class="reporttitle1" data-type="QnA">
-                     <!--  
-                      <ul>
-                        <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${c.email} </div></li>
-                        <li><strong>내  용</strong>  : <div class="userbox">&nbsp; ${c.content}</div></li>
-                      </ul>
-                      <input type="hidden" id="reportEmail1" value="${c.email}"/>
-                     -->
+                     
+                     </div>
                      </div>
                      <hr>
                      <div>
