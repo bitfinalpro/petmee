@@ -36,15 +36,39 @@ public class ProductController {
 		// 상품목록
 		model.addAttribute("list", service.productList());
 		// 카테고리 목록
-		model.addAttribute("cList", service.selectCatecories());
+		model.addAttribute("cList", service.selectCatecories());		
 	}
 
 	@RequestMapping("/productRegister.do")
 	public void productRegister(Model model) {
 		// 카테고리 목록
 		model.addAttribute("cList", service.selectCatecories());
+		model.addAttribute("lastNumber", service.selectLastNumber(1) + 1);
 	}
-
+	
+	@RequestMapping("/checkProductId.do")
+	@ResponseBody
+	public int checkProductId(String productId, String categoryNo) {
+		switch (Integer.parseInt(categoryNo)) {
+		case 1: productId = "fd-" + productId; break;
+		case 2: productId = "snk-" + productId; break;
+		case 3: productId = "tsh-" + productId; break;
+		case 4: productId = "sho-" + productId; break;
+		case 5: productId = "acc-" + productId; break;
+		case 6: productId = "bth-" + productId; break;
+		case 7: productId = "bty-" + productId; break;
+		case 8: productId = "tlt-" + productId; break;
+		case 9: productId = "cln-" + productId; break;
+		case 10: productId = "toy-" + productId; break;
+		}
+		return service.checkProductId(productId);
+		}
+	@RequestMapping("/selectLastNumber.do")
+	@ResponseBody
+	public int selectLastNumber(String categoryNo) {
+		return service.selectLastNumber(Integer.parseInt(categoryNo)) + 1;
+	}
+	
 	@RequestMapping(value = "/productRegister2.do")
 	public String productRegister(Model model, Product product) throws Exception {
 
