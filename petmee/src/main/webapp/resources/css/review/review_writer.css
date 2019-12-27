@@ -256,7 +256,7 @@ span.star, span.camera, .sprite_comment {
     background: #ff6874;
 }
 .review_form__submit {
-    position: absolute;
+    position: relative;
     right: 0;
     top: 0;
     width: 228px;
@@ -287,6 +287,7 @@ button, input {
 .review_form_title > h2{
 	width: 30%;
 	margin: 0 auto;
+	color: #000;
 }
 .sprites-icon-camera-black {
     vertical-align: middle;
@@ -379,4 +380,8 @@ button, input {
     margin: 0 auto;
     text-align: center;
     font-size: 30px;
+}
+
+#holoscope > a {
+	font-size: 80px;
 }

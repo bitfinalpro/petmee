@@ -103,7 +103,7 @@ $(document).ready(function(){
 	        cache: false,
 	    	success:function(data) {
 				if (data == "f") {
-					alert("해당 회원정보를 찾을 수 없습니다.");
+					alert("EMAIL또는 PASS를 확인해주세요.");
 				 }
 				else {
 					alert("로그인되었습니다.");

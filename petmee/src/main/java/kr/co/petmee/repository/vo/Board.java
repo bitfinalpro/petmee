@@ -14,8 +14,8 @@ public class Board {
 	private String content;               // 내용
 	private int viewCnt;                  // 조회수
 	private Date regDate;                // 날짜
-	private int topChk;                   // 공지사항 체크
-	private double horoscope;        // 별점
+	private int topChk;                 // 공지사항 체크
+	private double horoscope;        	// 별점
 	private String product;              // 상품명
 	private String proCatgo;            // 카테고리
 	private int price;                      // 가격

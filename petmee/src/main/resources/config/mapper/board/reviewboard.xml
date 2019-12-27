@@ -18,8 +18,8 @@
 	
 	<update id="updateBoard" parameterType="ReviewBoard">
 		update tb_reviewboard  
-		   set title = #{title}, 
-		       content = #{content}
+		   set title = #{title}
+		   	   content = #{content}
 		 where no = #{no}
 	</update>
 	<!-- 상세페이지 -->
@@ -32,9 +32,9 @@
 	<!-- 테이블에 추가 -->
 	<insert id="insertBoard" parameterType="ReviewBoard">
 		insert into tb_reviewboard (
-			writer, title, content
+			title, content
 		) values (
-			#{writer}, #{title}, #{content}
+			#{title}, #{content}
 		);
 	</insert>
 	
