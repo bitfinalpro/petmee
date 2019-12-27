@@ -42,14 +42,12 @@ public class LoginController {
 		if (user == null) {
 			return "f";
 		}
+
 		// 로그인 성공 시 메인페이지 이동
-		
 		user.setShoppingCnt(scnt);
 		session.setAttribute("user", user);
 		return "s";
 	}
-	
-	// 로그인 ajax
 	
 	// 로그인 모달
 	@RequestMapping("/loginform.do")

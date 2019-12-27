@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.petmee.board.service.ReviewBoardService;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
 import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.ReviewBoard;
 import kr.co.petmee.repository.vo.SermernoteVo;
+import kr.co.petmee.repository.vo.User;
 
 @Controller("kr.co.petmee.board.review.controller.ReviewBoardController")
 @RequestMapping("/board/reviewboard")
@@ -34,7 +37,8 @@ public class ReviewBoardController {
 	private ServletContext context;
 	
 	@RequestMapping("/review_list.do")
-	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
+	public void list(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
 		model.addAttribute("list", service.listBoard());
 	}
 	
@@ -47,6 +51,11 @@ public class ReviewBoardController {
 	@GetMapping("/review_writeform.do")
 	public void writeform() {}
 	
+	@RequestMapping("/review_write.do")
+	public String write(ReviewBoard board) {
+		service.insertBoard(board);
+		return "redirect:review_list.do";
+	}
 
 	@GetMapping("/review_updateform.do")
 	public void updateform(int no, Model model) throws Exception {
@@ -94,13 +103,13 @@ public class ReviewBoardController {
 	   
 	   
 	   // 파일업로드
-	   
+	   /*
 	   @RequestMapping("review_write.do")
 		public String parcelwrite(SermernoteVo sermernoteVo) throws Exception {
 //			게시판 정보
 		   	ReviewBoard getParcelBoard = new ReviewBoard();
-			getParcelBoard.setTitle(sermernoteVo.getTitle());
-			getParcelBoard.setWriter(sermernoteVo.getWriter());
+//			getParcelBoard.setTitle(sermernoteVo.getTitle());
+//			getParcelBoard.setWriter(sermernoteVo.getWriter());
 			getParcelBoard.setContent(sermernoteVo.getContent());
 //			썸네일
 			List<MultipartFile> getSumfile = sermernoteVo.getSumfile();
@@ -198,6 +207,7 @@ public class ReviewBoardController {
 //			저장하고 리스트로 이동
 			return "redirect:review_list.do";
 		}
+		*/
 }
 
 

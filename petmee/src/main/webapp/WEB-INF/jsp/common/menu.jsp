@@ -5,8 +5,10 @@
       <div class="jbTitle">
            <div id="top_menu">
                <div>
-                   <a href="<c:url value='/shopping/shoppingDetail.do'/> "><strong>공지스크롤(쇼핑디테일경로)</strong></a>
-                   <a href="<c:url value='/admin/user/menu.do'/> "><strong>admin</strong></a>
+					<a href="<c:url value='/shopping/shoppingDetail.do'/> "><strong>공지스크롤(쇼핑디테일경로)</strong></a>
+					<c:if test="${user.email eq 'admin'}">
+					<a href="<c:url value='/admin/user/menu.do'/> "><strong>admin</strong></a>
+					</c:if>          
 					<span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니<span>${user.shoppingCnt}</span></a></span>
 					<span><a href="<c:url value="/shop/shoppinglistdetail/shoppinglistdetail.do" />">주문/결제</a></span>
                 </div>
@@ -103,7 +105,7 @@ $(document).ready(function(){
 	        cache: false,
 	    	success:function(data) {
 				if (data == "f") {
-					alert("해당 회원정보를 찾을 수 없습니다.");
+					alert("EMAIL또는 PASS를 확인해주세요.");
 				 }
 				else {
 					alert("로그인되었습니다.");

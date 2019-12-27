@@ -10,7 +10,7 @@ public interface ReportDAO {
 	
 	void insertReport(Report report);
 	
-	void deleteReport(int no);
+	void deleteReport(int reportNo);
 
 	void insertComReport(Report report);
 }
