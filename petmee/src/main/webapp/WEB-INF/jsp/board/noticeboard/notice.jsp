@@ -48,7 +48,11 @@
                 <th>email</th>
                 <th>DATE</th>
                 <th>VIEW</th>
+                <c:choose>
+                 <c:when test="${user.email}">
                 <th></th>
+                </c:when>
+                </c:choose>
             </tr>
               <c:if test="${empty list}">
 					<tr>
@@ -71,10 +75,12 @@
 					<td>${b.email}</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<td>${b.viewCnt}</td>
+					<c:if test="${user.email}">
 					<td>
                      <a href="<c:url value="/board/noticeboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
                      <a href="<c:url value="/board/noticeboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
                    </td>
+                   </c:if>
 				</tr>
 				</c:if>
 			</c:forEach>

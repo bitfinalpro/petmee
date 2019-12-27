@@ -53,14 +53,21 @@
                           <c:out value="${board.content}" />
                    </div>
                    <div class="button">
+                      <c:choose>
+                        <c:when test="${board.email == user.email}">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/freeboard/list.do?keyword=${keyword}&searchText=${searchText}" />"><button class="b1">목록</button></a>
+                     </c:when>
+                     <c:otherwise>
+                      <a href="<c:url value="/board/freeboard/list.do?keyword=${keyword}&searchText=${searchText}" />"><button class="b1">목록</button></a>
+                      </c:otherwise>
+                    </c:choose>           
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  
                         <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
-                         <input type="hidden" id="email" value="권성진" /> 
+                         <input type="hidden" id="email" value="" /> 
                          <button type="submit" class="comment1" >등록</button>
                       </form>
                          <!-- 모달창 시작 -->

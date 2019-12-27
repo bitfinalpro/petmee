@@ -3,6 +3,8 @@ package kr.co.petmee.board.controller;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Search;
+import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.util.PageResult;
 
 @Controller("kr.co.petmee.board.controller.FreeBoardController")
@@ -50,6 +53,7 @@ public class FreeBoardController {
 			model.addAttribute("pr", pr);
 			page = new Page(pageNo);
 		}
+		
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
 		model.addAttribute("keyword", keyword);
@@ -58,7 +62,8 @@ public class FreeBoardController {
 	   }
 	@RequestMapping("/search.do")
 	@ResponseBody
-	public List<Board> selectSeachList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page, int keyword, @RequestParam(value="searchText",  defaultValue="") String searchText) {
+	public List<Board> selectSeachList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model, Page page, 
+			int keyword, @RequestParam(value="searchText",  defaultValue="") String searchText, HttpSession session) {
 		Search search = new Search();
 		search.setListSize(page.getListSize());
 		search.setPageNo(page.getPageNo());
@@ -85,7 +90,9 @@ public class FreeBoardController {
 	public void writeform() {}
 	
 	@RequestMapping("/write.do")
-	public String write(Board  board) {
+	public String write(Board board, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		board.setEmail(user.getEmail());
 		service.insertBoard(board);
 		return "redirect:list.do";
 	}

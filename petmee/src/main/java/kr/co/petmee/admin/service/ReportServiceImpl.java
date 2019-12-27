@@ -24,8 +24,8 @@ public class ReportServiceImpl implements ReportService {
 		dao.insertReport(report);
 	}
 	
-	public void deleteReport(int no) {
-		dao.deleteReport(no);
+	public void deleteReport(int reportNo) {
+		dao.deleteReport(reportNo);
 	}
 	public List<Comment> insertComReport(Report report) {
 		dao.insertComReport(report);

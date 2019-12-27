@@ -16,6 +16,6 @@ public interface ReportService {
 		// 댓글 신고 추가
 		List<Comment> insertComReport(Report report);
 		// 추방
-		void deleteReport(int no);
+		void deleteReport(int reportNo);
 		 
 }
