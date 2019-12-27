@@ -33,7 +33,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">PETME ADMIN</a>
+    <a class="navbar-brand mr-1" href="<c:url value="/main.do"/>">PETME ADMIN</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -104,13 +104,13 @@
         </li>
         <!-- 회원 관리 -->
         <li class="nav-item">
-          <a class="nav-link" href="useradmin.html">
+          <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
               <i class="fas fa-user"></i>
             <span>회원관리</span></a>
         </li>
          <!-- 신고 관리 -->
          <li class="nav-item">
-          <a class="nav-link" href="reportadmin.html">
+          <a class="nav-link" href="<c:url value="/admin/user/reportlist.do" />">
             <i class="fas fa-user-slash"></i>
               <span>신고관리</span>
             </a>
@@ -160,48 +160,51 @@
     margin: 20px 10%;} 삭제 (product.css 58줄),
  -->
     <style>
-    #pForm #classify {width:100%; margin: 0px 0%;}
-    #pForm input {margin : 0px 0px 0px 7px}
-    #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
-    #classify span{width: 80px; float: none; font-size: 16px; color: #000; margin-top: 0px; margin-left: 10px;}
-    #pForm ul {width: 1070px;
-    margin: 20px auto;  list-style:none;}
-     #pForm ul li {margin:10px; float: left;}
-     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 20px; margin-left: 20px;}
-     #pForm ul li span{float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+    #classify{margin : 0px 0px; margin-left: 3.5%; margin-top: 30px;}
+    #classify span{float: none; font-size: 16px; color: #000; margin-top: 0px; margin-bottom: 15px; }
+    #rForm {padding-left: 15%;}
+     #rForm ul li span{float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+     #rForm ul li{list-style: none;}
      .file_span {width:133px; }
      .ad_infoinput{width:170px;}
      .ad_file {width:300px}
-     #product_number {width:70px;height: 24px;}
+     #CategoryIdBox{display: inline-block;}
+  /*   #pForm #classify {width:100%; margin: 0px 0%;}
+    #pForm input {margin : 0px 0px 0px 7px}
+    #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
+    #pForm ul {width: 1070px;
+    margin: 20px auto;  list-style:none;}
+     #pForm ul li {margin:10px; float: left;}
+     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 20px;}
+     #product_number {width:70px;height: 24px;} */
     </style> 
                   <div class="box">
                        <div id="inputtitle">제품 등록</div>
-                        <form id="pForm" action="<c:url value="/admin/product/productRegister2.do"/>" onSubmit="return check();" method="post"
+                        <form id="rForm" action="<c:url value="/admin/product/productRegister2.do"/>" onSubmit="return check();" method="post"
 						enctype="multipart/form-data">    
                         <div id="classify">
                         <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
                             <option value="${c.categoryNo}">${c.categoryName}</option>
                            </c:forEach>
-                          </select>   
-                          <div style="float: right; width: 713px; margin: 0px 0%;">
-                          <span>수량 :</span><input type="number" id="product_number" name="stock" value="1" min="0">
-                          		<span>판매상태 :</span><select name="sellCondition" id="">
+                          </select>
+                          <span>품번 : <p id="CategoryIdBox">fd- </p> <input class="ad_infoinput" type="text" name="productId" value="${lastNumber}" style="width: 50px"/></span>
+                          <span>상품명 : <input class="ad_infoinput" type="text" name="productName"/></span>   
+                          <span>수량 : <input type="number" id="product_number" name="stock" value="1" min="0"></span>
+                          		<span>판매상태 : <select name="sellCondition">
                            		<option value="0">판매대기중</option>
                            		<option value="1">판매중</option>
                            		<option value="2">품절</option>
-                          		</select> 
-                          		<span>애완종류 :</span><select name="animalNo" id="">
+                          		</select> </span>
+                          		<span>애완종류 : <select name="animalNo" >
                            		<option value="1">강아지</option>
                            		<option value="2">고양이</option>
-                           		</select> 
-                          	
-                          </div>
+                           		</select></span>                          	
                           </div>
                             <ul>
-                        	<li><span>상품명 :</span> <input class="ad_infoinput" type="text" name="productName"/>
+                        	<li>
                         	</li>
-                        	<li><span>품번 :</span> <input class="ad_infoinput" type="text" name="productId"/>
+                        	<li>
                         	</li>
                         	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="price"/></li>
                         	
@@ -220,7 +223,7 @@
                         	</li>
                         </ul>   
                       <button id="completebtn1">완료</button>
-                      <button class="cancelModalbtn" type="button">취소</button>
+                      <button class="cancelRegisterbtn"type="button">취소</button>
                         </form>     
                        </div>                    
                   </div>

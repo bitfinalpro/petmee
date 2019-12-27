@@ -7,6 +7,7 @@
 		select product_id, order_id, order_date, user_id, delievery_status, sum(price) as sumPrice, count(*) as countOfProducts
 		from tb_order
 		group by order_id
+		order by order_date desc
 	</select>
 	<!--선택한 주문내역 뽑기 -->
 	<select id="detailOrder" parameterType="string"
