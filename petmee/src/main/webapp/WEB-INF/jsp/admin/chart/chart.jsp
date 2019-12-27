@@ -39,7 +39,7 @@
 
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-		<a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+		<a class="navbar-brand mr-1" href="<c:url value="/main.do"/>">PETME ADMIN</a>
 
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
 			id="sidebarToggle" href="#">
@@ -95,9 +95,9 @@
 		<!-- 사이드 바 -->
 		<ul class="sidebar navbar-nav">
 			<!-- 메인 -->
-			<li class="nav-item active"><a class="nav-link"
-				href="<c:url value="/admin/user/menu.do" />"> <i class="fas fa-home"></i> <span>Main</span>
-			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value="/admin/chart/chart.do"/>"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>main</span></a></li>
 			<!-- 회원 관리 -->
 			<li class="nav-item"><a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
 					<i class="fas fa-user"></i> <span>회원관리</span>
@@ -114,10 +114,6 @@
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value="/admin/product/product.do"/>"> <i
 					class="fas fa-fw fa-table"></i> <span>상품관리</span></a></li>
-			<!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
-			<li class="nav-item"><a class="nav-link"
-				href="<c:url value="/admin/chart/chart.do"/>"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>통계</span></a></li>
 		</ul>
 
 		<div id="content-wrapper">

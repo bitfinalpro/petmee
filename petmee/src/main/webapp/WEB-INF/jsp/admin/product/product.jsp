@@ -35,7 +35,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">PETME ADMIN</a>
+    <a class="navbar-brand mr-1" href="<c:url value="/main.do"/>">PETME ADMIN</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -85,12 +85,9 @@
       <!-- 사이드 바 -->
       <ul class="sidebar navbar-nav">
         <!-- 메인 -->
-        <li class="nav-item active">
-          <a class="nav-link" href="<c:url value="/admin/user/menu.do" />">
-            <i class="fas fa-home"></i>
-            <span>Main</span>
-          </a>
-        </li>
+        <li class="nav-item"><a class="nav-link"
+				href="<c:url value="/admin/chart/chart.do"/>"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>main</span></a></li>
         <!-- 회원 관리 -->
         <li class="nav-item">
           <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
@@ -115,12 +112,6 @@
           <a class="nav-link" href="<c:url value="/admin/product/product.do"/>">
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
-        </li>
-        <!-- 차트  쓸거면 쓰고 안쓰면 삭제 -->
-        <li class="nav-item">
-          <a class="nav-link" href="<c:url value="/admin/chart/chart.do"/>">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>통계</span></a>
         </li>
       </ul>
   
@@ -170,11 +161,16 @@
                     <td><a href="" data-no="${p.productId}" class="updateInfo nofresh">${p.productName}</a></td>
                     <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
                     <td>
-                    	<c:if test="${p.categoryNo == 1}">의류</c:if>
-                    	<c:if test="${p.categoryNo == 2}">식품</c:if>
-                    	<c:if test="${p.categoryNo == 3}">식기/주거</c:if>
-                    	<c:if test="${p.categoryNo == 4}">장난감</c:if>
-                    	<c:if test="${p.categoryNo == 5}">위생</c:if>
+                    	<c:if test="${p.categoryNo == 1}">사료</c:if>
+                    	<c:if test="${p.categoryNo == 2}">간식</c:if>
+                    	<c:if test="${p.categoryNo == 3}">티셔츠</c:if>
+                    	<c:if test="${p.categoryNo == 4}">신발</c:if>
+                    	<c:if test="${p.categoryNo == 5}">액세서리</c:if>
+                    	<c:if test="${p.categoryNo == 6}">목욕</c:if>
+                    	<c:if test="${p.categoryNo == 7}">미용</c:if>
+                    	<c:if test="${p.categoryNo == 8}">위생</c:if>
+                    	<c:if test="${p.categoryNo == 9}">청소</c:if>
+                    	<c:if test="${p.categoryNo == 10}">장난감</c:if>
                      </td>
                     <td><fmt:formatNumber value="${p.price}" pattern="###,###,###"/></td>
                     <td>${p.stock}</td>

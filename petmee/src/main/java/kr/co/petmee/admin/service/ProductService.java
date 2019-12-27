@@ -35,5 +35,8 @@ public interface ProductService {
 	void registerCoupon(HashMap map);
 	//쿠폰 중복 검사
 	int checkCoupon(Coupon coupon);
-	
+	//마지막 품번 뽑기
+	int selectLastNumber(int categoryNo);
+	//제품번호 중복검사
+	int checkProductId(String productId);
 }

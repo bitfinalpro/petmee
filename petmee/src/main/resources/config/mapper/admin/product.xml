@@ -77,4 +77,17 @@
 		  from tb_coupon
 		 where no = #{no}
 	</select> 
+	<!-- 마지막 품번뽑기-->
+	<select id="selectLastNumber" parameterType="int" resultType="string">
+		select product_id
+		  from tb_product
+		 where category_no = #{categoryNo}
+	     order by date desc limit 1
+	</select> 
+	<!-- 품번 중복검사-->
+	<select id="checkProductId" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_product
+		 where product_id = #{productId}
+	</select> 
 </mapper>
