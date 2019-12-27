@@ -458,7 +458,7 @@
 	      <!-- 상세주소 -->
 	      <li class="col-lg-6" style="margin:-1px;">
 	        <div class="inputbox">
-	          <input type="text" name="address_detail" id="address2" maxlength="100" placeholder="상세주소">
+	          <input type="text" name="addressDetail" id="address2" maxlength="100" placeholder="상세주소">
 	          <label>상세주소</label>
 	        </div>
 	      </li>
@@ -487,7 +487,7 @@
 	            <li><input type="text" name="tel_3" id="tel_3" maxlength="4"></li>
 	          </ul> -->
 	         <!-- <input type="text" placeholder="전화번호"> -->
-	         <input type="text" name="home_phone" id="input_mobile_1" maxlength="12">
+	         <input type="text" name="homePhone" id="input_mobile_1" maxlength="12">
 	          <label>전화번호</label>
 	        </div>
 	      </li>

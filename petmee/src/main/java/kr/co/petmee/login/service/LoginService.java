@@ -16,7 +16,7 @@ public interface LoginService {
 	
 	// ------------------- 마이페이지 -------------------
 	List<User> selectMypage(int userNo);
-	void updateMypage(User user);  
+	void updateMypage(User user);           // 수정
 	void deleteMypage(int no);
 	
 	
