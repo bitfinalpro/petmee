@@ -128,7 +128,7 @@
 			<c:choose>
 <c:when test="${empty user }">
 <a onclick="$('#login-pop').modal('show');" href="javascript:;" ><button type="button" class="btn-black btn-buy" >바로 구매하기</button></a>
-<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+<button type="submit" class="btn-gray btn-cart">장바구니 담기</button>
 </c:when>
 <c:otherwise>
 <button type="submit" class="btn-black btn-buy" >바로 구매하기</button> 

@@ -122,7 +122,7 @@
      	 		<a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${a}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -147,7 +147,7 @@
               <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${a}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -172,7 +172,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${a}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -197,7 +197,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${a}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -222,7 +222,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${a}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>

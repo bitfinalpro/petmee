@@ -29,8 +29,9 @@ public class MainController {
 		for(int i = 0; i < bestlist.size(); i++) {
 			System.out.println(bestlist.get(i).getProductName());
 		}
-		
-		
+		String a = flist.get(0).getPath() + flist.get(0).getOriName();
+		model.addAttribute("a",a);
+
 		Collections.reverse(foodlist);
 		Collections.reverse(flist);
 		model.addAttribute("sailbest",sailbest);

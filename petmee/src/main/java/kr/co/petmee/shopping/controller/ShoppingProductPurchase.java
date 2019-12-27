@@ -40,6 +40,22 @@ public class ShoppingProductPurchase {
 		
 		return "redirect:shoppinglist/shoppinglist.do";
 	}
+	@RequestMapping("/shoppingProductPurchase1.do")
+	public String shoppingProductPurchase1(Model model, HttpSession session, ShoppingList productInsert) {	
+		
+		
+		service.insertProduct(productInsert);
+		
+		User user = new User();
+		
+		user = (User) session.getAttribute("user");
+		
+		int scnt = service1.ShoppingList(user).size();
+		user.setShoppingCnt(scnt);
+		session.setAttribute("user", user);
+		
+		return "redirect:shoppinglist/shoppingProductPurchase1.do";
+	}
 	
 
 }
