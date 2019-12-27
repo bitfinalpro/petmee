@@ -16,6 +16,7 @@
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
 <script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
+<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
@@ -124,8 +125,16 @@
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">
-				<button type="submit" class="btn-black btn-buy" >바로 구매하기</button>
-				<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+			<c:choose>
+<c:when test="${empty user }">
+<a onclick="$('#login-pop').modal('show');" href="javascript:;" ><button type="button" class="btn-black btn-buy" >바로 구매하기</button></a>
+<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+</c:when>
+<c:otherwise>
+<button type="submit" class="btn-black btn-buy" >바로 구매하기</button> 
+<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+</c:otherwise>
+</c:choose>
 			</div>
 			<!-- //default -->
 		</fieldset>

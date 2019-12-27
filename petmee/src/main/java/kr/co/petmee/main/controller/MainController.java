@@ -24,9 +24,16 @@ public class MainController {
 		List<Product> foodlist = service.foodList();
 		List<Image> flist =  service.selectProductFile();
 		List<Product> bestlist = service.bestList();
+		List<Product> sailbest = service.selectSaleBest();	
+		
+		for(int i = 0; i < bestlist.size(); i++) {
+			System.out.println(bestlist.get(i).getProductName());
+		}
+		
 		
 		Collections.reverse(foodlist);
 		Collections.reverse(flist);
+		model.addAttribute("sailbest",sailbest);
 		model.addAttribute("best", bestlist);
 		model.addAttribute("food", foodlist);
 		model.addAttribute("flist",flist);
