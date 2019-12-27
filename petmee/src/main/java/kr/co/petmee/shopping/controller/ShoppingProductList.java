@@ -37,7 +37,14 @@ public class ShoppingProductList {
 	    case 2: 
 	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(2),16,10));
 	         break;
+	    case 3: 
+	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(3),16,10));
+	         break;
+	    case 4: 
+	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(4),16,10));
+	    	break;
 	    default: 
+	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(5),16,10));
 	         break;
 	}
 		

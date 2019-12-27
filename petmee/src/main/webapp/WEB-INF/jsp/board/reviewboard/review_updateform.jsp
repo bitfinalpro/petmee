@@ -59,7 +59,7 @@
 				</div>
         	</div>
         </div>
-	<form method='post' action='review_update.do'>
+	<form method='post' action='<c:url value="/board/reviewboard/review_update.do" />'>
        	<div class="review_form_title" >
        	    <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
 	       	<h2>상품은 만족하셨나요?</h2>
@@ -102,14 +102,8 @@
       </a>
       <input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen5"></div>
     </div>
-    <input type="hidden" value="39533" name="review[product_id]" id="review_product_id">
-    <input type="hidden" value="24" name="review[review_source]" id="review_review_source">
-    <input type="hidden" value="0" name="review[social_media_type]" id="review_social_media_type">
-    <input type="hidden" name="review[sub_order_id]" id="review_sub_order_id">
-    <input type="hidden" name="review[position]" id="review_position">
     
     <button class="review_form__submit" type="submit" data-disable-with="저장 중...">
-      <span class="review_form__submit_title_icon fa fa-check-circle-o"></span>
       <span class="review_form__post_review_label" >리뷰 수정하기</span>
 	</button>  
 	
@@ -125,44 +119,15 @@
 		       	<div style="width: 100px; height: 10px; background-color:#e0e0e0; position:relative; top: 15px; margin: 0 auto;"></div>
 	       	</div>
 	       	<div class="revcontent_writer">
-	       		<div class="revcon_writer">
-		 			<h3>글쓴이</h3>
-				 	<input type="text" id="writer" name="writer" class="recs" readonly="readonly"  value="${board.writer}" />
-			 		<script>
-						function resize(obj) {
-						  obj.style.height = "400px";
-						  obj.style.height = (12+obj.scrollHeight)+"px";
-						}
-					</script>
-		     	</div>
-	       		<!-- <h3>글쓴이</h3>
-				<input type="text" class="recs" name="writer" />
-				<script>
-					function resize(obj) {
-					  obj.style.height = "400px";
-					  obj.style.height = (12+obj.scrollHeight)+"px";
-					}
-				</script> -->
+	       		
 		       	<div class="revcon_tit">
 		       		<h3>제목</h3>
-					<input type="text" id="title" name="title" class="recs" placeholder="제목을 입력해주세요" value='<c:out value="${board.title}" />'>
-					<script>
-						function resize(obj) {
-						  obj.style.height = "400px";
-						  obj.style.height = (12+obj.scrollHeight)+"px";
-						}
-					</script>
+					<input type="text" id="title" name="title" class="recs" placeholder="제목을 입력해주세요" value="${board.title}">
 				</div> 	
 			</div> 	
 			<div class="revcontent_text">
 	       		<h3>내용</h3>
 				<textarea class="recs" id="content" name='content' placeholder="내용을 입력해주세요" ><c:out value="${board.content}" /></textarea>
-				<script>
-					function resize(obj) {
-					  obj.style.height = "400px";
-					  obj.style.height = (12+obj.scrollHeight)+"px";
-					}
-				</script>
 			</div> 
 		</div>
 		</form>

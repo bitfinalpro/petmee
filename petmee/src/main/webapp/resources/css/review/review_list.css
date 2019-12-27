@@ -12,6 +12,7 @@ h1{
     margin: 0 auto;
     text-align: center;
     font-size: 40px;
+    color: #333;
 }
 
 h3{
@@ -148,17 +149,16 @@ img, fieldset {
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
 }
-.content{
+/* .content{
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
-}
+} */
 
 section > .boardList {
     width: 75%;
     clear: both;
     margin: 0 auto;
-    text-align: center;
-   
+    /* text-align: center; */
     border-bottom: 1px solid #222;
 }
 
@@ -221,3 +221,11 @@ table {
     font-family: 'Montserrat',"돋움" !important;
 }
 
+.thumb{
+	padding: 10px;
+}
+.thumb > img {
+	width: 100%;
+}
+.thumb_title{
+}

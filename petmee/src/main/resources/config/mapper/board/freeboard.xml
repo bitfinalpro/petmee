@@ -30,7 +30,7 @@
 		insert into tb_board (
 		title, email, content, topChk, type
 		) values (
-		#{title}, '이지은', #{content}, #{topChk}, #{type}
+		#{title}, #{email}, #{content}, #{topChk}, #{type}
 		)
 	</insert>
 	

@@ -21,11 +21,16 @@ public class MainServiceImpl implements MainService {
 		return dao.selectFood();
 		
 	}
-
 	// 상품 베스트 리스트
 	@Override
 	public List<Product> bestList() {
 		return dao.selectBest();
+	}
+	
+	// 각 항목 세일 베스트 리스트
+	@Override
+	public List<Product> selectSaleBest() {
+		return dao.selectSaleBest();
 	}
 	
 	// 파일

@@ -16,6 +16,7 @@
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
 <script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
+<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
@@ -24,6 +25,7 @@
     <div id="wrap" class="sub">
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
+	
 	 <form method="post" action="<c:url value="/shop/shoppingProductPurchase.do" />" id="">
 		<input name="email" value="${user.email}" type="hidden" />
 		<div class="inner product">
@@ -53,6 +55,7 @@
 				<input name="product" value=" ${product.productId}" type="hidden" />
 				<input name ="dcprice" value="${product.dcPrice}" type="hidden" />
 				<input name ="oriprice" value="${product.price}" type="hidden" />
+				<input class="allprice" name ="price" value="${product.price - product.dcPrice}" type="hidden" />
 					<strong><input value=" ${product.productName}"/></strong>
 				</h2>
 			
@@ -75,7 +78,7 @@
 			<th>판매가</th>
 			<td>
 				<del><em><input value="${product.price}"/></em>원</del> 
-				<span class="txt-price"><em><input name ="price" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
+				<span class="txt-price"><em><input name ="price1" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
 			</td>
 		</tr>
 	</tbody>
@@ -99,7 +102,7 @@
 		<tr>
 			<th>수량 :</th>
 			<td>		
-			<input name ="amount" class="excessCnt" type ="hidden"/>
+			<input id="amount" name ="amount" class="excessCnt" type ="hidden" value=1 />
 				<input class="excessCnt subinput" name="excessCnt" value=1 /><span>개</span>
 				<button class="amount_btn" onclick="addtnNofpr.add('amount')" type="button">+</button>
 				<button class="amount_btn" onclick="addtnNofpr.remove('amount')" type="button">-</button>
@@ -122,8 +125,16 @@
 			</div>
 			<!-- default// -->
 			<div class="btn-area btnarea-default active">
-				<button type="submit" class="btn-black btn-buy" >바로 구매하기</button>
-				<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+			<c:choose>
+<c:when test="${empty user }">
+<a onclick="$('#login-pop').modal('show');" href="javascript:;" ><button type="button" class="btn-black btn-buy" >바로 구매하기</button></a>
+<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+</c:when>
+<c:otherwise>
+<button type="submit" class="btn-black btn-buy" >바로 구매하기</button> 
+<button type="button" class="btn-gray btn-cart">장바구니 담기</button>
+</c:otherwise>
+</c:choose>
 			</div>
 			<!-- //default -->
 		</fieldset>
@@ -139,7 +150,7 @@
 		<!-- pdetail// -->
 		<div class="inner pdetail">
 			 <!-- 탭타이틀 -->
-		<div class="tabs tabs5">
+		<div class="tabs tabs5" >
 	<ul>
 		<li class="m-detailinfo active"><a href="#detailInfo">상품상세정보</a></li>
 		<li class="m-returninfo"><a href="#returnInfo">상품구매안내</a></li>
@@ -329,7 +340,7 @@
 		<div class="bottombuybtn">
 			<div class="inner">
 				<div class="bbuybtn" id="">
-					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input class="price" name="price" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />">
+					<span class="txt-total">총 상품금액(수량) <strong><em id="totalPrice_B"><input class="price" name="price1" class="inputRltvGoodsAmt" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />">
 				(<input value="1" name="excessCnt" class="excessCnt" onchange="change();"/>개)</strong></span>
 						<!-- default// -->
 						<div class="btn-area btnarea-default active">
@@ -411,6 +422,7 @@
 				$('.excessCnt').val(excessCnt);
 				//초과 가격 계산
 				$('.price').val((excessCnt*p.perPersonAmt).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				$('.allprice').val(excessCnt * (${product.price - product.dcPrice}));
 			}
 
 		}

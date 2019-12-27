@@ -10,6 +10,9 @@ $("#inputcouponbutton").click((e) => {
 $(".cancelModalbtn").click((e) => {
 	location.href = "#";
 });
+$(".cancelRegisterbtn").click((e)=>{
+	location.href = "product.do";
+})
 //모달창 새로고침 금지 이벤트
 $(".stopnofresh").click((e) => {
 	function Reload(){
@@ -126,8 +129,27 @@ $("#checkall").click(function(){
 	 $("#cancelchoice").click((e) => {
 	    $("input[type=checkbox]").prop("checked",false);
 	 });
+$("input[name=productId]").blur((e) => {
+	$.ajax({
+		url: "checkProductId.do",
+		data: {productId: $("input[name=productId]").val(), categoryNo: $("#selectCategory").val() },
+		success: result => {
+			if(result == 1) {alert("제품번호가 중복됩니다."); $("input[name=productId]").val(""); $("input[name=productId]").focus();}
+		}	
+}); 
+});
 function check() {
-	console.log("넘어옴");	
+	if($("input[name=productName]").val() === "" ||
+			   $("input[name=productId]").val() === "" ||
+			   $("input[name=price]").val() === "" ||
+			   $("input[name=stock]").val() === ""||
+			   $("input[name=productInfo]").val() === ""||
+			   $("input[name=productfile]").val() === ""||
+			   $("input[name=boardfile]").val() === ""||
+			   $("input[name=company]").val() === ""
+			) {alert("등록할 제품의 정보를 모두 기입해주세요.");
+			   return false;
+			}
 	let con = confirm("상품명 : " + $("input[name=productName]").val() + "\n품번 : " + $("input[name=productId]").val()
 			+ "\n가격 : " + $("input[name=price]").val() + "\n제조사 : " + $("input[name=company]").val() 
 			+"\n분류 : " + $("select[name=categoryNo] option:checked").text() + "\n판매대상 : " + $("select[name=animalNo] option:checked").text()
@@ -347,20 +369,7 @@ function makeList(msg){
 	  else $("#outputTbody").html(query);		
   }
 }
-//등록 완료 버튼 클릭 이벤트
-//$("#completebtn1").click((e) => {	
-//	$.ajax({
-//		url: "productRegister2.do",
-//		dataType: "json",
-//		contentType: "application/json",
-//		type: "POST",
-//		data: JSON.stringify(registerList),
-//		success: () => {}
-//	})
-//	alert("제품등록이 완료되었습니다");
-//	registerList = [];
-//	location.href="product.do";
-//});
+
 //입고 완료 버튼 클릭 이벤트
 $("#completebtn2").click((e) => {
 	let userList = inputList;
@@ -427,4 +436,27 @@ $("#deleteSelected").click((e) => {
 		success: () => {}
 	})
 	location.href="product.do";
+});
+$("#selectCategory").change((e) => {
+	let code;
+	switch(parseInt($("#selectCategory").val())){
+	case 1:  code = "fd-"; break;
+	case 2:  code= "snk-"; break;
+	case 3:  code= "tsh-"; break;
+	case 4:  code= "sho-"; break;
+	case 5:  code= "acc-"; break;
+	case 6:  code= "bth-"; break;
+	case 7:  code= "bty-"; break;
+	case 8:  code= "tlt-"; break;
+	case 9:  code= "cln-"; break;
+	case 10:  code= "toy-"; break;
+	};
+	$("#CategoryIdBox").html(code);
+	$.ajax({
+		url: "selectLastNumber.do",
+		data: {categoryNo: $("#selectCategory").val()},
+		success: result => {
+			$("input[name=productId]").val(result);
+		}
+	});
 });

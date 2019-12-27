@@ -59,7 +59,9 @@ public class ShoppingDetailController {
 
 		for (ShoppingList s : list) {
 			Purchase p = new Purchase();
+
 			System.out.println(s.getProduct());
+
 			p.setProductId(s.getProduct());
 			p.setContent(s.getSubTitle());
 			p.setProductCnt(s.getAmount());

@@ -52,10 +52,11 @@ public class ReportController {
 	
 	// 추방
 	@RequestMapping("/reportdelete.do")
-	public String delete(int no) {
-		service.deleteReport(no); 
+	public String delete(int reportNo) {
+		service.deleteReport(reportNo); 
 		return "redirect:reportlist.do";
 	}
+	
 	// 댓글 신고 등록
 	@RequestMapping("/insertComReport.do")
 	@ResponseBody
@@ -63,8 +64,6 @@ public class ReportController {
 		User user = (User)session.getAttribute("user");
 		report.setEmail(user.getEmail());
 		report.setUserNo(user.getUserNo());
-		
-		
 		return service.insertComReport(report);
 		
 	}

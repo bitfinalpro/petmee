@@ -95,9 +95,11 @@ background-color: #202020;
 								<div class="goods-haed">
 								
 								<span><fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/></span>
-								<span>상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span>
+								<span>상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + plist.discount * plist.productCnt }" />
+								 - <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.discount * plist.productCnt }" />
+								 = <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span>
 								<span class="float-r"><a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a></span>
-								
+
 								</div>
 								
 								<div class="goods-body">

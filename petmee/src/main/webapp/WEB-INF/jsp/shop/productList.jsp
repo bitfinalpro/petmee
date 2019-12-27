@@ -52,7 +52,7 @@
           <a href="<c:url value="/shop/shoppingDetail.do?productId=${product.productId}" />">
             <img src="<c:url value="${img[status.index].path}${img[status.index].oriName}" />" />
             <span>${product.productInfo}</span>
-            <strong>${product.productName}${product.productId}</strong>
+            <strong>${product.productName}</strong>
             <span>${product.price}</span>
           </a>
           </li>

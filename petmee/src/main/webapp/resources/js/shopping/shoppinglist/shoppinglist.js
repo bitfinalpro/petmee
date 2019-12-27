@@ -55,7 +55,6 @@ function makeList(list) {
 			sum += parseInt(price);
 			
 		$tbl.append(`
-		<c:set scope="page" var="price" value="${(list.oriprice-list.dcprice)*list.amount}" />
 				<div class="y-content-box">
 					<div class="floatbox">
 
@@ -75,6 +74,7 @@ function makeList(list) {
 							<i class="far fa-plus-square fa-2x mousepoint plus" data-amount="${list.amount }" data-no="${list.no}" data-price="${list.oriprice-list.dcprice}" ></i> 
 							<span class="y-amount">${list.amount}</span> 
 							<i class="far fa-minus-square fa-2x mousepoint minus" data-amount="${list.amount }" data-no="${list.no}" data-price="${list.oriprice-list.dcprice}" ></i>
+
 						</div>
 						<span class="y-price float-r"> 
 						<i class="fas fa-won-sign fa-lg"></i> <span class="price">${list.price}</span>

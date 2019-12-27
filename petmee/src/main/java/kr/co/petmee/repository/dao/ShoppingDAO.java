@@ -18,6 +18,9 @@ public interface ShoppingDAO {
 	// 메인 베스트 리스트
 	List<Product> selectBest();
 	
+	// 메인 각 항목 세일베스트 리스트
+	List<Product> selectSaleBest();
+	
 	// 메인이미지파일
 	List<Image> mainSelectProductFile();
 	

@@ -8,10 +8,9 @@
 <head>
     <meta charset="UTF-8">
 	<title>Pet Me</title>
-	<link href="<c:url value='/resources/css/common/gnb.css' />" rel="stylesheet">
-	<link href="<c:url value='/resources/css/review/review_detail.css' />" rel="stylesheet">
-	<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
+	<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+	<%@ include file="/WEB-INF/jsp/include/review/reviewdetail.jsp" %>
+	<%@ include file="/WEB-INF/jsp/include/login/joincss.jsp" %>
 	<script src="<c:url value='/resources/js/common/jquery-1.12.4.js' />"></script>
 </head>
     
@@ -53,14 +52,14 @@
                 </div>
             </div>
             
-        <div class="boardView ">
+        <div class="boardView">
             <table border="" summary="">
                 <caption>상품 게시판 상세</caption>
                 <tbody> 
                     <tr class="etcArea" style="border-bottom: #e0e0e0;">
                         <td style="border-bottom: 1px solid #e0e0e0; ">
                             <ul class="sub_title" style="position:relative; float:left;">
-                                <li class="writer">
+                               <li class="writer">
                                     <strong class="th">글쓴이</strong> 
                                     <span class="td">${board.writer}</span>
                                 </li>
@@ -84,9 +83,9 @@
                     </tr>
                     <tr>
                         <!-- <th scope="row">제목</th> -->
-                        <td>
+                      <%--   <td>
                             <p style="text-align: center; font-size: 30px; font-weight: 300;">${board.title}</p>
-                        </td>
+                        </td> --%>
                     </tr>
                     
                     <tr>
@@ -119,12 +118,17 @@
         </div>
         </div>
 
-        <div style="position:relative; margin: 0 auto; top: 20px; width: 150px;">
-            <span class="left" style="position:relative; ">
+        <div style="position:relative; margin: 0 auto; top: 20px; width: 80%;">
+			<div style="position:relative; ">
+				<a href="/petmee/board/reviewboard/review_list.do" style="float: left; background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px;">목록</a>
+		        <a href="/petmee/board/reviewboard/review_delete.do?no=${board.no}" style="background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px; ">삭제</a>
+		        <a href="/petmee/board/reviewboard/review_updateform.do?no=${board.no}" style="background-color:#3f3f3f; width: 100px; display: block; color: #fff; padding: 5px; ">수정</a>
+		</div>
+<%--             <span class="left" style="position:relative; ">
                 <a href='/petmee/board/reviewboard/review_list.do' class="dj_search_btn_2">목록</a>
 	            <a href='/petmee/board/reviewboard/review_delete.do?no=${board.no}' class="dj_search_btn_2">삭제</a>
 	            <a href='/petmee/board/reviewboard/review_updateform.do?no=${board.no}' class="dj_search_btn_2">수정</a>
-            </span>
+            </span> --%>
         </div>
         <div style="position:relative; margin: 0 auto; top: 10px; width:50px; height: 50px;"></div>
         

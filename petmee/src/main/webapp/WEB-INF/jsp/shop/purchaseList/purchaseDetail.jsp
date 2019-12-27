@@ -99,11 +99,10 @@
 					<div class="content-box">
 
 						<c:forEach var="plist" items="${plist}">
-							<c:set var="price1" value="${price1 + plist.price}" scope="page" />
-							<c:set var="dc_price1" value="${dc_price1 + plist.discount}"
+							<c:set var="price1" value="${price1 + (plist.price + (plist.productCnt * plist.discount))}" scope="page" />
+							<c:set var="dc_price1" value="${dc_price1 + plist.discount * plist.productCnt}"
+						
 								scope="page" />
-
-
 
 							<div class="goods-box">
 
@@ -112,7 +111,7 @@
 									<span><fmt:formatDate value="${plist.regDate }"
 											pattern="yyyy-MM-dd" /></span>
 	   									 <span>주문번호 : ${plist.orderNo}</span>
-										 <span class="float-r">상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span> 
+										 <span class="float-r">상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + (plist.productCnt * plist.discount)}" /> 원</span> 
 								</div>
 
 								<div class="goods-body">

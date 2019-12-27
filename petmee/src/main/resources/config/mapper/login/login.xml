@@ -17,7 +17,7 @@
 		insert into tb_user (
 			email, pass, name, phone, home_phone, gender, resident, address, address_detail
 		) values (
-			#{email}, #{pass}, #{name}, #{phone}, #{home_phone}, #{gender}, #{resident}, #{address}, #{address_detail}
+			#{email}, #{pass}, #{name}, #{phone}, #{homePhone}, #{gender}, #{resident}, #{address}, #{addressDetail}
 		);
 	</insert>
 	
@@ -37,10 +37,14 @@
 	</select>
 	
 	<!-- 마이페이지 수정 -->
-	<update id="updateMypage" parameterType="User">
-		update tb_user 
-		   set title = #{title}
-		       content = #{content}
+	<update id="updateMypage" parameterType="User" >
+		update tb_user
+   		   set pass = #{pass},
+	   		   phone = #{phone},
+	   		   home_phone = #{homePhone},
+       		   address = #{address},
+       		   address_detail = #{addressDetail}
+ 		 where user_no = #{userNo}
 	</update>
 	
 	<!-- 마이페이지 회원탈퇴 -->
