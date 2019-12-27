@@ -23,6 +23,8 @@ public class ShoppingDetailController {
 
 	@Autowired
 	private ShoppingListService service;
+	
+	
 
 	@RequestMapping("/shop/shoppinglistdetail/shoppinglistdetail.do")
 	public void selectShoppingListDetail(Model model, HttpSession session) {
@@ -35,7 +37,10 @@ public class ShoppingDetailController {
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
-		System.out.println("sss");
+		
+		int scnt = service.ShoppingList(user).size();
+		user.setShoppingCnt(scnt);
+		session.setAttribute("user", user);
 	}
 
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
@@ -67,6 +72,10 @@ public class ShoppingDetailController {
 		service.deliInfo(deliInfo);
 		service.couponDelete(couponNo);
 		service.ShoppingListDelete(user);
+		
+		int scnt = service.ShoppingList(user).size();
+		user.setShoppingCnt(scnt);
+		session.setAttribute("user", user);
 	}
 
 }
