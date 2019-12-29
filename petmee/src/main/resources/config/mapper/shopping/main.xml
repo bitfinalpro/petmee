@@ -6,16 +6,10 @@
 	<!-- 메인 최신 상품 리스트 --> 
 	<select id="selectFood" parameterType="int" resultType="Product">
 		select * 
-			from tb_product
-	</select>
-	<!-- 메인 세일 베스트 리스트  -->
-	<select id="selectSaleBest" parameterType="int" resultType="Product">
-		 select *
 			from tb_product pro
-    			inner join tb_purchase pur
-   				 on pro.product_id = pur.product_id
-			where pro.dc_price > 1 and pur.product_cnt > 1
-             order by pur.product_cnt desc
+            inner join tb_image img
+            where pro.product_id = img.product_id
+            group by pro.product_id
 	</select>
 	<!-- 메인 베스트 상품 리스트 --> 
 	<select id="selectBest" parameterType="int" resultType="Product">
@@ -24,15 +18,52 @@
     			inner join tb_purchase pur
    				 on pro.product_id = pur.product_id
 			group by pro.product_id
-             order by pur.product_cnt desc;
+             order by pur.product_cnt desc
+	</select>
+		<!-- 메인 세일 베스트 리스트  -->
+	<select id="selectSaleBest" parameterType="int" resultType="Product">
+		 select *
+			from tb_product pro
+    			inner join tb_purchase pur
+   				 on pro.product_id = pur.product_id
+			where pro.dc_price > 1 and pur.product_cnt > 1
+			group by pro.product_id
+             order by pur.product_cnt desc
+	</select>
+		
+	<!-- 메인 최신 이미지 파일 --> 
+	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
+			select * from tb_image img
+				inner join tb_product pro
+					on pro.product_id = img.product_id
+				where type = 'sum'
+               group by pro.product_id;
 	</select>
 	
-	<!-- 메인 이미지 파일 --> 
-	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
-			select * from tb_image
-				where type = 'sum'
-			group by product_id
+	<!-- 메인 베스트 이미지 파일  -->
+	<select id="mainSelectProductFile1" parameterType="String" resultType="Image">
+		select * from tb_product pro
+	inner join tb_image img
+		on pro.product_id = img.product_id
+	inner join tb_purchase pur
+   		on pro.product_id = pur.product_id
+		where img.type = 'sum'
+   		 group by pro.product_id
+    order by pur.product_cnt desc
 	</select>
+	
+	<!-- 메인 세일베스트 이미지 파일  -->
+	<select id="mainSelectProductFile2" parameterType="String" resultType="Image">
+		select * from tb_product pro
+	inner join tb_image img
+		on pro.product_id = img.product_id
+	inner join tb_purchase pur
+   		on pro.product_id = pur.product_id
+		where img.type = 'sum'
+   		 group by pro.product_id
+    order by pur.product_cnt desc
+	</select>
+
 
 	<!-- 상품 상세 파일 --> 
 	<select id = "shoppingDetail" parameterType="String" resultType="Product">
