@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.petmee.admin.service.OrderService;
 import kr.co.petmee.repository.vo.DeliInfo;
 import kr.co.petmee.repository.vo.Order;
-import kr.co.petmee.repository.vo.Purchase;
 import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shop.service.ShoppingListService;
 
