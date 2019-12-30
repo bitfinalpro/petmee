@@ -53,6 +53,7 @@ public class FreeBoardController {
 			model.addAttribute("pr", pr);
 			page = new Page(pageNo);
 		}
+	
 		
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
@@ -92,7 +93,7 @@ public class FreeBoardController {
 	@RequestMapping("/write.do")
 	public String write(Board board, HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		board.setEmail(user.getEmail());
+		board.setEmail(user.getName());
 		service.insertBoard(board);
 		return "redirect:list.do";
 	}
