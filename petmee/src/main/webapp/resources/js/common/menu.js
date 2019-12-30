@@ -1,3 +1,4 @@
+
 var $jq = jQuery.noConflict();  
 $jq( document ).ready( function() {
           var jbOffset = $jq( '.jbMenu' ).offset();

@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" src="<c:url value="/resources/js/common/menu.js" />"></script>
 <header>
       <div class="jbTitle">
            <div id="top_menu">
@@ -80,8 +81,8 @@
 </header>
 
 <script type="text/javascript" >
-window.onload = function(){
 $(document).ready(function(){
+	
 	$("#logi").click(function(e) {
 		let check1 = document.querySelector("#inputs_user_email");
 		let check2 = document.querySelector("#inputs_user_pass");
@@ -115,7 +116,6 @@ $(document).ready(function(){
 		});
 	});	
 });
-}
 </script>
 <!-- 로그인 모달창 -->
 <div class="modal pop-con-modal" id="login-pop" style="display: none; z-index: 9999999; color:#fff;" aria-hidden="false" >

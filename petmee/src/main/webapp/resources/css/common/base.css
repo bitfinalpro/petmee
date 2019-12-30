@@ -38,3 +38,5 @@ section, nav, article, aside, header, footer, main { display: block; }
 input:focus, textarea:focus, button:focus {outline:none;}
 
 header {height:77px;} 
+
+#wrap{margin-top:7%;}
