@@ -10,7 +10,6 @@
                <a href="<c:url value='/admin/user/menu.do'/> "><strong>admin</strong></a>
                </c:if>          
                <span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니<span>${user.shoppingCnt}</span></a></span>
-               <span><a href="<c:url value="/shop/shoppinglistdetail/shoppinglistdetail.do" />">주문/결제</a></span>
                 </div>
                 <div>
                    <c:if test="${empty user}">
