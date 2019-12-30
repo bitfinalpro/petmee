@@ -35,20 +35,4 @@ public class CouponController {
 		map.put("list", userList);
 		service.registerCoupon(map);
 	}
-	
-	// 쿠폰명, 코드 중복검사
-	@RequestMapping(value = "/checkCoupon.do", method = RequestMethod.POST)
-	@ResponseBody
-	public int checkCoupon(Coupon coupon) {
-		// 중복 : 1 => 쿠폰명, 2=> 쿠폰번호 3 => 쿠폰명, 쿠폰번호  0 => 중복X
-		return service.checkCoupon(coupon);
-	}
-	// 쿠폰삭제
-	@RequestMapping(value = "/delete.do", method = RequestMethod.POST)
-	public String deleteCoupon(String no) {
-		// 중복 : 1 => 쿠폰명, 2=> 쿠폰번호 3 => 쿠폰명, 쿠폰번호  0 => 중복X
-		service.deleteCoupon(no);
-		return "redirect:coupon.do";
-	}
-
 }

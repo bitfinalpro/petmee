@@ -14,8 +14,6 @@ public interface CouponService {
 	List<Coupon> selectCouponList();
 	// 쿠폰등록
 	void registerCoupon(HashMap map);
-	// 쿠폰 중복 검사
-	int checkCoupon(Coupon coupon);
 	//쿠폰삭제
 	void deleteCoupon(String no);
 }

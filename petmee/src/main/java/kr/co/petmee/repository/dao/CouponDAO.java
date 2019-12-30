@@ -8,8 +8,6 @@ import kr.co.petmee.repository.vo.Order;
 public interface CouponDAO {
 	//쿠폰 목록
 	List<Coupon> selectCouponList();
-	// 쿠폰명중복검사
-	int checkCouponName(String name);
 
 	// 쿠폰번호중복검사
 	int checkCouponNo(String no);

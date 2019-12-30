@@ -197,209 +197,32 @@ $("#registerlistupbtn").click((e) => {
 //쿠폰 리스트업 이벤트
 $("#inputcouponlistupbtn").click((e) => {
 	if( $("input[name=couponName]").val() === "" ||
-	    $("input[name=couponNo]").val() === "" ||
+	    $("input[name=couponCount]").val() === "" ||
 	    $("input[name=couponDiscount]").val() === "" ) {
 		alert("쿠폰등록에 필요한 정보를 모두 기입하세요.");
 		return;
 	}
 	let coupon = {
 			name: $("input[name=couponName]").val(),
-			no: $("input[name=couponNo]").val(),
+			couponCount: $("input[name=couponCount]").val(),
 			discount: $("input[name=couponDiscount]").val()
 	}
-	console.log("aaa");
-	$.ajax({
-		url: "checkCoupon.do",
-		type: "post",
-		async: false,
-		data: coupon,
-		success: result => {
-			console.log("bbb");
-			switch (result) {
-			case 0:
-				couponList.push(coupon);
-				makeList("coupon");				
-				return;
-			case 1: 
-				alert("이미 같은 이름의 쿠폰이 존재합니다"); 
-				$("input[name=couponName]").focus();
-				return;
-			case 2:
-				alert("이미 같은 번호의 쿠폰이 존재합니다"); 
-				$("input[name=couponNo]").focus();
-				return;
-			case 3: 
-				alert("이미 같은 이름,번호의 쿠폰이 존재합니다"); 
-				$("input[name=couponName]").focus();
-				return;
-			}
-		}		
-	});
-	
-});
-//제품입고 리스트업 버튼 이벤트
-$("#inputlistupbtn").click((e) => {
-	if($("input[name=productId]").val() === ""  ||
-	   $("input[name=productcount]").val() === ""		
-	) {alert("등록할 제품의 정보를 모두 기입해주세요.");
-	e.preventDefault();
-	}
-	else if($("input[name=productcount]").val() < 1){
-		alert("제품은 1개이상 가능합니다.");
-		$("input[name=productcount]").focus();
-		e.preventDefault();
-	}
-	else{
-		$.ajax({
-			url: "input_list.do",
-		    data: {productId: $("input[name=productId]").val()},
-		    success: result => {
-		    	result.productCnt = $("input[name=productcount]").val();
-		    	if(result.productName === undefined) {
-		    		alert("존재하지 않는 제품입니다.");
-		    		$("input[name=productId]").focus();
-		    		return;
-		    	};
-		    	inputList.push(result);
-		    	makeList("input");
-				$("input").val("");
-		    }		    
-		});		
-			
-	}
-});
-//제품출고 리스트업 버튼 이벤트
-$("#outputlistupbtn").click((e) => {
-	if($("input[name=outproductId]").val() === ""  ||
-			$("input[name=outproductcount]").val() === ""		
-	) {alert("등록할 제품의 정보를 모두 기입해주세요.");
-	e.preventDefault();
-	}
-	else if($("input[name=outproductcount]").val() < 1){
-		alert("제품은 1개이상 가능합니다.");
-		$("input[name=outproductcount]").focus();
-		e.preventDefault();
-	}
-	else{
-		$.ajax({
-			url: "input_list.do",
-			data: {productId: $("input[name=outproductId]").val()},
-			success: result => {
-				result.productCnt = $("input[name=outproductcount]").val();
-				if(result.productName === undefined) {
-					alert("존재하지 않는 제품입니다.");
-					$("input[name=outproductId]").focus();
-					return;
-				} else if (result.stock < $("input[name=outproductcount]").val()) {
-					alert("출고량이 재고량보다 많습니다.");
-					$("input[name=outproductcount]").focus();
-					return;
+			couponList.push(coupon);
+			let query = "";	
+				for(let i = 0; i < couponList.length; i++) {
+					query += `
+						<tr>
+							<td>${couponList[i].name}</td>
+							<td>${couponList[i].couponCount}</td>
+							<td>${couponList[i].discount}</td>
+						</tr>
+					`;
 				}
-				inputList.push(result);
-				makeList("output");
-				$("input").val("");
-			}		    
-		});		
-		
-	}
+				$("#inputcouponTbody").html(query);
+				$("input").val("");					
+			return;	
 });
-//제품 등록, 입고, 출고 리스트
-function makeList(msg){
-	let query = "";	
-	var categoryName = "";
-	var animal = "";
-	var sellCondition = "";
-	if(msg === "coupon") {
-		for(let i = 0; i < couponList.length; i++) {
-			query += `
-				<tr>
-					<td>${couponList[i].name}</td>
-					<td>${couponList[i].no}</td>
-					<td>${couponList[i].discount}</td>
-				</tr>
-			`;
-		}
-		console.log("ddd");
-		$("#inputcouponTbody").html(query);
-		$("input").val(""); return;
-	}
-	if(msg === "register"){
-	for(let i = 0; i < registerList.length; i++) {
-		switch(registerList[i].categoryNo) {
-		case "1" : categoryName = "의류"; break;
-		case "2" : categoryName = "식품"; break;
-		case "3" : categoryName = "식기/주거"; break;
-		case "4" : categoryName = "장난감"; break;
-		case "5" : categoryName = "위생"; break;
-		}
-		switch(registerList[i].sellCondition) {
-		case "0" : sellCondition = "판매대기중"; break;
-		case "1" : sellCondition = "판매중"; break;
-		case "2" : sellCondition = "품절"; break;
-		}
-		if(registerList[i].animalNo === 1) {
-			animal = "강아지";
-		} else {animal = "고양이";}
-		query +=`
-		<tr>
-			<td>${categoryName}</td>
-            <td>${registerList[i].productName}</td>
-            <td>${registerList[i].productId}</td>
-            <td>${registerList[i].price}</td>
-			<td>${sellCondition}</td>
-			<td>${animal}</td>
-			<td>${registerList[i].stock}</td>
-		    <td>${registerList[i].company}</td>
-			<td>${registerList[i].productInfo}</td>
-			<td>${registerList[i].productfile}</td>
-			<td>${registerList[i].boardfile}</td>
-        </tr>`;			
-	} $("#registertbody").html(query);
-  }	else if (msg === "input" || msg === "output"){
-	  for(let i = 0; i < inputList.length; i++) {
-			query +=`
-			<tr>
-	            <td>${inputList[i].productName}</td>
-	            <td>${inputList[i].productId}</td>
-	            <td>${inputList[i].productCnt}</td>
-			    <td>${inputList[i].company}</td>
-	        </tr>`;			
-		}
-	  if(msg === "input")	$("#inputTbody").html(query);		
-	  else $("#outputTbody").html(query);		
-  }
-}
 
-//입고 완료 버튼 클릭 이벤트
-$("#completebtn2").click((e) => {
-	let userList = inputList;
-	$.ajax({
-		url: "plusCount.do",
-		dataType: "json",
-		contentType: "application/json",
-		type: "POST",
-		data: JSON.stringify(userList),
-		success: () => {}
-	})
-	alert("제품입고가 완료되었습니다");
-	inputlist = [];
-	location.href="product.do";
-});
-//출고 완료 버튼 클릭 이벤트
-$("#completebtn3").click((e) => {
-	let userList = inputList;
-	$.ajax({
-		url: "minusCount.do",
-		dataType: "json",
-		contentType: "application/json",
-		type: "POST",
-		data: JSON.stringify(userList),
-		success: () => {}
-	})
-	alert("제품출고가 완료되었습니다");
-	inputlist = [];
-	location.href="product.do";
-});
 //쿠폰등록 완료 이벤트
 $("#couponcompletebtn").click((e) => {
 	let userList = couponList;
@@ -408,11 +231,10 @@ $("#couponcompletebtn").click((e) => {
 		contentType: "application/json",
 		type: "POST",
 		data: JSON.stringify(userList),
-		success: () => {}
 	})
 	alert("쿠폰등록이 완료되었습니다");
 	couponList = [];
-	location.href="product.do";
+	location.href="coupon.do";
 });
 // 제품변경 완료 버튼 클릭 이벤트
 $("updateCompletebtn").click((e) => {alert("변경이 완료되었습니다.")});
@@ -435,7 +257,7 @@ $("#deleteSelected").click((e) => {
 		data: JSON.stringify(checkedbox),
 		success: () => {}
 	})
-	location.href="product.do";
+	location.href="coupon.do";
 });
 $("#selectCategory").change((e) => {
 	let code;
