@@ -26,12 +26,6 @@ public interface ProductDAO {
 	void minusCount(Product product);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
-	//쿠폰등록
-	void registerCoupon(Coupon coupon);
-	//쿠폰명중복검사
-	int checkCouponName(String name);
-	//쿠폰번호중복검사
-	int checkCouponNo(String no);
 	//마지막 번호 추출
 	String selectLastNumber(int categoryNo);
 	//제품번호 중복검사

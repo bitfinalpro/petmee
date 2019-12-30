@@ -31,10 +31,6 @@ public interface ProductService {
 	void minusCount(HashMap map);
 	//제품 정보 변경
 	void updateProductInfo(Product product);
-	//쿠폰등록
-	void registerCoupon(HashMap map);
-	//쿠폰 중복 검사
-	int checkCoupon(Coupon coupon);
 	//마지막 품번 뽑기
 	int selectLastNumber(int categoryNo);
 	//제품번호 중복검사

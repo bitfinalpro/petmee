@@ -1,0 +1,284 @@
+$("#inputbutton").click((e)=>{
+    location.href = "#inputpopup";
+});
+$("#outputbutton").click((e)=>{
+    location.href = "#outputpopup";
+});
+$("#inputcouponbutton").click((e) => {
+	location.href = "#inputcouponpopup";
+});
+$(".cancelModalbtn").click((e) => {
+	location.href = "#";
+});
+$(".cancelRegisterbtn").click((e)=>{
+	location.href = "product.do";
+})
+//모달창 새로고침 금지 이벤트
+$(".stopnofresh").click((e) => {
+	function Reload(){
+		event.cancelBubble = false;
+		event.returnValue = true;
+	}
+	document.onkeydown = Reload;
+});
+//모달창 아웃시 새로고침 재기능
+$(".nofresh").click((e) => {
+	function doNotReload(){
+	    if((event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116) ) {
+	    	keyCode = event.keyCode;
+	        event.keyCode = 0;
+	        event.cancelBubble = true;
+	        event.returnValue = false;
+	    } 
+	}
+	document.onkeydown = doNotReload;
+});
+//제품정보 변경
+$(".updateInfo").click((e)=>{	
+	e.preventDefault();	
+	$.ajax({
+		url: "updateModal.do",
+	   data: {productId: $(e.target).data("no")},
+	   async: false,
+	   success: result => {
+		   let query = `
+		   <div>품번 : <input type="text" id="updateId" name="productId" value="${result.productId}"/></div>                            
+                        <div>상품명 : <input type="text" id="updateName" name="productName" value="${result.productName}"/></div>
+                        <div>판매대상 : <select name="animalNo">
+                        <c:choose>
+                        	<c:when test="${result.animalNo == 1}">
+                        		<option value="1" selected>강아지</option>
+                        		<option value="2">고양이</option>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<option value="1">강아지</option>
+                        		<option value="2" selected>고양이</option>                        	</c:otherwise>
+                        </c:choose>
+                        </select>
+                        </div>
+                         <div>
+                          분류: <select name="categoryNo" id="selectCategory">
+                          `;		   
+			   			  for(let i = 1; i <= document.getElementById("cList").value; i++){
+			   				  let categoryName = ""; 
+			   				  switch(i) {
+			   				  case 1: categoryName = "의류"; break;
+			   				  case 2: categoryName = "식품"; break;
+			   				  case 3: categoryName = "식기/주거"; break;
+			   				  case 4: categoryName = "장난감"; break;
+			   				  case 5: categoryName = "위생"; break;
+			   				  }
+			   				  if(result.categoryNo === i) {
+			   					  query += `<option value="` + i + `" selected>` + categoryName +`</option>` ;		   					  
+			   				  } else {
+			   					query += `<option value="` + i + `">` + categoryName +`</option> `; 
+			   				  }
+			   			  };                          
+                          query += `
+                          </select>
+                        </div>              
+                        <div>가격 : <input type="text" name="price" value="${result.price}"/></div>
+                        <div>상품설명 : <input type="text" name="productInfo" value="${result.productInfo}"/></div>
+                        <div>제조사 : <input type="text" name="company" value="${result.company}"/></div>
+                        <div>재고량 : <input type="number" name="stock" value="${result.stock}"/></div>
+                        <div>판매상태 :
+                        <select name="sellCondition">`;
+                        switch(result.sellCondition) {
+                        case 0 : 
+                        query += `
+                        		<option value="0" selected>품절</option>
+                        		<option value="1">판매대기중</option>
+                        		<option value="2">판매중</option>
+                        `;
+                        break;
+                        case 1 : 
+                        query += `
+                        		<option value="0" >품절</option>
+                        		<option value="1" selected>판매대기중</option>
+                        		<option value="2">판매중</option>
+                        `;
+                        break;
+                        default : 
+                        query += `
+                        		<option value="0" >품절</option>
+                        		<option value="1">판매대기중</option>
+                        		<option value="2" selected>판매중</option>
+                        `;
+                        break;
+                        }
+                        
+                 query +=`                    
+                        </select>                        
+                        </div>   
+                        <div><input type="hidden" name="orgProductId" value="${result.productId}"/></div>
+                        <button id="updateCompletebtn" class="stopnofresh">완료</button>                     
+		   `;
+		   $("#updateForm").html(query);		   
+	   }
+	})	
+	location.href = "#updatepopup";	
+});
+$("#checkallbutton").click((e)=>{
+	 $("input[type=checkbox]").prop("checked",true);
+});
+$("#checkall").click(function(){        
+	  if($("#checkall").prop("checked")) {
+	     $("input[type=checkbox]").prop("checked",true);
+	} else {$("input[type=checkbox]").prop("checked",false); }
+	 })
+	 $("#cancelchoice").click((e) => {
+	    $("input[type=checkbox]").prop("checked",false);
+	 });
+$("input[name=productId]").blur((e) => {
+	$.ajax({
+		url: "checkProductId.do",
+		data: {productId: $("input[name=productId]").val(), categoryNo: $("#selectCategory").val() },
+		success: result => {
+			if(result == 1) {alert("제품번호가 중복됩니다."); $("input[name=productId]").val(""); $("input[name=productId]").focus();}
+		}	
+}); 
+});
+function check() {
+	if($("input[name=productName]").val() === "" ||
+			   $("input[name=productId]").val() === "" ||
+			   $("input[name=price]").val() === "" ||
+			   $("input[name=stock]").val() === ""||
+			   $("input[name=productInfo]").val() === ""||
+			   $("input[name=productfile]").val() === ""||
+			   $("input[name=boardfile]").val() === ""||
+			   $("input[name=company]").val() === ""
+			) {alert("등록할 제품의 정보를 모두 기입해주세요.");
+			   return false;
+			}
+	let con = confirm("상품명 : " + $("input[name=productName]").val() + "\n품번 : " + $("input[name=productId]").val()
+			+ "\n가격 : " + $("input[name=price]").val() + "\n제조사 : " + $("input[name=company]").val() 
+			+"\n분류 : " + $("select[name=categoryNo] option:checked").text() + "\n판매대상 : " + $("select[name=animalNo] option:checked").text()
+			+ "\n상품설명 : " + $("input[name=productInfo]").val() + "\n판매상태 : " + $("select[name=sellCondition] option:checked").text());
+	if(con) {return true;}
+	return false;
+}
+let registerList = [];
+var inputList = [];
+let couponList = [];
+let product = {};
+
+//제품등록 리스트업 버튼 이벤트
+$("#registerlistupbtn").click((e) => {
+	if($("input[name=productName]").val() === "" ||
+	   $("input[name=productId]").val() === "" ||
+	   $("input[name=price]").val() === "" ||
+	   $("input[name=stock]").val() === ""||
+	   $("input[name=productInfo]").val() === ""||
+	   $("input[name=productfile]").val() === ""||
+	   $("input[name=boardfile]").val() === ""||
+	   $("input[name=company]").val() === ""
+	) {alert("등록할 제품의 정보를 모두 기입해주세요.");
+	   e.preventDefault();
+	}
+	else{	
+	product = {
+			categoryNo: $("select[name=categoryNo]").val(),
+			sellCondition: $("select[name=sellCondition]").val(),
+			animalNo: $("select[name=animalNo]").val(),
+			productName: $("input[name=productName]").val(),
+			productId: $("input[name=productId]").val(),
+			price: $("input[name=price]").val(),
+			stock: $("input[name=stock]").val(),
+			productInfo: $("input[name=productInfo]").val(),
+			productfile: $("input[name=productfile]").val(),
+			boardfile: $("input[name=boardfile]").val(),
+			company: $("input[name=company]").val()
+	};	
+	registerList.push(product);
+	makeList("register");
+	$("input").val("");	
+	}
+});
+//쿠폰 리스트업 이벤트
+$("#inputcouponlistupbtn").click((e) => {
+	if( $("input[name=couponName]").val() === "" ||
+	    $("input[name=couponCount]").val() === "" ||
+	    $("input[name=couponDiscount]").val() === "" ) {
+		alert("쿠폰등록에 필요한 정보를 모두 기입하세요.");
+		return;
+	}
+	let coupon = {
+			name: $("input[name=couponName]").val(),
+			couponCount: $("input[name=couponCount]").val(),
+			discount: $("input[name=couponDiscount]").val()
+	}
+			couponList.push(coupon);
+			let query = "";	
+				for(let i = 0; i < couponList.length; i++) {
+					query += `
+						<tr>
+							<td>${couponList[i].name}</td>
+							<td>${couponList[i].couponCount}</td>
+							<td>${couponList[i].discount}</td>
+						</tr>
+					`;
+				}
+				$("#inputcouponTbody").html(query);
+				$("input").val("");					
+			return;	
+});
+
+//쿠폰등록 완료 이벤트
+$("#couponcompletebtn").click((e) => {
+	let userList = couponList;
+	$.ajax({
+		url: "registerCoupon.do",
+		contentType: "application/json",
+		type: "POST",
+		data: JSON.stringify(userList),
+	})
+	alert("쿠폰등록이 완료되었습니다");
+	couponList = [];
+	location.href="coupon.do";
+});
+// 제품변경 완료 버튼 클릭 이벤트
+$("updateCompletebtn").click((e) => {alert("변경이 완료되었습니다.")});
+//선택항목삭제
+$("#deleteSelected").click((e) => {
+	let checkedbox = [];
+	let checkboxes = document.querySelectorAll("input[name=choice]");
+	for(let i = 0; i < checkboxes.length; i++){
+		if(checkboxes[i].checked) {
+			checkedbox.push(checkboxes[i].value);
+		}
+	}
+	if (checkedbox.length === 0) {alert("체크된 제품이 없습니다."); return;}
+	$.ajax({
+		url: "deleteSelected.do",
+		dataType: "json",
+		contentType: "application/json",
+		async: false,
+		type: "POST",
+		data: JSON.stringify(checkedbox),
+		success: () => {}
+	})
+	location.href="coupon.do";
+});
+$("#selectCategory").change((e) => {
+	let code;
+	switch(parseInt($("#selectCategory").val())){
+	case 1:  code = "fd-"; break;
+	case 2:  code= "snk-"; break;
+	case 3:  code= "tsh-"; break;
+	case 4:  code= "sho-"; break;
+	case 5:  code= "acc-"; break;
+	case 6:  code= "bth-"; break;
+	case 7:  code= "bty-"; break;
+	case 8:  code= "tlt-"; break;
+	case 9:  code= "cln-"; break;
+	case 10:  code= "toy-"; break;
+	};
+	$("#CategoryIdBox").html(code);
+	$.ajax({
+		url: "selectLastNumber.do",
+		data: {categoryNo: $("#selectCategory").val()},
+		success: result => {
+			$("input[name=productId]").val(result);
+		}
+	});
+});

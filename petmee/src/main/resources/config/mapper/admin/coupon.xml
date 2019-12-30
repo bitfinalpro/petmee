@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.CouponDAO">
+    
+<!-- 쿠폰목록 추출 -->       
+       <select id="selectCouponList" resultType="Coupon">
+        select *
+          from tb_coupon
+         order by name
+       </select>
+<!-- 제품 정보 추출 -->
+	<select id="selectProductInfo" parameterType="string" resultType="Product">
+		select *
+		  from tb_product
+		 where product_id = #{productId}
+	</select>
+<!-- 제품 정보 변경 -->
+	<update id="updateProductInfo" parameterType="Product">
+		update tb_product
+		   set product_Id = #{productId},
+		   	   product_name = #{productName},
+		   	   product_info = #{productInfo},
+		   	   price = #{price},
+		   	   stock = #{stock},
+		   	   company = #{company},
+		   	   category_no = #{categoryNo},
+		   	   animal_no = #{animalNo},
+		   	   sell_condition = #{sellCondition}		   	   
+		 where product_id = #{orgProductId}
+	</update>
+	<!--쿠폰 등록 -->
+	<insert id="registerCoupon" parameterType="Coupon">
+		insert into tb_coupon(no, name, discount)
+		values(#{no}, #{name}, #{discount})
+	</insert>
+	
+</mapper>

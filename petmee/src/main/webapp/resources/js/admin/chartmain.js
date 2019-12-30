@@ -5,45 +5,7 @@ let searchDateList = [];
 let searchCountList =[];
 let searchPriceList=[];
 let orderList = [];
-var myLine = null;
-var myLine2 = null;
-
-
-//모달창 닫기
-$(".closeModal").click((e) => {
-	modal.style.display = "none";
-	modal2.style.display = "none";
-	searchDateList = [];
-	searchCountList =[];
-	searchPriceList=[];
-	orderList = [];
-	myLine.destroy();
-	$("#searchOrderTbody").html("");
-});
-window.onclick = (e) => {
-    if (e.target == modal) {
-        modal.style.display = "none";
-        modal2.style.display = "none";
-        searchDateList = [];
-    	searchCountList =[];
-    	searchPriceList=[];
-    	orderList = [];
-    	myLine.destroy();
-    	$("#searchOrderTbody").html("");
-    }
-}
-//모달창 닫기
-$(".closebtn").click((e) => {
-	modal.style.display = "none";
-	modal2.style.display = "none";
-	searchDateList = [];
-	searchCountList =[];
-	searchPriceList=[];
-	orderList = [];
-	myLine.destroy();
-	$("#searchOrderTbody").html("");
-});
-
+let myLine = null;
 
 //차트 그리기
 //Set new default font family and font color to mimic Bootstrap's default styling
@@ -97,7 +59,7 @@ var BarChartData = {
      }
  }
 };
-var chartData = {
+let chartData = {
 		  type: 'line',
 		  data: {
 		    labels: searchDateList,
@@ -220,7 +182,6 @@ var chartData2 = {
 
 $(document).on("click","#search-UserStatistics", (e) => {	
 	if($("#searchKeyword").val() === "") {alert("검색할 아이디를 입력하세요."); return;}
-	console.log($("#searchCategory").val());
 	if($("#searchCategory").val() == 2) {makeProductModal(); return;}
 	$.ajax({
 		url: "searchStatistics.do",
@@ -232,7 +193,12 @@ $(document).on("click","#search-UserStatistics", (e) => {
 				searchCountList.push(result.countList[i]);
 				searchPriceList.push(result.priceList[i]);				
 			}
+			chartData.data.labels = searchDateList;
+			chartData.data.datasets[0].data = searchCountList;
+			chartData2.data.labels = searchDateList;
+			chartData2.data.datasets[0].data = searchPriceList;
 			myLine = new Chart(ctx,chartData);
+			console.log(myLine);
 			orderList = result.orderList;
 			let lastOrder = orderList[orderList.length - 1];
 			let user = result.user
@@ -266,18 +232,7 @@ $(document).on("click","#search-UserStatistics", (e) => {
 		}
 	})	
 });
-$("#changeCountChart").click((e) => {
-	myLine.destroy(); myLine = new Chart(ctx,chartData);
-});
-$("#changePriceChart").click((e) => {
-	myLine.destroy(); myLine = new Chart(ctx,chartData2);
-});
-$("#changeCountChart2").click((e) => {
-	myLine2.destroy(); myLine2 = new Chart(ctx2,chartData);
-});
-$("#changePriceChart2").click((e) => {
-	myLine2.destroy(); myLine2 = new Chart(ctx2,chartData2);
-});
+
 function makeProductModal() {
 	$.ajax({
 		url: "searchStatistics.do",
@@ -291,7 +246,11 @@ function makeProductModal() {
 				searchCountList.push(result.countList[i]);
 				searchPriceList.push(result.priceList[i]);				
 			}
-			myLine2 = new Chart(ctx2,chartData);
+			chartData.data.labels = searchDateList;
+			chartData.data.datasets[0].data = searchCountList;
+			chartData2.data.labels = searchDateList;
+			chartData2.data.datasets[0].data = searchPriceList;
+			myLine = new Chart(ctx2,chartData);
 			let query = `
 				<div><img src="/petmee/resources/images/admin/dogcara.jpg" /> 제품명 : ${product.productName}</div>
 				<div><img src="/petmee/resources/images/admin/dogcara.jpg" /> 가격 : ${product.price}</div>
@@ -308,3 +267,49 @@ function makeProductModal() {
 		}
 	});
 }
+$("#changeCountChart").click((e) => {
+	myLine.destroy(); myLine = new Chart(ctx,chartData);
+});
+$("#changePriceChart").click((e) => {
+	myLine.destroy(); myLine = new Chart(ctx,chartData2);
+});
+$("#changeCountChart2").click((e) => {
+	myLine.destroy(); myLine = new Chart(ctx2,chartData);
+});
+$("#changePriceChart2").click((e) => {
+	myLine.destroy(); myLine = new Chart(ctx2,chartData2);
+});
+//모달창 닫기
+$(".closeModal").click((e) => {
+	modal.style.display = "none";
+	modal2.style.display = "none";
+	searchDateList = [];
+	searchCountList =[];
+	searchPriceList=[];
+	orderList = [];
+	myLine.destroy();
+	$("#searchOrderTbody").html("");
+});
+window.onclick = (e) => {
+    if (e.target == modal) {
+        modal.style.display = "none";
+        modal2.style.display = "none";
+        searchDateList = [];
+    	searchCountList =[];
+    	searchPriceList=[];
+    	orderList = [];
+    	myLine.destroy();
+    	$("#searchOrderTbody").html("");
+    }
+}
+//모달창 닫기
+$(".closebtn").click((e) => {
+	modal.style.display = "none";
+	modal2.style.display = "none";
+	searchDateList = [];
+	searchCountList =[];
+	searchPriceList=[];
+	orderList = [];
+	myLine.destroy();
+	$("#searchOrderTbody").html("");
+});

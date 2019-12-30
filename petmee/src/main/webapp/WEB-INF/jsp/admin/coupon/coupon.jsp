@@ -127,7 +127,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">상품</a>
+            <a href="#">쿠폰</a>
           </li>
           <li class="breadcrumb-item active">Product</li>
         </ol>
@@ -139,47 +139,29 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton" class="nofresh">제품 입고</button><button id="outputbutton" class="nofresh">제품 출고</button></div>
+            <div class="inout"><button id="inputcouponbutton" class="nofresh">쿠폰등록</button></div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th><input type="checkbox" id="checkall" value="0"/> 제품번호</th>
-                    <th>상품명</th>
-                    <th>대상</th>
-                    <th>분류</th>
-                    <th>가격</th>
-                    <th>재고량</th>
-                    <th>제조사</th>
-                    <th>삭제</th>
+                    <th>쿠폰명</th>
+                    <th>쿠폰번호</th>
+                    <th>할인금액</th>
+                    <th>사용가능기한</th>
+                    <th>등록여부</th>
                   </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                      <th colspan="8"><button id="checkallbutton">전체선택</button><button id="cancelchoice">선택해제</button><button id="deleteSelected">선택삭제</button></th>
-                    </tr>
-                  </tfoot> 
+                <tfoot></tfoot> 
                 <tbody>
-                <c:forEach var="p" items="${list}">
+                <c:forEach var="c" items="${list}">
                   <tr>
-                    <td><input type="checkbox" name="choice" value="${p.productId}"/> &nbsp ${p.productId}</td>
-                    <td><a href="" data-no="${p.productId}" class="updateInfo nofresh">${p.productName}</a></td>
-                    <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
+                    <td> ${c.name}</td>
+                    <td> ${c.no}</td>
+                    <td><fmt:formatNumber value="${c.discount}" pattern="###,###,###"/></td>
+                    <td> ${c.regDate}</td>
                     <td>
-                    	<c:if test="${p.categoryNo == 1}">사료</c:if>
-                    	<c:if test="${p.categoryNo == 2}">간식</c:if>
-                    	<c:if test="${p.categoryNo == 3}">티셔츠</c:if>
-                    	<c:if test="${p.categoryNo == 4}">신발</c:if>
-                    	<c:if test="${p.categoryNo == 5}">액세서리</c:if>
-                    	<c:if test="${p.categoryNo == 6}">목욕</c:if>
-                    	<c:if test="${p.categoryNo == 7}">미용</c:if>
-                    	<c:if test="${p.categoryNo == 8}">위생</c:if>
-                    	<c:if test="${p.categoryNo == 9}">청소</c:if>
-                    	<c:if test="${p.categoryNo == 10}">장난감</c:if>
-                     </td>
-                    <td><fmt:formatNumber value="${p.price}" pattern="###,###,###"/></td>
-                    <td>${p.stock}</td>
-                    <td>${p.company}</td>
-                    <td><a href="delete.do?productId=${p.productId}" id="selectDelete" data-no="${p.productId}">삭제</a></td>
+                    	<c:if test="${c.used == 0}"><span style="color: red;">등록안됨</span></c:if>
+                    	<c:if test="${c.used == 1}"><span style="color: blue; font-weight: bold;">${c.email}</span></c:if>
+                    </td>
                   </tr>               
                 </c:forEach>
                 </tbody>
@@ -206,7 +188,7 @@
                        <div>
                         <form id="pForm">                         
                         <div>쿠폰이름 : <input type="text" name="couponName"/></div>
-                        <div>쿠폰번호 : <input type="text" name="couponNo"/></div>
+                        <div>쿠폰갯수 : <input type="text" name="couponCount"/></div>
                         <div>할인금액 : <input type="text" name="couponDiscount"/></div>
                         <button id="inputcouponlistupbtn" type="button">목록에 올리기</button>
                         </form>
@@ -215,7 +197,7 @@
                               <thead>
                                   <tr>                                    
                                     <th>쿠폰이름</th>
-                                    <th>쿠폰번호</th>                                    
+                                    <th>쿠폰갯수</th>                                    
                                     <th>할인금액</th>
                                   </tr>
                                 </thead>
@@ -226,70 +208,6 @@
                         </div>
                        </div>
                     <button id="couponcompletebtn" class="stopnofresh">완료</button>
-                    <button class="cancelModalbtn">취소</button>
-                  </div>
-                </div>
-              <!-- 모달창 끝 -->            
-              <!-- 입고모달창 시작 -->
-              <div id="inputpopup" class="layer">
-                  <div class="box">
-                       <a href="#" class="stopnofresh"><span>x</span></a>
-                       <div id="inputtitle">제품 입고</div>
-                       <div>
-                        <form id="pForm">                         
-                        <div>품번 : <input type="text" name="productId"/></div>
-                        <div>수량 : <input type="number" name="productcount" min="1" max="50000" /></div>
-                        <button id="inputlistupbtn" type="button">목록에 올리기</button>
-                        </form>
-                        <div id="inputlist">
-                          <table id="inputlisttable">
-                              <thead>
-                                  <tr>                                    
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>입고수량</th>
-                                    <th>제조사</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="inputTbody">                               
-                                  
-                                </tbody>
-                          </table>
-                        </div>
-                       </div>
-                    <button id="completebtn2" class="stopnofresh">완료</button>
-                    <button class="cancelModalbtn">취소</button>
-                  </div>
-                </div>
-              <!-- 모달창 끝 -->            
-              <!-- 출고모달창 시작 -->
-              <div id="outputpopup" class="layer">
-                  <div class="box">
-                       <a href="#" class="stopnofresh"><span>x</span></a>
-                       <div id="inputtitle">제품 출고</div>
-                       <div>
-                        <form id="pForm">                         
-                        <div>품번 : <input type="text" name="outproductId"/></div>
-                        <div>수량 : <input type="number" name="outproductcount" min="0" max="100" /></div>
-                        <button id="outputlistupbtn" type="button">목록에 올리기</button>
-                        </form>
-                        <div id="outputlist">
-                          <table id="inputlisttable">
-                              <thead>
-                                  <tr>                                    
-                                    <th>상품명</th>
-                                    <th>품번</th>                                    
-                                    <th>출고수량</th>
-                                    <th>제조사</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="outputTbody">
-                                  
-                                </tbody>
-                          </table>
-                        </div>
-                       </div>
-                    <button id="completebtn3" class="stopnofresh">완료</button>
                     <button class="cancelModalbtn">취소</button>
                   </div>
                 </div>
@@ -363,6 +281,6 @@
   <!-- Demo scripts for this page-->
   <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
   <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
-  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
+  <script src="<c:url value="/resources/js/admin/coupon.js"/>"></script> 
 </body>
 </html>
