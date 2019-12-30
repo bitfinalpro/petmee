@@ -224,21 +224,4 @@ public class ProductController {
 		return "redirect:product.do";
 	}
 
-	// 쿠폰등록
-	@RequestMapping(value = "/registerCoupon.do", method = RequestMethod.POST)
-	@ResponseBody
-	public void registerCoupon(@RequestBody List<Coupon> userList) {
-		HashMap map = new HashMap();
-		map.put("list", userList);
-		service.registerCoupon(map);
-	}
-	
-	// 쿠폰명, 코드 중복검사
-	@RequestMapping(value = "/checkCoupon.do", method = RequestMethod.POST)
-	@ResponseBody
-	public int checkCoupon(Coupon coupon) {
-		// 중복 : 1 => 쿠폰명, 2=> 쿠폰번호 3 => 쿠폰명, 쿠폰번호  0 => 중복X
-		return service.checkCoupon(coupon);
-	}
-
 }

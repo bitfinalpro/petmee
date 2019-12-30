@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.petmee.repository.dao.CouponDAO">
+    
+<!-- 쿠폰목록 추출 -->       
+       <select id="selectCouponList" resultType="Coupon">
+        select *
+          from tb_coupon
+         order by reg_date desc
+       </select>
+<!-- 쿠폰삭제 -->
+	<delete id="deleteCoupon" parameterType="string">
+		delete 
+		  from tb_coupon
+		 where no = #{no}
+	</delete>       
+<!-- 카테고리 추출  -->
+	<select id="selectCatecories" resultType="Product">
+		select *
+		  from tb_category
+	</select>
+<!-- 제품 정보 추출 -->
+	<select id="selectProductInfo" parameterType="string" resultType="Product">
+		select *
+		  from tb_product
+		 where product_id = #{productId}
+	</select>
+<!-- 제품 입고 -->
+	<update id="plusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock + #{productCnt}
+		 where product_id = #{productId}
+	</update> 
+<!-- 제품 출고 -->
+	<update id="minusCount" parameterType="Product">
+		update tb_product
+		   set stock = stock - #{productCnt}
+		 where product_id = #{productId}
+	</update> 
+<!-- 제품 정보 변경 -->
+	<update id="updateProductInfo" parameterType="Product">
+		update tb_product
+		   set product_Id = #{productId},
+		   	   product_name = #{productName},
+		   	   product_info = #{productInfo},
+		   	   price = #{price},
+		   	   stock = #{stock},
+		   	   company = #{company},
+		   	   category_no = #{categoryNo},
+		   	   animal_no = #{animalNo},
+		   	   sell_condition = #{sellCondition}		   	   
+		 where product_id = #{orgProductId}
+	</update>
+	<!--쿠폰 등록 -->
+	<insert id="registerCoupon" parameterType="Coupon">
+		insert into tb_coupon(no, name, discount)
+		values(#{no}, #{name}, #{discount})
+	</insert>
+	<!-- 쿠폰명 중복검사 -->
+	<select id="checkCouponName" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where name = #{name}
+	</select> 
+	<!-- 쿠폰번호 중복검사 -->
+	<select id="checkCouponNo" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_coupon
+		 where no = #{no}
+	</select> 
+	<!-- 마지막 품번뽑기-->
+	<select id="selectLastNumber" parameterType="int" resultType="string">
+		select product_id
+		  from tb_product
+		 where category_no = #{categoryNo}
+	     order by date desc limit 1
+	</select> 
+	<!-- 품번 중복검사-->
+	<select id="checkProductId" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_product
+		 where product_id = #{productId}
+	</select> 
+</mapper>

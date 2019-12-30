@@ -139,17 +139,15 @@
            상품관리</div>
           <div class="card-body">
             <div class="table-responsive">
-            <div class="inout"><a href="<c:url value="/admin/product/productRegister.do"/>"><button>제품등록</button></a><button id="inputbutton" class="nofresh">제품 입고</button><button id="outputbutton" class="nofresh">제품 출고</button></div>
+            <div class="inout"><button id="inputcouponbutton" class="nofresh">쿠폰등록</button></div>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th><input type="checkbox" id="checkall" value="0"/> 제품번호</th>
-                    <th>상품명</th>
-                    <th>대상</th>
-                    <th>분류</th>
-                    <th>가격</th>
-                    <th>재고량</th>
-                    <th>제조사</th>
+                    <th><input type="checkbox" id="checkall" value="0"/> 쿠폰번호</th>
+                    <th>쿠폰명</th>
+                    <th>할인금액</th>
+                    <th>등록일</th>
+                    <th>사용여부</th>
                     <th>삭제</th>
                   </tr>
                 </thead>
@@ -159,27 +157,17 @@
                     </tr>
                   </tfoot> 
                 <tbody>
-                <c:forEach var="p" items="${list}">
+                <c:forEach var="c" items="${list}">
                   <tr>
-                    <td><input type="checkbox" name="choice" value="${p.productId}"/> &nbsp ${p.productId}</td>
-                    <td><a href="" data-no="${p.productId}" class="updateInfo nofresh">${p.productName}</a></td>
-                    <td><c:if test="${p.animalNo == 1}">강아지</c:if><c:if test="${p.animalNo == 2}">고양이</c:if></td>
+                    <td><input type="checkbox" name="choice" value="${c.no}"/> &nbsp ${c.no}</td>
+                    <td><a href="" data-no="${c.no}" class="updateInfo nofresh">${c.name}</a></td>
+                    <td><fmt:formatNumber value="${c.discount}" pattern="###,###,###"/></td>
+                    <td>${c.regDate}</td>
                     <td>
-                    	<c:if test="${p.categoryNo == 1}">사료</c:if>
-                    	<c:if test="${p.categoryNo == 2}">간식</c:if>
-                    	<c:if test="${p.categoryNo == 3}">티셔츠</c:if>
-                    	<c:if test="${p.categoryNo == 4}">신발</c:if>
-                    	<c:if test="${p.categoryNo == 5}">액세서리</c:if>
-                    	<c:if test="${p.categoryNo == 6}">목욕</c:if>
-                    	<c:if test="${p.categoryNo == 7}">미용</c:if>
-                    	<c:if test="${p.categoryNo == 8}">위생</c:if>
-                    	<c:if test="${p.categoryNo == 9}">청소</c:if>
-                    	<c:if test="${p.categoryNo == 10}">장난감</c:if>
-                     </td>
-                    <td><fmt:formatNumber value="${p.price}" pattern="###,###,###"/></td>
-                    <td>${p.stock}</td>
-                    <td>${p.company}</td>
-                    <td><a href="delete.do?productId=${p.productId}" id="selectDelete" data-no="${p.productId}">삭제</a></td>
+                    <c:if test="${c.used == 0}">미사용</c:if>
+                    <c:if test="${c.used == 1}">사용</c:if>
+                    </td>
+                    <td><a href="delete.do?no=${c.no}" id="selectDelete" data-no="${c.no}">삭제</a></td>
                   </tr>               
                 </c:forEach>
                 </tbody>
@@ -361,8 +349,6 @@
   <script src="<c:url value="/resources/js/admin/sb-admin.min.js" />"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="<c:url value="/resources/js/admin/demo/datatables-demo.js" /> "></script>
-  <script src="<c:url value="/resources/js/admin/demo/chart-area-demo.js"/> "></script>
-  <script src="<c:url value="/resources/js/admin/product.js"/>"></script> 
+  <script src="<c:url value="/resources/js/admin/coupon.js"/>"></script> 
 </body>
 </html>
