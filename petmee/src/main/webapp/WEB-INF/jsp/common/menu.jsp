@@ -6,12 +6,10 @@
       <div class="jbTitle">
            <div id="top_menu">
                <div>
-					<a href="<c:url value='/shopping/shoppingDetail.do'/> "><strong>공지스크롤(쇼핑디테일경로)</strong></a>
 					<c:if test="${user.email eq 'admin'}">
 					<a href="<c:url value='/admin/chart/chart.do'/> "><strong>admin</strong></a>
 					</c:if>          
 					<span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니<span>${user.shoppingCnt}</span></a></span>
-					<span><a href="<c:url value="/shop/shoppinglistdetail/shoppinglistdetail.do" />">주문/결제</a></span>
                 </div>
                 <div>
                 	<c:if test="${empty user}">
@@ -34,14 +32,14 @@
           <div class="menu">
                 <nav>
                     <ul>
-                        <li class="drop01"><a href="<c:url value="/shop/productList.do" />"><span>FOOD</span></a>
+                        <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=1" />"><span>FOOD</span></a>
                             <ul>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=1" />">사료</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=2" />">간식</a></li>
                             </ul>
                         </li>
-                        <li class="drop01"><a href="#">패션</a>
-                            <ul id="sub_gnb">
+                        <li class="drop01"><a href="/shop/productList.do?categoryNo=3">FASHION</a>
+                            <ul id="sub_gnb1">
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=3" />">티셔츠/아우터</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=4" />">신발</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=5" />">악세사리/외출용품</a>
@@ -52,20 +50,20 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="drop01"><a href="#">미용/목욕</a>
-                            <ul>
+                        <li class="drop01"><a href="/shop/productList.do?categoryNo=6">BEAUTY/BATH</a>
+                            <ul id="sub_gnb2">
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=6" />">목욕용품</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=7" />">미용용품</a></li>
                             </ul>
                         </li>
-                        <li class="drop01"><a href="#">위생/배변</a>
-                            <ul>
+                        <li class="drop01"><a href="/shop/productList.do?categoryNo=8">HYGIENE/EVACUATION</a>
+                            <ul id="sub_gnb3">
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=8" />">위생/배변</a></li>
                                 <li><a class="gnb_a" href="<c:url value="/shop/productList.do?categoryNo=9" />">청소용품</a></li>
                             </ul>
                         </li>
-                        <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=10" />">장난감</a></li>
-                        <li class="drop01"><a href="#" />커뮤니티</a>
+                        <li class="drop01"><a href="<c:url value="/shop/productList.do?categoryNo=10" />">TOY</a></li>
+                        <li class="drop01"><a href="<c:url value="/board/noticeboard/notice.do" />">COMMUNITY</a>
                             <ul>
                                 <li><a class="gnb_a" href='<c:url value="/board/noticeboard/notice.do" />'>공지사항</a></li>
                                 <li><a class="gnb_a" href='<c:url value="/board/freeboard/list.do" />'>자유게시판</a></li>
