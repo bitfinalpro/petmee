@@ -32,6 +32,8 @@ List<Board> selectBoard(Page page);
 	List<Board> selectSearchWriter(Search search);
 	List<Board> selectSearchTitle(Search search);
 	List<Board> selectSearchBoth(Search search);
+	
+	int selectListSize(String type);
 
 	
 //	/* 파일 파트 시작 ========================================= */

@@ -59,6 +59,7 @@ public class FreeBoardController {
 		model.addAttribute("pr", pr);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("searchText", searchText);
+		model.addAttribute("listSize", service.selectListSize("free"));
 		page = new Page(pageNo);
 	   }
 	@RequestMapping("/search.do")
@@ -152,7 +153,6 @@ public class FreeBoardController {
 	public List<Comment> commentUpdateAjax(Comment comment) {
 		return service.commentUpdate(comment);
 	}
-	
 	
 		
 }

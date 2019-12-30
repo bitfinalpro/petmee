@@ -87,7 +87,8 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		default: return null;
 		}
 	}
-	
-	
+	public int selectListSize(String type) {
+		return dao.selectListSize(type);
+	}
 
 }

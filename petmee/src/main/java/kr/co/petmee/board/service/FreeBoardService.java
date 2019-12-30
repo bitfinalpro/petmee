@@ -39,6 +39,8 @@ public interface FreeBoardService {
 	 List<Comment> commentUpdate(Comment comment);
 	 
 	 List<Board> searchlistBoard(Page page, Search search);
+	 
+	 int selectListSize(String type); 
 	
 	
 	

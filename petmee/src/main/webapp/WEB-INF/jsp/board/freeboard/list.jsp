@@ -66,10 +66,11 @@
                    <td colspan="5">게시물이 없습니다.</td>
             </tr>
          </c:if>
+         <c:set var="cnt" value="${listSize - (pr.pageNo - 1) * 10}"/>
          <c:forEach var="b" items="${list}">
          <c:if test="${b.type eq 'free'}">
          <tr>
-                <td>${b.no}</td>
+                <td>${cnt}<c:set var="cnt" value="${cnt-1}"/></td>
                 <td><a href="detail.do?no=${b.no}&keyword=${keyword}&searchText=${searchText}">${b.title}</a></td>
                 <td>${b.email}</td>
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
