@@ -3,11 +3,10 @@
 	let cnt = 0
 	let dc = 0
 	let cno;
-	
 	$(".con-box").on("click",".coupon-ch",(e)=> {
 		let ch = $(".coupon-ch").is(":checked")
 		let discount = $(".coupon-ch:checked").val()
-		let allprice = `\\ ${p-discount}`
+		let allprice = `${p-discount}`
 			
 			if(ch) {
 				cnt += 1  
@@ -15,12 +14,13 @@
 				let v = `(-) ${discount}`
 					dc = discount;
 					$('#discount > span:nth-child(2)').html(v);
-					$("#p-price").data("sum",p-discount+2500)
-				$("#p-price").html(allprice);
+					$("#p-price").attr('data-sum',allprice)
+					$("#p-price").html(`\\ ${allprice}`);
 			}
 		if(ch == false) {
 			cnt -= 1
 			$('#discount > span:nth-child(2)').html(`(-) 0`);
+			$("#p-price").attr('data-sum',p)
 			$("#p-price").html(`\\ ${p}`);
 		}
 		if(cnt > 1) {
@@ -28,9 +28,10 @@
 			$(".coupon-ch").prop("checked", false);
 			cnt = 0;
 			$('#discount > span:nth-child(2)').html(`(-) 0`);
+			$("#p-price").attr('data-sum',p)
 			$("#p-price").html(`\\ ${p}`);
 		}
-	})
+	});
 
 // 주소 입력 api (다음)
 function DaumPostcode() {
@@ -74,14 +75,48 @@ function DaumPostcode() {
 			$("#address2").focus();
 		}
 	}).open();
-}		
 	
+}	
+
+
+	
+let pay = $(".payment").val();
+//배송/종합 테이블 넣을값
+	let name; 
+	let phone;
+	let email; 
+	let zipcode; 
+	let address1;
+	let address2;
+	let content;
+	let allDprice;
+
+	console.log(allDprice)
+
+	$(".con-box").on("click","#paymentBtn",(e)=>{
+
+		 	pay = $(".payment").val();
+		//배송/종합 테이블 넣을값
+			name = $("#name").val();
+			phone = $("#phone").val();
+			email = $("#email").val();
+			zipcode = $("#zipcode").val();
+			address1 = $("#address1").val();
+			address2 = $("#address2").val();
+			content = $("#content").val();
+			allDprice = $("#p-price").data("sum");
+			
+			console.log(allDprice)
+			payments();
+		
+}) 
+		
 function payments() {
 	//실제 복사하여 사용시에는 모든 주석을 지운 후 사용하세요
 	BootPay.request({
-		price: `$("#p-price").data("sum")`, //실제 결제되는 가격
+		price: `${allDprice}`, //실제 결제되는 가격
 		application_id: "5e096cdd0627a8002d6829e1",
-		name: '블링블링 마스카라', //결제창에서 보여질 이름
+		name: `${subtitle} 외  ${size - 1}개`, //결제창에서 보여질 이름
 		pg: '',
 		method: '', //결제수단, 입력하지 않으면 결제수단 선택부터 화면이 시작합니다.
 		show_agree_window: 0, // 부트페이 정보 동의 창 보이기 여부
@@ -97,26 +132,19 @@ function payments() {
 			}
 		],
 		user_info: {
-			username: '사용자 이름',
-			email: '사용자 이메일',
-			addr: '사용자 주소',
-			phone: '010-1234-4567'
+			username: `${orName}`,
+			email: `${orEmail}`,
 		},
-		order_id: '고유order_id_1234', //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.
+		order_id: `${orderNo}`, //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.
 		params: {callback1: '그대로 콜백받을 변수 1', callback2: '그대로 콜백받을 변수 2', customvar1234: '변수명도 마음대로'},
-		account_expire_at: '2018-05-25', // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. )
-		extra: {
-		    start_at: '2019-05-10', // 정기 결제 시작일 - 시작일을 지정하지 않으면 그 날 당일로부터 결제가 가능한 Billing key 지급
-			end_at: '2022-05-10', // 정기결제 만료일 -  기간 없음 - 무제한
-	        vbank_result: 1, // 가상계좌 사용시 사용, 가상계좌 결과창을 볼지(1), 말지(0), 미설정시 봄(1)
-	        quota: '0,2,3' // 결제금액이 5만원 이상시 할부개월 허용범위를 설정할 수 있음, [0(일시불), 2개월, 3개월] 허용, 미설정시 12개월까지 허용
-		}
 	}).error(function (data) {
 		//결제 진행시 에러가 발생하면 수행됩니다.
-		console.log(data);
+		 alert("결제를 다시 진행해주십시오")
+		 console.log(data);
 	}).cancel(function (data) {
 		//결제가 취소되면 수행됩니다.
-		console.log(data);
+		 alert("결제가 취소 되었습니다")
+		 location.href = "shoppinglistdetail.do";
 	}).ready(function (data) {
 		// 가상계좌 입금 계좌번호가 발급되면 호출되는 함수입니다.
 		console.log(data);
@@ -136,53 +164,37 @@ function payments() {
 	}).done(function (data) {
 		//결제가 정상적으로 완료되면 수행됩니다
 		//비즈니스 로직을 수행하기 전에 결제 유효성 검증을 하시길 추천합니다.
-		console.log(data);
+
+
+			sendData = {
+						orderId:oid,
+						name:name,
+						phone:phone,
+						email:email,
+						zipcode:zipcode,
+						address1:address1,
+						address2:address2,
+						content:content,
+						couponDc:dc,
+						pay:pay,
+						couponNo:cno,
+						allDprice:allDprice,
+						orderNo:orderNo
+					}
+			$.ajax({
+				
+				url:"payment.do",
+				data:sendData,
+				async: false,
+				success:() => {
+					alert("결제되었습니다.")
+					location.href = "/petmee/main.do";
+					}
+			})	
+	
 	});
 	}
-	
-/*
-	$("#p-box2").on("click","#sd",(e)=>{
-		console.log($("#p-price").data("sum"));
-	});
-*/
-	$(".con-box").on("click","#paymentBtn",(e)=>{
-		payments();
-		
-	let pay = $(".payment").val();
-//배송/종합 테이블 넣을값
-	let name = $("#name").val();
-	let phone = $("#phone").val();
-	let email = $("#email").val();
-	let zipcode = $("#zipcode").val();
-	let address1 = $("#address1").val();
-	let address2 = $("#address2").val();
-	let content = $("#content").val();
-	let allDprice = $("#p-price").data("sum");
-	sendData = {
-				orderId:oid,
-				name:name,
-				phone:phone,
-				email:email,
-				zipcode:zipcode,
-				address1:address1,
-				address2:address2,
-				content:content,
-				couponDc:dc,
-				pay:pay,
-				couponNo:cno,
-				allDprice:allDprice
-			}
-	$.ajax({
-		
-		url:"payment.do",
-		data:sendData,
-		async: false,
-		success:() => {
-			alert("결제되었습니다.")
-			location.href = "/petmee/main.do";
-			}
-	})
-}) 
+
 
 
 
