@@ -16,7 +16,8 @@
 </style>
 <body>
   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
-    <section>
+    <section id="wrap">
+    <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
        <div class="background">
            <h2 class="free"><i class="fas fa-users"></i> 공지게시판</h2>
        </div>

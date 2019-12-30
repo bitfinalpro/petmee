@@ -11,7 +11,6 @@
   <title>Insert title here</title>
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/detail.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
@@ -21,7 +20,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
 <body onload="init();">
-    <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
+    <div id="header"><c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import></div>
     <div id="wrap" class="sub">
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
@@ -77,8 +76,8 @@
 		<tr>
 			<th>판매가</th>
 			<td>
-				<del><em><input value="${product.price}"/></em>원</del> 
-				<span class="txt-price"><em><input name ="price1" value="${product.price - product.dcPrice}" /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
+				<del id="productPrice"><em><input class="priceInput" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price}" />" readonly/></em>원</del> 
+				<span class="txt-price"><em><input class="priceInput" name ="price1" value="<fmt:formatNumber type="number" maxFractionDigits="3" value="${product.price - product.dcPrice}" />"  readonly /> <fmt:formatNumber type="number" maxFractionDigits="3" value=""/></em>원</span> 
 			</td>
 		</tr>
 	</tbody>
@@ -102,8 +101,8 @@
 		<tr>
 			<th>수량 :</th>
 			<td>		
-			<input id="amount" name ="amount" class="excessCnt" type ="hidden" value=1 />
-				<input class="excessCnt subinput" name="excessCnt" value=1 /><span>개</span>
+			<input id="amount" name ="amount" class="excessCnt" type ="hidden" value=1 readonly />
+				<input class="excessCnt subinput" name="excessCnt" value=1 readonly /><span>개</span>
 				<button class="amount_btn" onclick="addtnNofpr.add('amount')" type="button">+</button>
 				<button class="amount_btn" onclick="addtnNofpr.remove('amount')" type="button">-</button>
 				<span class="subinput">(최소준문수량 1개 이상)</span>
@@ -357,10 +356,9 @@
 </div>
 
   
-    <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+    <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 
-	<script>
-
+	<script>	
 	var big;
 	var smallImgs;
 	var bigImg;
@@ -378,8 +376,7 @@
 			}
 		}	
 	}
-	
-	
+
 		function AddtnNofpr(){
 
 			//상품에서 아래 내용 세팅
