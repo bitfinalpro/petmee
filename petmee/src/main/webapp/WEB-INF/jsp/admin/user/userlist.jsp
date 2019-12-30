@@ -147,6 +147,10 @@
             <i class="fas fa-fw fa-table"></i>
             <span>상품관리</span></a>
         </li>
+        <!-- 쿠폰 관리 -->
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value="/admin/coupon/coupon.do"/>"> <i
+					class="fas fa-fw fa-table"></i> <span>쿠폰관리</span></a></li>
       </ul>
   
     <div id="content-wrapper">
