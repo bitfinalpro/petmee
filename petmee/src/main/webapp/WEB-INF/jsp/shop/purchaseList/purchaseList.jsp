@@ -94,11 +94,11 @@ background-color: #202020;
 								
 								<div class="goods-haed">
 								
-								<span><fmt:formatDate value="${plist.regDate }" pattern="yyyy-MM-dd"/></span>
-								<span>상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + plist.discount * plist.productCnt }" />
-								 - <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.discount * plist.productCnt }" />
+								<span><fmt:formatDate value="${plist.orderDate }" pattern="yyyy-MM-dd"/></span>
+								<span>상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + plist.discountRate * plist.productCnt }" />
+								 - <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.discountRate * plist.productCnt }" />
 								 = <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price}" /> 원</span>
-								<span class="float-r"><a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderNo}' />">주문상세보기</a></span>
+								<span class="float-r"><a href="<c:url value='/shop/purchaseList/purchaseDetail.do?orderNo=${plist.orderId}' />">주문상세보기</a></span>
 
 								</div>
 								
@@ -112,8 +112,8 @@ background-color: #202020;
 									<div class="goods-cnt">${plist.productCnt } 개</div>
 									
 									<div class="goods-deli">
-										<div>${plist.status }</div> 
-									<c:if test="${plist.status eq '배송중'}">
+										<div>${plist.delieveryStatus }</div> 
+									<c:if test="${plist.delieveryStatus eq '배송중'}">
 										<a href="#">배송추적</a>
 									</c:if>
 									</div>

@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.petmee.admin.service.OrderService;
 import kr.co.petmee.repository.vo.DeliInfo;
+import kr.co.petmee.repository.vo.Order;
 import kr.co.petmee.repository.vo.Purchase;
 import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shop.service.ShoppingListService;
@@ -18,19 +20,21 @@ import kr.co.petmee.shop.service.ShoppingListService;
 public class PurchaseListController {
 
 	@Autowired
-	private ShoppingListService service;
+	private OrderService service;
+	@Autowired
+	private ShoppingListService service1;
 
 	@RequestMapping("/shop/purchaseList/purchaseList.do")
 	public void PurchaseList(HttpSession session, Model model) {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 
-		Purchase purchase = new Purchase();
-		purchase.setEmail(user.getEmail());
+		Order order = new Order();
+		order.setUserId(user.getEmail());
 
-		List<Purchase> plist = service.purchaseList(purchase);
+		List<Order> plist = service.selectOrder(order);
 
-		for(Purchase p : plist ) {
+		for(Order p : plist ) {
 			System.out.println(p.getProductCnt());
 		}
 		model.addAttribute("plist", plist);
@@ -42,11 +46,11 @@ public class PurchaseListController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 
-		Purchase purchase = new Purchase();
-		purchase.setOrderNo(orderNo);
+		Order order = new Order();
+		order.setOrderId(orderNo);
 		
-		List<Purchase> plist = service.purchaseList(purchase);
-		DeliInfo dlist = service.DeliInfoList(orderNo);
+		List<Order> plist = service.selectOrder(order);
+		DeliInfo dlist = service1.DeliInfoList(orderNo);
 		
 		String a = dlist.getPhone().substring(0,3);
 		String b = dlist.getPhone().substring(3,7);
