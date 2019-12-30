@@ -11,9 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.petmee.admin.service.OrderService;
 import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.DeliInfo;
-import kr.co.petmee.repository.vo.Purchase;
+import kr.co.petmee.repository.vo.Order;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shop.service.ShoppingListService;
@@ -23,6 +24,8 @@ public class ShoppingDetailController {
 
 	@Autowired
 	private ShoppingListService service;
+	@Autowired
+	private OrderService service1;
 	
 	
 
@@ -58,20 +61,20 @@ public class ShoppingDetailController {
 		String orderNO = UUID.randomUUID() + "-" + user.getEmail();
 
 		for (ShoppingList s : list) {
-			Purchase p = new Purchase();
+			Order o = new Order();
 
 			System.out.println(s.getProduct());
 
-			p.setProductId(s.getProduct());
-			p.setContent(s.getSubTitle());
-			p.setProductCnt(s.getAmount());
-			p.setPrice(s.getPrice());
-			p.setEmail(s.getEmail());
-			p.setPayment(pay);
-			p.setDiscount(s.getDcprice());
-			p.setImage(s.getImage());
-			p.setOrderNo(orderNO);
-			service.purchase(p);
+			o.setProductId(s.getProduct());
+			o.setContent(s.getSubTitle());
+			o.setProductCnt(s.getAmount());
+			o.setPrice(s.getPrice());
+			o.setUserId(s.getEmail());
+			o.setPaymentMethod(pay);
+			o.setDiscountRate(s.getDcprice());
+			o.setImage(s.getImage());
+			o.setOrderId(orderNO);
+			service1.insertOrder(o);
 		}
 		deliInfo.setOrderNo(orderNO);
 		service.deliInfo(deliInfo);

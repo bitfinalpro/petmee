@@ -33,5 +33,13 @@ public class OrderServiceImpl implements OrderService{
 	//배송상태 변경
 	public void updateStatus(Order order) {
 		dao.updateStatus(order);
+	}
+
+	public List<Order> selectOrder(Order order) {
+		return dao.selectOrder(order);
+	}
+	//구매 내역 등록
+	public void insertOrder(Order order) {
+		dao.insertOrder(order);
 	}	
 }

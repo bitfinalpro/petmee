@@ -5,12 +5,21 @@ import java.util.List;
 import kr.co.petmee.repository.vo.Order;
 
 public interface OrderDAO {
-	//전체 주문내역
+	// 전체 주문내역
 	List<Order> selectOrderList();
-	//주문 삭제
+
+	// 주문 삭제
 	void deleteOrder(String orderId);
-	//선택주문내역
+
+	// 선택주문내역
 	List<Order> detailOrder(String orderId);
-	//배송상태 변경
-	void updateStatus (Order order);
+
+	// 배송상태 변경
+	void updateStatus(Order order);
+
+	// 주문내역 가져오기
+	List<Order> selectOrder(Order order);
+
+	// 주문내역 등록
+	void insertOrder(Order order);
 }

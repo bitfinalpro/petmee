@@ -212,7 +212,7 @@
 	</script>
 	
 	<script>
-	let p = ${sum};
+	let p = ${sum}+2500;
 	console.log(p)
 	let oid = '${order.email}';
 	console.log(oid)
