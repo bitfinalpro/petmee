@@ -61,3 +61,4 @@
             </p>
         </div>
 </footer>
+<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
