@@ -6,10 +6,6 @@
       <div class="jbTitle">
            <div id="top_menu">
                <div>
-					<c:if test="${user.email eq 'admin'}">
-					<a href="<c:url value='/admin/chart/chart.do'/> "><strong>admin</strong></a>
-					</c:if>          
-					<span><a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">장바구니<span>${user.shoppingCnt}</span></a></span>
                 </div>
                 <div>
                 	<c:if test="${empty user}">
@@ -18,7 +14,15 @@
 	                    <span><a href="<c:url value="/shopping/login/join.do"/>">JOIN</a></span>
                 	</c:if>
                 	<c:if test="${not empty user}">
-	                    <span><a href="<c:url value="/shopping/login/logout.do" />">LOGOUT</a></span>
+	                    <span><a href="<c:url value="/shopping/login/logout.do" />">${user.name}님</a></span>
+	                    <span>/</span>
+	                    <span  style="position:relative;">
+	                    	<a href="<c:url value="/shop/shoppinglist/shoppinglist.do" />">
+	                    	<i class="fas fa-shopping-basket" style="font-size:20px; "></i>
+		                    <div id="userShoppingCnt">${user.shoppingCnt}</div>
+	                    	</a>
+	                    </span>
+	                    
 	                    <span>/</span>
 	                    <span><a href="<c:url value="/shopping/login/mypage.do"/>">MYPAGE</a></span>
                 	</c:if>
