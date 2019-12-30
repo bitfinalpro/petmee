@@ -46,11 +46,7 @@
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="type" value="free" />
-<<<<<<< HEAD
             <input type="hidden" name="email" value="${user.name}" class="write_input" placeholder="작성자" />
-=======
-            <input type="hidden" name="email" class="write_input" placeholder="작성자" value="${board.email}" />
->>>>>>> freeBoard
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>

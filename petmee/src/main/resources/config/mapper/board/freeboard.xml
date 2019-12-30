@@ -6,9 +6,15 @@
 	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
 		from tb_board
-		<!--  where type = "free" -->
+		 where type = "free" 
 		order by topChk desc, no desc
 		limit #{begin}, 10
+	</select>
+	<!-- 게시물 전체 갯수 -->
+	<select id="selectListSize" parameterType="string" resultType="int">
+		select count(*)
+		  from tb_board
+		 where type = #{type}
 	</select>
 
 	<!-- 글 상세 조회 -->
