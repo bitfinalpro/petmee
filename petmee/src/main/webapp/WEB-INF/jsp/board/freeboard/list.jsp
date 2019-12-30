@@ -23,8 +23,8 @@
 
 <body>
   <div id="header">
-        <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
-    </div>
+      <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+  </div>
     <!-- 사이드메뉴 -->
     <section id="wrap" >
             <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
@@ -78,8 +78,13 @@
          </c:if>
           </c:forEach>
         </table>
+        <c:choose>
+        <c:when test="${user.email==null}"> 
+        </c:when>
+        <c:otherwise>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/freeboard/writeform.do"/>'">글 등록</button></div>
-        
+        </c:otherwise>
+        </c:choose>
         <!-- 페이징   -->
         <div id="page">
             	<c:if test="${pr.count != 0 }">
@@ -110,6 +115,5 @@
         <div id="footer" class="footer_wrap clearfix">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
-        <script src="<c:url value='/resources/js/freeboard.js' />"></script>
 </body>
 </html>

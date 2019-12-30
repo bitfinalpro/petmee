@@ -16,19 +16,41 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freewrite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
+<script>
+ function check() {
+	var title = document.create.title;
+	var content = document.create.content;
+	  
+	if(title.value=="") {
+		alert("제목을 입력해주세요.");
+		title.focus();
+		return false;
+	}else if(content.value=="") {
+		alert("내용을 입력해주세요.");
+		content.focus();
+		return false;
+	}else {
+		alert("글이 등록되었습니다.");
+		return true;
+	  }
+  }
+</script>
 
 <body>
  <div id="header">
       <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
  </div>
-
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-         <form method="post" action="write.do" id="" onsubmit="return check()">
+         <form name="create" method="post" action="write.do" onsubmit="return check()">
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="type" value="free" />
+<<<<<<< HEAD
             <input type="hidden" name="email" value="${user.name}" class="write_input" placeholder="작성자" />
+=======
+            <input type="hidden" name="email" class="write_input" placeholder="작성자" value="${board.email}" />
+>>>>>>> freeBoard
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
@@ -47,7 +69,7 @@
                 <a href="<c:url value="/board/freeboard/list.do"/>"><button type="button">취소</button></a>
             </div>
         </div>
-         </form>
+      </form>
     </section>  
     <script>
     $(function(e) {
@@ -66,9 +88,6 @@
     <div id="footer" class="footer_wrap clearfix">
            <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
-        
-        <script src="<c:url value='/resources/js/writeformboard.js' />"></script>
-
 </body>
 </html>
 
