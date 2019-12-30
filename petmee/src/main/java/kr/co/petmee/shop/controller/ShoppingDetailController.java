@@ -34,12 +34,11 @@ public class ShoppingDetailController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
+		String orderNo = UUID.randomUUID() + "-" + user.getEmail();
 		List<ShoppingList> list = service.ShoppingList(user);
-		for(ShoppingList l: list ) {
-			System.out.println(l.getProduct());
-		}
 		List<Coupon> coupon = service.couponList(user);
 
+		model.addAttribute("orderNo", orderNo);
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
@@ -51,14 +50,13 @@ public class ShoppingDetailController {
 
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
 	@ResponseBody
-//	@Autowired
-	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo ) {
+	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo , String orderNo) {
 
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
-		String orderNO = UUID.randomUUID() + "-" + user.getEmail();
+		
 
 		for (ShoppingList s : list) {
 			Order o = new Order();
@@ -73,10 +71,10 @@ public class ShoppingDetailController {
 			o.setPaymentMethod(pay);
 			o.setDiscountRate(s.getDcprice());
 			o.setImage(s.getImage());
-			o.setOrderId(orderNO);
+			o.setOrderId(orderNo);
 			service1.insertOrder(o);
 		}
-		deliInfo.setOrderNo(orderNO);
+		deliInfo.setOrderNo(orderNo);
 		service.deliInfo(deliInfo);
 		service.couponDelete(couponNo);
 		service.ShoppingListDelete(user);
