@@ -11,7 +11,6 @@
   <title>Insert title here</title>
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/detail.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
@@ -21,7 +20,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
 <body onload="init();">
-    <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
+    <div id="header"><c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import></div>
     <div id="wrap" class="sub">
 	<!-- contents// -->
 	<main id="contents" class="goods detail">
