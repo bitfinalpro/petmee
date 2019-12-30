@@ -14,6 +14,13 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
  <style>
+ .reportcontent1 {
+  width: 500px;
+ }
+ .shin {
+   font-size: 12px;
+   color: #999;
+ }
  .s {
    text-align: center;
    margin-bottom: 10px;
@@ -51,6 +58,9 @@
   color: #fff;
   transform: translateY(-7px);
 }
+.recomcontent {
+  
+}
  
  </style>
 </head>
@@ -75,7 +85,8 @@
                </div>
                <div id="types1">
                    <div class="ll">
-                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i>${board.email}</div>
+                   <input type="hidden" id="email" name="email" value="${user.name}" /> 
+                         <div class="left" style="margin-top: 3px;"><i class="far fa-user"></i>${user.name}</div>
                          <div class="right">
                          <div id="view"><i class="far fa-eye"></i> ${board.viewCnt}</div>
                          <div id="report" class="right"><img src="<c:url value="/resources/images/board/common/report.png" />"><button onclick="document.location.href='#popup'">신고</button></div>
@@ -105,10 +116,14 @@
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />  
-                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
-                         <input type="hidden" id="email" value="" /> 
+                         <input type="hidden" id="email" name="email" value="${user.name}" /> 
+                        <textarea  placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
                          <button type="submit" class="comment1" >등록</button>
                       </form>
+                      
+                      
+                      
+                      
                          <!-- 모달창 시작 -->
               <div id="popup" class="layer">
                 <div class="box">
@@ -125,7 +140,7 @@
                      </div>
                      <hr>
                      <div>
-                       <span><strong>사유선택</strong> :<span style="font-size: 12px;"> 대표적인 1가지만 선택해주세요.</span> </span>
+                       <span><strong>사유선택</strong> :<span class="shin"> 대표적인 1가지만 선택해주세요.</span> </span>
                      </div>
                        <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
                      <div>
@@ -166,12 +181,11 @@
                        <div class="reporttype1" data-t="댓글">
                      <div class="reporttitle1" data-type="free">
                        
-                       
                        </div>
                      </div>
                      <hr>
                      <div>
-                       <span><strong>사유선택</strong> : 대표적인 1가지만 선택해주세요. </span>
+                       <span><strong>사유선택</strong> :<span class="shin"> 대표적인 1가지만 선택해주세요.</span> </span>
                      </div>
                          <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
                      <div>
@@ -188,7 +202,9 @@
                           <textarea class="reportcontent1"></textarea>
                         </div>
                      </div>
-                  <input type="button" value="신고" onclick="report_comChk();" />
+                        <div class="wrap">
+                       <button class="ben" onclick="report_comChk();">신고</button>
+                     </div>
                   <a href="#" class="close">닫기</a>
                   </form>
                 </div>                   
