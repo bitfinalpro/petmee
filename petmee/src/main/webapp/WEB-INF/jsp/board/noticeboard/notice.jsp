@@ -90,8 +90,9 @@
            .foot_btn button{width: 80px; height: 30px; margin: 10 0; color: #fff;font-weight: bold;
             background-image: linear-gradient(30deg,#002a50,#006ecf);
             float : right;}</style>
+            <c:if test="${user.email  eq 'admin'}">
         <div class="foot_btn"><a href="<c:url value="/board/noticeboard/writeform.do"/>"><button>글 등록</button></a></div>
-        
+        </c:if>
         <div id="page" >
         <nav>
   <ul class="pagination">
