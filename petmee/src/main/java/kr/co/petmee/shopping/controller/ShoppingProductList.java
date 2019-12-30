@@ -29,7 +29,6 @@ public class ShoppingProductList {
 		List<Image> img = service.ProductListImg(categoryNo);
 		List<Product> pro = service.ProductList(plg);
 		int catepro = pro.get(0).getCategoryNo();
-
 		switch(catepro) {
 	    case 1: 
 	    	model.addAttribute("pr", new PageResult(pageNo, service.productListCount(1),16,10));

@@ -116,6 +116,6 @@
 </nav>
 	</div>
     </section>  
-        <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+        <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 </body>
 </html>
