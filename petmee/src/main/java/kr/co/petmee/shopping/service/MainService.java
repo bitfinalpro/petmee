@@ -19,6 +19,12 @@ public interface MainService {
 	// 각 항목 세일 베스트 리스트
 	List<Product> selectSaleBest();
 	
-	//상품 이미지
+	//상품 최신 이미지
 	List<Image> selectProductFile();
+	
+	//상품 베스트 이미지
+	List<Image> selectProductFile1();
+	
+	//상품 세일 베스트 이미지
+	List<Image> selectProductFile2();
 }

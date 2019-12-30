@@ -13,7 +13,46 @@
    <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
+ <style>
+ .s {
+   text-align: center;
+   margin-bottom: 10px;
+   font-size: 20px;
+ }
+ .wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ben {
+  margin-top: 20px;
+  width: 50px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.ben:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
  
+ </style>
 </head>
    
 <body>
@@ -79,14 +118,14 @@
                         <div class="reporttype" data-type="게시글">
                       <ul>
                         <li><strong>작성자</strong> :<div class="userbox">&nbsp; ${board.email} </div></li>
-                        <li><strong>제 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
+                        <li><strong>제&nbsp;&nbsp; 목</strong>  : <div class="userbox">&nbsp; ${board.title}</div></li>
                       </ul>
                       <input type="hidden" id="reportEmail" value="${board.email}"/>
                       </div>
                      </div>
                      <hr>
                      <div>
-                       <span><strong>사유선택</strong> : 대표적인 1가지만 선택해주세요. </span>
+                       <span><strong>사유선택</strong> :<span style="font-size: 12px;"> 대표적인 1가지만 선택해주세요.</span> </span>
                      </div>
                        <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
                      <div>
@@ -103,8 +142,11 @@
                           <textarea class="reportcontent"></textarea>
                         </div>
                      </div>
-                  <input type="button" value="신고" onclick="report_chk();" />
-                      
+                     <div class="wrap">
+                       <button class="ben" onclick="report_chk();">신고</button>
+                     </div>
+                     
+
                   <a href="#" class="close">닫기</a>
                   </form>
                 </div>                   
