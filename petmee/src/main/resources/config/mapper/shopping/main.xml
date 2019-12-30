@@ -15,7 +15,7 @@
 	<select id="selectBest" parameterType="int" resultType="Product">
 		select *
 			from tb_product pro
-    			inner join tb_purchase pur
+    			inner join tb_order pur
    				 on pro.product_id = pur.product_id
 			group by pro.product_id
              order by pur.product_cnt desc
@@ -24,7 +24,7 @@
 	<select id="selectSaleBest" parameterType="int" resultType="Product">
 		 select *
 			from tb_product pro
-    			inner join tb_purchase pur
+    			inner join tb_order pur
    				 on pro.product_id = pur.product_id
 			where pro.dc_price > 1 and pur.product_cnt > 1
 			group by pro.product_id
@@ -45,7 +45,7 @@
 		select * from tb_product pro
 	inner join tb_image img
 		on pro.product_id = img.product_id
-	inner join tb_purchase pur
+	inner join tb_order pur
    		on pro.product_id = pur.product_id
 		where img.type = 'sum'
    		 group by pro.product_id
@@ -57,7 +57,7 @@
 		select * from tb_product pro
 	inner join tb_image img
 		on pro.product_id = img.product_id
-	inner join tb_purchase pur
+	inner join tb_order pur
    		on pro.product_id = pur.product_id
 		where img.type = 'sum'
    		 group by pro.product_id

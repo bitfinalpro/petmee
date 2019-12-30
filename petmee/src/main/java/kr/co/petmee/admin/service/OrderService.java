@@ -18,4 +18,10 @@ public interface OrderService {
 	List<Order> detailOrder(String orderId);
 	//배송상태 변경
 	void updateStatus(Order order);
+	
+	// 주문내역 가져오기
+	List<Order> selectOrder(Order order);
+
+	// 주문내역 등록
+	void insertOrder(Order order);
 }
