@@ -51,7 +51,6 @@ public class ShoppingDetailController {
 
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
 	@ResponseBody
-//	@Autowired
 	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo ) {
 
 		User user = new User();
