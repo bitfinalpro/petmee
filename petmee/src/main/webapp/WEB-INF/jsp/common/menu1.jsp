@@ -22,9 +22,15 @@
 		                    <div id="userShoppingCnt">${user.shoppingCnt}</div>
 	                    	</a>
 	                    </span>
-	                    
 	                    <span>/</span>
-	                    <span><a href="<c:url value="/shopping/login/mypage.do"/>">MYPAGE</a></span>
+	                   <c:choose>
+							<c:when test="${user.name eq '관리자'}"> 
+							<span><a href="<c:url value="/admin/user/menu.do"/>">ADMIN</a></span>
+							 </c:when>
+							<c:otherwise> 
+							 <span><a href="<c:url value="/shopping/login/mypage.do"/>">MYPAGE</a></span>
+							</c:otherwise>
+						</c:choose>
                 	</c:if>
                 </div>
             </div>
