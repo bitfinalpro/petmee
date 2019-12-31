@@ -11,9 +11,9 @@
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
   <script type="text/javascript" src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-   <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
 <link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
+   <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
  <style>
@@ -70,7 +70,7 @@
    
 <body>
         <div id="header">
-            <c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import>
+            <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
         </div>
 <section id="wrap">
     <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
@@ -215,7 +215,7 @@
               </div>
               </div>
    </section>
-        <div id="footer" class="footer_wrap clearfix">
+        <div id="footer" >
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
          <script>

@@ -62,7 +62,8 @@ z-index: -1;
 	</div>
 
 
-	<section>
+	<section id="wrap">
+	<img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
 		<div id="y-container">
 
 			<div id="y-parcel-board">
@@ -140,7 +141,7 @@ z-index: -1;
 	}
 	</script>
 
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 	<script src="../js/lib/jquery.magnific-popup.js"></script>

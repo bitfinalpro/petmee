@@ -17,7 +17,7 @@
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
 <body>
-   <div id="header"><c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import></div>
+   <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
 
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">

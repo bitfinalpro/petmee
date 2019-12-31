@@ -29,7 +29,7 @@ cursor: pointer;
 <body>
 
 	<div id="header">
-		<c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import>
+		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
 
 
@@ -87,7 +87,7 @@ cursor: pointer;
 	</div>
 	</section>
 
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 
