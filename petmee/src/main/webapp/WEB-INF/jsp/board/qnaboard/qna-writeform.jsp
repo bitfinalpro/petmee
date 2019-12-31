@@ -16,6 +16,7 @@
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
 
+
 <style>
 .wirte_form {width: 70%; margin:  0 auto; }
 .wirte_form #title {width: 100%; height: 30px; margin: 30px 0px; border: 1px solid #999; color: #333; border-radius: 3px 0 0 3px;}
@@ -31,7 +32,26 @@
 background-image: linear-gradient(30deg,#002a50,#006ecf);}
 .btn button:nth-child(2) { margin: 10 0; color: #fff;font-weight: bold;
     background-image: linear-gradient(30deg,#333, #333);}
- </style>    
+ </style>   
+ <script>
+ function check() {
+	var title = document.create.title;
+	var content = document.create.content;
+	  
+	if(title.value=="") {
+		alert("제목을 입력해주세요.");
+		title.focus();
+		return false;
+	}else if(content.value=="") {
+		alert("내용을 입력해주세요.");
+		content.focus();
+		return false;
+	}else {
+		alert("글이 등록되었습니다.");
+		return true;
+	  }
+  }
+</script> 
 <body>
  <div id="header">
       <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
@@ -39,11 +59,11 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
 
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-         <form method="post" action="qna-write.do" id="" onsubmit="return check()">
+         <form name="create" method="post" action="qna-write.do" id="" onsubmit="return check()">
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="type" value="QnA" />
-            <input type="hidden" name="email" value="아린" class="write_input" placeholder="작성자" />
+            <input type="hidden" name="email" value="${user.name}" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>

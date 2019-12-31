@@ -45,11 +45,11 @@
             <tr>
                 <th>NO</th>
                 <th>TITLE</th>
-                <th>email</th>
+                <th>WRITER</th>
                 <th>DATE</th>
                 <th>VIEW</th>
                 <c:choose>
-                 <c:when test="${user.email}">
+                 <c:when test="${user.email eq 'admin'}">
                 <th></th>
                 </c:when>
                 </c:choose>
@@ -59,23 +59,24 @@
 						<td colspan="5">게시물이 없습니다.</td>
 					</tr>				
 				</c:if>
+				 <c:set var="cnt" value="${listSize - (pr.pageNo - 1) * 10}"/>
 			<c:forEach var="b" items="${list}">
 			<c:if test="${b.type eq 'notice'}" >
 				<tr onclick="document.location.href='detail.do?no=${b.no}'">
 					<c:choose>
 					<c:when test="${b.topChk eq 1}" >
-						<td style="display:none">${b.no}</td>
+						<td style="display:none">${cnt}<c:set var="cnt" value="${cnt-1}"/></td>
 						<td><img src="<c:url value="/resources/images/board/notice/dog_img.png"/>" style="height: 70%;"/></td>
 					</c:when>
 					<c:when test="${b.topChk eq 0}" >
-						<td>${b.no}</td>
+						<td>${cnt}<c:set var="cnt" value="${cnt-1}"/></td>
 					</c:when>
 					</c:choose>
 					<td>${b.title}</td>
 					<td>${b.email}</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
 					<td>${b.viewCnt}</td>
-					<c:if test="${user.email}">
+					<c:if test="${user.email eq 'admin'}">
 					<td>
                      <a href="<c:url value="/board/noticeboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
                      <a href="<c:url value="/board/noticeboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>

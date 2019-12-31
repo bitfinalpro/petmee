@@ -13,17 +13,37 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freeupdate.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
+
+<script>
+ function check() {
+	var title = document.create.title;
+	var content = document.create.content;
+	  
+	if(title.value=="") {
+		alert("수정된 제목을 입력해주세요.");
+		title.focus();
+		return false;
+	}else if(content.value=="") {
+		alert("수정된 내용을 입력해주세요.");
+		content.focus();
+		return false;
+	}else {
+		alert("글이 수정되었습니다.");
+		return true;
+	  }
+  }
+</script>
 </head>
 <body>
    <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
 
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-         <form method="post" action="update.do" id="">
+         <form name="create" method="post" action="update.do" id="" onsubmit="return check()">
          <input type="hidden" name="no" value="${board.no}" />
         <div class="wirte_form">
              <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" value='<c:out value="${board.title}" /> '> 
-            <input type="hidden" name="email" id="email" maxlength="29" value="${board.email}"/>
+            <input type="hidden" name="email" id="email" maxlength="29" value="${user.name}"/>
             <textarea name="content" id="summernote"><c:out value="${board.content}" /></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>

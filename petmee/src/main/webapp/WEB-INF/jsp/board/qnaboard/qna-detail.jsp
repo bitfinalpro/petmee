@@ -60,7 +60,7 @@
                    </div>
                    <div class="button">
                      <c:choose>
-                       <c:when test="${board.email == user.email}">
+                       <c:when test="${board.email == user.name}">
                        <a href="qna-updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="qna-delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
@@ -120,6 +120,8 @@
                    </div>
                </div>
                <div>
+               
+               
             <!-- 댓글 신고 모달창  -->
              <div id="popup1" class="layer">
                 <div class="box">
