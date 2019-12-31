@@ -326,8 +326,10 @@
 }
 
 .free {
-	font-size: 30px;
-	padding: 10px 0;
+	width: 58%;
+    font-size: 30px;
+    padding: 10px 0;
+    margin: 0 auto;
 }
 
 #types1 {

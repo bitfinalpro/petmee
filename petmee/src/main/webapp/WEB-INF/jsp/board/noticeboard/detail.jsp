@@ -9,13 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 </head>
 <style>
 </style>
 <body>
-  <div id="header"><c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import></div>
+  <div id="header"><c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import></div>
     <section id="wrap">
     <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
        <div class="background">
@@ -61,6 +64,10 @@
                    </div>
                </div>
    </section>
-        <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+        <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+        <script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
 </body>
 </html>

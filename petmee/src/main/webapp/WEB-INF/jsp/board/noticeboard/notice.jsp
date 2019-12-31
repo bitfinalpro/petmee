@@ -9,8 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -26,11 +30,11 @@
                 <strong>공지사항</strong>
             </div>
             <div>
-                <select name="" id="top_sel">
+                <select id="noSelec" name="" id="top_sel">
                     <option>전체</option>
                 </select>
-                <input type="text"  placeholder="검색어 입력" />
-                <button>검색</button>
+                <input id="noInput" type="text"  placeholder="검색어 입력" />
+                <button id="nobtn">검색</button>
             </div>
         </div>
         <table class="notice_tb">
@@ -118,5 +122,9 @@
 	</div>
     </section>  
         <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+	<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>

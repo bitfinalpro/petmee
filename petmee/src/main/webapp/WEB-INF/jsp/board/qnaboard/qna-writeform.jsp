@@ -10,6 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
@@ -34,7 +36,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
  </style>    
 <body>
  <div id="header">
-      <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+      <c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import>
  </div>
 
     <section id="wrap">
@@ -83,6 +85,9 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
         </div>
         
         <script src="<c:url value='/resources/js/writeformboard.js' />"></script>
+<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -17,7 +17,8 @@
 <%-- 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
  --%>
-
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 
@@ -142,6 +143,9 @@ z-index: -1;
 	<div id="footer" class="footer_wrap clearfix">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
+	<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
 </body>
 
