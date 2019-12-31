@@ -167,63 +167,87 @@
      .ad_infoinput{width:170px;}
      .ad_file {width:300px}
      #CategoryIdBox{display: inline-block;}
-  /*   #pForm #classify {width:100%; margin: 0px 0%;}
-    #pForm input {margin : 0px 0px 0px 7px}
-    #classify strong{float: none; font-size: 16px; color: #000; display: inline-block; margin-top: 0px; margin-right: 0px;}
-    #pForm ul {width: 1070px;
-    margin: 20px auto;  list-style:none;}
-     #pForm ul li {margin:10px; float: left;}
-     #pForm ul li {float: none; font-size: 16px;  color: #000; display: inline-block; margin-top: 20px;}
-     #product_number {width:70px;height: 24px;} */
     </style> 
                   <div class="box">
                        <div id="inputtitle">제품 등록</div>
                         <form id="rForm" action="<c:url value="/admin/product/productRegister2.do"/>" onSubmit="return check();" method="post"
 						enctype="multipart/form-data">    
                         <div id="classify">
-                        <strong>분류:</strong> <select name="categoryNo" id="selectCategory">
+                         <style>
+                       #tbProduct {width:80%;border: 1px solid red;}
+                      .tbProductTh {background-color: slategray;color: #fff;text-align: center;}
+                      .tbProductTr {border:1px solid #ccc}
+                      .tbProductTd{padding-left:20px;}
+                       </style>
+                       <table id="tbProduct">
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">분류</th>
+                       		<td><select name="categoryNo" id="selectCategory">
                           <c:forEach var="c" items="${cList}">
                             <option value="${c.categoryNo}">${c.categoryName}</option>
                            </c:forEach>
-                          </select>
-                          <span>품번 : <p id="CategoryIdBox">fd- </p> <input class="ad_infoinput" type="text" name="productId" value="${lastNumber}" style="width: 50px"/></span>
-                          <span>상품명 : <input class="ad_infoinput" type="text" name="productName"/></span>   
-                          <span>수량 : <input type="number" id="product_number" name="stock" value="1" min="0"></span>
-                          		<span>판매상태 : <select name="sellCondition">
+                          </select></td>                      	
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">품번</th>
+                       		<td class="tbProductTd"><p id="CategoryIdBox">fd- </p> <input class="ad_infoinput" type="text" name="productId" value="${lastNumber}" style="width: 50px"/></span><td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">상품명</th>
+                       		<td class="tbProductTd"><input class="ad_infoinput" type="text" name="productName"/></span></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">수량</th>
+                       		<td class="tbProductTd"><input type="number" id="product_number" name="stock" value="1" min="0"></span></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">판매상태</th>
+                       		<td class="tbProductTd"><select name="sellCondition">
                            		<option value="0">판매대기중</option>
                            		<option value="1">판매중</option>
                            		<option value="2">품절</option>
-                          		</select> </span>
-                          		<span>애완종류 : <select name="animalNo" >
+                          		</select> </span></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">애완종류</th>
+                       		<td class="tbProductTd"><select name="animalNo" >
                            		<option value="1">강아지</option>
                            		<option value="2">고양이</option>
-                           		</select></span>                          	
-                          </div>
-                            <ul>
-                        	<li>
-                        	</li>
-                        	<li>
-                        	</li>
-                        	<li><span>가격 :</span><input class="ad_infoinput" type="text" name="price"/></li>
-                        	
-                        </ul>
-                         <ul>
-                        	<li><span>간략 설명 :</span> <input class="ad_infoinput" type="text" name="productInfo"/></li>
-                        	<li><span>제조사 :</span> <input class="ad_infoinput" type="text" name="company"/></li>
-                        	<li><span>할인 가격 :</span><input class="ad_infoinput" type="text" name="dcPrice"/></li>
-                        </ul>   
-                         <ul>
-                        	<li>
-                        		<span class="file_span">상품 이미지 :</span><input class="ad_file" name="productfile" multiple="multiple"  type="file" />
-                        	</li>
-                        	<li>
-                        	<span  class="file_span">상품 상세 이미지 :</span><input class="ad_file" name="boardfile" multiple="multiple" type="file" />
-                        	</li>
-                        </ul>   
+                           		</select></span></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">가격</th>
+                       		<td class="tbProductTd"></span><input class="ad_infoinput" type="text" name="price"/></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">간략 설명</th>
+                       		<td class="tbProductTd"><input class="ad_infoinput" type="text" name="productInfo"/></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">제조사</th>
+                       		<td class="tbProductTd"><input class="ad_infoinput" type="text" name="company"/></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">할인 가격</th>
+                       		<td class="tbProductTd"><input class="ad_infoinput" type="text" name="dcPrice"/></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">상품 이미지</th>
+                       		<td class="tbProductTd"><input class="ad_file" name="productfile" multiple="multiple"  type="file" /></td>
+                       	</tr>
+                       	<tr class="tbProductTr">
+                       		<th class="tbProductTh">상품 상세 이미지</th>
+                       		<td class="tbProductTd"><input class="ad_file" name="boardfile" multiple="multiple" type="file" /></td>
+                       	</tr>
+                       </table>  
                       <button id="completebtn1">완료</button>
                       <button class="cancelRegisterbtn"type="button">취소</button>
                         </form>     
-                       </div>                    
+                       </div>   
+                       
+                      
+                       
+                                        
                   </div>
               
               <!-- 등록 폼 끝 -->            
