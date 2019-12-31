@@ -139,7 +139,7 @@
 		</c:if>
         </div>
     </section>  
-        <div id="footer" class="footer_wrap clearfix">
+        <div id="footer">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
         <script src="<c:url value='/resources/js/freeboard.js' />"></script>

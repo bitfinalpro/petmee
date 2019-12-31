@@ -100,7 +100,7 @@ background-image: linear-gradient(30deg,#002a50,#006ecf);}
       });
      </script>
   
-    <div id="footer" class="footer_wrap clearfix">
+    <div id="footer">
            <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
         

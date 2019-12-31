@@ -10,6 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 <link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freeupdate.css" />">
@@ -81,7 +82,7 @@
       });
      </script>
   
-     <div id="footer" class="footer_wrap clearfix">
+     <div id="footer">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
      </div>
 <script src="../js/lib/jquery.magnific-popup.js"></script>
