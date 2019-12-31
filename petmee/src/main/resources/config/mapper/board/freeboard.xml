@@ -6,7 +6,7 @@
 	<select id="selectBoard" resultType="Board" parameterType="Page">
 		select *
 		from tb_board
-		 where type = "free" 
+		 where type = '${type}' 
 		order by topChk desc, no desc
 		limit #{begin}, 10
 	</select>
@@ -32,7 +32,7 @@
 	</select>
 	
 	<!-- 게시글 등록 -->
-	<insert id="insertBoard" parameterType="Board">
+	<insert id="insertBoard" useGeneratedKeys="true" keyProperty="no" parameterType="Board">
 		insert into tb_board (
 		title, email, content, topChk, type
 		) values (
@@ -127,7 +127,7 @@
 		) values(
 		#{no}, #{oriName}, #{name}, #{path}, #{sumpath})
 	</insert>
-   
+
 </mapper>
 
 

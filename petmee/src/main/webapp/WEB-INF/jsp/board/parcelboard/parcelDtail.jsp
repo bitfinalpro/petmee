@@ -58,6 +58,7 @@
 							src="<c:url value='${flist.path}${flist.oriName}'/>">
 					</div>
 				</c:forEach>
+						<div id="Freecontent">${board.content}</div>
 				  <div class="button">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>

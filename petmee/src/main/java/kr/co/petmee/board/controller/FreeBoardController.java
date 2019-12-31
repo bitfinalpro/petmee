@@ -37,6 +37,7 @@ public class FreeBoardController {
 			                 @RequestParam(value="keyword",  defaultValue="0") int keyword, @RequestParam(value="searchText",  defaultValue="") String searchText) {
 		int count = 0;
 		if(keyword == 0 || searchText == "") {
+			page.setType("free");
 			model.addAttribute("list", service.listBoard(page));
 			count = dao.selectBoardCount("free");
 		}

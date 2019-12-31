@@ -6,6 +6,7 @@ import lombok.Data;
 public class Page {
 	private int pageNo;
 	private int listSize;
+	private String type;
 	
 	public int getListSize() {
 		return listSize;
