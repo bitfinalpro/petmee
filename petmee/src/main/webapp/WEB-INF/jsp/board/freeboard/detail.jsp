@@ -61,9 +61,7 @@
   color: #fff;
   transform: translateY(-7px);
 }
-.recomcontent {
-  
-}
+
  
  </style>
 </head>
@@ -75,7 +73,7 @@
 <section id="wrap">
     <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
        <div class="background">
-           <h2 class="free"><i class="fas fa-users"></i> 자유게시판</h2>
+           <h2 class="free" style="margin-left: 215px"><i class="fas fa-users"></i> 자유게시판</h2>
        </div>
    </section>
 <section id="layout">
@@ -108,7 +106,7 @@
                    </div>
                    <div class="button">
                       <c:choose>
-                        <c:when test="${board.email == user.email}">
+                        <c:when test="${board.email == user.name}">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/freeboard/list.do?keyword=${keyword}&searchText=${searchText}" />"><button class="b1">목록</button></a>

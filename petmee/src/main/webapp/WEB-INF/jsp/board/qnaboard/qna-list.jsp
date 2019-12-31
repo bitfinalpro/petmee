@@ -92,11 +92,12 @@
                    <td colspan="5">게시물이 없습니다.</td>
             </tr>
          </c:if>
+         <c:set var="cnt" value="${listSize - (pr.pageNo - 1) * 10}"/>
          <c:forEach var="b" items="${list}">
          <c:if test="${b.type eq 'QnA'}">
          <tr>
-                <td>${b.no}</td>
-                <td><a href="qna-detail.do?no=${b.no}">${b.title}</a></td>
+                <td>${cnt}<c:set var="cnt" value="${cnt-1}"/></td>
+                <td><a href="qna-detail.do?no=${b.no}&keyword=${keyword}&searchText=${searchText}">${b.title}</a></td>
                 <td>${b.email}</td>
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
@@ -104,8 +105,13 @@
             </c:if>
                 </c:forEach>
         </table>
+        <c:choose>
+        <c:when test="${user.email==null}">
+        </c:when>
+        <c:otherwise>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 등록</button></div>
-        
+        </c:otherwise>
+        </c:choose>        
         <!-- 페이징   -->
         <div id="page">
             	<c:if test="${pr.count != 0 }">

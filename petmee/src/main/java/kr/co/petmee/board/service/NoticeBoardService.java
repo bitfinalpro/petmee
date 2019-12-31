@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.Search;
 
 @Service
 public interface NoticeBoardService {
@@ -24,6 +25,8 @@ public interface NoticeBoardService {
 	
 	void deleteBoard(int no);
 
-
+    List<Board> searchlistBoard(Page page, Search search);
+	 
+	int selectListSize(String type); 
 
 }
