@@ -53,7 +53,7 @@
 			<!-- 메인 -->
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value="/admin/chart/chart.do"/>"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>main</span></a></li>
+					class="fas fa-fw fa-chart-area"></i> <span>메인</span></a></li>
 			<!-- 회원 관리 -->
 			<li class="nav-item"><a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
 					<i class="fas fa-user"></i> <span>회원관리</span>
@@ -64,8 +64,9 @@
 			</a></li>
 			<!-- 주문 관리 -->
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value="/admin/order/order.do"/>"> <i
-					class="fas fa-fw fa-table"></i> <span>주문관리</span></a></li>
+				href="<c:url value="/admin/order/order.do"/>"> 
+				<i class="fas fa-cart-plus"></i>
+				<span>주문관리</span></a></li>
 			<!-- 상품 관리 -->
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value="/admin/product/product.do"/>"> <i

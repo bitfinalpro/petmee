@@ -52,9 +52,29 @@ margin: 25px 0;
 z-index: -1;
 }
 </style>
+<script>
+ function check() {
+	var title = document.create.title;
+	var content = document.create.content;
+	  
+	if(title.value=="") {
+		alert("제목을 입력해주세요.");
+		title.focus();
+		return false;
+	}else if(content.value=="") {
+		alert("내용을 입력해주세요.");
+		content.focus();
+		return false;
+	}else {
+		alert("글이 등록되었습니다.");
+		return true;
+	  }
+  }
+</script>
 <title>Pet & Me</title>
 
 </head>
+
 
 <body>
 	<div id="header">
@@ -72,7 +92,7 @@ z-index: -1;
 
 			<div id="y-content">
 				<form action="/petmee/board/parcelboard/parcelwrite.do" method="post"
-					name="SermernoteVo" enctype="multipart/form-data">
+					name="SermernoteVo" enctype="multipart/form-data" onsubmit="return check()">
 					<div id="yy-img">
 						<img class="yy-img">
 						<div id="img_ment">썸네일을 넣어주세요</div>
@@ -82,7 +102,7 @@ z-index: -1;
 					<input type="hidden" name="type" value="parcel" />
 					<div id="y-p-title">
 						<input type="text" placeholder="제목을 입력하세요" name="title"  />
-						<input type="hidden" name="writer" value="${user.email}" />
+						<input type="hidden" name="writer" value="${user.name}" />
 					</div>
 					<hr />
 					<br>

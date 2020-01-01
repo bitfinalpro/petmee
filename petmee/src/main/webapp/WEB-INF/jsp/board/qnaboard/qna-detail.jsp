@@ -62,7 +62,7 @@
                    </div>
                    <div class="button">
                      <c:choose>
-                       <c:when test="${board.email == user.name}">
+                       <c:when test="${board.email == user.name || board.email == user.name eq 'admin' }">
                        <a href="qna-updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="qna-delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
@@ -74,14 +74,14 @@
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
                         <input type="hidden" id="no" value="${board.no}" />
-                        <c:if test="${board.email eq 'admin' }">
+                        <c:if test="${user.email eq 'admin'}">
                         <textarea placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
-                         <input type="hidden" id="email" /> 
+                         <input type="hidden" id="email" name="email" value="${user.name}" /> 
                          <button type="submit" class="comment1" >등록</button>
                          </c:if>
                       </form>
                       
-                                   <!-- 모달창 시작 -->
+             <!-- 모달창 시작 -->
               <div id="popup" class="layer">
                 <div class="box">
                   <div class="s"><strong>신고하기</strong></div>
@@ -124,42 +124,6 @@
                    </div>
                </div>
                <div>
-               
-               
-            <!-- 댓글 신고 모달창  -->
-             <div id="popup1" class="layer">
-                <div class="box">
-                  <div class="s"><strong>신고하기</strong></div>
-                  <hr>
-                   <div class="reporttype1" data-t="댓글">
-                     <div class="reporttitle1" data-type="QnA">
-                     
-                     </div>
-                     </div>
-                     <hr>
-                     <div>
-                       <span><strong>사유선택</strong> : 대표적인 1가지만 선택해주세요. </span>
-                     </div>
-                       <form action='<c:url value="/admin/user/reportlist.do"/>' method="post" name="reportform">
-                     <div>
-                        <ul class="reportli">
-                          <li><input type="radio" name="report1" value="음란성 댓글"> 음란성 댓글
-                          <li><input type="radio" name="report1" value="광고성 댓글"> 광고성 댓글
-                          <li><input type="radio" name="report1" value="욕설/반말/부적절한 언어"> 욕설/반말/부적절한 언어
-                          <li><input type="radio" name="report1" value="도배성 댓글"> 도배성 댓글
-                          <li><input type="radio" name="report1" value="명예훼손/사생활 침해 및 저작권 침해"> 명예훼손/사생활 침해 및 저작권 침해
-                        </ul>
-                        <hr>
-                        <span><strong>기타 내용</strong> : </span>
-                        <div>
-                          <textarea class="reportcontent1"></textarea>
-                        </div>
-                     </div>
-                  <input type="button" value="신고" onclick="report_comChk();" />
-                  <a href="#" class="close">닫기</a>
-                 </form>
-               </div>                   
-             </div>
            </div>
    </section>
         <div id="footer">
