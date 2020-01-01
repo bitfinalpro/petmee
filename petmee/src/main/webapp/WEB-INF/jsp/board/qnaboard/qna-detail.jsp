@@ -73,10 +73,12 @@
                      </c:choose>                    
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
-                        <input type="hidden" id="no" value="${board.no}" />  
-                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
+                        <input type="hidden" id="no" value="${board.no}" />
+                        <c:if test="${board.email eq 'admin' }">
+                        <textarea placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
                          <input type="hidden" id="email" /> 
                          <button type="submit" class="comment1" >등록</button>
+                         </c:if>
                       </form>
                       
                                    <!-- 모달창 시작 -->
