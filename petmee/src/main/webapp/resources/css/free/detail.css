@@ -326,8 +326,10 @@
 }
 
 .free {
-	font-size: 30px;
-	padding: 10px 0;
+	width: 58%;
+    font-size: 30px;
+    padding: 10px 0;
+    margin: 0 auto;
 }
 
 #types1 {
@@ -486,11 +488,10 @@
 	display: inline-block;
 }
 
-<!--
-신고하기 모달창 -->.s {
+<!-- 신고하기 모달창 -->
+.s {
 	width: 30%;
 	text-align: center;
-	margin: 0 auto;
 	padding-bottom: 10px;
 	font-size: 20px;
 }
@@ -500,7 +501,7 @@
 }
 
 .reportcontent {
-	width: 420px;
+	width: 500px;
 	height: 70px;
 	resize: none;
 	border: solid 1px #e5e5e5;
@@ -513,7 +514,7 @@
 }
 
 .reportli {
-	margin-left: 75px;
+	margin-left: 80px;
 }
 
 .username>ul>li {
@@ -535,6 +536,7 @@ ul, li {
 }
 
 a {
+	
 	text-decoration: none;
 	color: inherit;
 }

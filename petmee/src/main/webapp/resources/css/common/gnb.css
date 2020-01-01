@@ -11,7 +11,21 @@ header{
 	z-index: 999;
 }
 
-#sub_gnb {left:12%;}
+#userShoppingCnt{width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: -7px;
+    left: 12px;
+    color: #fff;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    font-weight: bold;
+    position: absolute;
+    background-color: red;}
+
+#sub_gnb1 {left:12%;}
+#sub_gnb2 {left:31%;}
+#sub_gnb3 {left:51%;}
 .jbTitle {
             width: 100%;
           text-align: center;
@@ -112,10 +126,22 @@ width: 30%;
   .drop01 {height: 49px;}
   
 
-    footer {width: 100%; height: 200px; margin-top: 130px; background-color: #252525;} 
-  .foot_logo {width: 100%; height: 162px; font-size: 0px; clear: both;} 
-  .flogo {width: 20%; float: left;}
-  .flogo img { display: inline-block; margin: 20px auto; font-size: 16px;}
-  .foot_txt {width: 70%; color: #ccc; font-size: 16px; float: left;}
-  .bar_span {color: #ccc;}
-  .foot_txt2 {width: 100%; border-top: 2px solid #ccc; text-align: center; color: #ccc;}
+    footer {width: 100%; height: 300px; margin-top: 130px; background-color: #252525;} 
+  .foot_logo {width: 100%; height: 260px; font-size: 0px; clear: both;} 
+  .flogo {width: 30%; padding-left: 120px; float: left; text-align: center;}
+  .flogo img {width: 42%; display: inline-block; margin: 20px 0 20px -24px;; font-size: 16px;}
+  .foot_txt {width: 90%; color: #ccc; font-size: 16px; float: left;}
+  .bar_span {color: #fff;}
+  .foot_txt2 {width: 100%; border-top: 1px solid #ccc; text-align: center; color: #fff; padding-top: 8px;}
+ .footerList {width:62%; margin-top: 2%; float: right;}
+  .footerList{color:#fff; font-size:16px;}
+  .footerList .footg1 {float:left; margin: 0px 25px;}
+  .footerList .footg1 > a {color:#fff}
+  .footerList .footg2 {float:none; margin-top: 15px; text-align: center;}
+  .footerList .footg2 > li{margin-top: 5px;}
+  .footerList .footg2 > li > a{color:#fff}
+  
+  
+  
+  
+  

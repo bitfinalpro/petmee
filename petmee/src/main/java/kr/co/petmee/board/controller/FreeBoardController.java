@@ -37,6 +37,7 @@ public class FreeBoardController {
 			                 @RequestParam(value="keyword",  defaultValue="0") int keyword, @RequestParam(value="searchText",  defaultValue="") String searchText) {
 		int count = 0;
 		if(keyword == 0 || searchText == "") {
+			page.setType("free");
 			model.addAttribute("list", service.listBoard(page));
 			count = dao.selectBoardCount("free");
 		}
@@ -53,11 +54,13 @@ public class FreeBoardController {
 			model.addAttribute("pr", pr);
 			page = new Page(pageNo);
 		}
+	
 		
 		PageResult pr = new PageResult(pageNo, count);
 		model.addAttribute("pr", pr);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("searchText", searchText);
+		model.addAttribute("listSize", service.selectListSize("free"));
 		page = new Page(pageNo);
 	   }
 	@RequestMapping("/search.do")
@@ -92,7 +95,7 @@ public class FreeBoardController {
 	@RequestMapping("/write.do")
 	public String write(Board board, HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		board.setEmail(user.getEmail());
+		board.setEmail(user.getName());
 		service.insertBoard(board);
 		return "redirect:list.do";
 	}
@@ -151,7 +154,6 @@ public class FreeBoardController {
 	public List<Comment> commentUpdateAjax(Comment comment) {
 		return service.commentUpdate(comment);
 	}
-	
 	
 		
 }

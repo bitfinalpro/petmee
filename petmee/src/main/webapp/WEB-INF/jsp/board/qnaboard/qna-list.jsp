@@ -10,6 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Pet Me</title>
@@ -35,7 +37,7 @@
 
     #page {width: 60%; margin: 30px auto; text-align: center;}
 
-    aside {width: 150px; position: absolute; top: 73%; left: 30px; background-color: #fff;}
+    aside {width: 150px; position: absolute; top: 78%; left: 30px; background-color: #fff;}
     aside > div {width: 150px; height: 28px; text-align: center;  background-color: #333; color: #fff;}
     aside > div strong {vertical-align: middle}
     aside > ul li {text-align: center; height: 30px; border-bottom: 2px solid #eee;}
@@ -47,7 +49,7 @@
 </style>
 <body>
   <div id="header">
-        <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+        <c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import>
     </div>
     <!-- 사이드메뉴 -->
     <section id="wrap" >
@@ -90,11 +92,12 @@
                    <td colspan="5">게시물이 없습니다.</td>
             </tr>
          </c:if>
+         <c:set var="cnt" value="${listSize - (pr.pageNo - 1) * 10}"/>
          <c:forEach var="b" items="${list}">
          <c:if test="${b.type eq 'QnA'}">
          <tr>
-                <td>${b.no}</td>
-                <td><a href="qna-detail.do?no=${b.no}">${b.title}</a></td>
+                <td>${cnt}<c:set var="cnt" value="${cnt-1}"/></td>
+                <td><a href="qna-detail.do?no=${b.no}&keyword=${keyword}&searchText=${searchText}">${b.title}</a></td>
                 <td>${b.email}</td>
                 <td><i class="far fa-clock"></i> <fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /> </td>
                 <td><i class="far fa-eye"></i> ${b.viewCnt}</td>
@@ -102,8 +105,13 @@
             </c:if>
                 </c:forEach>
         </table>
+        <c:choose>
+        <c:when test="${user.email==null}">
+        </c:when>
+        <c:otherwise>
         <div class="foot_btn"><button type="button" onclick="location.href='<c:url value="/board/qnaboard/qna-writeform.do"/>'">글 등록</button></div>
-        
+        </c:otherwise>
+        </c:choose>        
         <!-- 페이징   -->
         <div id="page">
             	<c:if test="${pr.count != 0 }">
@@ -131,9 +139,13 @@
 		</c:if>
         </div>
     </section>  
-        <div id="footer" class="footer_wrap clearfix">
+        <div id="footer">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
         <script src="<c:url value='/resources/js/freeboard.js' />"></script>
+        <script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
 </body>
 </html>

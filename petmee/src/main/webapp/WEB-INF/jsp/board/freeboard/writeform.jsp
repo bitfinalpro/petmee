@@ -10,25 +10,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+  <link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
+<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/free/freewrite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
 </head>
+<script>
+ function check() {
+	var title = document.create.title;
+	var content = document.create.content;
+	  
+	if(title.value=="") {
+		alert("제목을 입력해주세요.");
+		title.focus();
+		return false;
+	}else if(content.value=="") {
+		alert("내용을 입력해주세요.");
+		content.focus();
+		return false;
+	}else {
+		alert("글이 등록되었습니다.");
+		return true;
+	  }
+  }
+</script>
 
 <body>
  <div id="header">
       <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
  </div>
-
     <section id="wrap">
         <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-         <form method="post" action="write.do" id="" onsubmit="return check()">
+         <form name="create" method="post" action="write.do" onsubmit="return check()">
         <div class="wirte_form">
             <input type="text" name="title" id="title" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="type" value="free" />
-            <input type="hidden" name="email" class="write_input" placeholder="작성자" />
+            <input type="hidden" name="email" value="${user.name}" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
@@ -47,7 +68,7 @@
                 <a href="<c:url value="/board/freeboard/list.do"/>"><button type="button">취소</button></a>
             </div>
         </div>
-         </form>
+      </form>
     </section>  
     <script>
     $(function(e) {
@@ -63,12 +84,13 @@
       });
      </script>
   
-    <div id="footer" class="footer_wrap clearfix">
+    <div id="footer">
            <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
+        <script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         
-        <script src="<c:url value='/resources/js/writeformboard.js' />"></script>
-
 </body>
 </html>
 

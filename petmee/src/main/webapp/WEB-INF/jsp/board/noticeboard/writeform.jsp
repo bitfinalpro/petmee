@@ -10,6 +10,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
+	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/board/notice.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/dist/summernote-lite.css" />">
 <script src="<c:url value="/resources/css/dist/summernote-lite.js" />"></script>
@@ -24,7 +27,7 @@
             <input type="text" name="title" class="write_input" placeholder="제목을 입력해 주세요!" maxlength="29" />
             <input type="hidden" name="type" value="notice" />
             <input type="checkbox" name="topChk" value="1" id="topchk" /> 공지
-       		<input type="hidden" name="email" value="신초원" class="write_input" placeholder="작성자" />
+       		<input type="hidden" name="email" value="${user.name}" class="write_input" placeholder="작성자" />
             <textarea name="content" id="summernote"></textarea>
             <div class="files">
                 <div><i class="fas fa-download"></i></div>
@@ -58,6 +61,11 @@
         focus: true 
       });
      </script>
-        <div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+        <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+	<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

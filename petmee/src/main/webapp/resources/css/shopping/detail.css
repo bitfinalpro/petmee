@@ -28,7 +28,10 @@ address {font-style:normal;}
 tt, code, kbd, samp, pre {font-family:"Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";}
 [type=file] {cursor:pointer;}
 .hide {position:absolute !important;left:-9999px;}
-
+.priceInput {width: 23%}
+#productPrice{text-decoration:none;}
+#productPrice {display:block; }
+#productPrice > em > input{text-decoration:line-through;}
 /* button */
 .btn-area {position:relative;display:block;font-size:0;}
 .btn-area:after {content:'';display:block;clear:both;}
@@ -154,7 +157,7 @@ tt, code, kbd, samp, pre {font-family:"Lato", "Noto Sans KR", sans-serif, Malgun
 .goods.detail .bottombuybtn .bbuybtn:after {content:'';display:block;clear:both;}
 
 .goods.detail .bottombuybtn .bbuybtn .txt-total {float:left;margin-left:100px;display:inline-block;height:70px;line-height:70px;color:#666;font-size:14px;font-weight:300;}
-.goods.detail .bottombuybtn .bbuybtn .txt-total input:nth-child(1){width: 80px; display: inline-block; margin-left: 10px; color: #000; font-size: 18px; font-weight: 400; border: none;}
+.goods.detail .bottombuybtn .bbuybtn .txt-total input:nth-child(1){width: 24%; display: inline-block; margin-left: 10px; color: #000; font-size: 18px; font-weight: 400; border: none;}
 .goods.detail .bottombuybtn .bbuybtn .txt-total input:nth-child(2){width: 30px; display: inline-block; margin-left: 10px; color: #000; font-size: 18px; font-weight: 400; border: none;}
 
 .goods.detail .bottombuybtn .bbuybtn .btn-area {display:none;position:absolute;top:15px;right:0;}

@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/productList.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
+	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 	<script src="<c:url value="/resources/js/common/slick.js" />"></script>
 	<script src="<c:url value="/resources/js/common/slick.min.js" />"></script>
     <script src="<c:url value="/resources/js/shopping/main/shoppingProductList.js" />"></script>
@@ -43,7 +44,21 @@
         </div>
         <div class="product_line">
           <img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" /><img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" /><img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" />
-          <span>FOOD</span>
+          <span>
+          <c:choose>
+			<c:when test="${catepro eq 1}">FEED(사료)</c:when>
+			<c:when test="${catepro eq 2}">SNACK(간식)</c:when>
+			<c:when test="${catepro eq 3}">SHIRT/OUTER(티/아우터)</c:when>
+			<c:when test="${catepro eq 4}">SHOES(신발)</c:when>
+			<c:when test="${catepro eq 5}">ACCESSORY(악세사리)</c:when>
+			<c:when test="${catepro eq 6}">BEAUTY(미용)</c:when>
+			<c:when test="${catepro eq 7}">BATH(목욕)</c:when>
+			<c:when test="${catepro eq 8}">HYGENE/EVACUATION(위생/배변)</c:when>
+			<c:when test="${catepro eq 9}">CLEANING(청소)</c:when>
+			<c:when test="${catepro eq 10}">TOY(장난감)</c:when>
+			<c:otherwise> ... </c:otherwise>
+  		  </c:choose>
+          </span>
           <img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" /><img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" /><img src="${pageContext.request.contextPath}/resources/images/shopping/list/ico_heart.jpg" />
         </div>
         <ul id="bodyContents">

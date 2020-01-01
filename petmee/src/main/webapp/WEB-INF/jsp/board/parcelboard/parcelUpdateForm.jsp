@@ -10,6 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
 <link href="<c:url value='/resources/css/parcel/parcelWriteForm.css' />" rel="stylesheet" />
 
 	
@@ -67,7 +69,7 @@ cursor: pointer;
 		</div>
 	</section>
 
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 	
@@ -85,6 +87,10 @@ cursor: pointer;
 		location.href = "/petmee/board/parcelboard/parcelList.do";
 	});
     </script>
+    <script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>

@@ -13,7 +13,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/shopping/shoppingList/shopingpayment.css'/>">
-
+<script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js" type="application/javascript"></script>
 <title>(주)펫미</title>
 
 </head>
@@ -36,9 +36,13 @@
 					<div id="shoppinglist" class="float-l">
 						<hr class="hr1" />
 						<c:set var="sum" scope="page" value="0" />
+						<c:set var="title" scope="page" value="" />
+						<c:set var="size" scope="page" value="0" />
 						<c:forEach var="ylist" items="${list}">
 
 							<c:set var="sum" scope="page" value="${sum + ylist.price }" />
+							<c:set var="title" scope="page" value="${ylist.subTitle }" />
+							<c:set var="size" scope="page" value="${size + 1 }" />
 							<div class="y-content-box">
 
 								<div class="floatbox">
@@ -179,22 +183,26 @@
 					<div id="paymentbox" class="float-r">
 						<h2 class="h2-title">결제방식</h2>
 						<hr />
-						<div>
+						
+						<!-- <div>
 							<label for="p-naverapy">네이버페이</label> <input type="radio"
 								name="pay" value="p-naverapy" id="p-naverapy" class="payment" />
-						</div>
+						</div> -->
+						
 						<div>
 							<label for="p-kakaopay">카카오페이</label> <input type="radio"
-								name="pay" value="p-kakaopay" id="p-kakaopay" class="payment" />
+								name="pay" value="p-kakaopay" id="p-kakaopay" class="payment" checked="checked"/>
 						</div>
-						<div>
+						
+						<!--<div>
 							<label for="p-cash">무통장 입금</label> <input type="radio" name="pay"
 								id="p-cash" value="p-cash" class="payment" />
 						</div>
 						<div>
 							<label for="p-card">카드결제</label> <input type="radio" name="pay"
 								id="p-card" value="p-card" class="payment" />
-						</div>
+						</div> -->
+						
 					</div>
 				</div>
 			</div>
@@ -212,10 +220,17 @@
 	</script>
 	
 	<script>
-	let p = ${sum};
-	console.log(p)
+	let p = ${sum}+2500;
 	let oid = '${order.email}';
-	console.log(oid)
+	let orderNo = '${orderNo}'
+	let subtitle = '${title}'
+	let size = '${size}'
+	let orName = '${order.name}'
+	let orEmail = '${order.email}'
+	console.log("주문번호",orderNo)
+	console.log("타이틀",subtitle)
+	console.log("리스트 사이즈",size) 
+	
 	</script>
 	
 	<script

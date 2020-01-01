@@ -34,7 +34,10 @@ public class ParcelBoardController {
 
 	@RequestMapping("parcelList.do")
 	public void parcelList(@RequestParam(value="pageNo", defaultValue="1") int pageNo, Model model) {
-		List<Board> bylist = service.listBoard(new Page(pageNo));
+		
+		Page p = new Page(pageNo);
+		p.setType("parcel");
+		List<Board> bylist = service.listBoard(p);
 		
 		for (Board b : bylist) { 
 			
@@ -113,17 +116,13 @@ public class ParcelBoardController {
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 경로
 				String ysumpath = "/resources/upload/sum/";
 				String sumpath = context.getRealPath(ysumpath);
-				System.out.println(sumpath);
 //			DB에 파일 정보 저장
 //				객체생성
 				Filevo filevo = new Filevo();
@@ -137,6 +136,7 @@ public class ParcelBoardController {
 				filevo.setSumpath(ysumpath);
 //				f.setPath(); 게시판 에서 
 
+				System.out.println("파일번호썸"+filevo.getNo());
 //				DB에 실제 저장
 				service.insertFile(filevo);
 
@@ -153,17 +153,13 @@ public class ParcelBoardController {
 				String orgName = file.getOriginalFilename();
 //			jsp 에서 보내오는 name명
 				String Name = file.getName();
-				System.out.println("name : " + Name);
 //			파일 사이즈
 				long size = file.getSize();
-				System.out.println("size" + size);
 //			저장되는 파일명
 				String fileName = UUID.randomUUID() + orgName;
-				System.out.println("fileName :" + fileName);
 //			저장되는 파일경로
 				String ypath = "/resources/upload/boardfile/";
 				String path = context.getRealPath(ypath);
-				System.out.println(path);
 //			DB에 파일 정보 저장
 //				객체생성
 				Filevo filevo = new Filevo();
@@ -176,7 +172,8 @@ public class ParcelBoardController {
 //				저장된 경로
 				filevo.setPath(ypath);
 //				f.setSumpath(sumpath);
-
+				
+				System.out.println("파일번호내부"+filevo.getNo());
 //				DB에 실제 저장
 				service.insertFile(filevo);
 

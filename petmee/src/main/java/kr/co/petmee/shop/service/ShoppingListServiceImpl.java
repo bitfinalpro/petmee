@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.DeliInfoDAO;
-import kr.co.petmee.repository.dao.PurchaseDAO;
 import kr.co.petmee.repository.dao.ShoppingListDAO;
 import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.DeliInfo;
-import kr.co.petmee.repository.vo.Purchase;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -22,8 +20,6 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 	ShoppingListDAO dao1;
 	@Autowired
 	DeliInfoDAO dao2;
-	@Autowired
-	PurchaseDAO dao3;
 
 	public List<ShoppingList> ShoppingList(User user) {
 		return dao1.selectShoppingList(user);
@@ -63,16 +59,6 @@ public class ShoppingListServiceImpl implements ShoppingListService {
 //	배송지 등록
 	public void deliInfo(DeliInfo deliInfo) {
 		dao2.insertDeliInfo(deliInfo);
-	}
-
-//	구매 내역 등록 
-	public void purchase(Purchase purchase) {
-		dao3.insertPurchase(purchase);
-	}
-
-//  구매내역 가져오기
-	public List<Purchase> purchaseList(Purchase purchase) {
-		return dao3.selectPurchase(purchase);
 	}
 
 //	배송정보 가져오기

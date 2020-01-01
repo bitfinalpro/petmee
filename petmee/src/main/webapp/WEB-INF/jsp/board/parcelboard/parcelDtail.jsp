@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp"%>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp"%>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
 	<link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
 <title>Pet Me</title>
 <style>
@@ -26,9 +28,12 @@
 	<div id="header">
 		<c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
 	</div>
-	<section>
+	<section id="wrap">
+	<img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
        <div class="background">
-           <h2 class="free"><i class="fas fa-users"></i> 분양게시판</h2>
+           <h2 class="free" style="width: 57%; margin: 0 auto; font-size: 30px; text-align: left; padding: 10px 0;">
+           <i class="fas fa-users"></i> 분양게시판
+           </h2>
        </div>
    </section>
 
@@ -58,6 +63,7 @@
 							src="<c:url value='${flist.path}${flist.oriName}'/>">
 					</div>
 				</c:forEach>
+						<div id="Freecontent">${board.content}</div>
 				  <div class="button">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
@@ -75,7 +81,7 @@
 			</div>
 	</section>
 
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
 	</div>
 	<script>
@@ -92,6 +98,10 @@
 		});
 	</script>
 	<script src="<c:url value='/resources/js/parcelcomment.js' />"></script>
+	<script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
 </body>
 
 </html>

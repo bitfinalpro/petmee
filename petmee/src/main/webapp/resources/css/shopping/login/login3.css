@@ -1,0 +1,238 @@
+@charset "UTF-8";
+@import url(base.css);
+@import url(ui/animate.css);
+@import url(ui/slick.css);
+@import url(ui/mCustomScrollbar.css);
+@import url(ui/magnific-popup.css);
+@import url(ui/justifiedGallery.min.css);
+@import url(//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css);
+@import url(common1.css);
+
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 300; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf") format("opentype"); }
+
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf") format("opentype"); }
+
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf") format("opentype"); }
+
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 700; src: url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2") format("woff2"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff") format("woff"), url("//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf") format("opentype"); }
+
+@font-face { font-family: 'NanumMyeongjo'; src: url("../../static/font/NanumMyeongjo.eot") format("eot"); src: url("../../static/font/NanumMyeongjo.woff") format("woff"); }
+
+/*2018-12-03 OH*/
+@font-face {
+ font-family: 'NotoSansCJKkr-Bold';
+ src: url(../../static/font/NotoSansCJKkr-Bold.eot);
+ src: url(../../static/font/NotoSansCJKkr-Bold.eot?#iefix) format('embedded-opentype'),
+      url(../../static/font/NotoSansCJKkr-Bold.woff) format('woff'),
+      url(../../static/font/NotoSansCJKkr-Bold.ttf) format('truetype');
+}
+
+@font-face {
+ font-family: 'Roboto-Bold';
+ src: url(../../static/font/Roboto-Bold.eot);
+ src: url(../../static/font/Roboto-Bold.eot?#iefix) format('embedded-opentype'),
+      url(../../static/font/Roboto-Bold.woff) format('woff'),
+      url(../../static/font/Roboto-Bold.ttf) format('truetype');
+}
+
+/*``````````````````````````````//*/
+
+/* .modal_wrap {
+    display: table-cell;
+    vertical-align: middle;
+    position: static;
+    width: 50%;
+} */
+/* .black{
+    position: absolute;
+    width: 230vh;
+    height: 230vh;
+    top:-50px;
+    left: -500px;
+    z-index: -9999;
+    opacity: 0.5;
+    background-color: black;
+} */
+/* .pop-con-modal { 
+    position: fixed; 
+    width: 100%; 
+    border-radius: 0; 
+    z-index: 9999999; 
+    text-align: center; 
+    top: 50px; 
+    left: 500px; 
+    margin: 0 auto; 
+} */
+.pop-con-modal, .pop-con-modal .modal-dialog {
+    max-width: 510px; 
+}
+.pop-con-modal .modal-dialog { 
+    background-color: #999;
+    padding: 70px; 
+}
+.pop-con-modal .mfp-close { 
+    position: relative; 
+    font-size: 30px; 
+    top: -30px;
+    left: 200px; 
+    color: #fff;
+    background-color: #000; 
+    font-family: 'Noto Sans KR', sans-serif; 
+}
+.pop-con-modal .pop-head { 
+    padding: 0; 
+    text-align: center; 
+    font-size: 48px; 
+    font-weight: 100; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    margin-bottom: 40px; 
+}
+.pop-con-modal .btn { 
+    margin-top: 30px; 
+    line-height: 60px; 
+    height: auto; 
+    display: block; 
+    color: #fff; 
+    width: 100%; 
+    font-size: 18px; 
+    letter-spacing: -0.4px; 
+    border: 1px solid #222; 
+    background-color: #222;
+}
+
+
+/* 로그인 박스 */
+.login-box .inputbox { 
+    position: relative; 
+    padding-top: 20px; 
+    margin-top: 30px; 
+    text-align: left; 
+}
+.login-box .inputbox input, .login-box .inputbox input:hover, .login-box .inputbox input:active, .login-box .inputbox input:focus { 
+    background-color: transparent; 
+}
+.login-box .inputbox label, .login-box .inputbox input { 
+    -webkit-transition: 200ms all; 
+    transition: 200ms all; 
+}
+.login-box .inputbox > label { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    line-height: 1.2; 
+    color: #999; 
+    font-size: 14px; 
+}
+.login-box .inputbox > input { 
+    height: 40px; 
+    line-height: 40px; 
+    font-size: 18px; 
+    width: 100%; 
+    border: 0; 
+    padding: 0; 
+    border-bottom: 1px solid #d8d8d8; 
+}
+.login-box .inputbox > input:hover, .login-box .inputbox > input:focus, .login-box .inputbox > input:active { 
+    border-color: #222; 
+}
+.login-box .inputbox > input:hover + label, .login-box .inputbox > input:focus + label, .login-box .inputbox > input:active + label { 
+    color: #222; 
+}
+
+
+/* 로그인 폼*/
+#login-pop .util { 
+    letter-spacing: -0.4px; 
+    font-weight: 300; 
+    margin-top: 20px; 
+    line-height: 22px; 
+}
+#login-pop .util .left { 
+    float: left; 
+}
+#login-pop .util .right { 
+    float: right; 
+}
+#login-pop .util .right > a{ 
+    color: #fff;
+}
+#login-pop .btn { 
+    border: 1px solid #fff; 
+    background-color: transparent; 
+    -webkit-transition: 400ms all; 
+    transition: 400ms all; 
+}
+#login-pop .btn:hover { 
+    background-color: #fff; 
+    color: black; 
+}
+/* #login-pop .modal-dialog, #login-pop .mfp-close, #login-pop a { 
+    color: #fff; 
+} */
+#login-pop .chk_area input[type='checkbox'] + label:before { 
+    background-image: url("/petmee/resources/images/shopping/login/icon/chk.png"); 
+}
+#login-pop .chk_area input[type='checkbox']:checked + label:before { 
+    background-image: url("/petmee/resources/images/shopping/login/icon/chk_on.png"); 
+}
+#login-pop .modal-dialog { 
+    background-color: black; 
+}
+#login-pop .inputbox input::-webkit-input-placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+#login-pop .inputbox input::-moz-placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+#login-pop .inputbox input:-ms-input-placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+#login-pop .inputbox input:-moz-placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+#login-pop .inputbox > label { 
+    color: rgba(255, 255, 255, 0.4); 
+}
+#login-pop .inputbox > input { 
+    color: #fff; 
+}
+#login-pop .inputbox > input:hover, #login-pop .inputbox > input:focus, #login-pop .inputbox > input:active { 
+    border-color: rgba(216, 216, 216, 0.7); 
+}
+
+#login-pop .inputbox > input:hover + label, #login-pop .inputbox > input:focus + label, #login-pop .inputbox > input:active + label { 
+    color: rgba(255, 255, 255, 0.7); 
+}
+#login-pop .inputbox > input { 
+    border-bottom: 1px solid rgba(216, 216, 216, 0.3); 
+}
+#login-pop .join_linkbox { 
+    margin-top: 20px; 
+    background-size: cover; 
+    background-color: #e4e5e0; 
+    background-image: url(../images/member/login_banner.jpg); 
+    background-repeat: no-repeat; 
+    line-height: 1; 
+    font-size: 12px; 
+    text-align: left; 
+}
+#login-pop .join_linkbox a { 
+    display: block; 
+    color: #666; 
+    padding: 20px; 
+}
+#login-pop .join_linkbox i { 
+    position: relative; 
+    left: 0; 
+    font-size: 20px; 
+    transition: 500ms all; 
+    vertical-align: text-bottom; 
+    -webkit-transition: 500ms all; 
+}
+#login-pop .join_linkbox:hover i { 
+    left: 5px; 
+}
+#login-pop .join_linkbox .f_24 { 
+    margin-bottom: 5px; 
+}

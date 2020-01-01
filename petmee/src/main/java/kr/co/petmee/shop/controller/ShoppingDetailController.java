@@ -11,9 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.petmee.admin.service.OrderService;
 import kr.co.petmee.repository.vo.Coupon;
 import kr.co.petmee.repository.vo.DeliInfo;
-import kr.co.petmee.repository.vo.Purchase;
+import kr.co.petmee.repository.vo.Order;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shop.service.ShoppingListService;
@@ -23,6 +24,8 @@ public class ShoppingDetailController {
 
 	@Autowired
 	private ShoppingListService service;
+	@Autowired
+	private OrderService service1;
 	
 	
 
@@ -31,9 +34,11 @@ public class ShoppingDetailController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
+		String orderNo = UUID.randomUUID() + "-" + user.getEmail();
 		List<ShoppingList> list = service.ShoppingList(user);
 		List<Coupon> coupon = service.couponList(user);
 
+		model.addAttribute("orderNo", orderNo);
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("list", list);
 		model.addAttribute("order", user);
@@ -45,30 +50,31 @@ public class ShoppingDetailController {
 
 	@RequestMapping("/shop/shoppinglistdetail/payment.do")
 	@ResponseBody
-//	@Autowired
-	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo ) {
+	public void payment(HttpSession session, DeliInfo deliInfo, String pay, String couponNo , String orderNo) {
 
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
 		List<ShoppingList> list = service.ShoppingList(user);
-		String orderNO = UUID.randomUUID() + "-" + user.getEmail();
+		
 
 		for (ShoppingList s : list) {
-			Purchase p = new Purchase();
+			Order o = new Order();
 
-			p.setProductId(s.getProduct());
-			p.setContent(s.getSubTitle());
-			p.setProductCnt(s.getAmount());
-			p.setPrice(s.getPrice());
-			p.setEmail(s.getEmail());
-			p.setPayment(pay);
-			p.setDiscount(s.getDcprice());
-			p.setImage(s.getImage());
-			p.setOrderNo(orderNO);
-			service.purchase(p);
+			System.out.println(s.getProduct());
+
+			o.setProductId(s.getProduct());
+			o.setContent(s.getSubTitle());
+			o.setProductCnt(s.getAmount());
+			o.setPrice(s.getPrice());
+			o.setUserId(s.getEmail());
+			o.setPaymentMethod(pay);
+			o.setDiscountRate(s.getDcprice());
+			o.setImage(s.getImage());
+			o.setOrderId(orderNo);
+			service1.insertOrder(o);
 		}
-		deliInfo.setOrderNo(orderNO);
+		deliInfo.setOrderNo(orderNo);
 		service.deliInfo(deliInfo);
 		service.couponDelete(couponNo);
 		service.ShoppingListDelete(user);

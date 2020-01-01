@@ -33,9 +33,18 @@ public class MainServiceImpl implements MainService {
 		return dao.selectSaleBest();
 	}
 	
-	// 파일
+	// 세일 이미지 파일
 	public List<Image> selectProductFile() {
 		return dao.mainSelectProductFile();
+	}
+	// 베스트 이미지 파일
+	public List<Image> selectProductFile1() {
+		return dao.mainSelectProductFile1();
+	}
+	
+	// 세일 베스트 이미지 파일
+	public List<Image> selectProductFile2() {
+		return dao.mainSelectProductFile2();
 	}
 
 }

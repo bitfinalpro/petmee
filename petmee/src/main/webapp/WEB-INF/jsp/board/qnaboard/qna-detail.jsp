@@ -10,6 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
@@ -23,9 +25,10 @@
 
 <body>
         <div id="header">
-            <c:import url="/WEB-INF/jsp/common/menu.jsp"></c:import>
+            <c:import url="/WEB-INF/jsp/common/menu1.jsp"></c:import>
         </div>
-<section>
+<section id="wrap">
+    <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
        <div class="background">
            <h2 class="free"><i class="fas fa-users"></i> Q&A게시판</h2>
        </div>
@@ -59,7 +62,7 @@
                    </div>
                    <div class="button">
                      <c:choose>
-                       <c:when test="${board.email == user.email}">
+                       <c:when test="${board.email == user.name}">
                        <a href="qna-updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="qna-delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/qnaboard/qna-list.do" />"><button class="b1">목록</button></a>
@@ -70,10 +73,12 @@
                      </c:choose>                    
                    </div>
                      <form id="crForm" method="post" action="comment_regist.do" >
-                        <input type="hidden" id="no" value="${board.no}" />  
-                        <textarea type="text" placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
+                        <input type="hidden" id="no" value="${board.no}" />
+                        <c:if test="${board.email eq 'admin' }">
+                        <textarea placeholder="댓글을 입력해주세요" class="comment" id="content"></textarea>
                          <input type="hidden" id="email" /> 
                          <button type="submit" class="comment1" >등록</button>
+                         </c:if>
                       </form>
                       
                                    <!-- 모달창 시작 -->
@@ -119,6 +124,8 @@
                    </div>
                </div>
                <div>
+               
+               
             <!-- 댓글 신고 모달창  -->
              <div id="popup1" class="layer">
                 <div class="box">
@@ -155,7 +162,7 @@
              </div>
            </div>
    </section>
-        <div id="footer" class="footer_wrap clearfix">
+        <div id="footer">
         <c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import>
         </div>
          <script>
@@ -166,6 +173,10 @@
         
         <script src="<c:url value='/resources/js/freeboard.js' />"></script>
         <script src="<c:url value='/resources/js/admin/userreport.js' />"></script>
+        <script src="../js/lib/jquery.magnific-popup.js"></script>
+	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>	
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
 </body>
 
 </html>

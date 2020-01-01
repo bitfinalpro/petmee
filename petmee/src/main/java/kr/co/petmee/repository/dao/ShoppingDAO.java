@@ -22,8 +22,14 @@ public interface ShoppingDAO {
 	// 메인 각 항목 세일베스트 리스트
 	List<Product> selectSaleBest();
 	
-	// 메인이미지파일
+	// 메인 최신 이미지파일
 	List<Image> mainSelectProductFile();
+
+	// 메인 베스트 이미지파일
+	List<Image> mainSelectProductFile1();
+
+	// 메인 베스트 이미지파일
+	List<Image> mainSelectProductFile2();
 	
 	// 상품 상세
 	Product shoppingDetail(String productId);

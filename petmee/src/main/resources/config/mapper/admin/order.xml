@@ -32,4 +32,17 @@
 		set delievery_status = #{delieveryStatus}
 		where order_id = #{orderId}
 	</update>
+	
+		<!-- 구매내역 가져오기(id) -->
+	<select id="selectOrder" parameterType="Order" resultType="Order"> 
+		SELECT * FROM tb_order where user_id = #{userId} or order_id = #{orderId} order by order_date desc
+		<!-- SELECT * FROM tb_purchase where email = #{email}; -->
+	</select>
+	
+	<!-- 구매내역 insert -->
+	<insert id="insertOrder" parameterType="Order">
+		INSERT INTO tb_order (product_id, product_cnt, content, price, user_id, payment_method, discount_rate, image, order_id)
+		 VALUES (#{productId},#{productCnt},#{content},#{price},#{userId},#{paymentMethod},#{discountRate},#{image},#{orderId})
+	</insert>
+	
 </mapper>

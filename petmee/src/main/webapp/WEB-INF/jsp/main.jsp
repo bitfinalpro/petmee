@@ -8,7 +8,7 @@
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
 	<meta name="google" value="notranslate"/>
-	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/base.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/gnb.css" />">
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/slick.css" />">
@@ -75,7 +75,7 @@
     	<div class="slide">
           <div class="product_slide ">
             <a href="<c:url value="shop/shoppingDetail.do?productId=${best.productId}" />">
-              <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+              <div class="over-hidden"><img src="<c:url value='${mlist[status.index].path}${mlist[status.index].oriName}'/>" class="scale"></div>
               <div class="product_text">
                 <strong>${best.productName}</strong>
                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${best.price}" /></span>
@@ -122,7 +122,8 @@
      	 		<a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden">
+                      <img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -147,7 +148,7 @@
               <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -172,7 +173,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -197,7 +198,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -222,7 +223,7 @@
                     <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${flist[status.index].path}${flist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -290,12 +291,10 @@
 </section>
 <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
  
-<!-- <script src="../js/lib/jquery-1.11.1.min.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
 	<script src="../js/lib/jquery.easing.1.3.js"></script>
 	
 	<script src="../js/lib/wow.min.js"></script>
-	<!-- <script src="../js/lib/slick.min.js"></script> -->
 	<script src="../js/lib/jquery.mCustomScrollbar.min.js"></script>
 	<script src="../js/lib/modernizr.custom.js"></script>
 	<script src="../js/lib/placeholders.min.js"></script>

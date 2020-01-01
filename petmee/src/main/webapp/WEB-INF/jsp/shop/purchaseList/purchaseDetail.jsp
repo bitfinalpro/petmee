@@ -99,8 +99,8 @@
 					<div class="content-box">
 
 						<c:forEach var="plist" items="${plist}">
-							<c:set var="price1" value="${price1 + (plist.price + (plist.productCnt * plist.discount))}" scope="page" />
-							<c:set var="dc_price1" value="${dc_price1 + plist.discount * plist.productCnt}"
+							<c:set var="price1" value="${price1 + (plist.price + (plist.productCnt * plist.discountRate))}" scope="page" />
+							<c:set var="dc_price1" value="${dc_price1 + plist.discountRate * plist.productCnt}"
 						
 								scope="page" />
 
@@ -108,10 +108,10 @@
 
 								<div class="goods-haed">
 
-									<span><fmt:formatDate value="${plist.regDate }"
+									<span><fmt:formatDate value="${plist.orderDate }"
 											pattern="yyyy-MM-dd" /></span>
-	   									 <span>주문번호 : ${plist.orderNo}</span>
-										 <span class="float-r">상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + (plist.productCnt * plist.discount)}" /> 원</span> 
+	   									 <span>주문번호 : ${plist.orderId}</span>
+										 <span class="float-r">상품 가격 : <fmt:formatNumber type="number" maxFractionDigits="3" value="${plist.price + (plist.productCnt * plist.discountRate)}" /> 원</span> 
 								</div>
 
 								<div class="goods-body">
@@ -126,8 +126,8 @@
 									<div class="goods-cnt">${plist.productCnt }개</div>
 
 									<div class="goods-deli">
-										<div>${plist.status }</div>
-										<c:if test="${plist.status eq '배송중'}">
+										<div>${plist.delieveryStatus }</div>
+										<c:if test="${plist.delieveryStatus eq '배송중'}">
 											<a href="#">배송추적</a>
 										</c:if>
 									</div>
