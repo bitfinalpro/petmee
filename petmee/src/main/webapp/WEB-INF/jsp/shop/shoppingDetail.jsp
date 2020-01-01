@@ -14,8 +14,9 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/detail.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
-<script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
 <script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>   
+	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
+<script src="<c:url value="/resources/js/shopping/main/soppingDetail.js" />"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>   
@@ -359,6 +360,8 @@
     <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 
 	<script>	
+	
+	
 	var big;
 	var smallImgs;
 	var bigImg;
@@ -376,6 +379,7 @@
 			}
 		}	
 	}
+	
 
 		function AddtnNofpr(){
 
