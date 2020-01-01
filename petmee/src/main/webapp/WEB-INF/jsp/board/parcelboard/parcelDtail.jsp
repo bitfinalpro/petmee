@@ -65,9 +65,16 @@
 				</c:forEach>
 						<div id="Freecontent">${board.content}</div>
 				  <div class="button">
+				  <c:choose>
+				     <c:when test="${board.email == user.name || board.email == user.name eq 'admin' }">
                        <a href="updateform.do?no=${board.no}"><button class="b1">수정</button></a>
                        <a href="delete.do?no=${board.no}"><button class="b1">삭제</button></a>
                        <a href="<c:url value="/board/parcelboard/parcelList.do" />"><button class="b1">목록</button></a>
+                       </c:when>
+                       <c:otherwise>
+                       <a href="<c:url value="/board/parcelboard/parcelList.do" />"><button class="b1">목록</button></a>
+                       </c:otherwise>
+				  </c:choose>
                    </div>
 
 			 <form id="crForm" method="post" action="comment_regist.do" >

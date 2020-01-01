@@ -101,7 +101,8 @@ public class FreeBoardController {
 	}
 	
 	@RequestMapping("/detail.do")
-	public void detail(int no, int keyword, String searchText, Model model, HttpSession session) {
+
+	public void detail(int no, int keyword, String searchText, Model model, HttpSession session, Board board) {
 		model.addAttribute("board", service.detailBoard(no));
 		model.addAttribute("comment", service.commentList(no));
 		model.addAttribute("keyword", keyword);
