@@ -56,19 +56,26 @@ cursor: pointer;
 					</a>
 					</c:if>
 					</c:forEach>
-					
 				</div>
+				<c:choose>
+				<c:when test="${user.email == null}">
+				</c:when>
+				<c:otherwise>
 				<br>
-				<button id="y-writeform" >글쓰기</button>
+				<button id="y-writeform" >글등록</button>
 				<br>
+				</c:otherwise>
+				</c:choose>
 
 				<div id="board-search">
-					<form action="" name="search">
-						<select name="" id="">
-							<option value="">전체</option>
-						</select> <input type="text" name="" />
-						<button>검색</button>
-					</form>
+						<select name="searchkeyword" id="top_sel">
+							<option value="0">전체</option>
+							<option value="1">작성자</option>
+                            <option value="2">제목</option>
+                            <option value="3">작성자+제목</option>
+						</select>
+					  <input type="text" id="searchtext" placeholder="검색어 입력" />
+						<button id="searchbutton">검색</button>
 				</div>
 			</div>
 

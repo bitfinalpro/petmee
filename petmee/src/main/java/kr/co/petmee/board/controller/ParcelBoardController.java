@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -92,7 +94,7 @@ public class ParcelBoardController {
 	}
 
 	@RequestMapping("parcelwrite.do")
-	public String parcelwrite(SermernoteVo sermernoteVo) throws Exception {
+	public String parcelwrite(SermernoteVo sermernoteVo,Board board, HttpSession session) throws Exception {
 //		게시판 정보
 		Board getBoard = new Board();
 		getBoard.setTitle(sermernoteVo.getTitle());
