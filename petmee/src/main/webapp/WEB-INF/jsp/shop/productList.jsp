@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/productList.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/shopping/login/join.css " />" rel="stylesheet">
+	<script src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
 	<script src="<c:url value="/resources/js/common/slick.js" />"></script>
 	<script src="<c:url value="/resources/js/common/slick.min.js" />"></script>
     <script src="<c:url value="/resources/js/shopping/main/shoppingProductList.js" />"></script>
