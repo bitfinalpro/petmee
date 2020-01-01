@@ -107,9 +107,6 @@ h4{
 
 /* selectBox */
 .review_form__submit_container {
-    position: relative;
-    top: 50px;
-    height: 35px;
 }
 
 .review_form__add_image_container {
@@ -248,12 +245,28 @@ span.star, span.camera, .sprite_comment {
 .review_form__post_review_label {
     vertical-align: middle;
 }
-.review_form__submit {
-        color: white;
+
+.right-box{
+	float: right;
+}
+
+.btnArea{
+	position: relative;
+	display:inline-block;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 35px;
+    background: #3f3f3f;
+    color: white;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    background: #ff6874;
+    vertical-align: middle;
+    transition: background-color 0.2s;
+}
+.btnArea > a{
+	color: #fff;
 }
 .review_form__submit {
     position: relative;
@@ -280,7 +293,6 @@ button, input {
 	padding: 10px;
 	width: 100%;
 	text-align: center;
-	border-top: 10px solid #dadada;
 }
 
 
@@ -384,4 +396,18 @@ button, input {
 
 #holoscope > a {
 	font-size: 80px;
+}
+
+.prdInfo{
+    width: 70%;
+    float: left;
+    padding: 10px;
+    margin-left: 20px;
+}
+.prdInfo strong{
+	font-size: 30px;
+}
+.prdThumb{
+	width: 20%;
+    float: left;
 }

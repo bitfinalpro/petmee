@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.petmee.repository.dao.ReviewBoardDAO;
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ReviewBoard;
 
 @Service
@@ -52,13 +55,6 @@ public class ReviewBoardServiceImpl implements ReviewBoardService {
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	public List<Comment> commentDelete(Comment comment) {
 		dao.deleteComment(comment.getCommentNo());
 		return dao.selectComment(comment.getNo());
@@ -77,7 +73,15 @@ public class ReviewBoardServiceImpl implements ReviewBoardService {
 	public List<Comment> commentList(int no) {
 		return dao.selectComment(no);
 	}
-	
+	@Override
+	public List<Image> SelectProductImage(String productId) {
+		return dao.selectProductImage(productId);
+	}
+
+	@Override
+	public Product ShoppingDetail(String productId) {
+		return dao.shoppingDetail(productId);
+	}
 }
 
 

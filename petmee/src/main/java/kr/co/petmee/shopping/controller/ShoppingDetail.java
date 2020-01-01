@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Page;
+import kr.co.petmee.repository.vo.User;
 import kr.co.petmee.shopping.service.ShoppingProductService;
 import kr.co.petmee.util.PageResult;
 

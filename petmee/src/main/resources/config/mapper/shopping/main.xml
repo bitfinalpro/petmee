@@ -19,12 +19,12 @@
 	</select>
 	
 	<!-- 메인 이미지 파일 --> 
-	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
+ 	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
 			select * from tb_image
 				where type = 'sum'
 			group by product_id
 	</select>
-
+ 
 	<!-- 상품 상세 파일 --> 
 	<select id = "shoppingDetail" parameterType="String" resultType="Product">
 		select *

@@ -7,5 +7,8 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common/side_menu.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/page.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/review_list.css" />">
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/optimizer.css" />">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/review.css" />">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/optimizer.css" />">
+
+<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/CategoryFeed.css" />"> --%>
+<%-- <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/review/ProductionSelling.css" />"> --%>

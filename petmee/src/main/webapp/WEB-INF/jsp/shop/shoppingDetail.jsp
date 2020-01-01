@@ -11,6 +11,7 @@
   <title>Insert title here</title>
 <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
 <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
+<%@ include file="/WEB-INF/jsp/include/review/reviewcss.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/shopping/detail.css" />">
 <link href="<c:url value="/resources/css/shopping/login/login2.css " />" rel="stylesheet">
@@ -216,54 +217,53 @@
 </div>
 <!-- //반품교환 안내 -->
 
-
+	
 	<div id="reView" class="review">
 		<div class="board_title"><strong>Review Board</strong></div>
-			<table class="notice_tb">
-					<colgroup>
-						<col width=7%;>
-						<col width=20%;>
-						<col width=20%;>
-						<col width=10%;>
-						<col width=10%;>
-						<col width=10%;>
-						<col width=7%;>
-						<col width=10%;>
-					</colgroup>
-					<tr>
-						<th>NO</th>
-						<th>PRODUCT</th>
-						<th>TITLE</th>
-						<th>WRITER</th>
-						<th>DATE</th>
-						<th>RATING</th>
-						<th>VIEW</th>
-						<th></th>
-					</tr>
-				
-					 <c:if test="${empty list}">
-					<tr>
-						<td colspan="5">게시물이 없습니다.</td>
-					</tr>				
-				</c:if>
-			<c:forEach var="b" items="${list}">
-				<c:if test="${b.type eq 'reviwe'}">
-				<tr onclick="document.location.href='detail.do?no=${b.no}'">
-					<td>${b.no}</td>
-					<%-- <td>${b.product}</td> --%>
-					<td>${b.title}</td>
-					<%-- <td>${b.writer}</td> --%>
-					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
-					<%--<td>${b.rating}</td>--%>
-					<td>${b.viewCnt}</td>
-					<td>
-                     <a href="<c:url value="/board/reviewboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
-                     <a href="<c:url value="/board/reviewboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
-                   </td>
-				</tr>
-				</c:if>
+			<div class="list_product" style="border-top: 5px solid #333;">
+			<input type="hidden" name="userNo" value="${user.userNo}"> 
+            <article class="review_thumb">
+               <!-- 상품이미지 -->
+               <div class="thumb">
+					<input name ="image" value="<c:url value='${imgfirst}'/>" type ="hidden"/>
+					<c:forEach var="f" begin="0" end="0" items="${flist}" varStatus="status">
+						<img src="<c:url value='${f.path}${f.oriName}'/>" id="a"/>
+					</c:forEach>	
+	            <strong><input style="display:inline-block;" value=" ${product.productName}"/></strong>
+               </div>
+            </article>
+	            <c:forEach var="b" items="${list}">
+			<c:if test="${b.type eq 'review'}">
+	            <article class="review_title">
+	            	<!-- 제목 -->
+					<div> ${b.title}</div>
+	            </article>
+	            <article class="review_con">
+	              <!-- 평점 -->
+	              <div>★★★☆☆</div>
+	              <!-- 작성자 -->
+	              <div>피지컬갤러리</div>
+	               <!-- 날짜 -->
+	               <div><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></div>
+	               <!-- 조회수 -->
+	               <div>${b.viewCnt}</div>
+	             </article>
+	             <article class="review_list">
+	                <!-- 내용 -->
+	                <div>${b.content}</div>
+	             </article>
+	             <article class="review_button">
+	                  <div>
+	                     <a href="#" style="background-color:#3f3f3f; width: 100px; display: block; text-align: center; color: #fff; padding: 5px; ">제품보기</a>
+	                     <a href="/petmee/board/reviewboard/review_detail.do?no=${b.no}" style="background-color:#3f3f3f; text-align: center; margin-top: 10px; display: block; width: 100px; color: #fff; padding: 5px;">리뷰상세보기</a>
+	                  </div>
+	             </article>
+	             	</c:if>
 			</c:forEach>
-				</table>
+        </div>
+        <div class="title_button">
+        	<a href="/petmee/board/reviewboard/review_writeform.do?productId=${product.productId}" style="background-color:#3f3f3f; text-align: center; margin-top: 10px; display: block; width: 100px; color: #fff; padding: 5px;">글쓰기</a>
+        </div>
 		<div id="page" >
         	<nav>
 			  <ul class="pagination">
@@ -297,7 +297,7 @@
 				 <c:if test="${empty list}">
 					<tr>
 						<td colspan="5">게시물이 없습니다.</td>
-					</tr>				
+					</tr>
 				</c:if>
 			<c:forEach var="b" items="${list}">
 			<c:if test="${b.type eq 'QnA'}">

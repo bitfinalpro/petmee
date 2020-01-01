@@ -15,6 +15,7 @@ import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
+import kr.co.petmee.repository.vo.ReviewBoard;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -55,6 +56,7 @@ public class ShoppingProductServiceImpl implements ShoppingProductService{
 	public List<Image> SelectProductImage(String productId) {
 		return dao.selectProductImage(productId);
 	}
+	
 	
 	/* ----------상품 디테일  게시판 리스트 -------------------*/
 	

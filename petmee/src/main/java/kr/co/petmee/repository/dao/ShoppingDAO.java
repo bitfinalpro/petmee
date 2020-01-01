@@ -8,6 +8,7 @@ import kr.co.petmee.repository.vo.NoticeBoard;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
+import kr.co.petmee.repository.vo.ReviewBoard;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
@@ -23,7 +24,7 @@ public interface ShoppingDAO {
 	
 	// 상품 상세
 	Product shoppingDetail(String productId);
-	
+		
 	// 상품상세이미지파일
 	List<Image> selectProductImage(String productId);
 	

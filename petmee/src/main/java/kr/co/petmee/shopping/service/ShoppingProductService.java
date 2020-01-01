@@ -10,6 +10,7 @@ import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.Page;
 import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ProductListPage;
+import kr.co.petmee.repository.vo.ReviewBoard;
 import kr.co.petmee.repository.vo.ShoppingList;
 import kr.co.petmee.repository.vo.User;
 
