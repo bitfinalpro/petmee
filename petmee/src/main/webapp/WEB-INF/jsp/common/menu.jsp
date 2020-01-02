@@ -24,7 +24,7 @@
 	                    <span>/</span>  
 	                    <c:choose>
 							<c:when test="${user.name eq '관리자'}"> 
-							<span><a href="<c:url value="/admin/user/menu.do"/>">ADMIN</a></span>
+							<span><a href="<c:url value="/admin/chart/chart.do"/>">ADMIN</a></span>
 							 </c:when>
 							<c:otherwise> 
 							 <span><a href="<c:url value="/shopping/login/mypage.do"/>">MYPAGE</a></span>

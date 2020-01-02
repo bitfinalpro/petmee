@@ -22,7 +22,7 @@
     <section id="wrap">
     <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;"/>  
        <div class="background">
-           <h2 class="free"><i class="fas fa-users"></i> 공지게시판</h2>
+           <h2 class="free"><i class="fas fa-users"></i> 공지사항</h2>
        </div>
    </section>
 <section id="layout">
