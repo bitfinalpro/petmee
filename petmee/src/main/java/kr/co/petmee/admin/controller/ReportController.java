@@ -25,8 +25,6 @@ public class ReportController {
 	@Autowired
 	private ReportService service;
 	
-	@Autowired
-	private ReportDAO dao;
 	
 	// 신고당한사람 리스트
 	@RequestMapping("/reportlist.do")
