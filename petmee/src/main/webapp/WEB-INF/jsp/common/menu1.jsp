@@ -28,6 +28,14 @@
 	                    	</a>
 	                    </span>
 	                    <span>/</span>
+<<<<<<< HEAD
+=======
+	                   <c:choose>
+							<c:when test="${user.name eq '관리자'}"> 
+							<span><a href="<c:url value="/admin/chart/chart.do"/>">ADMIN</a></span>
+							 </c:when>
+							<c:otherwise> 
+>>>>>>> freeBoard
 							 <span><a href="<c:url value="/shopping/login/mypage.do"/>">MYPAGE</a></span>
 							</c:otherwise>
 						</c:choose>

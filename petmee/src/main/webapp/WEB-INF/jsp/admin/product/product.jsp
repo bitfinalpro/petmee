@@ -87,7 +87,7 @@
         <!-- 메인 -->
         <li class="nav-item"><a class="nav-link"
 				href="<c:url value="/admin/chart/chart.do"/>"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>main</span></a></li>
+					class="fas fa-fw fa-chart-area"></i> <span>메인</span></a></li>
         <!-- 회원 관리 -->
         <li class="nav-item">
           <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
