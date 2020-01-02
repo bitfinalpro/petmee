@@ -121,7 +121,7 @@
         <!-- 메인 -->
         <li class="nav-item"><a class="nav-link"
 				href="<c:url value="/admin/chart/chart.do"/>"> <i
-					class="fas fa-fw fa-chart-area"></i> <span>main</span></a></li>
+					class="fas fa-fw fa-chart-area"></i> <span>메인</span></a></li>
         <!-- 회원 관리 -->
         <li class="nav-item">
           <a class="nav-link" href="<c:url value="/admin/user/userlist.do" />">
@@ -163,7 +163,7 @@
           <li class="breadcrumb-item">
             <a href="#">신고</a>
           </li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item active">Report</li>
         </ol>
 
         <!-- 회원정보 / 상세정보는 팝업창으로 -->
