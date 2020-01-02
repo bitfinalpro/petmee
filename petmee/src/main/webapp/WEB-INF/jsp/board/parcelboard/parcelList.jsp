@@ -35,8 +35,8 @@ cursor: pointer;
 
 	<section id="wrap">
 		   <img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
-		<div id="y-container">
 			<c:import url="/WEB-INF/jsp/common/sideMenu.jsp"></c:import>
+		<div id="y-container">
 
 			<div id="y-content">
 				<div id="y-parcel-board">
