@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.petmee.admin.service.OrderService;
+import kr.co.petmee.repository.vo.DeliInfo;
 import kr.co.petmee.repository.vo.Order;
+import kr.co.petmee.shop.service.ShoppingListService;
 
 @Controller("kr.co.petmee.admin.controller.OrderController")
 @RequestMapping("/admin/order")
@@ -19,6 +21,8 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService service;
+	@Autowired
+	private ShoppingListService service1;
 	//전체 주문내역 추출
 	@RequestMapping("/order.do")
 	public Model orderMain(Model model) {
@@ -30,7 +34,18 @@ public class OrderController {
 	@ResponseBody
 	public Order detailOrder(String orderId) {
 		List<Order> oList = service.detailOrder(orderId);
+		DeliInfo d = service1.DeliInfoList(orderId);
+		
+
+		String add = "("+d.getZipcode()+") "+d.getAddress1() + d.getAddress2();
+		
+		
+		
 		Order order = oList.get(0);
+		order.setDelieveryAddress(add);
+		order.setUserPhoneNo((Integer.parseInt(d.getPhone())));
+		order.setOrderRequest((d.getContent()));
+		
 		System.out.println(order.getOrderDate());
 		System.out.println(oList.get(0).getOrderDate());
 		String orderedProduct = "";
