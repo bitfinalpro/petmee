@@ -1,88 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.petmee.repository.dao.ShoppingDAO">
-	
-	<!-- 메인 최신 상품 리스트 --> 
-	<select id="selectFood" parameterType="int" resultType="Product">
-		select * 
-			from tb_product
-	</select>
-	<!-- 메인 세일 베스트 리스트  -->
-	<select id="selectSaleBest" parameterType="int" resultType="Product">
-		 select *
-			from tb_product pro
-    			inner join tb_purchase pur
-   				 on pro.product_id = pur.product_id
-			where pro.dc_price > 1 and pur.product_cnt > 1
+   
+   <!-- 메인 최신 상품 리스트 --> 
+   <select id="selectFood" parameterType="int" resultType="Product">
+      select * 
+         from tb_product pro
+            inner join tb_image img
+            where pro.product_id = img.product_id
+            group by pro.product_id
+   </select>
+   <!-- 메인 베스트 상품 리스트 --> 
+   <select id="selectBest" parameterType="int" resultType="Product">
+      select *
+         from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         group by pro.product_id
              order by pur.product_cnt desc
-	</select>
-	<!-- 메인 베스트 상품 리스트 --> 
-	<select id="selectBest" parameterType="int" resultType="Product">
-		select *
-			from tb_product pro
-    			inner join tb_purchase pur
-   				 on pro.product_id = pur.product_id
-			group by pro.product_id
-             order by pur.product_cnt desc;
-	</select>
-	
-	<!-- 메인 이미지 파일 --> 
- 	<select id="mainSelectProductFile" parameterType="String" resultType="Image">
-			select * from tb_image
-				where type = 'sum'
-			group by product_id
-	</select>
- 
-	<!-- 상품 상세 파일 --> 
-	<select id = "shoppingDetail" parameterType="String" resultType="Product">
-		select *
-			from tb_product
-			where product_id = #{productId}
-	</select>
-	
-	<!-- 상품 상세 이미지 파일 --> 
-	<select id="selectProductImage" parameterType="String" resultType="Image">
-		select img.path, img.ori_name, img.type
-			from tb_image img
-			inner join tb_product pro
-			on img.product_id = pro.product_id
+   </select>
+      <!-- 메인 세일 베스트 리스트  -->
+   <select id="selectSaleBest" parameterType="int" resultType="Product">
+       select *
+         from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         where pro.dc_price > 1 and pur.product_cnt > 1
+         group by pro.product_id
+             order by pur.product_cnt desc
+   </select>
+      
+   <!-- 메인 최신 이미지 파일 --> 
+   <select id="mainSelectProductFile" parameterType="String" resultType="Image">
+         select * from tb_image img
+            inner join tb_product pro
+               on pro.product_id = img.product_id
+            where type = 'sum'
+               group by pro.product_id;
+   </select>
+   
+   <!-- 메인 베스트 이미지 파일  -->
+   <select id="mainSelectProductFile1" parameterType="String" resultType="Image">
+      select * from tb_product pro
+   inner join tb_image img
+      on pro.product_id = img.product_id
+   inner join tb_order pur
+         on pro.product_id = pur.product_id
+      where img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc
+   </select>
+   
+   <!-- 메인 세일베스트 이미지 파일  -->
+   <select id="mainSelectProductFile2" parameterType="String" resultType="Image">
+      select * from tb_product pro
+   inner join tb_image img
+      on pro.product_id = img.product_id
+   inner join tb_order pur
+         on pro.product_id = pur.product_id
+      where img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc
+   </select>
+
+
+   <!-- 상품 상세 파일 --> 
+   <select id = "shoppingDetail" parameterType="String" resultType="Product">
+      select *
+         from tb_product
+         where product_id = #{productId}
+   </select>
+   
+   <!-- 상품 상세 이미지 파일 --> 
+   <select id="selectProductImage" parameterType="String" resultType="Image">
+      select img.path, img.ori_name, img.type
+         from tb_image img
+         inner join tb_product pro
+         on img.product_id = pro.product_id
             where pro.product_id = #{productId}
-	</select>
-	
-	<!-- 상품 리스트 -->
-	<select id="productList" parameterType="ProductListPage" resultType="Product">
-		select * from tb_product
-		where category_no = #{categoryNo}
-		order by no desc
-		limit #{begin}, #{listSize} 
-	</select>
-	
-	<!-- 상품 카운트 리스트 -->
-	<select id="productListCount" resultType="int" parameterType="int">
-		select count(*)
-		from tb_product 
-		where category_no = #{categoryNo}
-	</select>
-	
-	<!-- 상품 리스트 이미지파일 -->
-	<select id="productListImg" parameterType="int" resultType="Image">
-			select img.path, img.ori_name, img.type, pro.category_no
-			from tb_image img
-			inner join tb_product pro
-			on img.product_id = pro.product_id
+   </select>
+   
+   <!-- 상품 리스트 -->
+   <select id="productList" parameterType="ProductListPage" resultType="Product">
+      select * from tb_product
+      where category_no = #{categoryNo}
+      order by no desc
+      limit #{begin}, #{listSize} 
+   </select>
+   
+   <!-- 상품 카운트 리스트 -->
+   <select id="productListCount" resultType="int" parameterType="int">
+      select count(*)
+      from tb_product 
+      where category_no = #{categoryNo}
+   </select>
+   
+   <!-- 상품 리스트 이미지파일 -->
+   <select id="productListImg" parameterType="int" resultType="Image">
+         select img.path, img.ori_name, img.type, pro.category_no
+         from tb_image img
+         inner join tb_product pro
+         on img.product_id = pro.product_id
             where pro.category_no = #{categoryNo} and img.type = 'sum'
-			group by img.product_id
-	</select>
-	
-	<!-- 상품 구매 -->
-	<insert id="insertProduct" parameterType="ShoppingList" >
-		insert into tb_shopping(
-			email, product, sub_title,  amount, oriprice, dcprice, image, price 
-			)values( 
-			#{email}, #{product}, #{subTitle}, #{amount}, #{oriprice}, #{dcprice}, #{image}, #{price}
-			)
-	</insert>
+         group by img.product_id
+   </select>
+   
+   <!-- 상품 구매 -->
+   <insert id="insertProduct" parameterType="ShoppingList" >
+      insert into tb_shopping(
+         email, product, sub_title,  amount, oriprice, dcprice, image, price 
+         )values( 
+         #{email}, #{product}, #{subTitle}, #{amount}, #{oriprice}, #{dcprice}, #{image}, #{price}
+         )
+   </insert>
 
 
 
