@@ -556,8 +556,10 @@ a {
 .layer .box {
 	padding: 20px 20px 60px;
 	margin: 20px;
+	
 	width: 500px;
 	height: 350px;
+	
 	background: white;
 	position: relative;
 }

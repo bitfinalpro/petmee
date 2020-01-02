@@ -9,9 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <%@ include file="/WEB-INF/jsp/include/includecss.jsp" %>
+  <%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
   <script type="text/javascript" src="<c:url value="/resources/js/common/jquery-3.4.1.js" />"></script>
-<%@ include file="/WEB-INF/jsp/include/includejs.jsp" %>
-   <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
+    <link href="<c:url value="/resources/css/shopping/login/login3.css " />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/shopping/login/join1.css " />" rel="stylesheet">
+  <link rel="stylesheet" href="<c:url value="/resources/css/free/detail.css" /> ">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <title>Pet Me</title>
  <style>
@@ -122,8 +124,6 @@
                       </form>
                       
                       
-                      
-                      
                          <!-- 모달창 시작 -->
               <div id="popup" class="layer">
                 <div class="box">
@@ -142,7 +142,7 @@
                      <div>
                        <span><strong>사유선택</strong> :<span class="shin"> 대표적인 1가지만 선택해주세요.</span> </span>
                      </div>
-                       <form  method="post" name="reportform">
+                       <form method="post" name="reportform">
                      <div>
                         <ul class="reportli">
                           <li><input type="radio" name="report" value="음란성 게시물"> 음란성 게시물
@@ -158,10 +158,9 @@
                         </div>
                      </div>
                      <div class="wrap">
-                       <button class="ben" onclick="report_chk();">신고</button>
+                       <input type="button" value="신고" class="ben" onclick="report_chk();"/>
+                       
                      </div>
-                     
-
                   <a href="#" class="close">닫기</a>
                   </form>
                 </div>                   
