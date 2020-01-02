@@ -14,5 +14,7 @@ public class ShoppingList {
 	private int oriprice;
 	private int dcprice;
 	private String image;
+	private int tp;
+	
 	
 }

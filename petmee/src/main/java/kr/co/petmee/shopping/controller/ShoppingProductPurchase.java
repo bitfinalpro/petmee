@@ -38,8 +38,13 @@ public class ShoppingProductPurchase {
 		user.setShoppingCnt(scnt);
 		session.setAttribute("user", user);
 		
-		return "redirect:shoppinglist/shoppinglist.do";
+		System.out.println(productInsert.getTp());
+		if(productInsert.getTp() == 1) {
+			return "redirect:/shop/shoppingDetail.do?productId="+productInsert.getProduct();
+		}
+		else return "redirect:shoppinglist/shoppinglist.do";
 	}
+	
 	@RequestMapping("/shoppingProductPurchase1.do")
 	public String shoppingProductPurchase1(Model model, HttpSession session, ShoppingList productInsert) {	
 		
