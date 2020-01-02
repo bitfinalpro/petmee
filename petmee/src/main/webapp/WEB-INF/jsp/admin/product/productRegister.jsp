@@ -97,9 +97,9 @@
       <ul class="sidebar navbar-nav">
         <!-- 메인 -->
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="<c:url value="/admin/chart/chart.do" />">
             <i class="fas fa-home"></i>
-            <span>Main</span>
+            <span>메인</span>
           </a>
         </li>
         <!-- 회원 관리 -->
