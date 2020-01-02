@@ -22,9 +22,9 @@
                   ><span class="fa fa-angle-right"></span>패션</label
                 >
                 <ul class="sub-group-list">
-                  <li><a href="/shop/productList.do?categoryNo=3">티셔츠/아우터</a></li>
-                  <li><a href="/shop/productList.do?categoryNo=4">신발</a></li>
-                  <li><a href="/shop/productList.do?categoryNo=5">액세서리/외출용품</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=3" />">티셔츠/아우터</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=4" />">신발</a></li>
+                  <li><a href="<c:url value="/shop/productList.do?categoryNo=5" />">액세서리/외출용품</a></li>
                 </ul>
                 <input id="sub-group-list3" type="checkbox" hidden />
                 <label for="sub-group-list3"

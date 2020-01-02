@@ -127,7 +127,7 @@
 											type="button">+</button>
 										<button class="amount_btn"
 											onclick="addtnNofpr.remove('amount')" type="button">-</button>
-										<span class="subinput">(최소준문수량 1개 이상)</span></td>
+										<span class="subinput">(최소주문수량 1개 이상)</span></td>
 
 								</tr>
 
