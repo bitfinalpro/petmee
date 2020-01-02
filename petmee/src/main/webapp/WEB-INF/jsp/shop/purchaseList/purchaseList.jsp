@@ -74,7 +74,7 @@ background-color: #202020;
 			</div>
 			<div class="sub-menu-list sub_dep02" style="display: block;">
 				<ul class="clearfix tab tab2">
-					<li><a class="tab-back" href="#" class="on">회원정보 변경</a></li>
+					<li><a class="tab-back" href="/petmee/shopping/login/mypage.do" class="on">회원정보 변경</a></li>
 					<li><a href="#">작성 후기 보기</a></li>
 					<li class="tab-select"><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >구매내역</a></li>
 				</ul>
@@ -134,7 +134,7 @@ background-color: #202020;
 	</div>
 
 	<!-- footer 시작 -->
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url='/WEB-INF/jsp/common/footer.jsp'></c:import>
 	</div>
 

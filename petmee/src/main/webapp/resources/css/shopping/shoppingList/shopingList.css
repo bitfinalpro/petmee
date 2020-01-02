@@ -93,8 +93,18 @@
     height: 50px;
     font-size: 25px;
     margin: 10px;
+    
+    border-radius: 10px;
+	background-color: white;
+	border: 2px solid rgba(204, 204, 204, 0.5);
+}	
+#y-con-button > button:hover {
+	backgrund-color: black;
+	border: 2px solid black;
 }
 /* 마우스포인터 */
 .mousepoint {
     cursor: pointer;
 }
+
+

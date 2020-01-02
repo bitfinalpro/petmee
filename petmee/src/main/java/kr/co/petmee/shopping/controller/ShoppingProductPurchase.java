@@ -38,7 +38,6 @@ public class ShoppingProductPurchase {
 		user.setShoppingCnt(scnt);
 		session.setAttribute("user", user);
 		
-		System.out.println(productInsert.getTp());
 		if(productInsert.getTp() == 1) {
 			return "redirect:/shop/shoppingDetail.do?productId="+productInsert.getProduct();
 		}
