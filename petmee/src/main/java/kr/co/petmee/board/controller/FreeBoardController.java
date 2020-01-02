@@ -107,8 +107,6 @@ public class FreeBoardController {
 		model.addAttribute("comment", service.commentList(no));
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("searchText", searchText);
-		User user = (User)session.getAttribute("user");
-		model.addAttribute(user);
 	} 
 	@RequestMapping("/selectReportedMember.do")
 	@ResponseBody

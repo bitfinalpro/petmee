@@ -162,7 +162,7 @@
           <li class="breadcrumb-item">
             <a href="#">회원</a>
           </li>
-          <li class="breadcrumb-item active">Tables</li>
+          <li class="breadcrumb-item active">User</li>
         </ol>
 
         <!-- 회원정보 / 상세정보는 팝업창으로 -->
@@ -203,7 +203,8 @@
                   <!-- <tr onclick="document.location.href='#popup'"> -->
                   <tr onclick="popup('${user.email}','${user.name}',
                                      '${user.resident}', '${user.address}',
-                                     '${user.phone}', '${user.gender}', '${user.age}','${user.stringUserDate}')">
+                                     '${user.phone}', '${user.gender}', '${user.age}','${user.stringUserDate}'
+                                     ,'${user.addressDetail}')">
                                      
                         <td>${user.email}</td>
                         <td>${user.name}</td>
@@ -247,16 +248,14 @@
                         <td id="address"colspan="5"></td>
                       </tr>
                       <tr>
+                        <td>상세주소 </td>
+                        <td id="addressdetail" colspan="5"></td>
+                      </tr>
+                      <tr>
                         <td>핸드폰번호</td>
                         <td id="phone"></td>
                         <td>가입일자 </td>
                         <td id="regDate" colspan="3"></td>
-                      </tr>
-                      <tr>
-                        <td>총구매횟수  </td>
-                        <td>3</td>
-                        <td>총구매금액</td>
-                        <td colspan="3">32,600</td>
                       </tr>
                     </table>
                     <a href="#" class="close">닫기</a>
