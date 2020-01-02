@@ -1,4 +1,4 @@
-function popup(email, name, resident, address, phone, gender, age, stringUserDate) {
+function popup(email, name, resident, address, phone, gender, age, stringUserDate, addressDetail) {
 	$("#email").text(email);
 	document.location.href="#popup";
 	$("#name").text(name);
@@ -15,6 +15,8 @@ function popup(email, name, resident, address, phone, gender, age, stringUserDat
 	document.location.href="#popup";
 	$("#regDate").text(stringUserDate);
 	document.location.href="#popup";
+	$("#addressdetail").text(addressDetail);
+	documnet.location.href="#popup";
 }
 
 // 주민번호를 받아서 나이 계산하기

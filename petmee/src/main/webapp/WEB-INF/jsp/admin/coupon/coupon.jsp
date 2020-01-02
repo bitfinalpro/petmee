@@ -88,9 +88,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">쿠폰</a>
+            쿠폰
           </li>
-          <li class="breadcrumb-item active">Product</li>
+          <li class="breadcrumb-item active">Coupon</li>
         </ol>
 
         <!-- 회원정보 / 상세정보는 팝업창으로 -->
