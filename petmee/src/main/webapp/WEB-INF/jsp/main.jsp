@@ -270,6 +270,7 @@
         </div>
       </div>
   </div>
+  <%--
   <div class="main_board1"> 
       <div class="main_board_l">
         <div class="main_board_l_text">
@@ -288,6 +289,7 @@
           </div>
         </div>
   </div>
+   --%>
 </section>
 <div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
  

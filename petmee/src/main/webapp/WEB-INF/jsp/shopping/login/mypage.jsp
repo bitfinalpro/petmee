@@ -539,7 +539,7 @@
   </div>
   </div> 
   <!-- footer 시작 -->
-	<div id="footer" class="footer_wrap clearfix">
+	<div id="footer">
 		<c:import url='/WEB-INF/jsp/common/footer.jsp'></c:import>
 	</div>
   

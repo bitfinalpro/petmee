@@ -393,7 +393,7 @@
     </div>
 	<script src="../resources/js/shopping/login/lib/jquery.magnific-popup.js"></script>
  	<!-- footer -->
-	<div id="footer" class="footer_wrap clearfix"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
+	<div id="footer"><c:import url="/WEB-INF/jsp/common/footer.jsp"></c:import> </div>
 	
 	
 	<script src="<c:url value='/resources/js/shopping/login/lib/jquery-1.11.1.min.js' />"></script>
