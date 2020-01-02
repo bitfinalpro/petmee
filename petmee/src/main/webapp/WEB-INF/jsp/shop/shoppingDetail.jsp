@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -224,8 +224,6 @@
 </table>
 </div>
 <!-- //반품교환 안내 -->
-
-
 	<div id="reView" class="review">
 		<div class="board_title"><strong>Review Board</strong></div>
 			<table class="notice_tb">

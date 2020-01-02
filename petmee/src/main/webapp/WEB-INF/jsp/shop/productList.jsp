@@ -64,7 +64,7 @@
         <ul id="bodyContents">
         <c:forEach var="product" items="${product}" varStatus="status">
           <li>
-          <a href="<c:url value="/shop/shoppingDetail.do?productId=${product.productId}" />">
+          	<a href="<c:url value="/shop/shoppingDetail.do?productId=${product.productId}" />">
             <img src="<c:url value="${img[status.index].path}${img[status.index].oriName}" />" />
             <span>${product.productInfo}</span>
             <strong>${product.productName}</strong>

@@ -4,6 +4,9 @@ import java.util.List;
 
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.Board;
+import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ReviewBoard;
 
 public interface ReviewBoardDAO {
@@ -13,6 +16,9 @@ public interface ReviewBoardDAO {
 	void insertBoard(ReviewBoard review);
 	void updateBoard(ReviewBoard board);
 	int deleteBoard(int no);
+	
+	// 이미지
+	List<Image> ProductListImg(int categoryNo);
 	
 	//	/* 파일 파트 시작 ========================================= */
 	List<Filevo> selectSumFiles();
@@ -25,6 +31,8 @@ public interface ReviewBoardDAO {
 	void insertComment(Comment comment);
 	void deleteComment(int commentNo);
 	void updateComment(Comment comment);
+	List<Image> selectProductImage(String productId);
+	Product shoppingDetail(String productId);
 }
 	 
 

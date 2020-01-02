@@ -142,90 +142,82 @@ img, fieldset {
     vertical-align: top;
 }
 .listheader{
-    border-top: 5px solid rgb(44, 43, 43);
-    border-bottom: 1px solid #e0e0e0;
-}
-.notice .product{
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-}
-/* .content{
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-} */
-
-section > .boardList {
-    width: 75%;
-    clear: both;
+	width: 70%;
     margin: 0 auto;
-    /* text-align: center; */
-    border-bottom: 1px solid #222;
+    border-top: 5px solid rgb(44, 43, 43);
 }
 
-
-table {
-    width: 100%;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
+.title_button{
+	float: right;
+	width: 10.6%;
+}
+.title_button a{
+	background-color: #3f3f3f;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+    width: 100px;
+    color: #fff;
+    padding: 5px;
 }
 
-colgroup {
-    display: table-column-group;
+.list_product{
+	display: inline-block;
+    border-bottom: 1px solid #e0e0e0;
+	padding: 10px;
+	width:100%;
 }
 
+.review_thumb{
+	display: inline-block;
+	float: left;
+	width: 12%;
+}
+.thumb{
+   width: 100%;
+}
+.thumb > img {
+   width: 100%;
+}
 
-element.style {
-    background-color: #FFFFFF;
-    color: #000000;
+.review_title{
+	position:relative;
+	float: left;
+	width: 78%;
 }
-.xans-board-listpackage table tr.first {
-    border-top: 1px solid #fff !important;
+.review_title > div{
+	float: left;
+	margin-left: 20px;
+	font-size: 20px;
 }
-.xans-board-listpackage table tr {
-    border-top: 1px solid #e9e9e9;
+.review_con{
+	position:relative;
+	float: left;
+	width: 78%;
 }
-user agent stylesheet
-tr {
-    display: table-row;
+.review_con > div{
+	float: left;
+	margin-left: 20px;
+	font-size: 15px;
+}
+.review_list{
+	width: 78%;
+}
+.review_list > div{
+	float: left;
+	margin-left: 20px;
+	font-size: 25px;
+	margin-top:10px;
+	display: inline-block;
+}
+.review_button{
+	position:relative;
+	top:20px;
+	display: table-row;
     vertical-align: inherit;
     border-color: inherit;
 }
-.xans-board-listpackage .boardList table {
-    color: #444;
-    font-size: 11px;
-    line-height: 140%;
-}
-table {
-    width: 100%;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-.xans-board-title .title {
-    padding: 55px 0 0;
-    text-align: center;
-    z-index: 999;
-}
-
-.xans-board-title .title h2 {
-    display: inline-block;
-    font-size: 35px;
-    font-weight: bold;
-    text-transform: lowercase;
-    color: #000;
-    font-weight: 700 !important;
-    padding: 0 0 0 0;
-    letter-spacing: -1px;
-    font-family: 'Montserrat',"돋움" !important;
-}
-
-.thumb{
-	padding: 10px;
-}
-.thumb > img {
-	width: 100%;
-}
-.thumb_title{
+.review_button > div{
+	display: inline-block;
+	margin-top: 40px;
 }

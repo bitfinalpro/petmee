@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Image;
+import kr.co.petmee.repository.vo.Product;
 import kr.co.petmee.repository.vo.ReviewBoard;
 
 @Service
@@ -26,6 +29,10 @@ public interface ReviewBoardService {
 	List<Comment> commentRegist(Comment comment);
 	List<Comment> commentUpdate(Comment comment);
 	List<Comment> commentList(int no);
+	//상품 이미지
+	List<Image> SelectProductImage(String productId);
+	/*상품 디테일*/
+	Product ShoppingDetail(String productId);
 }
 
 

@@ -21,6 +21,7 @@ import kr.co.petmee.board.service.ReviewBoardService;
 import kr.co.petmee.repository.vo.Board;
 import kr.co.petmee.repository.vo.Comment;
 import kr.co.petmee.repository.vo.Filevo;
+import kr.co.petmee.repository.vo.Image;
 import kr.co.petmee.repository.vo.ParcelBoard;
 import kr.co.petmee.repository.vo.ReviewBoard;
 import kr.co.petmee.repository.vo.SermernoteVo;
@@ -49,7 +50,13 @@ public class ReviewBoardController {
 	}
 	
 	@GetMapping("/review_writeform.do")
-	public void writeform() {}
+	public void writeform(String productId, Model model) {
+		// 상품 이미지 
+		List<Image> list = service.SelectProductImage(productId);
+		model.addAttribute("flist", list);
+		// 해당상품 디테일 
+		model.addAttribute("product", service.ShoppingDetail(productId));
+	}
 	
 	@RequestMapping("/review_write.do")
 	public String write(ReviewBoard board) {
