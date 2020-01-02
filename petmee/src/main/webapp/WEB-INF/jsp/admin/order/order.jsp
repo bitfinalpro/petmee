@@ -89,8 +89,8 @@
 
 				<!-- Breadcrumbs-->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">상품</a></li>
-					<li class="breadcrumb-item active">Product</li>
+					<li class="breadcrumb-item">주문</li>
+					<li class="breadcrumb-item active">Order</li>
 				</ol>
 
 				<!-- 회원정보 / 상세정보는 팝업창으로 -->
