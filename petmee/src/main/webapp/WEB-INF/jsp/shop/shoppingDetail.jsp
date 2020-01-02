@@ -36,7 +36,7 @@
 		<main id="contents" class="goods detail">
 
 		<form method="post"
-			action="<c:url value="/shop/shoppingProductPurchase.do" />" id="">
+			action="<c:url value="/shop/shoppingProductPurchase.do" />" id="splist">
 			<input name="email" value="${user.email}" type="hidden" />
 			<div class="inner product">
 				<!-- propic// -->
@@ -153,7 +153,8 @@
 										담기</button>
 								</c:when>
 								<c:otherwise>
-									<button type="submit" class="btn-black btn-buy">바로
+								<div id="y-hide"></div>
+									<button type="button" class="btn-black btn-buy">바로
 										구매하기</button>
 									<button type="button" class="btn-gray btn-cart">장바구니
 										담기</button>
@@ -492,6 +493,23 @@
 					
 		var addtnNofpr = new AddtnNofpr();
 		</script>
+		
+		
+	<script type="text/javascript">
+	
+	$(".btn-buy").click(()=>{
+		$("#y-hide").html('<input type="hidden" name="tp" value=3>')
+		
+		$("#splist").submit();
+	})
+	$(".btn-cart").click(()=>{
+		alert("장바구니 추가되었습니다.")
+		$("#y-hide").html('<input type="hidden" name="tp" value=1>')
+			
+		$("#splist").submit();
+	})
+	</script>
+		
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 	<script src="../js/lib/jquery.magnific-popup.js"></script>
