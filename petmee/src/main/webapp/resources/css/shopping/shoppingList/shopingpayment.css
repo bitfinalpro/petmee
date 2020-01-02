@@ -105,6 +105,11 @@
 #couponbtn {
 	width: 65px;
 	height: 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+#couponbtn:hover {
+	background-color:rgba(204, 204, 204, 0.3);
 }
 
 .discount {
@@ -177,11 +182,23 @@
 	height: 80px;
 	line-height: 80px;
 }
+.btn {
+	border-radius: 20px;
+    background-color: white;
+    border: 2px solid rgba(204, 204, 204, 0.45);
+}
 
 #paymentBtn {
 	width: 130px;
 	height: 45px;
 	font-size: 25px;
+	border-radius: 10px;
+	background-color: white;
+	border: 2px solid rgba(255, 165, 0, 0.3);
+}
+#paymentBtn:hover {
+	backgrund-color: black;
+	border: 2px solid rgba(255, 165, 0, 1);
 }
 /* 배송지 정보 */
 #delivery-info {
