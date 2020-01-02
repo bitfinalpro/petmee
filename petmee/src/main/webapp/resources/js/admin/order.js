@@ -67,7 +67,7 @@ $("#checkall").click(function(){
 			   let query = `
 			   <div>주문번호 : ${result.orderId}</div>                            
 	           <div>주문회원 ID : ${result.userId}</div>
-			   <div>연락처 : ${result.userPhoneNo}</div>
+			   <div>연락처 : 0${result.userPhoneNo}</div>
 			   <div>주문날짜 : ${result.date}</div>
 	           <div>결제방법 : ${result.paymentMethod}</div>
 			   <div>배송지 : ${result.delieveryAddress}</div>
