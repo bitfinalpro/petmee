@@ -36,7 +36,10 @@ public class ShoppingDetail {
 		model.addAttribute("product", service.ShoppingDetail(productId));
 		
 		// 해당상품 게시판 
-		model.addAttribute("list", service.listBoard(new Page(pageNo)));
+		Page rPage = new Page(pageNo);
+		rPage.setType("review");
+		rPage.setProductId(productId);
+		model.addAttribute("list", service.reviewListBoard(rPage));
 		model.addAttribute("pr", new PageResult(pageNo, service.selectBoardCount("review")));
 	}
 	

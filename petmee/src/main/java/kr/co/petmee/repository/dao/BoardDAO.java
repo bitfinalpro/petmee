@@ -43,4 +43,7 @@ List<Board> selectBoard(Page page);
 	List<Filevo> selectBoardFile(int no);
 
 	void insertFile(Filevo filevo);
+	
+	//리뷰게시판 목록
+	List<Board> reviewListBoard (Page page);
 }

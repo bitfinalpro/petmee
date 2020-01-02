@@ -249,28 +249,25 @@
 						<th>VIEW</th>
 						<th></th>
 					</tr>
-				
 					 <c:if test="${empty list}">
 					<tr>
 						<td colspan="5">게시물이 없습니다.</td>
 					</tr>				
 				</c:if>
 			<c:forEach var="b" items="${list}">
-				<c:if test="${b.type eq 'reviwe'}">
 				<tr onclick="document.location.href='detail.do?no=${b.no}'">
 					<td>${b.no}</td>
-					<%-- <td>${b.product}</td> --%>
+					<td>${b.product}</td>
 					<td>${b.title}</td>
-					<%-- <td>${b.writer}</td> --%>
+					<td>${b.email}</td>
 					<td><i class="far fa-clock"></i><fmt:formatDate pattern="yyyy-MM-dd" value="${b.regDate}" /></td>
-					<%--<td>${b.rating}</td>--%>
+					<td>★★★☆☆</td>
 					<td>${b.viewCnt}</td>
 					<td>
                      <a href="<c:url value="/board/reviewboard/updateform.do?no=${b.no}"/> "><button>수정</button></a>
                      <a href="<c:url value="/board/reviewboard/delete.do?no=${b.no}"/> "><button>삭제</button></a>
                    </td>
 				</tr>
-				</c:if>
 			</c:forEach>
 				</table>
 		<div id="page" >

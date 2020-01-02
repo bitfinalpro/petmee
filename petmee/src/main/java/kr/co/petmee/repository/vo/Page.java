@@ -7,6 +7,7 @@ public class Page {
 	private int pageNo;
 	private int listSize;
 	private String type;
+	private String productId;
 	
 	public int getListSize() {
 		return listSize;

@@ -127,7 +127,15 @@
 		) values(
 		#{no}, #{oriName}, #{name}, #{path}, #{sumpath})
 	</insert>
-
+	<!-- 리뷰 리스트 , 페이징 -->
+	<select id="reviewListBoard" resultType="Board" parameterType="Page">
+		select *
+		from tb_board
+		 where type = #{type}
+		   and product = #{productId} 
+		order by topChk desc, no desc
+		limit #{begin}, 10
+	</select>
 </mapper>
 
 

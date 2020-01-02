@@ -66,7 +66,10 @@ public class ShoppingProductServiceImpl implements ShoppingProductService{
 	public int selectBoardCount(String type) {	
 		return boardDao.selectBoardCount(type);
 	}
-	
+	@Override
+	public List<Board> reviewListBoard(Page page) {
+		return boardDao.reviewListBoard(page);
+	}	
 	/* -----------------상품 구매 -------------------*/
 	
 	@Override

@@ -32,6 +32,7 @@ public interface ShoppingProductService {
 	/*디테일 게시판*/
 	List<Board> listBoard(Page page);
 	int selectBoardCount(String type);
+	List<Board> reviewListBoard(Page page);
 	
 	/*구매버튼*/	
 	void insertProduct(ShoppingList productInsert);
