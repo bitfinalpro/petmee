@@ -116,35 +116,9 @@
         </ul>
 
         <div id="tab-1" class="tab-content current">
-     	 		<ul>
+     	 	<ul>
           	<c:forEach var="sailbest" items="${sailbest}" begin="0" end="7" varStatus="status">
      	 		<c:if test="${sailbest.categoryNo eq 1 || sailbest.categoryNo eq 2}">
-     	 		<a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
-              <li>
-                  <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden">
-                      <img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
-                      <div class="product_text1">
-                        <strong style="display:none">${sailbest.productId}</strong>
-                        <strong>${sailbest.productName}</strong>
-                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price}" /></span>
-                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price - sailbest.dcPrice}" /></span>
-                      <div class="sb_img1">       
-         					 <img src="<c:url value="/resources/images/main/sale.png" />">
-         					 <img src="<c:url value="/resources/images/main/best.png" />">       
-                      </div>
-                      </div>
-                  </div>
-              </li>
-              </a>
-              </c:if>
-          	</c:forEach>
-          </ul>
-        </div>
-        <div id="tab-2" class="tab-content">
-        	 <ul>
-          	<c:forEach var="sailbest" items="${sailbest}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${sailbest.categoryNo eq 3 || sailbest.categoryNo eq 4 || sailbest.categoryNo eq 5}">
               <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
@@ -166,14 +140,40 @@
           	</c:forEach>
           </ul>
         </div>
+        <div id="tab-2" class="tab-content">
+        	 <ul>
+          	<c:forEach var="sailbest1" items="${sailbest1}" begin="0" end="7" varStatus="status">
+     	 		<c:if test="${sailbest1.categoryNo eq 3 || sailbest1.categoryNo eq 4 || sailbest1.categoryNo eq 5}">
+              <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest1.productId}" />">
+             <li>
+                  <div class="product_slide" style="width:200px;">
+                      <div class="over-hidden"><img src="<c:url value='${sblist1[status.index].path}${sblist1[status.index].oriName}'/>" class="scale"></div>
+                      <div class="product_text1">
+                        <strong style="display:none">${sailbest1.productId}</strong>
+                        <strong>${sailbest1.productName}</strong>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest1.price}" /></span>
+                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest1.price - sailbest1.dcPrice}" /></span>
+                      <div class="sb_img1">       
+         					 <img src="<c:url value="/resources/images/main/sale.png" />">
+         					 <img src="<c:url value="/resources/images/main/best.png" />">       
+                      </div>
+                      </div>
+                  </div>
+              </li>
+                  </a>
+              </c:if>
+          	</c:forEach>
+          </ul>
+        </div>
+             
         <div id="tab-3" class="tab-content"> 
       		 <ul>
-          	<c:forEach var="sailbest" items="${sailbest}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${sailbest.categoryNo eq 6 || sailbest.categoryNo eq 7}">
-                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
+          	<c:forEach var="sailbest2" items="${sailbest2}" begin="0" end="7" varStatus="status">
+     	 		<c:if test="${sailbest2.categoryNo eq 6 || sailbest2.categoryNo eq 7}">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest2.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist2[status.index].path}${sblist2[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
                         <strong style="display:none">${sailbest.productId}</strong>
                         <strong>${sailbest.productName}</strong>
@@ -193,17 +193,17 @@
         </div>
         <div id="tab-4" class="tab-content">
          <ul>
-          	<c:forEach var="sailbest" items="${sailbest}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${sailbest.categoryNo eq 8 || sailbest.categoryNo eq 9}">
-                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
+          	<c:forEach var="sailbest3" items="${sailbest3}" begin="0" end="7" varStatus="status">
+     	 		<c:if test="${sailbest3.categoryNo eq 8 || sailbest3.categoryNo eq 9}">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest3.productId}" />">
              <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist3[status.index].path}${sblist3[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
-                        <strong style="display:none">${sailbest.productId}</strong>
-                        <strong>${sailbest.productName}</strong>
-                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price}" /></span>
-                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price - sailbest.dcPrice}" /></span>
+                        <strong style="display:none">${sailbest3.productId}</strong>
+                        <strong>${sailbest3.productName}</strong>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest3.price}" /></span>
+                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest3.price - sailbest3.dcPrice}" /></span>
                       <div class="sb_img1">       
          					 <img src="<c:url value="/resources/images/main/sale.png" />">
          					 <img src="<c:url value="/resources/images/main/best.png" />">       
@@ -218,17 +218,17 @@
         </div>
         <div id="tab-5" class="tab-content">
          <ul>
-          	<c:forEach var="sailbest" items="${sailbest}" begin="0" end="7" varStatus="status">
-     	 		<c:if test="${sailbest.categoryNo eq 10}">
-                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest.productId}" />">
+          	<c:forEach var="sailbest4" items="${sailbest4}" begin="0" end="7" varStatus="status">
+     	 		<c:if test="${sailbest4.categoryNo eq 10}">
+                    <a href="<c:url value="shop/shoppingDetail.do?productId=${sailbest4.productId}" />">
               <li>
                   <div class="product_slide" style="width:200px;">
-                      <div class="over-hidden"><img src="<c:url value='${sblist[status.index].path}${sblist[status.index].oriName}'/>" class="scale"></div>
+                      <div class="over-hidden"><img src="<c:url value='${sblist4[status.index].path}${sblist4[status.index].oriName}'/>" class="scale"></div>
                       <div class="product_text1">
-                        <strong style="display:none">${sailbest.productId}</strong>
-                        <strong>${sailbest.productName}</strong>
-                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price}" /></span>
-                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest.price - sailbest.dcPrice}" /></span>
+                        <strong style="display:none">${sailbest4.productId}</strong>
+                        <strong>${sailbest4.productName}</strong>
+                       <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest4.price}" /></span>
+                <span><fmt:formatNumber type="number" maxFractionDigits="3" value="${sailbest4.price - sailbest4.dcPrice}" /></span>
                       <div class="sb_img1">       
          					 <img src="<c:url value="/resources/images/main/sale.png" />">
          					 <img src="<c:url value="/resources/images/main/best.png" />">       
@@ -240,8 +240,7 @@
               </c:if>
           	</c:forEach>
           </ul>
-        </div>
-      
+        </div>       
       </div>
 </section>
 <div class="main_section2">

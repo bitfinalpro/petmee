@@ -12,4 +12,5 @@ public class Image {
 	private String email;
 	private String type;
 	private String productId;
+	private int categoryNo;
 }

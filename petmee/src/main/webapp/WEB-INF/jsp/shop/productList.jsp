@@ -66,9 +66,13 @@
           <li>
           	<a href="<c:url value="/shop/shoppingDetail.do?productId=${product.productId}" />">
             <img src="<c:url value="${img[status.index].path}${img[status.index].oriName}" />" />
-            <span>${product.productInfo}</span>
             <strong>${product.productName}</strong>
-            <span>${product.price}</span>
+            <span>${product.productInfo}</span>
+            <p style="display:inline;text-decoration:line-through;">${product.price}</p>
+            <strong style="display:inline; font-size:1.2rem;">${product.price - product.dcPrice}</strong>
+            <div style="width:100%; display:block; ">
+            <c:if test="${product.dcPrice > 1}"><img src="<c:url value="/resources/images/main/sale.png" />" style="display: inline-block; width:20%;" ></c:if> 
+            </div>
           </a>
           </li>
         </c:forEach>
