@@ -14,9 +14,8 @@
     
     <script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
     <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
+
     <title>Pet & Mee</title>
-    
-</head>
 
 <body cz-shortcut-listen="true">
     <img src="http://asp8.http.or.kr/sr.gif?d=r6790607538803.14" style="width:1px;height:1px;position:absolute;display:none" onload="logCorpAnalysis_full.ch()" alt="">
@@ -326,7 +325,9 @@
       <div class="wrap">
           <div class="sub-visual-title wowrap">
               <h2 class="wow fadeInUp tit" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">마이페이지</h2>
+
               <p class="wow fadeInUp txt" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeInUp;">삶의 소중한 인연, Pet & Mee가 만남부터 동행하겠습니다.</p>
+
           </div>		
           <!-- <ul class="breadcrumb clearfix">
               <li class="depth01" style="display: none;"><a href=""></a></li>
