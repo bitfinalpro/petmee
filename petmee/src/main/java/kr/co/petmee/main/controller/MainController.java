@@ -53,7 +53,7 @@ public class MainController {
 		List<Product> sailbest2 = service.selectSaleBest2();	
 		List<Product> sailbest3 = service.selectSaleBest3();	
 		List<Product> sailbest4 = service.selectSaleBest4();	
-
+		
 		// 최신상품
 		Collections.reverse(flist);
 		Collections.reverse(foodlist);
