@@ -21,6 +21,10 @@ public interface ShoppingDAO {
 	
 	// 메인 각 항목 세일베스트 리스트
 	List<Product> selectSaleBest();
+	List<Product> selectSaleBest1();
+	List<Product> selectSaleBest2();
+	List<Product> selectSaleBest3();
+	List<Product> selectSaleBest4();
 	
 	// 메인 최신 이미지파일
 	List<Image> mainSelectProductFile();
@@ -30,6 +34,10 @@ public interface ShoppingDAO {
 
 	// 메인 베스트 이미지파일
 	List<Image> mainSelectProductFile2();
+	List<Image> mainSelectProductFile3();
+	List<Image> mainSelectProductFile4();
+	List<Image> mainSelectProductFile5();
+	List<Image> mainSelectProductFile6();
 	
 	// 상품 상세
 	Product shoppingDetail(String productId);

@@ -13,7 +13,8 @@ aside {
     float: left;
     width: 150px;
     position: relative;
-    top: 125px;
+    top: 206px;
+    left:80px;
     /* display: inline-block; */
     background-color: #fff;
 }
@@ -141,4 +142,10 @@ select {
     float: right;
     width: 50px;
     height: 25px;
+    background-color: white;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+#y-writeform:hover {
+	background-color:rgba(204, 204, 204, 0.3);
 }

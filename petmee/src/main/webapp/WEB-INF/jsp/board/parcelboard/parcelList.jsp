@@ -22,7 +22,7 @@ cursor: pointer;
 }
 
 </style>
-<title>Pet Me</title>
+<title>PetMee</title>
 
 </head>
 
@@ -40,7 +40,7 @@ cursor: pointer;
 
 			<div id="y-content">
 				<div id="y-parcel-board">
-					분양게시판
+					Board
 				</div>
 				<div id="y-list">
 				

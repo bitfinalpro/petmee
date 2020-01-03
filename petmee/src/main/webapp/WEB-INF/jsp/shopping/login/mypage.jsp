@@ -14,7 +14,8 @@
     
     <script src="<c:url value='/js/login/jquery-1.11.1.min.js' />"></script>
     <script src="<c:url value='/js/login/ch-plugin-web.js' />"></script>
-    <title>Petmee</title>
+    <title>Pet & Mee</title>
+    
 </head>
 
 <body cz-shortcut-listen="true">
@@ -76,7 +77,6 @@
   
     gtag('config', 'AW-720540785');
   </script>
-  
   
     <title>(주)펫미 </title>
   
@@ -326,7 +326,7 @@
       <div class="wrap">
           <div class="sub-visual-title wowrap">
               <h2 class="wow fadeInUp tit" data-wow-delay="0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">마이페이지</h2>
-              <p class="wow fadeInUp txt" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeInUp;">삶의 소중한 인연, (주)펫미가 만남부터 동행하겠습니다.</p>
+              <p class="wow fadeInUp txt" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeInUp;">삶의 소중한 인연, Pet & Mee가 만남부터 동행하겠습니다.</p>
           </div>		
           <!-- <ul class="breadcrumb clearfix">
               <li class="depth01" style="display: none;"><a href=""></a></li>
@@ -338,7 +338,6 @@
   <div class="sub-menu-list sub_dep02" style="display:block;">
     <ul class="clearfix tab tab2">
       <li><a href="<c:url value='/shopping/login/mypage.do' />" class="on">회원정보 변경</a></li>
-      <li><a href="#">작성 후기 보기</a></li>
       <li><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >구매내역</a></li>
     </ul>
   </div>      

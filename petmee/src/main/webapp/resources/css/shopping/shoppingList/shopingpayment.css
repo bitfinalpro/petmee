@@ -83,18 +83,21 @@
 	margin: 0 35px 0 0;
 }
 .coupon>div:nth-child(1) {
-	width: 20px;
+	width: 26%;
+	text-align: center;
 }
 .coupon>div:nth-child(2) {
-	width: 122px;
+	width: 25%;
+	text-align: center;
 }
 .coupon>div:nth-child(3) {
-	width: 65px;
+	width: 15%;
+	text-align: center;
 }
 
 .coupon {
-	margin: 5px 0;
-	text-align: center;
+	margin: 5px 0 5px 7%;
+	
 }
 
 .coupon-name {

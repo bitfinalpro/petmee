@@ -21,6 +21,9 @@
   text-align: center;
   padding: 30px;
  }
+ .background {
+margin: 50px auto 20px auto; 
+}
 </style>
 </head>
 
@@ -32,7 +35,7 @@
 	<img src="<c:url value="/resources/images/main/1231.jpg"/>" style="width: 100%;">
        <div class="background">
            <h2 class="free" style="width: 57%; margin: 0 auto; font-size: 30px; text-align: left; padding: 10px 0;">
-           <i class="fas fa-users"></i> 분양게시판
+           <i class="fas fa-users"></i> Board
            </h2>
        </div>
    </section>

@@ -22,13 +22,45 @@
    </select>
       <!-- 메인 세일 베스트 리스트  -->
    <select id="selectSaleBest" parameterType="int" resultType="Product">
-       select *
-         from tb_product pro
+       select * from tb_product pro
              inner join tb_order pur
                 on pro.product_id = pur.product_id
-         where pro.dc_price > 1 and pur.product_cnt > 1
+         where pro.category_no = 1 || pro.category_no = 2 and pro.dc_price > 1 and pur.product_cnt > 1 
          group by pro.product_id
-             order by pur.product_cnt desc
+             order by pur.product_cnt desc, pro.price
+   </select>
+      <!-- 메인 세일 베스트 리스트  -->
+   <select id="selectSaleBest1" parameterType="int" resultType="Product">
+       select * from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         where pro.category_no = 3 || pro.category_no = 4 || pro.category_no = 5 and pro.dc_price > 1 and pur.product_cnt > 1 
+         group by pro.product_id
+             order by pur.product_cnt desc, pro.price
+   </select>
+   <select id="selectSaleBest2" parameterType="int" resultType="Product">
+       select * from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         where pro.category_no = 6 || pro.category_no = 7 and pro.dc_price > 1 and pur.product_cnt > 1 
+         group by pro.product_id
+             order by pur.product_cnt desc, pro.price
+   </select>
+   <select id="selectSaleBest3" parameterType="int" resultType="Product">
+       select * from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         where pro.category_no = 8 || pro.category_no = 9 and pro.dc_price > 1 and pur.product_cnt > 1 
+         group by pro.product_id
+             order by pur.product_cnt desc, pro.price
+   </select>
+   <select id="selectSaleBest4" parameterType="int" resultType="Product">
+       select * from tb_product pro
+             inner join tb_order pur
+                on pro.product_id = pur.product_id
+         where pro.category_no = 10 and pro.dc_price > 1 and pur.product_cnt > 1 
+         group by pro.product_id
+             order by pur.product_cnt desc, pro.price
    </select>
       
    <!-- 메인 최신 이미지 파일 --> 
@@ -52,16 +84,61 @@
     order by pur.product_cnt desc
    </select>
    
-   <!-- 메인 세일베스트 이미지 파일  -->
+   <!-- 메인 세일베스트 이미지 파일1  -->
    <select id="mainSelectProductFile2" parameterType="String" resultType="Image">
       select * from tb_product pro
+inner join tb_order pur
+         on pro.product_id = pur.product_id
    inner join tb_image img
       on pro.product_id = img.product_id
-   inner join tb_order pur
-         on pro.product_id = pur.product_id
-      where img.type = 'sum'
+      where pro.category_no = 1 || pro.category_no = 2 and img.type = 'sum'
           group by pro.product_id
-    order by pur.product_cnt desc
+    order by pur.product_cnt desc, pro.price
+   </select>
+   
+   <!-- 메인 세일베스트 이미지 파일2  -->
+   <select id="mainSelectProductFile3" parameterType="String" resultType="Image">
+       select * from tb_product pro
+inner join tb_order pur
+         on pro.product_id = pur.product_id
+   inner join tb_image img
+      on pro.product_id = img.product_id
+      where pro.category_no = 3 || pro.category_no = 4 || pro.category_no = 5 and img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc, pro.price
+   </select>
+   <!-- 메인 세일베스트 이미지 파일3  -->
+   <select id="mainSelectProductFile4" parameterType="String" resultType="Image">
+      select * from tb_product pro
+inner join tb_order pur
+         on pro.product_id = pur.product_id
+   inner join tb_image img
+      on pro.product_id = img.product_id
+      where pro.category_no = 6 || pro.category_no = 7 and img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc, pro.price
+   </select>
+   <!-- 메인 세일베스트 이미지 파일4  -->
+   <select id="mainSelectProductFile5" parameterType="String" resultType="Image">
+      select * from tb_product pro
+inner join tb_order pur
+         on pro.product_id = pur.product_id
+   inner join tb_image img
+      on pro.product_id = img.product_id
+      where pro.category_no = 8 || pro.category_no = 9 and img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc, pro.price
+   </select>
+   <!-- 메인 세일베스트 이미지 파일5  -->
+   <select id="mainSelectProductFile6" parameterType="String" resultType="Image">
+     select * from tb_product pro
+inner join tb_order pur
+         on pro.product_id = pur.product_id
+   inner join tb_image img
+      on pro.product_id = img.product_id
+      where pro.category_no = 10 and img.type = 'sum'
+          group by pro.product_id
+    order by pur.product_cnt desc, pro.price
    </select>
 
 

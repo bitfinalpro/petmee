@@ -75,7 +75,6 @@ background-color: #202020;
 			<div class="sub-menu-list sub_dep02" style="display: block;">
 				<ul class="clearfix tab tab2">
 					<li><a class="tab-back" href="/petmee/shopping/login/mypage.do" class="on">회원정보 변경</a></li>
-					<li><a href="#">작성 후기 보기</a></li>
 					<li class="tab-select"><a href="<c:url value='/shop/purchaseList/purchaseList.do' />" >구매내역</a></li>
 				</ul>
 			</div>

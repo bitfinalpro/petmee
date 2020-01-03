@@ -24,7 +24,7 @@ function makeList(list) {
 		make += `
 					<div class="coupon">
 						<div>${coupon.name }</div>
-						<div>${coupon.regdate} 까지</div>
+						<div>${coupon.regDate} 까지</div>
 						<div>(-)${coupon.discount }</div>
 					<input type="checkbox" name="coupon" class="coupon-ch" value="${coupon.discount }"  >
 					<input type="hidden" class="couponNo" value="${coupon.no}">

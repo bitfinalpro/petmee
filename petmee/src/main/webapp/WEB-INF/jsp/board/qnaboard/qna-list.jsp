@@ -37,7 +37,13 @@
 
     #page {width: 60%; margin: 30px auto; text-align: center;}
 
-    aside {width: 150px; position: absolute; top: 78%; left: 30px; background-color: #fff;}
+     aside {
+	width: 150px;
+	position: absolute;
+	top: 90%;
+	left: 40px;
+	background-color: #fff;
+}
     aside > div {width: 150px; height: 28px; text-align: center;  background-color: #333; color: #fff;}
     aside > div strong {vertical-align: middle}
     aside > ul li {text-align: center; height: 30px; border-bottom: 2px solid #eee;}

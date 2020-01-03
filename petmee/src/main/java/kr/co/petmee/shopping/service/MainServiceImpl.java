@@ -32,6 +32,22 @@ public class MainServiceImpl implements MainService {
 	public List<Product> selectSaleBest() {
 		return dao.selectSaleBest();
 	}
+	@Override
+	public List<Product> selectSaleBest1() {
+		return dao.selectSaleBest1();
+	}
+	@Override
+	public List<Product> selectSaleBest2() {
+		return dao.selectSaleBest2();
+	}
+	@Override
+	public List<Product> selectSaleBest3() {
+		return dao.selectSaleBest3();
+	}
+	@Override
+	public List<Product> selectSaleBest4() {
+		return dao.selectSaleBest4();
+	}
 	
 	// 세일 이미지 파일
 	public List<Image> selectProductFile() {
@@ -45,6 +61,22 @@ public class MainServiceImpl implements MainService {
 	// 세일 베스트 이미지 파일
 	public List<Image> selectProductFile2() {
 		return dao.mainSelectProductFile2();
+	}
+	// 세일 베스트 이미지 파일
+	public List<Image> selectProductFile3() {
+		return dao.mainSelectProductFile3();
+	}
+	// 세일 베스트 이미지 파일
+	public List<Image> selectProductFile4() {
+		return dao.mainSelectProductFile4();
+	}
+	// 세일 베스트 이미지 파일
+	public List<Image> selectProductFile5() {
+		return dao.mainSelectProductFile5();
+	}
+	// 세일 베스트 이미지 파일
+	public List<Image> selectProductFile6() {
+		return dao.mainSelectProductFile6();
 	}
 
 }

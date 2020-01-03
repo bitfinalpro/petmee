@@ -66,3 +66,11 @@
 	border: 1px solid black;
 	pointer-events: none;
 }
+#y-regist, #return-list{
+	   background-color: white;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+#y-regist:hover, #return-list:hover{
+	background-color:rgba(204, 204, 204, 0.3);
+}

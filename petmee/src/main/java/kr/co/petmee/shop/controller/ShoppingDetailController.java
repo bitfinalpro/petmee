@@ -34,7 +34,7 @@ public class ShoppingDetailController {
 		User user = new User();
 		user = (User) session.getAttribute("user");
 		user.setEmail(user.getEmail());
-		String orderNo = UUID.randomUUID() + "-" + user.getEmail();
+		String orderNo = UUID.randomUUID()+""/* + "-" + user.getEmail() */;
 		List<ShoppingList> list = service.ShoppingList(user);
 		List<Coupon> coupon = service.couponList(user);
 
@@ -60,8 +60,6 @@ public class ShoppingDetailController {
 
 		for (ShoppingList s : list) {
 			Order o = new Order();
-
-			System.out.println(s.getProduct());
 
 			o.setProductId(s.getProduct());
 			o.setContent(s.getSubTitle());

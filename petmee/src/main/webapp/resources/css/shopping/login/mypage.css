@@ -849,7 +849,7 @@ sub
 
 .sub-menu-list .tab { max-width: 1200px; width: 100%; margin: 0 auto; text-align: center; }
 
-.sub-menu-list .tab li { width: 32%; float: left; border-right: 1px solid #303030; }
+.sub-menu-list .tab li { width: 50%; float: left; border-right: 1px solid #303030; }
 
 .sub-menu-list .tab li:first-child { border-left: 1px solid #303030; }
 
@@ -1800,8 +1800,6 @@ ol.deci_list li:first-child { margin-top: 0; }
 	padding:10px 0;
 	line-height:1.1;
 }
-
-
 
 
 

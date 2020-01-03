@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/shopping/shoppingList/shopingpayment.css'/>">
 <script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js" type="application/javascript"></script>
-<title>(주)펫미</title>
+<title>Pet & Me</title>
 
 </head>
 
@@ -72,7 +72,7 @@
 							<c:forEach var="coupon" items="${coupon}">
 								<div class="coupon">
 									<div>${coupon.name }</div>
-									<div>${coupon.regdate}까지</div>
+									<div>${coupon.regDate}까지</div>
 									<div>(-)${coupon.discount }</div>
 									<input type="checkbox" name="coupon" class="coupon-ch"
 										value="${coupon.discount }">
@@ -125,7 +125,8 @@
 					<!-- 배송지 폼 -->
 					<div id="delivery-info" class="float-l">
 						<form action="" name="">
-							<h2 class="h2-title">배송지 정보</h2>
+							<h2 class="h2-title" style="display:inline-block;">배송지 정보</h2>
+							<span style="float: right; position: relative; top: 47px; left: -32px;"><input type="checkbox" id="delieveryCheckbox" /> 주문자와 동일</span>
 							<hr />
 							<div id="info">
 								<div>받는분</div>
@@ -217,6 +218,24 @@
 		$("textarea.info-text").on('keydown keyup', function() {
 			$(this).height(1).height($(this).prop('scrollHeight') + 12);
 		});
+	//주문자와 동일
+	 $("#delieveryCheckbox").click((e) => {
+		if(document.querySelector("#delieveryCheckbox").checked) {
+			$("#name").val("유휘준");
+			$("#phone").val("01012345678");
+			$("#email").val("abc123@naver.com");
+			$("#zipcode").val("61052");
+			$("#address1").val("인천시 서구 연희동 30");
+			$("#address2").val("101동 1301호");		}
+		else {
+			$("#name").val("");
+			$("#phone").val("");
+			$("#email").val("");
+			$("#zipcode").val("");
+			$("#address1").val("");
+			$("#address2").val("");	
+		}
+	 });
 	</script>
 	
 	<script>
