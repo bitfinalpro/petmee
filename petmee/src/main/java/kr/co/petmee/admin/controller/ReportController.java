@@ -43,7 +43,7 @@ public class ReportController {
 	@RequestMapping("/insertReport.do")
 	public String insertReport(Report report, HttpSession session) {
 		User user = (User)session.getAttribute("user");
-		report.setEmail(user.getEmail());		
+		report.setEmail(user.getName());		
 		service.insertReport(report);
 		return "aaa";
 	}
